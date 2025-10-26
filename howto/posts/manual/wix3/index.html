@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wix Studio 運用マニュアル｜03. テキストやフレームパーツの再利用・編集 | Howto BOX</title>
+    <meta name="description" content="既存パーツを複製し、文字・画像・リンクだけ差し替える方法。崩れない整列と余白のコツも解説。">
+    <meta name="keywords" content="Wix Studio,マニュアル,運用,テキスト編集,フレーム,パーツ,複製,差し替え">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    <link rel="stylesheet" href="/assets/css/manual.css">
+    
+    <!-- マニュアル用の追加スタイル -->
+    <style>
+        /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+        /* 赤系統ボックス - 注意・重要な情報 */
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 黄色系統ボックス - ヒント・補足情報 */
+        .tip-box {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 画像下の余白設定 */
+        .article-image-container, .manual-image-container {
+            margin-bottom: 20px;
+        }
+        
+        /* 手順ステップのフォントサイズ調整 */
+        .step-container {
+            font-size: 1.2em;
+        }
+        
+        /* 推奨ページリンク用スタイル */
+        .recommended-pages {
+            list-style-type: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .recommended-pages li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .recommended-page-link {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.8rem;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .recommended-page-link:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+            color: var(--primary-color);
+        }
+        
+        .recommended-page-link i {
+            margin-right: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* マニュアルナビゲーションスタイル - ミニマルデザイン */
+        .manual-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 2.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-prev, .nav-next {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            max-width: 45%;
+        }
+        
+        .nav-prev {
+            text-align: left;
+        }
+        
+        .nav-next {
+            text-align: right;
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+        
+        .nav-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-prev:hover, .nav-next:hover {
+            color: var(--primary-color);
+        }
+    </style>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="manual-article">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="wix3"></div>
+    
+    <main class="main-content">
+        
+        <!-- 記事コンテナ -->
+        <div class="article-container">
+
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <h1 class="article-title">Wix Studio 運用マニュアル｜03. <span>テキストやフレームパーツの再利用・編集</span></h1>
+                <div class="article-meta">公開日: 2025年8月14日 | 最終更新: 2025年8月14日</div>
+                <div class="article-tag-list">
+                    <span class="article-tag">Wix Studio</span>
+                    <span class="article-tag">基本操作</span>
+                    <span class="article-tag">テキスト編集</span>
+                    <span class="article-tag">複製</span>
+                    <span class="article-tag">初心者向け</span>
+                </div>
+            </header>
+
+            <!-- メイン画像（全幅） -->
+            <div class="article-image-container">
+                <img src="/assets/images/manual/wix/wix3-thumb.webp" alt="Wix Studio テキストやフレームパーツの再利用・編集" class="article-image" style="max-width: 100%;">
+            </div>
+
+            <!-- 目次 -->
+            <div class="toc-container">
+                <div class="toc-title">目次</div>
+                <ul class="toc-list">
+                    <li><a href="#purpose">このページでできること</a></li>
+                    <li><a href="#preparation">1. まずは安全準備</a></li>
+                    <li><a href="#basic-duplication">2. 基本操作：複製→差し替え</a></li>
+                    <li><a href="#text-replacement">3. テキストの差し替え</a></li>
+                    <li><a href="#button-replacement">4. ボタンの差し替え</a></li>
+                    <li><a href="#box-reuse">5. ボックス（フレーム）の使い回し</a></li>
+                    <li><a href="#layout-tips">6. レイアウトを崩さないポイント</a></li>
+                    <li><a href="#check-list">7. 確認チェック</a></li>
+                    <li><a href="#common-mistakes">8. よくあるミスと対処</a></li>
+                    <li><a href="#shortcuts">9. ショートカットまとめ</a></li>
+                    <li><a href="#next-pages">このあと読むとよいページ</a></li>
+                </ul>
+            </div>
+
+            <!-- 記事本文 -->
+            <div class="article-content">
+                <section id="purpose" class="article-section fade-in">
+                    <h2 class="article-section-title">このページでできること</h2>
+                    
+                    <ul>
+                        <li>既存のボックス／テキスト／ボタンを<strong>複製→差し替え</strong>できます</li>
+                        <li>見た目のくずれを防ぎながら、同じデザインをもう一つ作れます</li>
+                    </ul>
+
+                    <p><strong>使う場所</strong>：Wix Studio <strong>エディタ</strong>（見た目の編集）</p>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="preparation" class="article-section fade-in">
+                    <h2 class="article-section-title">1. まずは安全準備</h2>
+                    
+                    <ul>
+                        <li>作業前に <strong>#01 はじめに → サイト履歴の作成</strong> を実施</li>
+                        <li>大きな更新は <strong>複製ページ（draft）</strong> で試す</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <p>✅ ポイント：元に戻せるようにしてから始めると安心！</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="basic-duplication" class="article-section fade-in">
+                    <h2 class="article-section-title">2. 基本操作：複製→差し替え</h2>
+
+                    <p>ここでは「デザイン済みのパーツをそのまま使って、内容だけ変える」方法を学びます。</p>
+                    <br>
+
+                    <h3>手順（全3ステップ）</h3>
+
+                    <div class="step-container">
+                        <span class="step-number">❶</span>
+                        <span><strong>対象パーツ</strong>（テキスト／ボックス／ボタン）<strong>またはセクションごとクリック</strong></span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section1.png" alt="対象パーツをクリック" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❷</span>
+                        <span><strong>［複製］</strong> を押す（<strong>ショートカット：⌘/Ctrl + D</strong>）</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section2.png" alt="複製ボタンを押す" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❸</span>
+                        <span>複製したパーツの配置を変更する/整える</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section3.png" alt="パーツ配置を変更" class="manual-image">
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section4.png" alt="パーツ配置調整後" class="manual-image">
+                    </div>
+
+                    <p><strong>できること</strong>：既存のボックス/テキスト/ボタンを<strong>複製→差し替え</strong></p>
+                    <p>▶ 対象パーツをクリック →［複製］（⌘/Ctrl+D）→ 文字を入力</p>
+
+                    <div class="tip-box">
+                        <p>💡 コツ：フォント・サイズは既存に合わせると崩れにくい</p>
+                    </div>
+
+                    <div class="alert-box">
+                        <p>⚠ 注意：ボックスサイズを大きくしすぎるとスマホで崩れます</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="text-replacement" class="article-section fade-in">
+                    <h2 class="article-section-title">3. テキストの差し替え</h2>
+
+                    <p>複製したテキストの中身だけを入れ替えます。</p>
+                    <br>
+
+                    <h3>手順（全3ステップ）</h3>
+
+                    <div class="step-container">
+                        <span class="step-number">❶</span>
+                        <span>テキストを<strong>ダブルクリック</strong></span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section5.png" alt="テキストをダブルクリック" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❷</span>
+                        <span>文字を入力（改行・箇条書きも可）</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section6.png" alt="文字を入力" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❸</span>
+                        <span><strong>既存のスタイル</strong>（見出し／本文など）をそのまま使う</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section7.png" alt="既存のスタイルを使用" class="manual-image">
+                    </div>
+
+                    <p>※公開前に、各デバイスの画面を確認（切り替えは画面上部のデバイスアイコンをタップ）</p>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section8.png" alt="デバイス確認" class="manual-image">
+                    </div>
+
+                    <div class="tip-box">
+                        <p>💡 コツ：太字・色を増やしすぎると統一感が失われます。</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="button-replacement" class="article-section fade-in">
+                    <h2 class="article-section-title">4. ボタンの差し替え</h2>
+                    
+
+                    <p>ボタン名とリンク先を入れ替えます。</p>
+                    <br>                    
+                    <h3>手順（全4ステップ）</h3>
+
+                    <div class="step-container">
+                        <span class="step-number">❶</span>
+                        <span>ボタンをクリック</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section9.png" alt="ボタンをクリック" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❷</span>
+                        <span>ラベル（文字）を入力</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section10.png" alt="ラベルを入力" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❸</span>
+                        <span><strong>［リンク］</strong> を押して<strong>ページ／URL／アンカー</strong>から選択</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section11.png" alt="リンクを設定" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❹</span>
+                        <span><strong>保存</strong>→ <strong>プレビュー</strong>で動作確認</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section12.png" alt="保存とプレビュー" class="manual-image">
+                    </div>
+
+                    <div class="tip-box">
+                        <p>💡 コツ：外部URLは https:// から入力</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="box-reuse" class="article-section fade-in">
+                    <h2 class="article-section-title">5. ボックス（フレーム）の使い回し</h2>
+                    
+                    <p>画像やテキストをまとめて複製して使います。</p>
+                    <br>
+
+                    <h3>手順（全4ステップ）</h3>
+
+                    <div class="step-container">
+                        <span class="step-number">❶</span>
+                        <span><strong>ボックス（またはコンテナ）</strong>をクリックして複製</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section13.png" alt="ボックスをクリックして複製" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❷</span>
+                        <span><strong>［複製］</strong> 複製したレイアウトのグリッドを反転</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section14.png" alt="レイアウト反転" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❸</span>
+                        <span>中の<strong>画像とテキスト</strong>だけを差し替え</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section15.png" alt="画像とテキスト差し替え" class="manual-image">
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section16.png" alt="画像とテキスト差し替え後" class="manual-image">
+                    </div>
+
+                    <div class="step-container">
+                        <span class="step-number">❹</span>
+                        <span>配置の<strong>ガイド線</strong>に沿って位置をそろえる</span>
+                    </div>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section17.png" alt="ガイド線に沿って位置調整" class="manual-image">
+                    </div>
+
+                    <p>デザイン済みのフレームを活用した編集が完了</p>
+
+                    <div class="manual-image-container">
+                        <img src="/assets/images/manual/wix/wix3-section18.png" alt="編集完了" class="manual-image">
+                    </div>
+
+                    <div class="tip-box">
+                        <p>💡 コツ：左右の余白と上下の間隔をそろえると、読みやすくきれい。</p>
+                    </div>
+
+                    <div class="alert-box">
+                        <p>⚠ 注意：幅や高さを大きく変更しない（スマホの崩れの原因）</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="layout-tips" class="article-section fade-in">
+                    <h2 class="article-section-title">6. レイアウトを崩さないポイント</h2>
+                    
+                    <ul>
+                        <li><strong>サイズは最小限の調整</strong>にとどめる</li>
+                        <li><strong>行間</strong>をむやみに狭くしない</li>
+                        <li><strong>整列ガイド</strong>にスナップさせる</li>
+                        <li>PCで整えてから、<strong>スマホ表示で最終チェック</strong></li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="check-list" class="article-section fade-in">
+                    <h2 class="article-section-title">7. 確認チェック</h2>
+                    
+                    <ul>
+                        <li>文字は<strong>はみ出していない？</strong></li>
+                        <li>スマホ表示でも<strong>読める？</strong></li>
+                        <li>ボタンの<strong>リンクは正しい？</strong></li>
+                        <li>余白・整列は<strong>そろっている？</strong></li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="common-mistakes" class="article-section fade-in">
+                    <h2 class="article-section-title">8. よくあるミスと対処</h2>
+                    
+                    <ul>
+                        <li><strong>文字がはみ出す</strong> → 文字数を調整／幅を少し広げる／<strong>既存サイズ</strong>に戻す</li>
+                        <li><strong>重なってクリックできない</strong> → <strong>前面/背面</strong>の並び替えで解決</li>
+                        <li><strong>同じリンクのまま</strong> → 複製後は<strong>リンク先を更新</strong>する</li>
+                        <li><strong>スマホで崩れる</strong> → モバイル表示で<strong>幅・改行</strong>を確認（#7 レスポンシブ参照）</li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="shortcuts" class="article-section fade-in">
+                    <h2 class="article-section-title">9. ショートカットまとめ</h2>
+                    
+                    <ul>
+                        <li><strong>複製</strong>：⌘/Ctrl + D</li>
+                        <li><strong>コピー</strong>：⌘/Ctrl + C</li>
+                        <li><strong>ペースト</strong>：⌘/Ctrl + V</li>
+                        <li><strong>元に戻す</strong>：⌘/Ctrl + Z</li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <section id="next-pages" class="article-section fade-in">
+                    <h2 class="article-section-title">このあと読むとよいページ</h2>
+                    
+                    <ul class="recommended-pages">
+                        <li>
+                            <a href="/howto/posts/manual/wix4/index.html" class="recommended-page-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span><strong>#4 画像の貼り替え方法</strong>（画像の最適サイズとAltテキスト）</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/howto/posts/manual/wix5/index.html" class="recommended-page-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span><strong>#5 リンク設定の変更方法</strong>（ボタンのリンク先を詳しく）</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/howto/posts/manual/wix7/index.html" class="recommended-page-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span><strong>#7 レスポンシブ編集方法</strong>（スマホ調整の基本）</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="divider"></div>
+
+                <!-- 専門サポート案内 -->
+                <section class="support-info article-section fade-in">
+                    <h2 class="article-section-title">専門サポートの案内</h2>
+                    
+                    <ul>
+                        <li><strong>コンポーネント化</strong>（同一デザインをサイト全体で統一運用）</li>
+                        <li><strong>スタイルガイド整備</strong>（見出し/本文/ボタンの統一ルール）</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <p>量産が必要・運用を楽にしたい場合は、共通パーツ化やスタイルガイド作成をご提案します。</p>
+                    </div>
+
+                    <div class="cta-container" style="text-align: center;">
+                        <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+                      </div>
+                </section>
+
+                <!-- 前後ナビゲーション -->
+                <div class="manual-navigation">
+                    <a href="/howto/posts/manual/wix2/index.html" class="nav-prev">
+                        <span class="nav-label">前のマニュアル</span>
+                        <span class="nav-title">02. 基本操作の前提知識</span>
+                    </a>
+                    <a href="#" class="nav-next">
+                        <span class="nav-label">次のマニュアル</span>
+                        <span class="nav-title">04. 画像の貼り替え方法</span>
+                    </a>
+                </div>
+
+                <!-- 関連記事セクション -->
+                <section class="related-articles fade-in">
+                    <h3 class="article-section-title">関連記事</h3>
+                    <div class="related-articles-grid">
+                        <a href="/howto/posts/manual/wix1/index.html" class="related-article-card">
+                            <div class="related-article-image">
+                                <img src="/assets/images/manual/wix/wix1-thumb.webp" alt="はじめに">
+                            </div>
+                            <h4 class="related-article-title">01. はじめに</h4>
+                        </a>
+                        <a href="/howto/posts/manual/wix2/index.html" class="related-article-card">
+                            <div class="related-article-image">
+                                <img src="/assets/images/manual/wix/wix2-thumb.webp" alt="基本操作の前提知識">
+                            </div>
+                            <h4 class="related-article-title">02. 基本操作の前提知識</h4>
+                        </a>
+                    </div>
+                </section>
+                
+                <!-- プロフィールセクション -->
+                <div class="divider"></div>
+                <div id="profile-container" class="fade-in"></div>
+                
+                <div class="back-to-manual">
+                    <a href="/howto/posts/manual/" class="back-link">
+                        <span class="back-icon">←</span>
+                        <span class="back-text">マニュアル一覧へ戻る</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <script src="/assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // スクロールアニメーション
+        const fadeElements = document.querySelectorAll('.article-section, .cta-box, .related-articles, .related-blog-posts, .manual-navigation, .back-to-manual');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        // fade-inクラスを追加
+        fadeElements.forEach(element => {
+          element.classList.add('fade-in');
+          observer.observe(element);
+        });
+
+        // スムーススクロール（目次クリック時）
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = this.getAttribute('href').substring(1);
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+
+        // スクロール中の目次アクティブ表示
+        const sections = document.querySelectorAll('.article-section');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= (sectionTop - 300)) {
+              current = section.getAttribute('id');
+            }
+          });
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

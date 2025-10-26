@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wix Studio 運用マニュアル｜08. ブログ記事の作成と設定（HTMLデザイン活用） | Howto BOX</title>
+  <meta name="description" content="HTMLデザインフレームを使い、カテゴリ/タグで出し分け。予約投稿と一覧反映までの手順。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/template.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/howto.css">
+  <link rel="stylesheet" href="/assets/css/article-unified.css">
+  <link rel="stylesheet" href="/assets/css/manual.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- マニュアル用の追加スタイル -->
+  <style>
+    /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+    /* 赤系統ボックス - 注意・重要な情報 */
+    .alert-box {
+      background-color: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 黄色系統ボックス - ヒント・補足情報 */
+    .tip-box {
+      background-color: #fffbf0;
+      border-left: 4px solid #f39c12;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 画像下の余白設定 */
+    .article-image-container, .manual-image-container {
+      margin-bottom: 20px;
+    }
+    
+    /* 手順ステップのフォントサイズ調整 */
+    .step-container {
+      font-size: 1.2em;
+    }
+    
+    /* 推奨ページリンク用スタイル */
+    .recommended-pages {
+      list-style-type: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .recommended-pages li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .recommended-page-link {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.8rem;
+      text-decoration: none;
+      color: #333;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .recommended-page-link:hover {
+      background-color: #f1f1f1;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      color: var(--primary-color);
+    }
+    
+    .recommended-page-link i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+    }
+    
+    /* ナビゲーションのミニマルデザイン */
+    .manual-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 2.5rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .nav-prev, .nav-next {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      max-width: 45%;
+    }
+    
+    .nav-prev {
+      text-align: left;
+    }
+    
+    .nav-next {
+      text-align: right;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.2rem;
+    }
+    
+    .nav-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .nav-prev:hover, .nav-next:hover {
+      color: var(--primary-color);
+    }
+  </style>
+  
+  <!-- JS -->
+  <script src="/assets/js/template.js" defer></script>
+</head>
+
+<body class="howto-article">
+  <!-- 共通ヘッダー -->
+  <div id="site-header"></div>
+  
+  <!-- 共通パンくずリスト -->
+  <div id="breadcrumb-container" data-page="wix8"></div>
+  
+  <main class="main-content">
+    <div class="article-container">
+      <!-- 記事ヘッダー -->
+      <header class="article-header">
+        <h1 class="article-title">Wix Studio 運用マニュアル｜08. <span>ブログ記事の作成と設定（HTMLデザイン活用）</span></h1>
+        <div class="article-meta">公開日: 2025年8月14日 | 最終更新: 2025年8月14日</div>
+        <div class="article-tag-list">
+          <span class="article-tag">Wix Studio</span>
+          <span class="article-tag">ブログ</span>
+          <span class="article-tag">HTML</span>
+          <span class="article-tag">カテゴリ設定</span>
+          <span class="article-tag">予約投稿</span>
+        </div>
+      </header>
+
+      <!-- メイン画像（全幅） -->
+      <div class="article-image-container">
+        <img src="/assets/images/manual/wix/wix8-thumb.webp" alt="Wix Studio ブログ記事の作成と設定" class="article-image" style="max-width: 100%;">
+      </div>
+
+      <!-- 目次 -->
+      <div class="toc-container">
+        <div class="toc-title">目次</div>
+        <ul class="toc-list">
+          <li><a href="#purpose" class="toc-link">このページでできること</a></li>
+          <li><a href="#flow" class="toc-link">1. 作成フローの全体像</a></li>
+          <li><a href="#create-post" class="toc-link">2. 新しい記事を作成</a></li>
+          <li><a href="#html-design" class="toc-link">3. HTMLデザインフレームを利用した編集</a></li>
+          <li><a href="#category" class="toc-link">4. 記事タイプ/カテゴリ/タグの設定</a></li>
+          <li><a href="#settings" class="toc-link">5. アイキャッチ/抜粋/URL/公開設定</a></li>
+          <li><a href="#check" class="toc-link">6. 反映確認</a></li>
+          <li><a href="#checklist" class="toc-link">7. チェック</a></li>
+          <li><a href="#mistakes" class="toc-link">8. よくあるミスと対処</a></li>
+        </ul>
+      </div>
+
+      <!-- 記事本文 -->
+      <div class="article-content">
+        <section id="purpose" class="article-section fade-in">
+          <h2 class="article-section-title">このページでできること</h2>
+          
+          <ul>
+            <li><strong>ブログ/ニュース/お知らせ</strong>を1つの手順で作成・公開できる</li>
+            <li>支給された<strong>HTMLデザインフレーム</strong>を本文に貼り付け、文字と画像だけ差し替えられる</li>
+            <li><strong>記事タイプ/カテゴリ/タグ</strong>を設定して一覧で自動出し分けできる</li>
+          </ul>
+          
+          <p><strong>使う場所</strong>：Wix <strong>ダッシュボード → ブログ（Blog）</strong> ／ 記事エディタ</p>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="flow" class="article-section fade-in">
+          <h2 class="article-section-title">1. 作成フローの全体像</h2>
+          
+          <ol>
+            <li><strong>新しい記事を作成</strong>（タイトル→本文）</li>
+            <li>本文に<strong>HTMLデザインフレーム</strong>を貼り付け → <strong>文字・画像だけ差し替え</strong></li>
+            <li><strong>記事タイプ/カテゴリ/タグ</strong>を設定（ニュース/お知らせ含む）</li>
+            <li><strong>公開</strong>または<strong>予約投稿</strong> → 一覧ページに反映を確認</li>
+          </ol>
+          
+          <div class="tip-box">
+            <p>✅ ポイント：デザインはフレームを壊さないのがコツ。装飾は最小限。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="create-post" class="article-section fade-in">
+          <h2 class="article-section-title">2. 新しい記事を作成</h2>
+          
+          <h3>手順（全3ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>ダッシュボードの <strong>［ブログ］→［記事］→</strong> <strong>［新しい記事］</strong>をクリック</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section1.png" alt="ブログ記事作成ボタン" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>タイトル</strong> を入力（検索やSNSで読まれる見出し）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section2.png" alt="タイトル入力画面" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>本文</strong> の先頭に、導入文（1〜2行）を書いておく（あとでHTMLフレームを挿入）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section3.png" alt="本文入力画面" class="manual-image">
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="html-design" class="article-section fade-in">
+          <h2 class="article-section-title">3. HTMLデザインフレームを利用した編集</h2>
+          
+          <div class="tip-box">
+            <p>支給されたHTMLコードを本文に貼ります。崩れ防止のためクラス名/入れ子は変更しません。</p>
+          </div>
+          
+          <h3>手順（全3ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>デザイン済みの記事を複製</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section4.png" alt="記事複製" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>タイトル/本文</strong>のテキスト、画像を差し替え（画像のアップロードは基本操作のマニュアルを確認）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section5.png" alt="テキスト・画像差し替え" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span>編集したいアイテムを選択し、ツールバーから<strong>[HTMLを編集]</strong>をクリック</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section6.png" alt="HTMLを編集" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❹</span>
+            <span><strong>HTMLの中身を変更</strong>（リッチテキスト内で変更したいテキストだけを編集）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section7.png" alt="HTMLコード編集" class="manual-image">
+          </div>
+          
+          <div class="alert-box">
+            <p>⚠ 注意：Wixの環境によっては記事本文にHTML直接貼付が制限される場合があります。その際はHTMLコードブロックの有効化やテンプレート側のウィジェット対応が必要です（専門対応）。</p>
+          </div>
+          
+          <div class="tip-box">
+            <p><strong>💡 崩れ防止ルール</strong></p>
+            <ul>
+              <li>HTML内の<strong>クラス名/入れ子</strong>は<strong>消さない・変えない</strong></li>
+              <li>画像は<strong>同じ比率/近いサイズ</strong>で差し替え</li>
+              <li>ボタンの<strong>リンク先</strong>だけ更新（スタイルは触らない）</li>
+            </ul>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="category" class="article-section fade-in">
+          <h2 class="article-section-title">4. 記事タイプ/カテゴリ/タグの設定（ニュース/お知らせ含む）</h2>
+          
+          <div class="tip-box">
+            <p>記事の種類と分類を設定します。一覧ウィジェットはカテゴリで自動出し分けされます。</p>
+          </div>
+          
+          <h3>手順（全3ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>記事エディタの <strong>［設定］→［カテゴリ］</strong> を開く</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section8.png" alt="カテゴリ設定画面" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>カテゴリー名を選択または新規追加</strong>（1〜2個設定するのが推奨）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section9.png" alt="カテゴリー選択" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span>次に<strong>タグ</strong>を設定（タグは検索補助）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section10.png" alt="タグ設定" class="manual-image">
+          </div>
+          
+          <div class="tip-box">
+            <p><strong>💡 使い分けの目安</strong></p>
+            <ul>
+{{ ... }}
+              <li><strong>お知らせ</strong>：公開日が重要（営業時間変更、休業案内、重要告知）</li>
+              <li><strong>ニュース</strong>：リリース・イベント告知・メディア掲載</li>
+              <li><strong>ブログ</strong>：検索流入向けの解説/読み物（中長文）</li>
+            </ul>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="settings" class="article-section fade-in">
+          <h2 class="article-section-title">5. アイキャッチ/抜粋/URL/公開設定（任意）</h2>
+          
+          <div class="tip-box">
+            <p>サイトの設計次第で使わない項目もあります。利用可能なら以下を設定。</p>
+          </div>
+          
+          <ul>
+            <li><strong>カバー画像（アイキャッチ）</strong>：一覧カード用。ロゴ+短い見出しで可視性UP</li>
+            <li>公開/予約投稿：日時を指定して自動公開</li>
+            <li>抜粋（サマリー）：一覧で表示する短い説明（50〜90字）</li>
+          </ul>  
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section11.png" alt="タグ設定" class="manual-image">
+          </div>
+
+          <ul>
+            <li>URLスラッグ：英数字-ハイフン。短く（例：organic-post）</li>
+            <li>メタスクリプションを任意で変更</li>
+          </ul>  
+          <p>（検索結果に表示させる内容はサービスやサイトの目的に合わせて設定するとよいでしょう）</p>
+
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix8-section12.png" alt="タグ設定" class="manual-image">
+          </div>          
+          <div class="divider"></div>
+        </section>
+
+        <section id="check" class="article-section fade-in">
+          <h2 class="article-section-title">6. 反映確認（一覧/詳細）</h2>
+          
+          <ol>
+            <li>サイトの<strong>一覧ページ</strong>で、該当カテゴリに記事が出ているか確認</li>
+            <li><strong>カテゴリフィルタ</strong>で正しく絞り込めるかテスト</li>
+            <li><strong>詳細ページ</strong>のレイアウト崩れ・リンク切れをチェック</li>
+          </ol>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="checklist" class="article-section fade-in">
+          <h2 class="article-section-title">7. チェック</h2>
+          
+          <ul>
+            <li>フレームの<strong>クラス名/入れ子</strong>は変えていない？</li>
+            <li>画像は<strong>比率を合わせ</strong>、<strong>Altテキスト</strong>を入れた？</li>
+            <li>記事タイプと<strong>カテゴリ</strong>は正しく選んだ？</li>
+            <li><strong>公開/予約</strong>の設定は合っている？</li>
+            <li>一覧で<strong>出し分け</strong>が想定通りになっている？</li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="mistakes" class="article-section fade-in">
+          <h2 class="article-section-title">8. よくあるミスと対処</h2>
+          
+          <ul>
+            <li><strong>HTMLを整形して崩れた</strong> → <strong>貼り付け直し</strong>、テキストと画像だけ差し替える</li>
+            <li><strong>画像が大きすぎて重い</strong> → 1200px程度/JPG推奨、2MB以下に</li>
+            <li><strong>カテゴリ未設定で一覧に出ない</strong> → 記事タイプ/カテゴリを<strong>必ず選択</strong></li>
+            <li><strong>予約投稿が公開されない</strong> → タイムゾーンと日時を<strong>再確認</strong></li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="related" class="article-section fade-in">
+          <h2 class="article-section-title">このあと読むとよいページ</h2>
+          
+          <ul class="recommended-pages">
+            <li>
+              <a href="/howto/posts/manual/wix/wix4/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#04 画像の貼り替え方法</strong>（最適サイズ・Alt）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix5/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#05 レスポンシブ編集方法</strong>（スマホでの可読性）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix6/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#06 ページ複製と設定（SEO含む）</strong>（URLとOGの基本）</span>
+              </a>
+            </li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="support" class="article-section fade-in">
+          <h2 class="article-section-title">専門サポートの案内</h2>
+          
+          <ul>
+            <li><strong>記事テンプレ増設</strong>（用途別フレームの追加）</li>
+            <li><strong>AMP/構造化</strong>（検索での見え方強化）</li>
+            <li><strong>一覧カード連携</strong>（カテゴリ別の自動出し分け最適化）</li>
+            <li><strong>カテゴリ設計/アーカイブ回遊/パンくず・内部リンク</strong></li>
+          </ul>
+
+          <div class="tip-box">
+            <p>記事テンプレの拡充やカテゴリ設計、検索での見え方強化はお任せください。</p>
+          </div>
+          
+          <div class="cta-container" style="text-align: center;">
+            <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+          </div>
+        </section>
+
+        <!-- 前後ナビゲーション -->
+        <div class="manual-navigation">
+          <a href="/howto/posts/manual/wix/wix7/index.html" class="nav-prev">
+            <span class="nav-label">前のマニュアル</span>
+            <span class="nav-title">07. EC商品の編集と複製登録（Wixストア）</span>
+          </a>
+          <a href="#" class="nav-next">
+            <span class="nav-label">次のマニュアル</span>
+            <span class="nav-title">09. Wix Studio サイト分析</span>
+          </a>
+        </div>
+
+        <!-- 関連記事セクション -->
+        <section class="related-articles fade-in">
+          <h3 class="article-section-title">関連記事</h3>
+          <div class="related-articles-grid">
+            <a href="/howto/posts/manual/wix7/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix7-thumb.webp" alt="EC商品の編集と複製登録 サムネイル">
+              </div>
+              <h4 class="related-article-title">07. EC商品の編集と複製登録（Wixストア）</h4>
+            </a>
+            <a href="/howto/posts/manual/wix4/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix4-thumb.webp" alt="画像の貼り替え方法 サムネイル">
+              </div>
+              <h4 class="related-article-title">04. 画像の貼り替え方法</h4>
+            </a>
+          </div>
+        </section>
+        
+        <!-- プロフィールセクション -->
+        <div class="divider"></div>
+        <div id="profile-container" class="fade-in"></div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 共通フッター -->
+  <div id="site-footer"></div>
+  
+  <!-- 記事専用JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // プロフィール情報をフェッチして挿入する関数
+      function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('プロフィール情報の読み込みに失敗しました。');
+                  }
+                  return response.text();
+              })
+              .then(html => {
+                  profileContainer.innerHTML = html;
+              })
+              .catch(error => {
+                  console.error('プロフィール情報の挿入エラー:', error);
+              });
+      }
+      
+      // プロフィール情報を挿入
+      insertProfileContent();
+      
+      // 目次リンクのスムーススクロール
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // スクロールに応じて要素をフェードイン
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const fadeOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const fadeObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, fadeOptions);
+      
+      fadeElements.forEach(element => {
+        fadeObserver.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>

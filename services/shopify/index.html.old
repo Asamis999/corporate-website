@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopify構築サービス | 編集できる×売れるECサイト構築 | 合同会社A</title>
+    <meta name="description" content="社内で誰でも更新できるShopifyサイト構築サービス。編集しやすい情報設計、CVR最大化の売れる導線、運用サポートをワンストップで提供します。セクション設計・メタデータ設計・多言語/多通貨・決済/在庫連携まで対応。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/services.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shopify構築LP用カスタムスタイル -->
+    <style>
+        /* Shopify構築LP特有のスタイル */
+        /* ヒーローセクション */
+        .hero-section {
+            background-color: #f5f7fa;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+            background-image: url('/assets/images/shopify-hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #2d3748;
+        }
+        
+        .hero-title strong {
+            color: #7ab55c;
+            position: relative;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .hero-features {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        .hero-feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .hero-feature-item i {
+            color: #7ab55c;
+            margin-right: 15px;
+            font-size: 1.4rem;
+            margin-top: 4px;
+        }
+        
+        .hero-feature-text {
+            font-size: 1.6rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        /* CTA ボタンスタイル */
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: #7ab55c;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #5a9940;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #7ab55c;
+            color: #7ab55c;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(122, 181, 92, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary i, .btn-secondary i {
+            margin-left: 8px;
+        }
+        
+        .cta-note {
+            font-size: 1.3rem;
+            color: #718096;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+        }
+        
+        /* レスポンシブ調整 */
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .hero-feature-text {
+                font-size: 1.4rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+        
+        /* 課題→解決セクション */
+        .pain-solution-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2d3748;
+        }
+        
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        /* 編集しやすい設計セクション */
+        .editor-friendly-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .editor-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .editor-feature-block {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            background-color: #7ab55c;
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="services-page shopify-page">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="shopify"></div>
+
+    <main class="main-content">
+        <!-- 1. ヒーローセクション -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">"社内で<strong>更新できる</strong>" Shopifyサイトを、最初から。</h1>
+                    <p class="hero-subtitle">編集しやすさ × CVR最大化 × 運用サポートをワンストップで。<br>セクション設計・メタデータ設計・多言語/多通貨・決済/在庫連携まで、自走できる仕組みを標準装備。</p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="hero-feature-text">ノーコードで編集：見出し／画像／レビュー枠のON/OFFも管理画面で完結</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="hero-feature-text">売れる構成：商品詳細の"価値→安心→比較→FAQ"を最短導線で設計</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="hero-feature-text">公開後も伴走：編集ガイド・動画トレーニング・ABテスト運用</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <a href="/contact?service=shopify" class="btn-primary">無料相談・お見積り <i class="fas fa-arrow-right"></i></a>
+                        <!-- 動画視聴ボタンは指示により省略 -->
+                        <a href="/contact?service=shopify&intent=demo" class="btn-secondary">サービス資料を見る <i class="fas fa-file-alt"></i></a>
+                    </div>
+                    <span class="cta-note">所要2〜3分・営業はかけません</span>
+                </div>
+                
+                <!-- ヒーロー画像エリア -->
+                <div class="hero-image">
+                    <!-- 画像は後で挿入 -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- 2. 課題 → 解決宣言 -->
+        <section class="pain-solution-section">
+            <div class="container">
+                <h2 class="section-title">更新のたびに外注…を、やめませんか？</h2>
+                <p class="section-subtitle">LP差し替え、バナー更新、レビューの見せ方変更。スピードが出ないと、チャンスを逃します。<br>合同会社AのShopify構築は<strong>"運用者目線"</strong>で、誰でも迷わず更新できる情報設計を最初から組み込みます。</p>
+                
+                <!-- ここに解決ポイントを追加 -->
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=design" class="btn-primary">この設計で相談する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3. 編集しやすい設計（セクション＆メタ） -->
+        <section class="editor-friendly-section">
+            <div class="container">
+                <h2 class="section-title">編集は"ブロックを入れ替える"だけ。</h2>
+                <p class="section-subtitle">OS 2.0ベースのセクションバンク（20+）を用意。<br>商品スペック／サイズ表／レビュー要約などは1回入力→複数箇所に自動反映。</p>
+                
+                <div class="editor-features">
+                    <div class="editor-feature-block">
+                        <h3 class="feature-subtitle">セクション例</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-puzzle-piece"></i> ヒーロー／比較表／FAQ／レビュー群</li>
+                            <li><i class="fas fa-puzzle-piece"></i> 特典枠／ストーリー年表</li>
+                            <li><i class="fas fa-puzzle-piece"></i> ランキング／バンドル訴求</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="editor-feature-block">
+                        <h3 class="feature-subtitle">メタ活用</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-database"></i> product.spec_table</li>
+                            <li><i class="fas fa-database"></i> product.materials</li>
+                            <li><i class="fas fa-database"></i> product.care_guide</li>
+                            <li><i class="fas fa-database"></i> product.shipping_note</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="editor-feature-block">
+                        <h3 class="feature-subtitle">多言語・多通貨</h3>
+                        <p class="feature-text">Markets基盤で国・言語別の価格・在庫・ドメイン調整にも拡張</p>
+                    </div>
+                </div>
+                
+                <!-- エディタ画面のプレビュー画像エリア -->
+                <div class="editor-preview">
+                    <div class="editor-image-placeholder">
+                        <!-- 後でエディタ画面の画像を挿入 -->
+                        <div class="placeholder-text">エディタ画面イメージ</div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=demo" class="btn-secondary">編集デモを見る <i class="fas fa-play-circle"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. CVR最大化（売れる構成） -->
+        <section class="cvr-section">
+            <div class="container">
+                <h2 class="section-title">"価値→安心→比較→FAQ"。売れる順番で。</h2>
+                <p class="section-subtitle">商品詳細は、価値訴求の直下に"安心材料"を近接配置。<br>レビュー・比較表・FAQは折りたたみで負担を軽減。<br>バンドル・サブスクでAOV/LTVを底上げします。</p>
+                
+                <!-- CVR最大化のチェックリストエリア -->
+                <div class="cvr-checklist">
+                    <div class="checklist-item">
+                        <i class="fas fa-check"></i>
+                        <p>ファーストビューに口コミ要約＆安心アイコン（返品・配送・決済）</p>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fas fa-check"></i>
+                        <p>クイックカート＆関連追加</p>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fas fa-check"></i>
+                        <p>送料無料までのしきい値バー／カゴ落ち対策</p>
+                    </div>
+                </div>
+                
+                <!-- 商品詳細ページフロー図の画像エリア -->
+                <div class="cvr-flow-diagram">
+                    <div class="flow-image-placeholder">
+                        <!-- 後で「価値→安心→比較→FAQ」の流れ図を挿入 -->
+                        <div class="placeholder-text">商品詳細ページフロー図</div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=cvr" class="btn-primary">この導線で相談する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 5. マーケ連動（AB・計測・運用） -->
+        <section class="marketing-section">
+            <div class="container">
+                <h2 class="section-title">作って終わりにしない。数字で改善。</h2>
+                <p class="section-subtitle">ヒーロー／CTA／オファー／レビュー見せ方を2週間単位でA/B。<br>GA4/GTMでCVR・ATC率・AOV・RPVを可視化。勝ち案は広告とCRMに即反映します。</p>
+                
+                <!-- マーケティング改善サイクル図 -->
+                <div class="marketing-cycle">
+                    <div class="cycle-image-placeholder">
+                        <!-- 後でA/Bテストと改善サイクルの図を挿入 -->
+                        <div class="placeholder-text">A/Bテスト改善サイクル図</div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=marketing" class="btn-primary">改善も含めて相談する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 6. 機能・提供範囲 -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">提供機能と連携範囲</h2>
+                <p class="section-subtitle">標準テーマへのカスタマイズから、OS 2.0対応フルオーダーまで。<br>決済・在庫・配送・顧客管理など、外部サービスとも連携します。</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3 class="feature-card-title">マルチデバイス対応</h3>
+                        <p class="feature-card-description">スマホ・タブレット・PC全てで最適表示。AMP対応も可能です。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="feature-card-title">多言語・多通貨</h3>
+                        <p class="feature-card-description">海外展開も視野に、言語・通貨切替にも標準対応。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="feature-card-title">決済連携</h3>
+                        <p class="feature-card-description">クレカ、コンビニ、後払い、Paidy、PayPay、LINE Payなど多様な決済に対応。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3 class="feature-card-title">在庫・物流連携</h3>
+                        <p class="feature-card-description">他社ECやオフライン店舗との在庫連携、自動出荷処理も実現。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-card-title">分析・広告連携</h3>
+                        <p class="feature-card-description">Google Analytics、Meta Pixel、各種広告・CRMへの連携タグ設定。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3 class="feature-card-title">会員・顧客管理</h3>
+                        <p class="feature-card-description">会員登録・ポイント・クーポン・LPO対応など、CVRを高める仕組み。</p>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=features" class="btn-primary">機能について相談する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 7. 料金・プラン -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">料金プラン</h2>
+                <p class="section-subtitle">初期構築から運用サポートまで、必要なものを組み合わせて。<br>規模やニーズに応じて最適なプランをご提案します。</p>
+                
+                <div class="pricing-plans">
+                    <div class="pricing-plan">
+                        <h3 class="plan-name">カスタマイズ</h3>
+                        <div class="plan-price">35万円〜</div>
+                        <div class="plan-price-note">※テーマ代・Shopify月額は別</div>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 既存テーマのカスタマイズ</li>
+                            <li><i class="fas fa-check"></i> ロゴ・カラー・フォント調整</li>
+                            <li><i class="fas fa-check"></i> 商品登録サポート（〜30点）</li>
+                            <li><i class="fas fa-check"></i> 決済・配送設定</li>
+                        </ul>
+                        
+                        <div class="plan-cta">
+                            <a href="/contact?service=shopify&plan=customize" class="btn-secondary">詳細を見る</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-plan plan-popular">
+                        <div class="popular-tag">人気</div>
+                        <h3 class="plan-name">フルカスタム</h3>
+                        <div class="plan-price">75万円〜</div>
+                        <div class="plan-price-note">※Shopify月額は別</div>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> OS 2.0完全対応オリジナルテーマ</li>
+                            <li><i class="fas fa-check"></i> セクション・メタデータ設計</li>
+                            <li><i class="fas fa-check"></i> 商品登録サポート（〜100点）</li>
+                            <li><i class="fas fa-check"></i> 決済・物流連携</li>
+                            <li><i class="fas fa-check"></i> トラッキング・広告タグ設定</li>
+                            <li><i class="fas fa-check"></i> 編集ガイド・トレーニング動画</li>
+                        </ul>
+                        
+                        <div class="plan-cta">
+                            <a href="/contact?service=shopify&plan=fullcustom" class="btn-primary">詳細を見る</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-plan">
+                        <h3 class="plan-name">運用サポート</h3>
+                        <div class="plan-price">15万円〜</div>
+                        <div class="plan-price-note">月額 ※6ヶ月以上推奨</div>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> A/Bテスト実施（月1回）</li>
+                            <li><i class="fas fa-check"></i> CVR改善提案</li>
+                            <li><i class="fas fa-check"></i> 季節商品・キャンペーン対応</li>
+                            <li><i class="fas fa-check"></i> 月次レポート</li>
+                            <li><i class="fas fa-check"></i> オンライン問い合わせ対応</li>
+                        </ul>
+                        
+                        <div class="plan-cta">
+                            <a href="/contact?service=shopify&plan=support" class="btn-secondary">詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pricing-note">
+                    <p>※価格は税抜きです。※実際の料金は、要件・規模・スケジュールによって変動します。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 8. 制作プロセス -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">制作の流れ</h2>
+                <p class="section-subtitle">初回相談から運用開始まで、段階的に進行します。<br>全工程で運用視点の助言と、自走できる仕組みづくりを重視します。</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">初回相談・要件定義</h3>
+                            <p class="step-description">課題感や目標、運用体制、商品特性をヒアリングし、最適な構築プランをご提案します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">情報設計・ワイヤーフレーム</h3>
+                            <p class="step-description">商品構造、カテゴリー、メタデータ設計など、運用しやすい情報設計を行います。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">デザイン・セクション設計</h3>
+                            <p class="step-description">ブランドに合わせたUI/UX設計と、自由度の高いセクション構成を実装します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">商品登録・連携設定</h3>
+                            <p class="step-description">商品・在庫・決済などの初期設定と、他システム連携を構築します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3 class="step-title">テスト・トレーニング</h3>
+                            <p class="step-description">動作確認と並行して、運用者向けの編集トレーニングとガイド資料を提供します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3 class="step-title">公開・運用サポート</h3>
+                            <p class="step-description">公開後の初期改善と、運用サイクルの確立を支援します。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=process" class="btn-primary">進め方について相談する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 9. FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">よくあるご質問</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>運用担当に技術知識がなくても大丈夫ですか？</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>はい、完全に対応可能です。当社のShopify構築は「コードを書かずに更新できる」ことを最重視しています。また、管理画面での操作マニュアルや編集トレーニングも提供しているため、ITリテラシーがあれば問題なく運用できます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>既存のECサイトからの移行も対応していますか？</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>はい。各プラットフォームからのデータ移行（商品情報、顧客情報、受注履歴など）に対応しています。特に楽天市場、BASE、カラーミーショップからの移行実績が豊富です。301リダイレクト設定も行い、SEO評価も維持します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>制作期間はどのくらいかかりますか？</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>カスタマイズプランで約1〜2ヶ月、フルカスタムプランで2〜3ヶ月が目安です。商品点数や連携システムの複雑さによって変動します。スピード重視の場合は、フェーズを分けた段階的なローンチも可能です。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>公開後のサポート体制はどうなっていますか？</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>基本的な編集方法については無期限でサポートしています。また、月額サポートプランでは、CVR改善のためのA/Bテスト、広告連携の最適化、季節商品の入れ替えなどを定期的にサポートします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Shopifyの月額料金はどのくらいですか？</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Shopifyの月額料金は、ベーシックプランで$29、スタンダードプランで$79、アドバンスプランで$299（いずれも米ドル）です。プラン選定のアドバイスも行っています。なお、各種アプリの利用料は別途発生する場合があります。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 10. 最終CTA -->
+        <section class="final-cta-section">
+            <div class="container">
+                <h2 class="final-cta-title">「編集できる」×「売れる」ECサイトを、一緒に。</h2>
+                <p class="final-cta-subtitle">内部運用・編集のしやすさと、CVR最大化の両立を実現します。<br>まずは無料相談で、あなたのECサイト構想をお聞かせください。</p>
+                
+                <div class="cta-buttons centered">
+                    <a href="/contact?service=shopify&intent=consultation" class="btn-primary">無料相談・お見積り依頼 <i class="fas fa-arrow-right"></i></a>
+                    <a href="/contact?service=shopify&intent=demo" class="btn-secondary">サービス資料を見る <i class="fas fa-file-alt"></i></a>
+                </div>
+                <span class="cta-note">所要2〜3分・営業電話はかけません</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+{{ ... }}
+{{ ... }}
+    <div id="contact-modal"></div>
+    
+    <!-- JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ヘッダー、フッター、パンくずリストの読み込み
+            fetch('/includes/header-include.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('site-header').innerHTML = data;
+                });
+            
+            fetch('/includes/footer-include.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('site-footer').innerHTML = data;
+                });
+            
+            // 共通問い合わせモーダルの読み込み
+            fetch('/includes/contact-modal.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contact-modal').innerHTML = data;
+                });
+                
+            // FAQのトグル機能
+            const faqItems = document.querySelectorAll('.faq-question');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.textContent = '+';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

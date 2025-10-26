@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../assets/css/article-unified.css">
+    
+    <style>
+        /* マニュアルナビゲーションスタイル - ミニマルデザイン */
+        .manual-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 2.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-prev, .nav-next {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            max-width: 45%;
+        }
+        
+        .nav-prev {
+            text-align: left;
+        }
+        
+        .nav-next {
+            text-align: right;
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+        
+        .nav-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-prev:hover, .nav-next:hover {
+            color: var(--primary-color);
+        }
+    </style>
+    
+    <title>Wix Studio 運用マニュアル｜04. ページ複製と設定（SEO含む） | Howto BOX</title>
+    <meta name="description" content="Wix Studioで既存ページを安全に複製し、名前・URL・メニュー表示やSEO設定を適切に行う方法を解説します。">
+    <meta name="keywords" content="Wix Studio,ページ複製,URL設定,SEO設定,サイト運用">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    <link rel="stylesheet" href="/assets/css/manual.css">
+    
+    <!-- マニュアル用の追加スタイル -->
+    <style>
+        /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+        /* 赤系統ボックス - 注意・重要な情報 */
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 黄色系統ボックス - ヒント・補足情報 */
+        .tip-box {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 推奨ページリンク用スタイル */
+        .recommended-pages {
+          list-style-type: none;
+          padding: 0;
+          margin: 1.5rem 0;
+        }
+        
+        .recommended-pages li {
+          margin-bottom: 0.8rem;
+        }
+        
+        .recommended-page-link {
+          display: flex;
+          align-items: flex-start;
+          padding: 0.8rem;
+          text-decoration: none;
+          color: #333;
+          background-color: #f9f9f9;
+          border-radius: 6px;
+          transition: all 0.2s ease;
+        }
+        
+        .recommended-page-link:hover {
+          background-color: #f1f1f1;
+          transform: translateY(-2px);
+          box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+          color: var(--primary-color);
+        }
+        
+        .recommended-page-link i {
+          margin-right: 0.8rem;
+          color: var(--primary-color);
+          font-size: 1.1rem;
+          margin-top: 0.2rem;
+        }
+        
+        /* 画像下の余白設定 */
+        .article-image-container, .manual-image-container {
+            margin-bottom: 20px;
+        }
+        
+        /* 手順ステップのフォントサイズ調整 */
+        .step-container {
+            font-size: 1.2em;
+        }
+
+        /* テーブルのスタイル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="manual-article">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="wix4"></div>
+    
+    <main class="main-content">
+        
+        <!-- 記事コンテナ -->
+        <div class="article-container">
+
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <h1 class="article-title">Wix Studio 運用マニュアル｜04. ページ複製と設定（SEO含む）</h1>
+                <div class="article-meta">
+                    <time datetime="2025-08-14">2025年08月14日</time> | 最終更新: <time datetime="2025-08-14">2025年08月14日</time>
+                </div>
+                <div class="article-tag-list">
+                    <span class="article-tag">Wix</span>
+                    <span class="article-tag">マニュアル</span>
+                    <span class="article-tag">SEO</span>
+                </div>
+            </header>
+
+            <!-- メイン画像（全幅） -->
+            <div class="article-image-container">
+                <img src="/assets/images/manual/wix/wix4-thumb.webp" alt="Wix Studio テキストやフレームパーツの再利用・編集" class="article-image" style="max-width: 100%;">
+            </div>
+
+           <!-- 目次 -->
+           <div class="toc-container">
+                <div class="toc-title">目次</div>
+                <ul class="toc-list">
+                    <li><a href="#intro">はじめに</a></li>
+                    <li><a href="#preparation">1. 事前準備</a></li>
+                    <li><a href="#page-name">2. ページ名を設定する（管理名／表示名）</a></li>
+                    <li><a href="#url-handle">3. URLハンドル（スラッグ）を設定</a></li>
+                    <li><a href="#navigation">4. ナビゲーションへの追加／非表示</a></li>
+                    <li><a href="#check">5. 確認チェック</a></li>
+                    <li><a href="#common-mistakes">6. よくあるミスと対処</a></li>
+                    <li><a href="#next-reads">このあと読むとよいページ</a></li>
+                    <li><a href="#support">専門サポートの案内</a></li>
+                </ul>
+            </div>
+
+            <!-- 記事の導入部 -->
+            <section id="intro" class="article-section fade-in">
+                <h2 class="article-section-title">はじめに</h2>
+                <p class="article-p">
+                    このページでできること
+                </p>
+                <ul>
+                    <li>既存ページを<strong>安全に複製</strong>し、名前・URL・メニュー表示を設定できる</li>
+                    <li>SEOの基本設定（タイトル／説明文／OG画像）まで整えられる</li>
+                </ul>
+
+                <p class="article-p">
+                    <strong>使う場所</strong>：Wix Studio <strong>ダッシュボード → サイト構造/ページ</strong>、一部 <strong>ページ設定 → SEO & ソーシャル</strong>
+                </p>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション1：事前準備 -->
+            <section id="preparation" class="article-section fade-in">
+                <h2 class="article-section-title">1. 事前準備</h2>
+                
+                <ul>
+                    <li><strong>#01 はじめに</strong>に従い、<strong>サイト履歴の作成</strong>をしてから開始</li>
+                    <li>大きな変更は複製ページ（draft-◯◯）で先に検証</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p>✅ ポイント：既存URLの変更は影響が大きいので、基本は新規作成＋リダイレクト（必要なら専門対応）</p>
+                </div>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション2：ページ名設定 -->
+            <section id="page-name" class="article-section fade-in">
+                <h2 class="article-section-title">2. ページ名を設定する（管理名／表示名）</h2>
+                
+                <p>名前は「内部用（管理名）」と「メニューに出る名前（表示名）」の2種類があります。</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>用途</th>
+                            <th>表示される場所</th>
+                            <th>例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>管理名</strong></td>
+                            <td>内部でページを見分けるため</td>
+                            <td>管理画面のみ</td>
+                            <td><code>draft-home</code> / <code>lp-2025-campaign</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>表示名</strong></td>
+                            <td>メニューやパンくずに表示</td>
+                            <td>サイト上に表示</td>
+                            <td><code>サービス</code> / <code>会社概要</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <h3>手順（全2ステップ）</h3>
+
+                <div class="step-container">
+                    <span class="step-number">❶</span>
+                    <span><strong>ページ設定 → 基本</strong> を開く</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section1.png" alt="ページ設定画面" class="manual-image">
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">❷</span>
+                    <span><strong>管理名／表示名</strong> を入力して保存</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section2.png" alt="管理名/表示名の設定" class="manual-image">
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section3.png" alt="名前設定完了画面" class="manual-image">
+                </div>
+
+                <div class="tip-box">
+                    <p>💡 コツ：ドラフトは管理名に draft- を付け、表示名はメニュー非表示にしておく</p>
+                </div>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション3：URLハンドル -->
+            <section id="url-handle" class="article-section fade-in">
+                <h2 class="article-section-title">3. URLハンドル（スラッグ）を設定</h2>
+                
+                <p>URLの最後の部分です。検索や共有で使われます。</p>
+
+                <h3>ルール</h3>
+
+                <ul>
+                    <li><strong>英数字・ハイフン（-）のみ</strong>、全部<strong>小文字</strong></li>
+                    <li><strong>短く・わかりやすく</strong>（2〜4語程度）</li>
+                    <li>既存ページのスラッグは<strong>極力変更しない</strong>（※変更は専門対応推奨）</li>
+                </ul>
+
+                <p><strong>良い例</strong>：<code>about</code> / <code>service-plan</code> / <code>contact</code></p>
+
+                <p><strong>悪い例</strong>：<code>会社概要</code>（日本語）/ <code>Service_Plan!!</code>（記号や大文字）</p>
+                <br>
+
+                <h3>手順（全2ステップ）</h3>
+
+                <div class="step-container">
+                    <span class="step-number">❶</span>
+                    <span><strong>ページ設定 → 基本</strong> で <strong>URLハンドル</strong> を入力</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section4.png" alt="URLハンドル設定画面" class="manual-image">
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">❷</span>
+                    <span>そのまま設定画面は閉じ、公開して実際のリンクを確認</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix2-section8.png" alt="公開画面の確認" class="manual-image">
+                </div>
+
+                <p>公開後、サイトを開いて該当ページのURLが変更されたかを確認します。</p>
+
+                <div class="alert-box">
+                    <p>⚠ 注意：公開後のURL変更は404の原因になります。必要ならリダイレクト設定を依頼しましょう（専門対応）</p>
+                </div>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション4：ナビゲーション -->
+            <section id="navigation" class="article-section fade-in">
+                <h2 class="article-section-title">4. ナビゲーションへの追加／非表示</h2>
+                
+                <p>作成したページをメニューに出す／出さないを切り替えます。</p>
+                <br>
+
+                <h3>手順（全2ステップ）</h3>
+
+                <div class="step-container">
+                    <span class="step-number">❶</span>
+                    <span><strong>編集ページでメニューバーを選択 →「メニュー管理」</strong> を開く</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section5.png" alt="メニュー管理画面" class="manual-image">
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">❷</span>
+                    <span><strong>既存メニューを変更／新しくメニューを追加する</strong>（ドラフトは<strong>メニューから外す</strong>）</span>
+                </div>
+
+                <div class="manual-image-container">
+                    <img src="/assets/images/manual/wix/wix4-section6.png" alt="メニュー追加・編集画面" class="manual-image">
+                </div>
+
+                <div class="tip-box">
+                    <p>💡 コツ：メニューに出さないページは内部リンクやサイトマップで管理</p>
+                </div>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション5：確認チェック -->
+            <section id="check" class="article-section fade-in">
+                <h2 class="article-section-title">5. 確認チェック</h2>
+                
+                <ul>
+                    <li>URLは<strong>短く小文字＋ハイフン</strong>？</li>
+                    <li>タイトルは<strong>30文字前後</strong>、説明文は<strong>80〜120文字</strong>？</li>
+                    <li><strong>重要キーワードは前半</strong>に入っている？</li>
+                    <li><strong>OG画像 1200×630</strong> を設定した？</li>
+                    <li>メニュー表示の設定は適切？（ドラフトは<strong>非表示</strong>）</li>
+                </ul>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- セクション6：よくあるミス -->
+            <section id="common-mistakes" class="article-section fade-in">
+                <h2 class="article-section-title">6. よくあるミスと対処</h2>
+                
+                <ul>
+                    <li><strong>URLに日本語/全角</strong> → <strong>英数字＋ハイフン</strong>に修正</li>
+                    <li><strong>同名スラッグの重複</strong> → 別スラッグに変更（例：<code>service</code> → <code>service-plan</code>）</li>
+                    <li><strong>メニューに勝手に表示</strong> → ページ設定で<strong>非表示</strong>に</li>
+                    <li><strong>検索に出したくないページ</strong> → <strong>noindex</strong>は専門対応に相談（設定場所が分散するため）</li>
+                </ul>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- 次に読むページ -->
+            <section id="next-reads" class="article-section fade-in">
+                <h2 class="article-section-title">このあと読むとよいページ</h2>
+                
+                <ul class="recommended-pages">
+                    <li>
+                        <a href="/howto/posts/manual/wix/wix5/index.html" class="recommended-page-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span><strong>#5 リンク設定の変更方法</strong>（メニューやボタンの遷移整備）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/howto/posts/manual/wix/wix9/index.html" class="recommended-page-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span><strong>#9 公開と更新チェック</strong>（本番反映前の最終確認）</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="divider"></div>
+            </section>
+
+            <!-- 専門サポート案内 -->
+            <section id="support" class="article-section fade-in">
+                <h2 class="article-section-title">専門サポートの案内</h2>
+                
+                <ul>
+                    <li><strong>キーワード設計</strong>（検索意図に沿った全体最適）</li>
+                    <li><strong>構造化データ</strong>（リッチリザルト対策）</li>
+                    <li><strong>OG設計一括</strong>（SNSでの見え方統一）</li>
+                </ul>
+                <div class="alert-box">
+                    <p>URL設計やSEOの全体最適、OG画像テンプレの整備は私たちにお任せください。<br>
+                        当社の専門チームがサポートいたします。</p>
+                  </div>                
+                  <div class="cta-container" style="text-align: center;">
+                    <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+                  </div>
+            </section>
+
+            <!-- 前後ナビゲーション -->
+            <div class="manual-navigation">
+                <a href="/howto/posts/manual/wix/wix3/index.html" class="nav-prev">
+                    <span class="nav-label">前のマニュアル</span>
+                    <span class="nav-title">03. テキストやフレームパーツの再利用・編集</span>
+                </a>
+                <a href="#" class="nav-next">
+                    <span class="nav-label">次のマニュアル</span>
+                    <span class="nav-title">05. リンク設定の変更方法</span>
+                </a>
+            </div>
+
+
+            <!-- 関連記事セクション -->
+            <section class="related-articles fade-in">
+                <h3 class="article-section-title">関連記事</h3>
+                <div class="related-articles-grid">
+                    <a href="/howto/posts/manual/wix1/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/wix/wix1-thumb.webp" alt="はじめに サムネイル">
+                        </div>
+                        <h4 class="related-article-title">01. はじめに</h4>
+                    </a>
+                    <a href="/howto/posts/manual/wix2/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/wix/wix2-thumb.webp" alt="基本操作の前提知識 サムネイル">
+                        </div>
+                        <h4 class="related-article-title">02. 基本操作の前提知識</h4>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- プロフィールセクション -->
+            <div class="divider"></div>
+            <div id="profile-container" class="fade-in"></div>
+            
+            <div class="back-to-manual">
+                <a href="/howto/allpost/manual/" class="back-link">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">マニュアル一覧へ戻る</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <script src="/assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // スクロールアニメーション
+        const fadeElements = document.querySelectorAll('.article-section, .cta-box, .related-articles, .related-blog-posts, .manual-navigation, .back-to-manual');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        // fade-inクラスを追加
+        fadeElements.forEach(element => {
+          element.classList.add('fade-in');
+          observer.observe(element);
+        });
+
+        // スムーススクロール（目次クリック時）
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = this.getAttribute('href').substring(1);
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+
+        // スクロール中の目次アクティブ表示
+        const sections = document.querySelectorAll('.article-section');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= (sectionTop - 300)) {
+              current = section.getAttribute('id');
+            }
+          });
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+        
+        // プロフィール情報をフェッチして挿入する関数
+        function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('プロフィール情報の読み込みに失敗しました。');
+              }
+              return response.text();
+            })
+            .then(html => {
+              profileContainer.innerHTML = html;
+            })
+            .catch(error => {
+              console.error('プロフィール情報の挿入エラー:', error);
+            });
+        }
+        
+        // プロフィール情報を読み込み
+        insertProfileContent();
+      });
+    </script>
+</body>
+</html>

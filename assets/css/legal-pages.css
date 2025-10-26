@@ -1,0 +1,22 @@
+/* プライバシーポリシーと特商法ページ専用のスタイル */
+
+/* ヘッダーとパンくずリストの間の余白を削除 */
+#breadcrumb-container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* パンくずリストの上部余白をなくす */
+.breadcrumb {
+  margin-top: 0;
+}
+
+/* メインコンテンツの調整（パンくずリストとコンテンツ間の余白を調整） */
+.main-content {
+  padding-top: 0; /* 上部のパディングを削除 */
+}
+
+/* フッターリンクのスタイル調整 */
+.footer-links a {
+  margin-right: 15px;
+}

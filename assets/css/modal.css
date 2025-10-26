@@ -1,0 +1,243 @@
+/* モーダル用スタイル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 5vh auto;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  padding: 25px 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  position: relative;
+}
+
+.modal-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0056b3, #007bff);
+  border-radius: 3px;
+}
+
+.close-modal {
+  color: #888;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 10px 30px 30px;
+}
+
+/* フォーム用スタイル */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  background-color: #fff;
+}
+
+.required {
+  color: #e74c3c;
+  margin-left: 3px;
+  font-weight: bold;
+}
+
+.privacy-policy {
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.privacy-policy input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 3px;
+  transform: scale(1.2);
+}
+
+.privacy-policy a {
+  color: #0056b3;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.privacy-policy a:hover {
+  color: #003d7a;
+}
+
+.submit-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #0056b3, #007bff);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, #004494, #0066e8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* エラーメッセージ用 */
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.error-message::before {
+  content: '\26A0'; /* 警告マーク */
+  margin-right: 5px;
+}
+
+input.error, select.error, textarea.error {
+  border-color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+/* 成功メッセージ用 */
+.success-message {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  border-left: 4px solid #27ae60;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10px auto;
+    max-height: 85vh;
+  }
+  
+  .modal-body {
+    padding: 10px 20px 25px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+  
+  .privacy-policy {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}

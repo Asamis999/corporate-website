@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wix Studio 運用マニュアル｜01. はじめに | Howto BOX</title>
+  <meta name="description" content="自分でできる範囲の線引きと、安全に始めるための履歴/複製ページ運用を解説。まず最初に読む入門章。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/template.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/howto.css">
+  <link rel="stylesheet" href="/assets/css/article-unified.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- JS -->
+  <script src="/assets/js/template.js" defer></script>
+  
+  <!-- マニュアル用の追加スタイルはすべてarticle-unified.cssに統合済み -->
+  <style>
+    /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+    /* 赤系統ボックス - 注意・重要な情報 */
+    .alert-box {
+      background-color: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* point-boxはalert-boxと同一スタイルに統合 */
+    .point-box {
+      background-color: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 黄色系統ボックス - ヒント・補足情報 */
+    .tip-box {
+      background-color: #fffbf0;
+      border-left: 4px solid #f39c12;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 画像下の余白設定 */
+    .article-image-container, .manual-image-container {
+      margin-bottom: 20px;
+    }
+    
+    /* 手順ステップのフォントサイズ調整 */
+    .step-container {
+      font-size: 1.2em;
+    }
+    
+    /* check-boxはtip-boxと同一スタイルに統合 */
+    .check-box {
+      background-color: #fffbf0;
+      border-left: 4px solid #f39c12;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* テーブルスタイルはマニュアル記事専用 */
+    .operation-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    .operation-table th, 
+    .operation-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+    }
+    
+    .operation-table th {
+      background-color: #f8f9fa;
+    }
+    
+    /* マニュアルナビゲーションスタイル - ミニマルデザイン */
+    .manual-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 2.5rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .nav-prev, .nav-next {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      max-width: 45%;
+    }
+    
+    .nav-prev {
+      text-align: left;
+    }
+    
+    .nav-next {
+      text-align: right;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.2rem;
+    }
+    
+    .nav-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .nav-prev:hover, .nav-next:hover {
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body class="howto-article">
+  <!-- 共通ヘッダー -->
+  <div id="site-header"></div>
+  
+  <!-- 共通パンくずリスト -->
+  <div id="breadcrumb-container" data-page="wix1"></div>
+  
+  <main class="main-content">
+    
+    <!-- 記事コンテナ -->
+    <div class="article-container">
+
+      <!-- 記事ヘッダー -->
+      <header class="article-header">
+        <h1 class="article-title">Wix Studio 運用マニュアル｜01. <span>はじめに</span></h1>
+        <div class="article-meta">公開日: 2025年8月14日 | 最終更新: 2025年8月14日</div>
+        <div class="article-tag-list">
+          <span class="article-tag">Wix Studio</span>
+          <span class="article-tag">運用マニュアル</span>
+          <span class="article-tag">初心者向け</span>
+          <span class="article-tag">バックアップ</span>
+          <span class="article-tag">安全運用</span>
+        </div>
+      </header>
+
+      <!-- メイン画像（全幅） -->
+      <div class="article-image-container">
+        <img src="/assets/images/manual/wix/wix1-thumb.webp" alt="Wix Studio 運用マニュアルのイメージ" class="article-image" style="max-width: 100%;">
+      </div>
+
+      <!-- 目次 -->
+      <div class="toc-container">
+        <div class="toc-title">目次</div>
+        <ul class="toc-list">
+          <li><a href="#purpose">1. 目的と対象者</a></li>
+          <li><a href="#scope">2. 自分でできる範囲／専門対応になる範囲</a></li>
+          <li><a href="#backup">3. 編集前に必ず行うバックアップ作成</a></li>
+          <li><a href="#safe-ops">4. 安全な運用の五ヶ条</a></li>
+          <li><a href="#support">5. 専門サポートの案内</a></li>
+        </ul>
+      </div>
+      
+      <!-- 記事本文 -->
+      <div class="article-content">
+        <section id="purpose" class="article-section fade-in">
+          <h2 class="article-section-title">1. 目的と対象者</h2>
+          
+          <p><strong>対象</strong>：はじめてサイトをさわる担当者・更新担当の方</p>
+          <br>
+          <h2>このページでできること</h2>
+            <ul>
+              <li>このマニュアル全体の使い方がわかる／編集できる範囲がわかる</li>
+              <li>編集前に“安全に”バックアップを作る方法がわかる</li>
+              <li>大きな更新は「複製ページ」で試す流れがわかる</li>
+            </ul>
+          </p>
+          
+          <div class="alert-box">
+            <p>📝 <strong>ポイント</strong>：むずかしい設定はプロにおまかせ。このページでは「だいじな安全運用ルール」だけをおぼえます。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="scope" class="article-section fade-in">
+          <h2 class="article-section-title">2. 自分でできる範囲／専門対応になる範囲</h2>
+          
+          <table class="operation-table">
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>具体例</th>
+                <th>作業者</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>自分でOK</strong></td>
+                <td>文字入れ替え／画像差し替え／リンク修正／ページ複製／予約の文言修正／ブログ投稿</td>
+                <td>お客様側</td>
+              </tr>
+              <tr>
+                <td><strong>プロに依頼</strong></td>
+                <td>複雑な予約ロジック／デザイン刷新／構造変更／サイト速度最適化／高度SEO／自動化</td>
+                <td>制作チーム</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <h2>編集前の準備（安全運用ルール）</h2>
+            <ul>
+              <li><span class="text-bold">1人ずつ順番に編集</span>：同時編集はトラブルのもと</li>
+              <li><span class="text-bold">変更内容をメモする</span>：日時・担当・作業内容を記録</li>
+              <li><span class="text-bold">作業前にバックアップ</span>：複製ページを必ず作成</li>
+              <li><span class="text-bold">大きな変更は複製ページで試す</span>：本番への反映は確認後</li>
+              <li><span class="text-bold">不安な変更は専門家に相談</span>：自己解決しない</li>
+            </ul>
+
+          <div class="tip-box">
+            <p>✅ <strong>チェック</strong>：ログインできる？権限は編集可能？通信が安定している？</p>
+            <p>💡 <strong>迷ったら</strong>：このページの最後にある「専門サポートの案内」を見て、チャットやメールでご相談ください。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="backup" class="article-section fade-in">
+          <h2 class="article-section-title">3. 編集前に必ず行うバックアップ作成</h2>
+          
+          <p>ここでは、編集をはじめる前に「いつでも元に戻せる状態」を作ります。</p>
+          <br>          
+          <h2>手順（全3ステップ）</h2>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>Wixにログイン → 対象サイトを開く（ダッシュボード）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section1.png" alt="Wixダッシュボード画面" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>画面上部の<strong>メニュー</strong>から <strong>「編集履歴」</strong> を開く</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section2.png" alt="編集履歴メニュー" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>「新しいバージョン」</strong> に名前をつけて保存</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section3.png" alt="新しいバージョン保存画面" class="manual-image">
+          </div>
+          
+          <p><strong>名前ルール例</strong>：更新日＋編集者など</p>
+          <p>　「いつ」「誰が」編集をおこなったバージョンなのかがわかるようにしておくと管理しやすいです。</p>
+          
+          <div class="alert-box">
+            <p>⚠️ <strong>注意</strong>：大幅な編集を加えた後で履歴を作るのでは遅いです。作業の最初に作っておきましょう。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="safe-ops" class="article-section fade-in">
+          <h2 class="article-section-title">4. 安全な運用の五ヶ条</h2>
+          
+          <p>いきなり本番ページを触ると、レイアウトが崩れたときに戻すのが大変。<br>ドラフト用の複製ページで安全に試します。</p>
+          <br>
+          <h2>手順（全3ステップ）</h2>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>ダッシュボードの<strong>ページ管理</strong>を開く</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section4.png" alt="ページ管理画面" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>変更したいページを<strong>右クリック →「複製」</strong></span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section5.png" alt="ページ複製画面" class="manual-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>ページ名</strong>を`〇〇_編集中` などに（例：`About us_編集中`）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix1-section6.png" alt="ページ名変更画面" class="manual-image">
+          </div>
+          
+          <div class="tip-box">
+            <p>💡 <strong>コツ</strong>：ドラフトでOKになったら、本番ページに同じ変更を行いましょう（コピペでOK）。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="support" class="article-section fade-in">
+          <h2 class="article-section-title">5. 専門サポートの案内</h2>
+          <h2>よくある失敗と対策</h2>
+          <ul>
+            <li><span class="text-bold">同時編集のトラブル</span>：<br>だれが何を触っているか不明になりデータが消失することも。編集担当は必ず1人に決めましょう。</li>
+            <li><span class="text-bold">バックアップ忘れの危険</span>：<br>サイトが壊れても戻せない状態になります。作業前に必ずバックアップを取りましょう。</li>
+            <li><span class="text-bold">本番での実験の危険性</span>：<br>お客様に見られながらサイトが壊れていく状態になります。必ず複製ページで試しましょう。</li>
+          </ul>
+          <br>
+          <h2>専門サポートの案内</h2>
+          
+          <ul>
+            <li><strong>安全な編集範囲の診断</strong>（どこまで自分でやる？の仕分け）</li>
+            <li><strong>トラブル復旧</strong>（崩れ・表示不具合の緊急対応）</li>
+            <li><strong>デザイン監修／速度・SEO最適化</strong>（サイト全体の品質向上）</li>
+          </ul>
+          
+          <div class="alert-box">
+            <p>デザインの大幅変更や複雑な設定は、私たちにおまかせください。</p>
+          </div>
+          
+          <div class="cta-container" style="text-align: center;">
+            <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+          </div>
+          
+        </section>
+
+        <section id="related" class="article-section fade-in">
+          <h2 class="article-section-title">このあと読むとよいページ</h2>
+          
+          <ul class="recommended-pages">
+            <li>
+              <a href="/howto/posts/manual/wix4/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#4 画像の貼り替え方法</strong>：写真の最適サイズやAltテキストの設定方法</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix6/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#6 ページ複製と設定</strong>：URL/SEO/OG画像の基本設定方法</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix9/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#9 公開と更新チェック</strong>：本番反映前の確認ポイント</span>
+              </a>
+            </li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+        
+        <!-- 関連記事セクション -->
+        <section class="related-articles fade-in">
+            <h3 class="article-section-title">関連記事</h3>
+            <div class="related-articles-grid">
+                <a href="/howto/posts/article/article2/index.html" class="related-article-card">
+                    <div class="related-article-image">
+                        <img src="/assets/images/howto/article2_thumb.png" alt="記事サムネイル">
+                    </div>
+                    <h4 class="related-article-title">無料ツールだけで始めるA/Bテスト入門</h4>
+                </a>
+                <a href="/howto/posts/article/article3/index.html" class="related-article-card">
+                    <div class="related-article-image">
+                        <img src="/assets/images/howto/article3_thumb.webp" alt="記事サムネイル">
+                    </div>
+                    <h4 class="related-article-title">小規模事業のためのWebマーケティング撃略</h4>
+                </a>
+            </div>
+        </section>
+        
+        <!-- プロフィールセクション -->
+        <div class="divider"></div>
+        <div id="profile-container" class="fade-in"></div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 共通フッター -->
+  <div id="site-footer"></div>
+  
+  <!-- 記事専用JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // プロフィール情報をフェッチして挿入する関数
+      function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('プロフィール情報の読み込みに失敗しました。');
+                  }
+                  return response.text();
+              })
+              .then(html => {
+                  profileContainer.innerHTML = html;
+              })
+              .catch(error => {
+                  console.error('プロフィール情報の挿入エラー:', error);
+              });
+      }
+      
+      // プロフィール情報を挿入
+      insertProfileContent();
+      
+      // 目次リンクのスムーススクロール
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // スクロールに応じて目次のハイライト
+      const articleSections = document.querySelectorAll('section[id]');
+      const headerHeight = 100; // ヘッダーの高さ + マージン
+      
+      window.addEventListener('scroll', function() {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY;
+        
+        articleSections.forEach(section => {
+          const sectionTop = section.offsetTop - headerHeight;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSectionId = '#' + section.getAttribute('id');
+          }
+        });
+        
+        // 現在のセクションに対応する目次項目をハイライト
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === currentSectionId) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

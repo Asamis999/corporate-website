@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amazon販売支援サービス｜売れるページではなく、勝ち続けるAmazon戦略を｜A.inc</title>
+  <meta name="description" content="自社製造×専門店×ブランドオーナーのためのAmazon販売伴走サービス。検索上位・広告最適化・レビュー戦略を一貫支援。販売現場で培ったノウハウで、御社の商材を伸びる構造に変えます。" />
+  <meta name="theme-color" content="#FF6600" />
+  <link rel="stylesheet" href="./amazon-service.css" />
+  <!-- 構造化データ（Service） -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Amazon販売支援サービス",
+    "provider":{"@type":"Organization","name":"A.inc"},
+    "areaServed":"JP",
+    "serviceType":"Amazon sales support",
+    "description":"自社製造×専門店×ブランドオーナーのためのAmazon販売伴走サービス。検索上位・広告最適化・レビュー戦略を一貫支援。"
+  }
+  </script>
+</head>
+
+<body>
+    <!-- 固定ナビゲーション -->
+    <nav class="fixed-nav">
+        <div class="container">
+            <div class="logo">Amazon販売支援 | A.inc</div>
+            <a href="#contact" class="cta-button">無料相談する</a>
+        </div>
+    </nav>
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <h1>
+                    売れるページではなく、<br>
+                    "勝ち続けるAmazon戦略"を。
+                </h1>
+                <p class="lead">
+                    自社製造 × 専門店 × ブランドオーナーのための販売伴走サービス。<br>
+                    Amazonでの検索上位・広告最適化・レビュー戦略を一貫して支援。<br>
+                    販売現場で培ったノウハウで、御社の商材を"伸びる構造"に変えます。
+                </p>
+
+                <div class="bullet-points">
+                    <ul>
+                        <li>市場データ × 実績に基づく販売戦略設計</li>
+                        <li>Amazon認定パートナーによる広告・レビュー最適化</li>
+                        <li>画像・A+で"買われる"ページを構築</li>
+                        <li>固定＋成果報酬の柔軟契約でリスクを抑制</li>
+                    </ul>
+                </div>
+
+                <a href="#contact" class="cta-button">無料相談する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 現状課題セクション -->
+    <section id="problem">
+        <div class="container">
+            <h2 class="section-title">「出品しただけ」では、<br>Amazonでは売れません。</h2>
+            
+            <div class="problem-box">
+                <h3>多くのブランド・メーカーが直面している課題</h3>
+                <ul class="problem-list">
+                    <li>広告を出しても、競合に埋もれてクリックが伸びない</li>
+                    <li>商品画像やA+コンテンツが"他社と同じ"で差別化できていない</li>
+                    <li>広告費ばかり増えて、<strong>CVR(転換率)</strong>が改善しない</li>
+                    <li>ブランド登録・FBA設定・レビュー運用など、専門的すぎて社内で回せない</li>
+                </ul>
+            </div>
+
+            <div class="solution-text">
+                → A.incは、「販売者の目線」でこれらをすべて設計・運用します。
+            </div>
+        </div>
+    </section>
+
+  <!-- 共創（育てる）運用：イラストとカード -->
+  <section class="section soft">
+    <div class="container">
+      <h2>丸投げではなく、<span class="accent">一緒に商品を育てます</span>。</h2>
+      <div class="grid grid-3 mt-6">
+        <div class="card">
+          <figure><img class="illu" src="/assets/images/illu_sprint.jpg" alt="2週間スプリントのイラスト（仮説→制作→実装→計測→反映）"></figure>
+          <h3 class="mt-4">2週間スプリント</h3>
+          <p>仮説→制作→実装→計測→反映を短周期で。初速を出しつつ学びを蓄積します。</p>
+        </div>
+        <div class="card">
+          <figure><img class="illu" src="/assets/images/illu_report.jpg" alt="週次レポートのイラスト（TACOS/ACOS/在庫/施策）"></figure>
+          <h3 class="mt-4">毎週レポート</h3>
+          <p>ACOS/TACOS/NTB/在庫日数＋施策の狙いと次アクションを共有。<strong>中身を全て開示</strong>。</p>
+        </div>
+        <div class="card">
+          <figure><img class="illu" src="/assets/images/illu_knowledge.jpg" alt="ナレッジ移転のイラスト（ハンドブック/動画）"></figure>
+          <h3 class="mt-4">ナレッジ移転</h3>
+          <p>運用ハンドブック・テンプレ・動画で社内に知見が残る仕組み。</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <a class="btn" data-cta="co_create" data-section="co-create" href="/contact?service=amazon&intent=consult">無料診断を申し込む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 運用設計（Discover→Consider→Convert） -->
+  <section id="flow" class="section">
+    <div class="container">
+      <h2>検索を獲り、詳細で決め、広告で押し切る。</h2>
+      <div class="flow mt-6">
+        <div class="step">
+          <figure><img class="illu" src="/assets/images/flow_discover.png" alt="Discover：Sponsored Brandsとブランドストアの露出イメージ"></figure>
+          <h3>Discover（発見）</h3>
+          <p>Sponsored Brands／ブランドストア。新規獲得（NTB）を意識して上位面の露出を確保。</p>
+        </div>
+        <div class="step">
+          <figure><img class="illu" src="/assets/images/flow_consider.png" alt="Consider：Sponsored ProductsとSB Videoの比較段階イメージ"></figure>
+          <h3>Consider（比較）</h3>
+          <p>Sponsored Products（Exact/広め/ASIN、防衛・奪取）＋SB Videoで比較段階に最適化。</p>
+        </div>
+        <div class="step">
+          <figure><img class="illu" src="/assets/images/flow_convert.png" alt="Convert：A+や比較表・レビューでの説得とSDの追客イメージ"></figure>
+          <h3>Convert（制約）</h3>
+          <p>画像7枚・A+・比較表・レビューで説得し、Sponsored Displayで再訪を促進。</p>
+        </div>
+      </div>
+      <p class="muted mt-6">意思決定は<strong>TACOS最適化</strong>が軸。新規獲得と防衛/奪取を分けて配分します。</p>
+      <div class="mt-6"><a class="btn" data-cta="flow_cta" data-section="flow" href="/contact?service=amazon&intent=consult">無料診断を申し込む</a></div>
+    </div>
+  </section>
+
+  <!-- 立ち上げロードマップ -->
+  <section id="roadmap" class="section soft">
+    <div class="container">
+      <h2><span class="accent">最短2週間</span>で立ち上げ、4週間で本格化。</h2>
+      <div class="steps mt-6">
+        <div class="card">
+          <span class="num">1</span>
+          <h3>現状診断</h3>
+          <p>既存ページや競合を分析。改善点を特定します。</p>
+          <p class="muted small-note mt-4">➤ 競合分析レポート、初期改善案</p>
+        </div>
+        <div class="card">
+          <span class="num">2</span>
+          <h3>商品ページ最適化</h3>
+          <p>画像・タイトル・Bullets・A+を再構築。</p>
+          <p class="muted small-note mt-4">➤ ページ設計書、キーワード構成</p>
+        </div>
+        <div class="card">
+          <span class="num">3</span>
+          <h3>広告設計・施策</h3>
+          <p>SP/SB/SDの構成、NTB・防衛戦略。</p>
+          <p class="muted small-note mt-4">➤ キャンペーン構造、除外語リスト</p>
+        </div>
+        <div class="card">
+          <span class="num">4</span>
+          <h3>本運用移行</h3>
+          <p>計測・分析＋在庫/価格連動。</p>
+          <p class="muted small-note mt-4">➤ 週次レビュー、運用改善 </p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <a class="btn" data-cta="roadmap_cta" data-section="roadmap" href="/contact?service=amazon&intent=consult">無料診断を申し込む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- プラン・料金 -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>料金プラン</h2>
+      <div class="pricing mt-6">
+        <div class="price-card">
+          <div class="price-icon">
+            <svg class="icon24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12l5 5L21 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>お試しスタート</h3>
+          <div class="price mt-4">165,000円<small>/月〜</small></div>
+          <ul class="mt-6">
+            <li>4-6製品のAmazon運用</li>
+            <li>商品ページ最適化（7枚画像・A+）</li>
+            <li>広告運用（SP/SB）</li>
+            <li>週次レポート</li>
+          </ul>
+          <p class="price-note">※初期構築費 200,000円（別途）</p>
+          <div class="mt-6">
+            <a class="btn" data-cta="pricing_basic" data-section="pricing" href="/contact?service=amazon&intent=consult&plan=basic">詳細を問い合わせる</a>
+          </div>
+        </div>
+        <div class="price-card highlight">
+          <div class="price-icon">
+            <svg class="icon24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>スタンダード</h3>
+          <div class="price mt-4">385,000円<small>/月〜</small></div>
+          <ul class="mt-6">
+            <li>10-15製品のAmazon運用</li>
+            <li>商品ページ最適化（全面・競合分析）</li>
+            <li>広告運用（SP/SB/SD）</li>
+            <li>在庫最適化・レビュー施策</li>
+            <li>週次オンラインMTG</li>
+            <li>運用ハンドブック提供</li>
+          </ul>
+          <p class="price-note">※初期構築費 350,000円（別途）</p>
+          <div class="mt-6">
+            <a class="btn" data-cta="pricing_standard" data-section="pricing" href="/contact?service=amazon&intent=consult&plan=standard">詳細を問い合わせる</a>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-icon">
+            <svg class="icon24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>エンタープライズ</h3>
+          <div class="price mt-4">要相談</div>
+          <ul class="mt-6">
+            <li>16製品以上のAmazon運用</li>
+            <li>全面的なブランド戦略</li>
+            <li>広告運用（全種）＋DSP連携</li>
+            <li>在庫最適化・レビュー施策</li>
+            <li>Prime対策・Subscribe連携</li>
+            <li>カスタムレポート</li>
+            <li>運用ハンドブック・移管トレーニング</li>
+          </ul>
+          <p class="price-note">※初期構築費 要相談</p>
+          <div class="mt-6">
+            <a class="btn" data-cta="pricing_enterprise" data-section="pricing" href="/contact?service=amazon&intent=consult&plan=enterprise">詳細を問い合わせる</a>
+          </div>
+        </div>
+      </div>
+      <p class="muted small-note mt-6">※料金は税別表記。製品数・季節変動・バージョン追加などにより変動します。<br>
+      ※お見積りは診断後に提案。明確な基準でお見積りします。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section soft">
+    <div class="container">
+      <h2>よくあるご質問</h2>
+      <div class="mt-6">
+        <details>
+          <summary><span class="q">すでにAmazon出品していますが、変更可能ですか？</span><span class="pm"></span></summary>
+          <div class="faq-body">
+            <p>はい、既存のAmazonストアを引き継いで改善していくことも可能です。現状の分析から始め、商品ページの最適化と広告設定の見直しを行います。既存の実績を活かしながら、戦略的に強化していきます。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="q">どのくらいの期間でROASの改善が見込めますか？</span><span class="pm"></span></summary>
+          <div class="faq-body">
+            <p>通常、初期設定から4週間程度で効果が現れ始めます。特に広告運用の効率化（TACOS改善）は比較的早く、1-2週間で兆候が見えることが多いです。商品ページ最適化の効果（自然検索からの流入増）は2-3ヶ月かけて徐々に現れることが一般的です。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="q">どのような商材・カテゴリが得意ですか？</span><span class="pm"></span></summary>
+          <div class="faq-body">
+            <p>特に以下のカテゴリで実績があります：</p>
+            <ul>
+              <li>生活雑貨・インテリア</li>
+              <li>健康食品・サプリメント</li>
+              <li>美容・パーソナルケア</li>
+              <li>家電・デジタル製品</li>
+            </ul>
+            <p>ただし、カテゴリを問わず「比較検討が必要な商品」「リピート購入を促したい商品」「新しい市場を開拓したい商品」に強みがあります。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="q">ブランドレジストリに登録していない場合はどうなりますか？</span><span class="pm"></span></summary>
+          <div class="faq-body">
+            <p>ブランドレジストリ未登録でも基本的なサポートは可能です。ただし、A+コンテンツ、ブランドストア、Sponsored Brandsなど一部機能が制限されます。プロジェクト開始時にブランドレジストリ登録のサポートも行っています（別途費用）。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="q">運用の透明性はどのように担保されますか？</span><span class="pm"></span></summary>
+          <div class="faq-body">
+            <p>以下の3点で透明性を担保しています：</p>
+            <ul>
+              <li>週次レポートで全ての数値（検索語、入札額、在庫状況など）を開示</li>
+              <li>Google Data Studioでリアルタイムデータ確認環境を提供</li>
+              <li>運用ハンドブックで判断基準やプロセスを明文化</li>
+            </ul>
+            <p>「なぜその施策を行ったのか」という根拠も含めて共有します。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>まずは無料診断から。<br>Amazon運用の課題を特定します。</h2>
+          <p>3分で申し込み完了。スパム・営業電話はしません。</p>
+        </div>
+        <div>
+          <a class="btn" data-cta="final_cta" data-section="final" href="/contact?service=amazon&intent=consult">無料診断を申し込む</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container grid grid-3">
+    <div>
+      <h3>サービス</h3>
+      <ul>
+        <li><a href="/services/shopify/">Shopify構築</a></li>
+        <li><a href="/services/amazon/">Amazon運用</a></li>
+        <li><a href="/services/marketing/">Web集客・広告運用</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>会社情報</h3>
+      <ul>
+        <li><a href="/company/">会社概要</a></li>
+        <li><a href="/company/team/">チーム</a></li>
+        <li><a href="/blog/">ブログ</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>合同会社A</h3>
+      <p class="mt-4">〒000-0000<br>東京都〇〇区〇〇<br>TEL: 03-XXXX-XXXX</p>
+    </div>
+  </div>
+  <div class="container mt-12">
+    <p class="small-note">&copy; <span id="year">2023</span> 合同会社A All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- フローティングCTA -->
+<div class="float-cta">
+  <a class="btn" data-cta="float_cta" data-section="float" href="/contact?service=amazon&intent=consult">無料診断を申し込む</a>
+</div>
+
+<script src="./amazon-service.js"></script>
+</body>
+</html>

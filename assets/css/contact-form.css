@@ -1,0 +1,320 @@
+/**
+ * プログレッシブ型お問い合わせフォーム用CSS
+ * スマホ表示最適化・ステップUI対応
+ */
+
+/* モーダルの基本スタイル調整 */
+#contact-modal .modal-content {
+  max-width: 600px;
+  margin: 5% auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding: 0;
+}
+
+#contact-modal .modal-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#contact-modal .modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#contact-modal .close-modal {
+  font-size: 28px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+}
+
+#contact-modal .close-modal:hover {
+  color: #000;
+}
+
+#contact-modal .modal-body {
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ステップナビゲーション */
+.form-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form-steps::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  background: #4a90e2;
+  border-color: #4a90e2;
+}
+
+/* ステップコンテンツ */
+.step-content {
+  display: none;
+}
+
+.step-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* フォーム要素 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* チェックボックスグループ - 縦一列表示 */
+.modal .checkbox-group,
+.checkbox-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
+  margin-top: 10px !important;
+  width: 100% !important;
+}
+
+.modal .checkbox-group label,
+.checkbox-group label {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 8px !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  font-size: 0.9rem;
+  text-align: left !important;
+  white-space: normal !important;
+  clear: both !important;
+  float: none !important;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+/* サービス詳細セクション */
+.service-details {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* 必須マーク */
+.required {
+  color: #e74c3c;
+}
+
+/* ボタン */
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.btn-prev,
+.btn-next,
+.btn-submit {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-prev {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.btn-next,
+.btn-submit {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  background-color: #3a7bc8;
+}
+
+.btn-prev:hover {
+  background-color: #e5e5e5;
+}
+
+/* プライバシーポリシー */
+.privacy-policy {
+  margin-top: 30px;
+}
+
+.privacy-policy label {
+  display: flex;
+  align-items: center;
+}
+
+.privacy-policy input {
+  width: auto;
+  margin-right: 8px;
+}
+
+.privacy-policy a {
+  color: #4a90e2;
+  margin-left: 5px;
+}
+
+/* 完了メッセージ */
+.completion-message {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.success-icon {
+  font-size: 48px;
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.completion-message h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.next-actions {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.next-actions h4 {
+  margin-bottom: 15px;
+}
+
+.next-action-btn {
+  display: block;
+  background-color: #f1f1f1;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.next-action-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.btn-close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  #contact-modal .modal-content {
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+  
+  .form-steps {
+    flex-direction: row;
+  }
+  
+  .step {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+  
+  .form-navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-prev, 
+  .btn-next, 
+  .btn-submit {
+    width: 100%;
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

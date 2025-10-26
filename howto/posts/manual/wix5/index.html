@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wix Studio 運用マニュアル｜05. レスポンシブ編集方法 | Howto BOX</title>
+    <meta name="description" content="Wix StudioでPC／タブレット／スマホごとに最適化された表示を調整する方法を解説。デバイス切替や「このデバイスだけ非表示」機能の活用法を紹介します。">
+    <meta name="keywords" content="Wix Studio,レスポンシブ,モバイル対応,スマホ表示,デバイス切替">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    <link rel="stylesheet" href="/assets/css/manual.css">
+    
+    <!-- マニュアル用の追加スタイル -->
+    <style>
+        /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+        /* 赤系統ボックス - 注意・重要な情報 */
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 黄色系統ボックス - ヒント・補足情報 */
+        .tip-box {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 画像下の余白設定 */
+        .article-image-container, .manual-image-container {
+            margin-bottom: 20px;
+        }
+        
+        /* 手順ステップのフォントサイズ調整 */
+        .step-container {
+            font-size: 1.2em;
+        }
+        
+        /* 推奨ページリンク用スタイル */
+        .recommended-pages {
+            list-style-type: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .recommended-pages li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .recommended-page-link {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.8rem;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .recommended-page-link:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+            color: var(--primary-color);
+        }
+        
+        .recommended-page-link i {
+            margin-right: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* ナビゲーションのミニマルデザイン */
+        .manual-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 2.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-prev, .nav-next {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            max-width: 45%;
+        }
+        
+        .nav-prev {
+            text-align: left;
+        }
+        
+        .nav-next {
+            text-align: right;
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+        
+        .nav-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-prev:hover, .nav-next:hover {
+            color: var(--primary-color);
+        }
+    </style>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="manual-article">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="wix5"></div>
+    
+    <main class="main-content">
+        
+        <!-- 記事コンテナ -->
+        <div class="article-container">
+
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <h1 class="article-title">Wix Studio 運用マニュアル｜05. レスポンシブ編集方法</h1>
+                <div class="article-meta">
+                    <time datetime="2025-08-14">2025年8月14日</time> | 最終更新: <time datetime="2025-08-14">2025年8月14日</time>
+                </div>
+                <div class="article-tag-list">
+                    <span class="article-tag">マニュアル</span>
+                    <span class="article-tag">Wix</span>
+                    <span class="article-tag">レスポンシブ</span>
+                </div>
+            </header>
+            
+            <!-- メイン画像（全幅） -->
+            <div class="article-image-container">
+                <img src="/assets/images/manual/wix/wix5-thumb.webp" alt="Wix Studio レスポンシブ編集方法" class="article-image" style="max-width: 100%;">
+            </div>
+            
+           <!-- 目次 -->
+           <div class="toc-container">
+                <div class="toc-title">目次</div>
+                <ul class="toc-list">
+                    <li><a href="#intro">はじめに</a></li>
+                    <li><a href="#basics">1. 基本の考え方</a></li>
+                    <li><a href="#device-switch">2. デバイスを切り替える</a></li>
+                    <li><a href="#pc-layout">3. PC表示を整える</a></li>
+                    <li><a href="#mobile-adjust">4. スマホ／タブレットで最終調整</a></li>
+                    <li><a href="#hide-per-device">5. 「このデバイスだけ非表示」を使う</a></li>
+                    <li><a href="#image-ratio">6. 画像の比率とトリミングの注意</a></li>
+                    <li><a href="#checklist">7. チェック</a></li>
+                    <li><a href="#mistakes">8. よくあるミスと対処</a></li>
+                    <li><a href="#next-reads">このあと読むとよいページ</a></li>
+                    <li><a href="#support">専門サポートの案内</a></li>
+                </ul>
+            </div>
+
+            <!-- 記事の導入部 -->
+            <section id="intro" class="article-section fade-in">
+                <h2 class="article-section-title">はじめに</h2>
+                <p class="article-p">
+                    このページでできること
+                </p>
+                <ul>
+                    <li>PC／タブレット／スマホごとに<strong>見え方を調整</strong>できる</li>
+                    <li><strong>デバイス切替</strong>、<strong>配置・サイズの微調整</strong>、<strong>このデバイスだけ非表示</strong>の使い方がわかる</li>
+                </ul>
+
+                <p class="article-p">
+                    <strong>使う場所</strong>：Wix Studio <strong>エディタ</strong>（見た目の編集）
+                </p>
+            </section>
+
+            <div class="divider"></div>
+ 
+            <!-- セクション1: 基本の考え方 -->
+            <section id="basics" class="article-section fade-in">
+                <h2 class="article-section-title">1. 基本の考え方</h2>
+                <ul>
+                    <li>手順は <strong>PCで整える → スマホで最終調整</strong> が基本</li>
+                    <li>1つの変更が他のデバイスにも影響することがあるため、<strong>デバイスごとに確認</strong></li>
+                    <li>不要要素は削除ではなく <strong>「このデバイスだけ非表示」</strong> を活用</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p><span class="step-number">💡</span><span>ポイント：スマホでは縦に読みやすい配置を優先。テキストは短め・画像は軽量に。</span></p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション2: デバイスを切り替える -->
+            <section id="device-switch" class="article-section fade-in">
+                <h2 class="article-section-title">2. デバイスを切り替える</h2>
+                <p class="article-p">
+                    編集中に、PC／タブレット／スマホの表示を切り替えます。
+                </p>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❶</span><span>表示したいデバイス（PC／タブレット／スマホ）を選ぶ</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix3-section8.png" alt="デバイス切替の方法" class="article-image">
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション3: PC表示を整える -->
+            <section id="pc-layout" class="article-section fade-in">
+                <h2 class="article-section-title">3. PC表示を整える</h2>
+                <p class="article-p">
+                    まずはPCで基本のレイアウトを完成させます。
+                </p>
+                
+                <h3 class="subsection-title">手順（3ステップ）</h3>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❶</span><span>見出し・本文・画像の<strong>位置と余白</strong>を<strong>ガイド線</strong>に合わせてそろえる</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section1.png" alt="ガイド線に合わせた配置" class="article-image">
+                </div>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❷</span><span>アイテムの配置ツールを使用して整列（左右・上下の間隔などを一定に）</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section2.png" alt="アイテムの配置ツール" class="article-image">
+                </div>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❸</span><span>画像は<strong>比率を保ったまま</strong>サイズ調整</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section3.png" alt="画像サイズ調整" class="article-image">
+                </div>
+
+                <div class="alert-box">
+                    <p><span class="step-number">⚠</span><span>注意：PCで幅や高さを大幅に変更すると、スマホで崩れることがあります。</span></p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション4: スマホ／タブレットで最終調整 -->
+            <section id="mobile-adjust" class="article-section fade-in">
+                <h2 class="article-section-title">4. スマホ／タブレットで最終調整</h2>
+                <p class="article-p">
+                    スマホは画面が小さいため、読みやすさ優先で微調整します。
+                </p>
+                
+                <h3 class="subsection-title">手順（全2ステップ）</h3>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❶</span><span>デバイスをタブレットに切替てテキストの<strong>改行</strong>と<strong>行間</strong>を確認（長文は段落を分ける）</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section4.png" alt="タブレットでのテキスト確認" class="article-image">
+                </div>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❷</span><span>次にデバイスをスマホに切替え、画像やテキスト<strong>サイズ・位置</strong>を微調整</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section5.png" alt="スマホでの調整" class="article-image">
+                </div>
+
+                <p class="article-p">
+                    <strong>※スマホ画面では、タップしやすい余白にも配慮する</strong>（指で押しやすい間隔）
+                </p>
+
+                <div class="tip-box">
+                    <p><span class="step-number">💡</span><span>コツ：フォントサイズは既存のスタイルを使い、むやみに小さくしない。</span></p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション5: このデバイスだけ非表示 -->
+            <section id="hide-per-device" class="article-section fade-in">
+                <h2 class="article-section-title">5. 「このデバイスだけ非表示」を使う</h2>
+                <p class="article-p">
+                    PCでは必要でも、スマホでは邪魔な要素を非表示にできます。
+                </p>
+                
+                <h3 class="subsection-title">手順（3ステップ）</h3>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❶</span><span>非表示にしたい要素を選択して<strong>「非表示」</strong> をON</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section6.png" alt="非表示設定" class="article-image">
+                </div>
+                
+                <div class="step-container">
+                    <p><span class="step-number">❷</span><span><strong>表示を戻したい時は</strong>レイヤーから目のアイコンをタップまたは<strong>「表示」</strong> をON</span></p>
+                </div>
+
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/wix/wix5-section7.png" alt="表示設定の戻し方" class="article-image">
+                </div>
+
+                <p class="article-p">
+                    ※他のデバイス表示で「<strong>表示されているか」「崩れていないか」を</strong>確認
+                </p>
+
+                <div class="alert-box">
+                    <p><span class="step-number">⚠</span><span>注意：削除ではなく非表示にすること。削除すると他デバイスにも影響する場合があります。</span></p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション6: 画像の比率とトリミング -->
+            <section id="image-ratio" class="article-section fade-in">
+                <h2 class="article-section-title">6. 画像の比率とトリミングの注意</h2>
+                <ul>
+                    <li>画像は<strong>同じ比率</strong>で差し替えると崩れにくい</li>
+                    <li>ズームで切り抜くと<strong>上下左右が切れる</strong>ことがあるため、<strong>プレビューで四辺</strong>を確認</li>
+                    <li>重要な文字や顔が<strong>端に寄らない</strong>ように配置</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション7: チェック -->
+            <section id="checklist" class="article-section fade-in">
+                <h2 class="article-section-title">7. チェック</h2>
+                <ul>
+                    <li>文字の<strong>折返しは自然</strong>？</li>
+                    <li>重要要素（見出し・CTA）が<strong>下に埋もれていない</strong>？</li>
+                    <li>ボタンは<strong>押しやすい大きさと余白</strong>がある？</li>
+                    <li>画像は<strong>粗くない／はみ出していない</strong>？</li>
+                    <li>PC／スマホで<strong>同じ内容が表示</strong>されている？（非表示の誤設定なし）</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p><span class="step-number">💡</span><span>順番：PCで整える → スマホで最終調整（タブレットも必要に応じて確認）</span></p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション8: よくあるミスと対処 -->
+            <section id="mistakes" class="article-section fade-in">
+                <h2 class="article-section-title">8. よくあるミスと対処</h2>
+                <ul>
+                    <li><strong>PCで広げすぎてスマホで崩れる</strong> → PCの幅を少し戻す／スマホで要素幅を調整</li>
+                    <li><strong>要素を削除して他デバイスからも消えた</strong> → 次回は<strong>「このデバイスだけ非表示」</strong>を使用</li>
+                    <li><strong>改行で無理に整える</strong> → 文章を<strong>短く</strong>、段落で整理（改行頼みは崩れの原因）</li>
+                    <li><strong>画像の端が切れる</strong> → 余白を広げ、<strong>中央寄せ</strong>で配置</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- このあと読むとよいページ -->
+            <section id="next-reads" class="article-section fade-in">
+                <h2 class="article-section-title">このあと読むとよいページ</h2>
+                
+                <ul class="recommended-pages">
+                    <li>
+                        <a href="/howto/posts/manual/wix/wix3/index.html" class="recommended-page-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span><strong>#03 テキストやフレームパーツの再利用・編集</strong>（要素の扱い方の基本）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/howto/posts/manual/wix/wix4/index.html" class="recommended-page-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span><strong>#04 画像の貼り替え方法</strong>（最適サイズ・Alt）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/howto/posts/manual/wix/wix9/index.html" class="recommended-page-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span><strong>#09 公開と更新チェック</strong>（本番反映前の最終確認）</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- 専門サポート案内 -->
+            <section id="support" class="article-section fade-in">
+                <h2 class="article-section-title">専門サポートの案内</h2>
+                
+                <ul>
+                    <li><strong>モバイル優先レイアウト再設計</strong>（上から順に伝わる導線づくり）</li>
+                    <li><strong>タップ領域最適化</strong>（ボタン間隔・誤タップ防止）</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p>スマホで「読みにくい」「押しづらい」をゼロに。レイアウトの再設計と検証は私たちにお任せください。</p>
+                </div>
+                <div class="cta-container" style="text-align: center;">
+                    <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+                  </div>
+            </section>
+
+            <!-- 前後ナビゲーション -->
+            <div class="manual-navigation">
+                <a href="/howto/posts/manual/wix/wix4/index.html" class="nav-prev">
+                    <span class="nav-label">前のマニュアル</span>
+                    <span class="nav-title">04. ページ複製と設定（SEO含む）</span>
+                </a>
+                <a href="#" class="nav-next">
+                    <span class="nav-label">次のマニュアル</span>
+                    <span class="nav-title">06. リンク設定の変更方法</span>
+                </a>
+            </div>
+
+            <!-- 関連記事セクション -->
+            <section class="related-articles fade-in">
+                <h3 class="article-section-title">関連記事</h3>
+                <div class="related-articles-grid">
+                    <a href="/howto/posts/manual/wix3/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/wix/wix3-thumb.webp" alt="テキストやフレームパーツの再利用・編集 サムネイル">
+                        </div>
+                        <h4 class="related-article-title">03. テキストやフレームパーツの再利用・編集</h4>
+                    </a>
+                    <a href="/howto/posts/manual/wix4/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/wix/wix4-thumb.webp" alt="ページ複製と設定 サムネイル">
+                        </div>
+                        <h4 class="related-article-title">04. ページ複製と設定（SEO含む）</h4>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- プロフィールセクション -->
+            <div class="divider"></div>
+            <div id="profile-container" class="fade-in"></div>
+            
+            <div class="back-to-manual">
+                <a href="/howto/allpost/manual/" class="back-link">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">マニュアル一覧へ戻る</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <script src="/assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // スクロールアニメーション
+        const fadeElements = document.querySelectorAll('.article-section, .cta-box, .related-articles, .related-blog-posts, .manual-navigation, .back-to-manual');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        // fade-inクラスを追加
+        fadeElements.forEach(element => {
+          element.classList.add('fade-in');
+          observer.observe(element);
+        });
+
+        // スムーススクロール（目次クリック時）
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = this.getAttribute('href').substring(1);
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+
+        // スクロール中の目次アクティブ表示
+        const sections = document.querySelectorAll('.article-section');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= (sectionTop - 300)) {
+              current = section.getAttribute('id');
+            }
+          });
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+        
+        // プロフィール情報をフェッチして挿入する関数
+        function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('プロフィール情報の読み込みに失敗しました。');
+              }
+              return response.text();
+            })
+            .then(html => {
+              profileContainer.innerHTML = html;
+            })
+            .catch(error => {
+              console.error('プロフィール情報の挿入エラー:', error);
+            });
+        }
+        
+        // プロフィール情報を読み込み
+        insertProfileContent();
+      });
+    </script>
+</body>
+</html>

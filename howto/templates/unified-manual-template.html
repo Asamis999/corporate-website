@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>マニュアルタイトル | Howto BOX</title>
+    <meta name="description" content="メタ説明文がここに入ります">
+    <meta name="keywords" content="キーワード1,キーワード2,キーワード3">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="howto-manual">
+    <!-- ヘッダー読み込み -->
+    <div id="header-container"></div>
+
+    <main class="article-container">
+        <div class="container">
+            <!-- パンくずリスト -->
+            <div class="breadcrumb">
+                <a href="/index.html">ホーム</a> &gt; 
+                <a href="/howto/index.html">ノウハウ記事</a> &gt; 
+                <a href="/howto/posts/manual/index.html">マニュアル</a> &gt; 
+                <span>マニュアルタイトル</span>
+            </div>
+
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <h1 class="article-title">マニュアルタイトル</h1>
+                <div class="article-meta">公開日: 2025年X月X日 | 最終更新: 2025年X月X日</div>
+                <div class="article-tag-list">
+                    <span class="article-tag">マニュアル</span>
+                    <span class="article-tag">タグ2</span>
+                </div>
+            </header>
+
+            <!-- メイン画像 -->
+            <div class="article-main-image-container fade-in">
+                <img src="/assets/images/manual/[manual-id]/[manual-id]-main.png" alt="マニュアルメイン画像" class="article-main-image">
+            </div>
+
+            <!-- 目次 -->
+            <div class="toc-container">
+                <div class="toc-title">目次</div>
+                <ul class="toc-list">
+                    <li><a href="#section1">セクション1</a></li>
+                    <li><a href="#section2">セクション2</a></li>
+                    <li><a href="#section3">セクション3</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1 -->
+            <section id="section1" class="article-section fade-in">
+                <h2 class="article-section-title">セクション1</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/[manual-id]/[manual-id]-section1.png" alt="セクション1の画像" class="article-image">
+                </div>
+                <p class="article-p">セクション1の内容がここに入ります。</p>
+            </section>
+
+            <!-- セクション2 -->
+            <section id="section2" class="article-section fade-in">
+                <h2 class="article-section-title">セクション2</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/[manual-id]/[manual-id]-section2.png" alt="セクション2の画像" class="article-image">
+                </div>
+                <p class="article-p">セクション2の内容がここに入ります。</p>
+            </section>
+
+            <!-- セクション3 -->
+            <section id="section3" class="article-section fade-in">
+                <h2 class="article-section-title">セクション3</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/[manual-id]/[manual-id]-section3.png" alt="セクション3の画像" class="article-image">
+                </div>
+                <p class="article-p">セクション3の内容がここに入ります。</p>
+            </section>
+
+            <!-- ステップナビゲーション -->
+            <div class="step-navigation fade-in">
+                <a href="#" class="prev-step">
+                    <span class="nav-icon">&lt;</span>
+                    <span class="nav-title">前のステップ</span>
+                </a>
+                <a href="/howto/posts/manual/index.html" class="all-steps">すべてのマニュアルを見る</a>
+                <a href="#" class="next-step">
+                    <span class="nav-title">次のステップ</span>
+                    <span class="nav-icon">&gt;</span>
+                </a>
+            </div>
+
+            <!-- 関連記事セクション -->
+            <section class="related-articles fade-in">
+                <h3 class="article-section-title">関連記事</h3>
+                <div class="related-articles-grid">
+                    <a href="#" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/related-manual1/related-manual1-main.png" alt="関連マニュアル1 サムネイル">
+                        </div>
+                        <h4 class="related-article-title">関連マニュアル1のタイトル</h4>
+                    </a>
+                    <a href="#" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/manual/related-manual2/related-manual2-main.png" alt="関連マニュアル2 サムネイル">
+                        </div>
+                        <h4 class="related-article-title">関連マニュアル2のタイトル</h4>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- プロフィールセクション -->
+            <div class="divider"></div>
+            <div id="profile-container" class="fade-in"></div>
+        </div>
+    </main>
+
+    <!-- フッター読み込み -->
+    <div id="footer-container"></div>
+
+    <!-- 共通JS -->
+    <script>
+        // ヘッダーとフッターの読み込み
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/includes/header-include.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+                
+            fetch('/includes/footer-include.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+                
+            fetch('/assets/includes/author-profile.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('profile-container').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

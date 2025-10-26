@@ -1,0 +1,392 @@
+/*
+ * 制作事例ページ専用スタイル
+ */
+
+
+/* フィルタータブ */
+.filter-section {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 2px solid #6c757d; /* セカンダリーカラーに変更 */
+  border-radius: 30px;
+  font-weight: 500;
+  color: #6c757d; /* セカンダリーカラーに変更 */
+  cursor: pointer;
+  transition: all var(--transition-duration);
+}
+
+.filter-tab:hover {
+  background-color: #6c757d; /* セカンダリーカラーに変更 */
+  color: white;
+}
+
+.filter-tab.active {
+  background-color: #ec4949; /* プライマリーカラーに変更 */
+  border-color: #ec4949; /* プライマリーカラーに変更 */
+  color: white;
+}
+
+/* 制作事例グリッド */
+.works-grid-section {
+  padding: 60px 0;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.work-item {
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.work-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.work-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-duration);
+}
+
+.work-item:hover .work-image img {
+  transform: scale(1.05);
+}
+
+/* カテゴリーバッジのスタイル */
+.work-category {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 5px 15px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  z-index: 2;
+}
+
+/* テンプレートバッジのスタイル調整 */
+.work-image .badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.work-content {
+  padding: 20px;
+}
+
+.work-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.work-summary {
+  color: var(--color-text-light);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: 500;
+  transition: all var(--transition-duration);
+}
+
+.pagination a {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.pagination a:hover {
+  background-color: var(--color-bg-light);
+}
+
+.pagination .current {
+  background-color: #ec4949; /* プライマリーカラーに変更 */
+  color: white;
+}
+
+.pagination .next,
+.pagination .prev {
+  width: auto;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+/* CTA ブロック */
+.cta-block {
+  background-color: var(--color-bg-light);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* 制作事例詳細ページ */
+.work-detail-header {
+  padding: 50px 0;
+}
+
+.work-detail-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.work-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  color: var(--color-text-light);
+}
+
+.work-detail-category {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.work-detail-date {
+  font-size: 1.4rem;
+}
+
+.work-detail-image {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* スマホ表示時は横幅100%に調整 */
+@media screen and (max-width: 767px) {
+  .work-detail-image {
+    max-width: 100%;
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.work-detail-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.work-detail-content {
+  margin-bottom: 50px;
+}
+
+.work-detail-section {
+  margin-bottom: 40px;
+}
+
+.work-detail-section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.work-detail-text {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.work-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  background-color: var(--color-bg-light);
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.work-stat-item {
+  text-align: center;
+}
+
+.work-stat-number {
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.work-stat-label {
+  font-size: 1.6rem;
+  color: var(--color-text-light);
+}
+
+.work-detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.gallery-item {
+  margin-bottom: 25px;
+}
+
+.gallery-image-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+}
+
+.gallery-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-duration);
+}
+
+.gallery-item:hover .gallery-image-container img {
+  transform: scale(1.02);
+}
+
+.gallery-caption {
+  color: var(--color-text);
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 0 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.related-works {
+  padding: 60px 0;
+  background-color: var(--color-bg-light);
+}
+
+.related-works .section-title {
+  margin-bottom: 30px;
+}
+
+.related-works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* レスポンシブスタイル */
+@media (max-width: 992px) {
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .work-detail-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 40px 0;
+  }
+  
+  .page-title {
+    font-size: 2.8rem;
+  }
+  
+  .page-description {
+    font-size: 1.6rem;
+  }
+  
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-tabs {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .work-detail-title {
+    font-size: 2.4rem;
+  }
+  
+  .work-detail-section-title {
+    font-size: 2rem;
+  }
+  
+  .work-stat-number {
+    font-size: 2.8rem;
+  }
+  
+  .related-works-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,189 @@
+<!-- 
+  共通UIコンポーネントテンプレート
+  このファイルには、サイト全体で使用される共通UIコンポーネントの
+  HTMLテンプレート構造が含まれています。
+  各コンポーネントはコメントで区切られ、必要に応じて使用してください。
+-->
+
+<!-- 1. ヒーローセクション -->
+<template id="template-hero-section">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">ページタイトル</h1>
+      <p class="page-description">ページの簡単な説明文をここに入力します。<br>必要に応じて2行に分けることも可能です。</p>
+    </div>
+  </section>
+</template>
+
+<!-- 2. CTAボタンセクション -->
+<template id="template-cta-section">
+  <section class="cta-block" style="background-color: #f8f9fa; padding: 60px 0 80px;">
+    <div class="container text-center">
+      <h2 style="text-align: center; margin-bottom: 25px;">プロジェクトについて、ご質問がありませんか？</h2>
+      <p style="text-align: center;">さらに詳しい情報や個別のご相談も承っております。<br>まずはお気軽にお問い合わせください。</p>
+      <div class="text-center mt-40">
+        <div style="max-width: 300px; margin: 0 auto;">
+          <a href="#" class="btn btn-primary cta-button">お見積り依頼</a>
+        </div>
+        <p class="small-note text-center mt-10">無料相談・お問い合わせもこちら</p>
+      </div>
+    </div>
+  </section>
+</template>
+
+<!-- 3. フィルタータブ -->
+<template id="template-filter-tabs">
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-category="all">すべて</button>
+        <button class="filter-tab" data-category="category1">カテゴリー1</button>
+        <button class="filter-tab" data-category="category2">カテゴリー2</button>
+        <button class="filter-tab" data-category="category3">カテゴリー3</button>
+      </div>
+    </div>
+  </section>
+</template>
+
+<!-- 4. スクロールバーナビゲーション -->
+<template id="template-scroll-nav">
+  <nav class="scroll-nav">
+    <div class="container">
+      <div class="scroll-nav-container">
+        <a href="#section1" class="scroll-nav-item active">セクション1</a>
+        <a href="#section2" class="scroll-nav-item">セクション2</a>
+        <a href="#section3" class="scroll-nav-item">セクション3</a>
+        <a href="#section4" class="scroll-nav-item">セクション4</a>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<!-- 5. バッジ付きカード -->
+<template id="template-card-with-badge">
+  <div class="modern-card popular">
+    <div class="popular-badge">人気No.1</div>
+    <div class="modern-card-header">
+      <h3 class="modern-card-title">カードタイトル</h3>
+      <p class="modern-card-description">カードの説明文をここに記入します。</p>
+    </div>
+    <div class="modern-card-body">
+      <!-- カード本文 -->
+    </div>
+  </div>
+</template>
+
+<!-- 6. 汎用バッジ -->
+<template id="template-badges">
+  <span class="badge badge-primary">プライマリ</span>
+  <span class="badge badge-secondary">セカンダリ</span>
+  <span class="badge badge-accent">アクセント</span>
+  <span class="badge badge-success">成功</span>
+  <span class="badge badge-info">情報</span>
+  <span class="badge badge-warning">警告</span>
+  <span class="badge badge-danger">危険</span>
+  <span class="badge badge-light">ライト</span>
+  <span class="badge badge-dark">ダーク</span>
+</template>
+
+<!-- 7. 通常ボタン -->
+<template id="template-buttons">
+  <!-- 標準ボタン -->
+  <div class="button-examples">
+    <h3>標準ボタン</h3>
+    <div class="button-row">
+      <a href="#" class="btn btn-primary">プライマリボタン</a>
+      <a href="#" class="btn btn-secondary">セカンダリボタン</a>
+    </div>
+  </div>
+  
+  <!-- アウトラインボタン -->
+  <div class="button-examples">
+    <h3>アウトラインボタン</h3>
+    <div class="button-row">
+      <a href="#" class="btn btn-outline-primary">アウトラインプライマリ</a>
+      <a href="#" class="btn btn-outline-secondary">アウトラインセカンダリ</a>
+    </div>
+  </div>
+  
+  <!-- サイズバリエーション -->
+  <div class="button-examples">
+    <h3>サイズバリエーション</h3>
+    <div class="button-row">
+      <a href="#" class="btn btn-primary btn-sm">小サイズ</a>
+      <a href="#" class="btn btn-primary">標準サイズ</a>
+      <a href="#" class="btn btn-primary btn-lg">大サイズ</a>
+    </div>
+  </div>
+  
+  <!-- アイコン付きボタン -->
+  <div class="button-examples">
+    <h3>アイコン付きボタン</h3>
+    <div class="button-row">
+      <a href="#" class="btn btn-outline-primary">すべての記事を見る <i class="fas fa-angle-right"></i></a>
+      <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> ダウンロード</a>
+    </div>
+  </div>
+</template>
+
+<!-- 8. よくある質問（FAQ） -->
+<template id="template-faq">
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>質問1のタイトル</h3>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>質問1の回答内容をここに記述します。</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>質問2のタイトル</h3>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>質問2の回答内容をここに記述します。</p>
+          </div>
+        </div>
+        
+        <!-- 必要に応じてfaq-itemを追加 -->
+      </div>
+    </div>
+  </section>
+</template>
+
+<!-- FAQ用JavaScriptコード -->
+<script>
+  // FAQアコーディオンの機能を実装するスクリプト
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // 現在の項目の開閉状態を切り替え
+        item.classList.toggle('active');
+        
+        // 必要に応じて、他の開いている項目を閉じる場合はコメントを解除
+        // faqItems.forEach(otherItem => {
+        //   if (otherItem !== item) {
+        //     otherItem.classList.remove('active');
+        //   }
+        // });
+      });
+    });
+  }
+  
+  // ページ読み込み完了時にFAQ機能を初期化
+  document.addEventListener('DOMContentLoaded', initFAQ);
+</script>

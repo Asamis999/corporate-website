@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記 | 合同会社A</title>
+    <meta name="description" content="合同会社Aの特定商取引法に基づく表記です。サービスの提供条件や事業者情報を掲載しています。">
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/modal.css">
+    <link rel="stylesheet" href="/assets/css/footer-legal.css">
+    <link rel="stylesheet" href="/assets/css/legal-pages.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <div id="header-include"></div>
+    
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- パンくずリスト -->
+        <div id="breadcrumb-container">
+            <div class="container">
+                <div id="breadcrumb-include"></div>
+            </div>
+        </div>
+        
+        <!-- 特定商取引法セクション -->
+        <section class="section legal-section">
+            <div class="container">
+                <h1 class="section-title">特定商取引法に基づく表記</h1>
+                
+                <div class="legal-content">
+                    <table class="legal-table">
+                        <tr>
+                            <th>販売事業者</th>
+                            <td>合同会社A</td>
+                        </tr>
+                        <tr>
+                            <th>代表者</th>
+                            <td>竹下 亜紗美</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>〒425-0033 静岡県焼津市小川新町2丁目12－12</td>
+                        </tr>
+                        <tr>
+                            <th>電話番号</th>
+                            <td>050-3631-7273（受付時間：平日10:00～18:00）</td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス</th>
+                            <td>create@a-inc.info</td>
+                        </tr>
+                        <tr>
+                            <th>URL</th>
+                            <td>https://www.a-inc.info</td>
+                        </tr>
+                        <tr>
+                            <th>商品の販売価格</th>
+                            <td>各商品・サービスページに記載</td>
+                        </tr>
+                        <tr>
+                            <th>商品以外の必要費用</th>
+                            <td>
+                                ・消費税<br>
+                                ・送料（必要な場合は各商品ページに記載）<br>
+                                ・決済手数料（クレジットカード決済の場合は無料）<br>
+                                ・ドメイン取得費用やサーバー費用（ウェブサイト制作の場合、別途ご案内）
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>支払方法</th>
+                            <td>
+                                ・銀行振込（前払い）<br>
+                                ・クレジットカード決済（VISA、MasterCard、JCB、American Express、Diners Club）<br>
+                                ・その他、個別契約によるお支払い方法
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>支払時期</th>
+                            <td>
+                                ・銀行振込の場合：注文確認後、指定の銀行口座へお振込みください。<br>
+                                ・クレジットカード決済の場合：注文時に決済されます。<br>
+                                ・その他の支払い方法の場合：個別にご案内いたします。
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>商品の引渡し時期</th>
+                            <td>
+                                ・制作物の場合：お打ち合わせ後、納期を個別に設定します。<br>
+                                ・定期的なサービスの場合：契約開始日より提供開始します。
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>返品・交換・キャンセルについて</th>
+                            <td>
+                                デジタルコンテンツや制作物等の性質上、原則として返品・交換・キャンセルはできません。<br>
+                                ただし、制作物に関しては契約内容に沿った修正対応を行います。<br>
+                                なお、契約の解除・キャンセルが生じた場合は、進行状況に応じた費用が発生することがあります。<br>
+                                詳細は個別の契約書類をご確認ください。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <div id="footer-include"></div>
+
+    <!-- お問い合わせモーダル -->
+    <div id="contact-modal-include"></div>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/template.js"></script>
+    <script src="/assets/js/modal.js"></script>
+    <script src="/assets/js/contact-modal.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // template.jsのインクルード機能を使用
+            if (typeof loadComponents === 'function') {
+                loadComponents({
+                    'header': '#header-include',
+                    'footer': '#footer-include',
+                    'breadcrumb-legal': '#breadcrumb-include',
+                    'contact-modal': '#contact-modal-include'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

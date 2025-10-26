@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>すべての記事 | Howto BOX | EC物販に強い！制作・企画・販売会社</title>
+    <meta name="description" content="EC物販に関する様々なノウハウやヒント、実践的な情報をまとめた記事一覧です。Shopify、楽天、Amazonなどのサイト運営から集客施策まで、役立つ情報を発信しています。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/template.css">
+    <link rel="stylesheet" href="../../assets/css/howto.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* 記事一覧ページ専用スタイル */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .article-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .article-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .article-card:hover .article-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .article-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .article-card-tag {
+            background-color: #f0f0f0;
+            color: #666;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .article-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #333;
+        }
+        
+        .article-card-excerpt {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .article-card-meta {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .filter-container {
+            margin-bottom: 30px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-tag {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-tag:hover, .filter-tag.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .no-articles {
+            text-align: center;
+            padding: 50px 0;
+            color: #888;
+            font-style: italic;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 5px;
+        }
+        
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .pagination-item:hover, .pagination-item.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .articles-loading {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        /* カテゴリナビゲーション */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .category-nav-item {
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .category-nav-item:hover,
+        .category-nav-item.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+        }
+    </style>
+    
+    <script src="../../assets/js/template.js" defer></script>
+</head>
+<body class="howto">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="allpost"></div>
+    
+    <main class="main-content">
+        <!-- ヒーローセクション -->
+        <section class="hero-section hero-sm">
+            <div class="container">
+                <h1 class="hero-title">すべての記事一覧</h1>
+                <p class="hero-subtitle">EC物販・マーケティング・Webデザインに関する実践的な情報を発信しています</p>
+            </div>
+        </section>
+        
+        <!-- 記事一覧セクション -->
+        <section class="articles-section">
+            <div class="container">
+                <!-- カテゴリナビゲーション -->
+                <nav class="category-nav">
+                    <a href="/howto/posts/" class="category-nav-item active">すべて</a>
+                    <a href="/howto/posts/article/" class="category-nav-item">ノウハウ記事</a>
+                    <a href="/howto/posts/manual/" class="category-nav-item">マニュアル</a>
+                    <a href="/howto/allpost/" class="category-nav-item">(旧パス)</a>
+                </nav>
+                
+                <!-- カテゴリーフィルターは削除（タブで代替） -->
+                
+                <!-- タグフィルター -->
+                <div class="filter-container">
+                    <h3>タグ</h3>
+                    <div class="filter-options" id="tag-filters">
+                        <span class="filter-tag active" data-filter="all">すべて</span>
+                        <span class="filter-tag" data-filter="Web集客">Web集客</span>
+                        <span class="filter-tag" data-filter="マーケティング">マーケティング</span>
+                        <span class="filter-tag" data-filter="クリエイティブ">クリエイティブ</span>
+                        <span class="filter-tag" data-filter="ECサイト">ECサイト</span>
+                        <span class="filter-tag" data-filter="LP改善">LP改善</span>
+                    </div>
+                </div>
+                
+                <!-- 記事読み込み中表示 -->
+                <div id="articles-loading" class="articles-loading">
+                    <i class="fas fa-spinner fa-spin fa-3x"></i>
+                    <p>記事を読み込んでいます...</p>
+                </div>
+                
+                <!-- 記事が見つからない場合 -->
+                <div id="no-articles" class="no-articles" style="display: none;">
+                    <p>該当する記事が見つかりませんでした。</p>
+                </div>
+                
+                <!-- 記事グリッド（JavaScriptで動的に生成） -->
+                <div id="articles-grid" class="articles-grid">
+                    <!-- 記事カードはJavaScriptで動的に追加 -->
+                </div>
+                
+                <!-- ページネーション（将来的な拡張用） -->
+                <div class="pagination" id="pagination">
+                    <!-- ページネーションはJavaScriptで動的に追加 -->
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/howto.js"></script>
+    
+    <!-- 記事一覧自動生成スクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 設定
+            const articlesPerPage = 9; // 1ページあたりの記事数
+            let currentPage = 1;
+            let currentFilter = 'all';
+            let allArticles = [];
+            
+            // DOM要素
+            const articlesGrid = document.getElementById('articles-grid');
+            const loadingElement = document.getElementById('articles-loading');
+            const noArticlesElement = document.getElementById('no-articles');
+            const paginationElement = document.getElementById('pagination');
+            const filterButtons = document.querySelectorAll('.filter-tag');
+            
+            // 記事情報を取得する関数
+            async function fetchArticles() {
+                try {
+                    // API実装がない場合、ディレクトリ構造から記事を取得
+                    // 注: 実運用時はAPIを使うことを推奨
+                    
+                    // 記事データを格納する配列
+                    const articles = [];
+                    
+                    // 記事ソースの定義
+                    const articleSources = [
+                        // 既存の記事ディレクトリ（article1-6）
+                        {
+                            type: 'numbered',
+                            basePath: '/howto/posts/article/',
+                            pattern: 'article',
+                            count: 6,
+                            category: 'article'
+                        },
+                        // manualディレクトリの記事
+                        {
+                            type: 'manual',
+                            paths: [
+                                '/howto/posts/manual/wix1/',
+                                '/howto/posts/manual/wix2/',
+                                '/howto/posts/manual/wix3/',
+                                '/howto/posts/manual/wix4/',
+                                '/howto/posts/manual/wix5/',
+                                '/howto/posts/manual/wix6/',
+                                '/howto/posts/manual/wix7/',
+                                '/howto/posts/manual/wix8/',
+                                // 他のmanual記事パスもここに追加
+                            ],
+                            category: 'manual'
+                        }
+                    ];
+                    
+                    // 各記事ソースから記事を取得
+                    for (const source of articleSources) {
+                        if (source.type === 'numbered') {
+                            // 連番形式の記事取得（article1, article2, ...）
+                            for (let i = 1; i <= source.count; i++) {
+                                const articleId = `${source.pattern}${i}`;
+                                const articleUrl = `${source.basePath}${articleId}/`;
+                                
+                                try {
+                                    const articleInfo = await fetchArticleInfo(articleUrl);
+                                    if (articleInfo) {
+                                        articles.push({
+                                            ...articleInfo,
+                                            id: `article-${i}`,
+                                            url: articleUrl,
+                                            category: source.category
+                                        });
+                                    }
+                                } catch (error) {
+                                    console.error(`記事${articleId}の情報取得に失敗しました:`, error);
+                                }
+                            }
+                        } else if (source.type === 'manual') {
+                            // 固定パスの記事取得（manual配下など）
+                            for (const path of source.paths) {
+                                try {
+                                    const articleInfo = await fetchArticleInfo(path);
+                                    if (articleInfo) {
+                                        // パスからIDを生成（例：/howto/posts/manual/base-operations/ → manual-base-operations）
+                                        const idParts = path.split('/');
+                                        const id = idParts.slice(-3, -1).join('-'); // 最後の3要素から2要素を取得
+                                        
+                                        articles.push({
+                                            ...articleInfo,
+                                            id: id,
+                                            url: path,
+                                            category: source.category
+                                        });
+                                    }
+                                } catch (error) {
+                                    console.error(`記事${path}の情報取得に失敗しました:`, error);
+                                }
+                            }
+                        }
+                    }
+                    
+                    // 記事情報を取得する共通関数
+                    async function fetchArticleInfo(articleUrl) {
+                        console.log('記事取得開始:', articleUrl);
+                        // まずは現在の正しいパスでチェック
+                        try {
+                            let response = await fetch(`${articleUrl}index.html`);
+                            
+                            // 見つからない場合は古いパス構造もチェック（移行期間中の対応）
+                            if (!response.ok) {
+                                console.log('新パスで見つからないため古いパスで再試行:', articleUrl);
+                                const oldStyleUrl = articleUrl.replace('/posts/', '/');
+                                response = await fetch(`${oldStyleUrl}index.html`);
+                                
+                                // それでも見つからない場合はnullを返す
+                                if (!response.ok) {
+                                    console.log('記事が見つかりません:', articleUrl);
+                                    return null;
+                                }
+                            }
+                            
+                            console.log('記事ファイル取得成功:', articleUrl);
+                            const html = await response.text();
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            
+                            // 記事情報を抽出
+                            const title = doc.querySelector('.article-title')?.textContent || 'タイトルなし';
+                            const description = doc.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+                            const date = doc.querySelector('.article-meta')?.textContent.match(/\d{4}年\d{1,2}月\d{1,2}日/)?.[0] || '';
+                            
+                            // サムネイル画像を取得
+                            let thumbnail = '';
+                            const articleImage = doc.querySelector('.article-image');
+                            if (articleImage) {
+                                thumbnail = articleImage.getAttribute('src');
+                            } else {
+                                // デフォルトサムネイル
+                                thumbnail = `/assets/images/howto/default-thumb.jpg`;
+                            }
+                            
+                            // タグを取得
+                            const tags = [];
+                            doc.querySelectorAll('.article-tag').forEach(tag => {
+                                tags.push(tag.textContent);
+                            });
+                            
+                            return {
+                                title,
+                                description,
+                                date,
+                                thumbnail,
+                                tags
+                            };
+                        } catch (error) {
+                            console.error('記事情報の抽出に失敗しました:', articleUrl, error);
+                            return null;
+                        }
+                    }
+                    
+                    try {
+                        // 日付の新しい順にソート
+                        articles.sort((a, b) => {
+                            const dateA = a.date ? new Date(a.date.replace(/年|月/g, '/').replace(/日/g, '')) : new Date(0);
+                            const dateB = b.date ? new Date(b.date.replace(/年|月/g, '/').replace(/日/g, '')) : new Date(0);
+                            return dateB - dateA;
+                        });
+                        
+                        return articles;
+                    } catch (error) {
+                        console.error('記事の取得に失敗しました:', error);
+                        return [];
+                    }
+                } catch (error) {
+                    console.error('記事取得処理全体のエラー:', error);
+                    return [];
+                }
+            }
+            
+            // 記事カードを作成する関数
+            function createArticleCard(article) {
+                // カテゴリラベルを追加
+                const categoryLabel = article.category === 'manual' ? 
+                    '<span class="article-card-tag" style="background-color: #e3f2fd; color: #1976d2;">マニュアル</span>' : 
+                    '<span class="article-card-tag" style="background-color: #fce4ec; color: #c2185b;">ノウハウ</span>';
+                
+                return `
+                    <a href="${article.url}" class="article-card">
+                        <div class="article-card-image">
+                            <img src="${article.thumbnail}" alt="${article.title}">
+                        </div>
+                        <div class="article-card-content">
+                            <div class="article-card-tags">
+                                ${categoryLabel}
+                                ${article.tags.slice(0, 2).map(tag => `<span class="article-card-tag">${tag}</span>`).join('')}
+                            </div>
+                            <h3 class="article-card-title">${article.title}</h3>
+                            <p class="article-card-excerpt">${article.description.substring(0, 100)}${article.description.length > 100 ? '...' : ''}</p>
+                            <div class="article-card-meta">
+                                <span>${article.date}</span>
+                                <span><i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }
+            
+            // 記事を表示する関数
+            function displayArticles(articles, page = 1, categoryFilter = 'all', tagFilter = 'all') {
+                // フィルタリング
+                let filteredArticles = articles;
+                
+                // カテゴリーフィルタリング
+                if (categoryFilter !== 'all') {
+                    filteredArticles = filteredArticles.filter(article => {
+                        return article.category === categoryFilter;
+                    });
+                }
+                
+                // タグフィルタリング
+                if (tagFilter !== 'all') {
+                    filteredArticles = filteredArticles.filter(article => {
+                        return article.tags.some(tag => tag.includes(tagFilter));
+                    });
+                }
+                
+                // カテゴリーフィルタリング - URLに基づく
+                const currentPath = window.location.pathname;
+                if (currentPath.includes('/allpost/article/')) {
+                    filteredArticles = filteredArticles.filter(article => article.category === 'article');
+                } else if (currentPath.includes('/allpost/manual/')) {
+                    filteredArticles = filteredArticles.filter(article => article.category === 'manual');
+                }
+                
+                // ページング
+                const startIndex = (page - 1) * articlesPerPage;
+                const endIndex = startIndex + articlesPerPage;
+                const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+                
+                // 記事がない場合
+                if (filteredArticles.length === 0) {
+                    articlesGrid.innerHTML = '';
+                    noArticlesElement.style.display = 'block';
+                    paginationElement.innerHTML = '';
+                    return;
+                }
+                
+                // 記事表示
+                noArticlesElement.style.display = 'none';
+                articlesGrid.innerHTML = paginatedArticles.map(article => createArticleCard(article)).join('');
+                
+                // ページネーション生成
+                const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+                createPagination(totalPages, page);
+            }
+            
+            // ページネーションを作成する関数
+            function createPagination(totalPages, currentPage) {
+                if (totalPages <= 1) {
+                    paginationElement.innerHTML = '';
+                    return;
+                }
+                
+                let paginationHTML = '';
+                
+                // 前のページ
+                if (currentPage > 1) {
+                    paginationHTML += `<div class="pagination-item" data-page="${currentPage - 1}">
+                                        <i class="fas fa-chevron-left"></i>
+                                      </div>`;
+                }
+                
+                // ページ番号
+                for (let i = 1; i <= totalPages; i++) {
+                    if (
+                        i === 1 ||                     // 最初のページ
+                        i === totalPages ||            // 最後のページ
+                        (i >= currentPage - 1 && i <= currentPage + 1) // 現在のページの周辺
+                    ) {
+                        paginationHTML += `<div class="pagination-item ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</div>`;
+                    } else if (i === currentPage - 2 || i === currentPage + 2) {
+                        paginationHTML += `<div class="pagination-item">...</div>`;
+                    }
+                }
+                
+                // 次のページ
+                if (currentPage < totalPages) {
+                    paginationHTML += `<div class="pagination-item" data-page="${currentPage + 1}">
+                                        <i class="fas fa-chevron-right"></i>
+                                      </div>`;
+                }
+                
+                paginationElement.innerHTML = paginationHTML;
+                
+                // ページネーションクリックイベント
+                document.querySelectorAll('.pagination-item[data-page]').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const page = parseInt(this.dataset.page);
+                        currentPage = page;
+                        displayArticles(allArticles, currentPage, currentFilter);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                });
+            }
+            
+            // 現在のフィルター状態
+            let currentCategoryFilter = 'all';
+            let currentTagFilter = 'all';
+            
+            // カテゴリーフィルターボタンのイベント設定
+            document.querySelectorAll('#category-filters .filter-tag').forEach(button => {
+                button.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    document.querySelectorAll('#category-filters .filter-tag').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // フィルター値の取得
+                    currentCategoryFilter = this.getAttribute('data-filter');
+                    currentPage = 1; // ページをリセット
+                    
+                    // フィルタリングした記事を表示
+                    displayArticles(allArticles, currentPage, currentCategoryFilter, currentTagFilter);
+                });
+            });
+            
+            // タグフィルターボタンのイベント設定
+            document.querySelectorAll('#tag-filters .filter-tag').forEach(button => {
+                button.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    document.querySelectorAll('#tag-filters .filter-tag').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // フィルター値の取得
+                    currentTagFilter = this.getAttribute('data-filter');
+                    currentPage = 1; // ページをリセット
+                    
+                    // フィルタリングした記事を表示
+                    displayArticles(allArticles, currentPage, currentCategoryFilter, currentTagFilter);
+                });
+            });
+            
+            // カテゴリナビゲーションのアクティブ状態を設定
+            function setActiveCategoryNav() {
+                // カテゴリタブが初期化されたら、「すべて」をアクティブにする
+                document.querySelectorAll('.category-nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.getElementById('category-all').classList.add('active');
+            }
+            
+            // カテゴリタブのクリックイベント設定
+            document.querySelectorAll('.category-nav-item').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // タブのアクティブ状態を切り替え
+                    document.querySelectorAll('.category-nav-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // カテゴリフィルター値を更新
+                    currentCategoryFilter = this.getAttribute('data-category');
+                    currentPage = 1; // ページをリセット
+                    
+                    // 記事をフィルタリングして表示
+                    displayArticles(allArticles, currentPage, currentCategoryFilter, currentTagFilter);
+                });
+            });
+            
+            // 記事を取得して表示
+            async function initializeArticles() {
+                // ローディング表示
+                loadingElement.style.display = 'block';
+                articlesGrid.style.display = 'none';
+                
+                // カテゴリナビアクティブ設定
+                setActiveCategoryNav();
+                
+                // 記事取得
+                allArticles = await fetchArticles();
+                
+                // ローディング非表示
+                loadingElement.style.display = 'none';
+                articlesGrid.style.display = 'grid';
+                
+                // 記事表示
+                displayArticles(allArticles, currentPage, currentCategoryFilter, currentTagFilter);
+            }
+            
+            // 初期化
+            initializeArticles();
+        });
+    </script>
+</body>
+</html>

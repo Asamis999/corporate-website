@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LP制作・集客代行サービス | 販売視点で「売れるLP」を設計・改善 | 合同会社A</title>
+    <meta name="description" content="デザイン会社ではなく、販売視点で「売れるLP」を設計・改善。EC運営の実績があるチームだからこそ、見た目だけでなく本当に売れるLP構成、仮説検証サイクル、CRM活用まで一気通貫でサポートします。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/modal.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- LP Service用カスタムスタイル -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+    <script src="/assets/js/modal.js" defer></script>
+    <script src="/assets/js/contact-modal.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="carousel.js" defer></script>
+</head>
+<body>
+    
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero hero-fullscreen">
+        <div class="hero-background">
+            <!-- PC用画像 -->
+            <div class="hero-image-pc">
+                <div class="image-placeholder" data-size="推奨サイズ: 1920×1080px">
+                    <!-- 画像: FV画像（PC用 1920×1080px） -->
+                </div>
+            </div>
+            
+            <!-- スマホ用画像 -->
+            <div class="hero-image-sp">
+                <div class="image-placeholder" data-size="推奨サイズ: 750×1334px">
+                    <!-- 画像: FV画像（スマホ用 750×1334px） -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTAボタン -->
+        <div class="hero-cta-overlay">
+            <button class="cta-button cta-primary cta-hero" onclick="openContactModal()">
+                <span>まずは気軽に相談</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 問題提起セクション -->
+    <section id="problem" class="section-alt-bg">
+        <div class="container">
+            <h2 class="section-title">こんなお悩み、ありませんか?</h2>
+            
+            <div class="problem-grid-simple">
+                <div class="problem-card">
+                    <div class="problem-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                            <!-- 画像: CVRが上がらないイメージ（600×400px） -->
+                        </div>
+                    </div>
+                    <div class="problem-text">
+                        <h3>デザインは綺麗だが、CVRが上がらない</h3>
+                        <p>見た目は良いのに成約率が思うように伸びない。販売視点が欠けたデザインでは、売上につながりません。</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                            <!-- 画像: 改善サイクルのイメージ（600×400px） -->
+                        </div>
+                    </div>
+                    <div class="problem-text">
+                        <h3>「作って終わり」で改善提案がない</h3>
+                        <p>公開後の数値分析やA/Bテストのノウハウがなく、継続的な改善ができていない状態が続いています。</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                            <!-- 画像: 連携イメージ（600×400px） -->
+                        </div>
+                    </div>
+                    <div class="problem-text">
+                        <h3>広告運用やCRM施策との連携が取れていない</h3>
+                        <p>LP単体での施策に留まり、広告やCRMとの一気通貫した戦略設計ができていません。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="problem-conclusion">
+                <p class="section-subtitle">
+                    LPは「作ること」がゴールではありません。<br>
+                    <strong>「売上を上げること」</strong>がゴールです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 他社との違いセクション -->
+    <section id="difference">
+        <div class="container">
+            <h2 class="section-title">一般的なデザイン会社との違い</h2>
+            <p class="section-subtitle">
+                私たちは「デザイン会社」ではなく、「販売視点のチーム」です。
+            </p>
+            <div class="comparison-table">
+                <div class="comparison-card design-company">
+                    <h3>一般的なデザイン会社</h3>
+                    <div class="comparison-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 500×300px">
+                            <!-- 画像: 一般的な制作の例（500×300px） -->
+                        </div>
+                    </div>
+                    <ul>
+                        <li>見た目の美しさが最優先</li>
+                        <li>デザイナー視点の制作</li>
+                        <li>納品して終了</li>
+                        <li>販売実績がない</li>
+                        <li>広告運用は別会社に依頼</li>
+                        <li>数値分析・改善提案なし</li>
+                    </ul>
+                </div>
+                <div class="comparison-card our-service">
+                    <h3>当サービス</h3>
+                    <div class="comparison-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 500×300px">
+                            <!-- 画像: 当サービスの制作例（500×300px） -->
+                        </div>
+                    </div>
+                    <ul>
+                        <li>売上・CVRを最優先</li>
+                        <li>販売実績に基づく構成設計</li>
+                        <li>継続的な改善サポート</li>
+                        <li>EC運営の実績あり</li>
+                        <li>広告運用・CRMまで一気通貫</li>
+                        <li>仮説検証サイクルを回す</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強みセクション -->
+    <section id="strengths">
+        <div class="container">
+            <h2 class="section-title">私たちがあなたを徹底サポートします</h2>
+            <p class="section-subtitle">
+                EC運営の実績があるからこそ、提供できる価値があります。
+            </p>
+            
+            <!-- 強み1 -->
+            <div class="strength-detail">
+                <div class="strength-detail-content">
+                    <div class="strength-icon">💡</div>
+                    <h3>販売視点のLP設計</h3>
+                    <p>
+                        デザイン会社ではなく、EC運営の実績があるチームだからこそ、「本当に売れる構成」を設計できます。見た目だけでなく、CVRを最大化する導線設計を実現します。顧客心理を踏まえたストーリー設計により、自然な購買行動を促します。
+                    </p>
+                </div>
+                <div class="strength-detail-image">
+                    <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                        <!-- 画像: 販売視点のLP設計グラフ（600×400px） -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 強み2 -->
+            <div class="strength-detail strength-detail-reverse">
+                <div class="strength-detail-content">
+                    <div class="strength-icon">🔍</div>
+                    <h3>仮説検証サイクルで成長</h3>
+                    <p>
+                        LP公開後も継続的にデータを分析し、改善仮説を立案。A/Bテストを実施しながら、CVRを着実に向上させます。PDCAサイクルを回し続けることで、売上を最大化します。平均2.3倍のCVR改善率を実現しています。
+                    </p>
+                </div>
+                <div class="strength-detail-image">
+                    <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                        <!-- 画像: CVR改善実績グラフ（600×400px） -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 強み3 -->
+            <div class="strength-detail">
+                <div class="strength-detail-content">
+                    <div class="strength-icon">🚀</div>
+                    <h3>CRM・広告まで一気通貫</h3>
+                    <p>
+                        LP単体ではなく、広告運用やCRM施策との連携まで視野に入れた戦略設計。LTVを最大化する仕組みを構築し、長期的な売上向上を実現します。150件以上の制作実績が証明する確かな成果です。
+                    </p>
+                </div>
+                <div class="strength-detail-image">
+                    <div class="image-placeholder" data-size="推奨サイズ: 600×400px">
+                        <!-- 画像: 一気通貫サポートフロー図（600×400px） -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービス詳細セクション -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">提供サービス</h2>
+            <p class="section-subtitle">
+                LP制作から広告運用、CRM施策まで、売上最大化に必要な全てをサポート
+            </p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
+                            <!-- 画像: LP制作イメージ（600×300px） -->
+                        </div>
+                    </div>
+                    <h3>🎨 LP制作</h3>
+                    <div class="service-description">
+                        販売視点に基づいたLP構成設計・デザイン・実装まで一貫対応
+                    </div>
+                    <ul>
+                        <li>ターゲット分析・競合調査</li>
+                        <li>販売視点の構成設計</li>
+                        <li>デザイン・コーディング</li>
+                        <li>レスポンシブ対応</li>
+                        <li>Shopify実装・公開</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
+                            <!-- 画像: LPOイメージ（600×300px） -->
+                        </div>
+                    </div>
+                    <h3>🔄 LPO（改善支援）</h3>
+                    <div class="service-description">
+                        公開後の数値分析と継続的な改善提案で、CVRを最大化
+                    </div>
+                    <ul>
+                        <li>アクセス解析・ヒートマップ分析</li>
+                        <li>CVR改善提案</li>
+                        <li>A/Bテストの設計・実施</li>
+                        <li>定期レポート提出</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
+                            <!-- 画像: 広告運用イメージ（600×300px） -->
+                        </div>
+                    </div>
+                    <h3>📢 広告運用代行</h3>
+                    <div class="service-description">
+                        Meta広告・Google広告の戦略設計から運用、レポーティングまで
+                    </div>
+                    <ul>
+                        <li>広告戦略の立案</li>
+                        <li>クリエイティブ制作</li>
+                        <li>日次の運用最適化</li>
+                        <li>月次レポート・改善提案</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
+                            <!-- 画像: CRM支援イメージ（600×300px） -->
+                        </div>
+                    </div>
+                    <h3>💌 CRM支援</h3>
+                    <div class="service-description">
+                        LINE・メール配信を活用した顧客育成とリピート施策
+                    </div>
+                    <ul>
+                        <li>LINE公式アカウント構築</li>
+                        <li>ステップ配信設計</li>
+                        <li>セグメント配信</li>
+                        <li>リピート促進施策</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
+                            <!-- 画像: 戦略コンサルティングイメージ（600×300px） -->
+                        </div>
+                    </div>
+                    <h3>📈 戦略コンサルティング</h3>
+                    <div class="service-description">
+                        EC全体の戦略設計から実行支援まで、経営視点でサポート
+                    </div>
+                    <ul>
+                        <li>事業戦略の立案</li>
+                        <li>KPI設計・数値管理</li>
+                        <li>施策の優先順位付け</li>
+                        <li>定例MTGでの進捗管理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声セクション -->
+    <section id="testimonials" class="section-alt-bg">
+        <div class="container">
+            <h2 class="section-title">お客様の声</h2>
+            <p class="section-subtitle">
+                実際にご利用いただいたお客様からの声をご紹介します
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <div class="image-placeholder" data-size="推奨サイズ: 100×100px">
+                                <!-- 画像: クライアント写真1（100×100px） -->
+                            </div>
+                        </div>
+                        <div class="testimonial-profile">
+                            <h4>化粧品A社 マーケティング部長</h4>
+                            <p class="testimonial-company">田中様</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>「デザインだけでなく、販売戦略から一緒に考えていただき、CVRが1.2%から3.1%へと2.6倍に向上しました。継続的な改善提案もいただけるので、安心してお任せできています。」</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <div class="image-placeholder" data-size="推奨サイズ: 100×100px">
+                                <!-- 画像: クライアント写真2（100×100px） -->
+                            </div>
+                        </div>
+                        <div class="testimonial-profile">
+                            <h4>健康食品B社 EC事業部</h4>
+                            <p class="testimonial-company">佐藤様</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>「広告運用からCRM施策まで一気通貫でサポートしていただき、LTVが大幅に向上しました。レスポンスも早く、いつでも相談できる体制が心強いです。」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 実績セクション -->
+    <section id="results">
+        <div class="container">
+            <h2 class="section-title">実績</h2>
+            <p class="section-subtitle">
+                多くのブランド様のLP制作・改善をサポートしてきました
+            </p>
+            <div class="results-stats">
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">LP制作実績</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">平均2.3倍</div>
+                    <div class="stat-label">CVR改善率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">顧客満足度</div>
+                </div>
+            </div>
+
+            <!-- 実績画像スライダー -->
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">化粧品A社様</div>
+                        <div class="result-image-caption">CVR 1.2% → 3.1%（2.6倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">健康食品B社様</div>
+                        <div class="result-image-caption">CVR 0.8% → 2.4%（3倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">アパレルC社様</div>
+                        <div class="result-image-caption">CVR 1.5% → 3.2%（2.1倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">雑貨D社様</div>
+                        <div class="result-image-caption">CVR 1.0% → 2.8%（2.8倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">食品E社様</div>
+                        <div class="result-image-caption">CVR 1.3% → 3.5%（2.7倍改善）</div>
+                    </div>
+                    <!-- 無限スクロール用に同じ内容を複製 -->
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">化粧品A社様</div>
+                        <div class="result-image-caption">CVR 1.2% → 3.1%（2.6倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">健康食品B社様</div>
+                        <div class="result-image-caption">CVR 0.8% → 2.4%（3倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">アパレルC社様</div>
+                        <div class="result-image-caption">CVR 1.5% → 3.2%（2.1倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">雑貨D社様</div>
+                        <div class="result-image-caption">CVR 1.0% → 2.8%（2.8倍改善）</div>
+                    </div>
+                    <div class="result-image-card">
+                        <div class="result-image-placeholder">食品E社様</div>
+                        <div class="result-image-caption">CVR 1.3% → 3.5%（2.7倍改善）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- クラウドファンディング実績セクション
+    削除済み
+    <section id="crowdfunding" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">クラウドファンディングの集客支援も実績豊富</h2>
+            <p class="section-subtitle">
+                Makuake、CAMPFIREなど主要プラットフォームで、数多くのプロジェクトを成功に導いてきました。<br>
+                LP制作・広告運用・CRM施策を組み合わせた集客支援で、目標達成率300%超えの実績も。
+            </p>
+
+            <div class="crowdfunding-grid">
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトA
+                        <span class="crowdfunding-badge">達成率 420%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>スマートウォッチ型健康デバイス</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥2,100万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">1,250名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            LP制作+Meta広告運用で初動から支援者を獲得。CRM施策でリピーター育成も実施。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトB
+                        <span class="crowdfunding-badge">達成率 380%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>完全ワイヤレス骨伝導イヤホン</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥1,900万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">980名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            商品特性を活かしたLP構成設計。Google広告で顕在層を効率的に獲得。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトC
+                        <span class="crowdfunding-badge">達成率 520%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>オーガニックスキンケアセット</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥1,560万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">1,820名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            ストーリー性を重視したLP。Instagram広告でターゲット層に的確にリーチ。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトD
+                        <span class="crowdfunding-badge">達成率 350%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>多機能キャンプギア</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥1,750万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">890名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            動画素材を活用したリッチなLP。YouTube広告でアウトドア愛好家にアプローチ。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトE
+                        <span class="crowdfunding-badge">達成率 480%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>ミニマルデザインの革財布</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥1,440万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">1,620名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            職人のこだわりを伝えるLP構成。Facebook広告で30-50代男性に訴求。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="crowdfunding-card">
+                    <div class="crowdfunding-image">
+                        プロジェクトF
+                        <span class="crowdfunding-badge">達成率 390%</span>
+                    </div>
+                    <div class="crowdfunding-content">
+                        <h4>IoT対応スマートロック</h4>
+                        <div class="crowdfunding-stats">
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">¥2,340万</div>
+                                <div class="crowdfunding-stat-label">調達額</div>
+                            </div>
+                            <div class="crowdfunding-stat">
+                                <div class="crowdfunding-stat-number">1,120名</div>
+                                <div class="crowdfunding-stat-label">支援者数</div>
+                            </div>
+                        </div>
+                        <p class="crowdfunding-description">
+                            セキュリティと利便性を訴求するLP。リスティング広告で検索ニーズを獲得。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CRMセクション -->
+    <section id="crm">
+        <div class="container">
+            <h2 class="section-title">CRMで顧客と直接つながる。</h2>
+            <p class="section-subtitle">
+                LPだけでは得られない、圧倒的な売上機会。<br>
+                CRMを活用することで、リピート通販だけでなく、多様なビジネスチャンスが生まれます。
+            </p>
+
+            <div class="crm-benefits-compact">
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">📈</div>
+                    <h4>LTV向上</h4>
+                    <p>継続購入を促進し、顧客生涯価値を最大化</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">🔒</div>
+                    <h4>クローズド販売</h4>
+                    <p>規制商品もリスクを抑えて販売可能</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">⭐</div>
+                    <h4>限定案内</h4>
+                    <p>特別感を演出し初動売上を確保</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">💾</div>
+                    <h4>データ活用</h4>
+                    <p>パーソナライズされた提案を実現</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">🔄</div>
+                    <h4>休眠顧客掘り起こし</h4>
+                    <p>眠っている売上機会を呼び起こす</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">❤️</div>
+                    <h4>ロイヤリティ向上</h4>
+                    <p>ファン化を促進し口コミを創出</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">💰</div>
+                    <h4>アップセル</h4>
+                    <p>客単価の向上を実現</p>
+                </div>
+                <div class="crm-benefit-item">
+                    <div class="crm-icon">🏢</div>
+                    <h4>脱プラットフォーム</h4>
+                    <p>自社で顧客リストを資産化</p>
+                </div>
+            </div>
+
+            <!-- CRM活用フロー -->
+            <div class="crm-flow-single-image">
+                <div class="image-placeholder" data-size="推奨サイズ: 1200×400px">
+                    <!-- 画像: LPからCRMへの連携フロー（1200×400px） -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ロードマップセクション -->
+    <section id="roadmap" class="section-alt-bg">
+        <div class="container">
+            <h2 class="section-title">制作から成果まで、一気通貫でサポート</h2>
+            <p class="section-subtitle">
+                LP公開後も継続的に改善サイクルを回すことで、CVRは着実に向上します。
+            </p>
+            <div class="roadmap-simple">
+                <div class="roadmap-step-simple">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>初回ヒアリング</h3>
+                        <p>商品特性、ターゲット、競合状況を徹底的にヒアリング。販売戦略の方向性を決定します。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>構成設計</h3>
+                        <p>販売実績に基づいた構成案を作成。顧客心理を踏まえたストーリー設計を行います。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>デザイン・実装</h3>
+                        <p>構成に基づいてデザインを作成し、Shopifyに実装。レスポンシブ対応も完備します。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>公開・計測開始</h3>
+                        <p>LP公開後、アクセス解析ツールを設定。数値の計測を開始します。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>データ分析・改善提案</h3>
+                        <p>アクセス解析やヒートマップを活用し、改善ポイントを特定。具体的な施策を提案します。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>A/Bテスト実施</h3>
+                        <p>改善仮説に基づいてA/Bテストを実施。データに基づいた最適化を進めます。</p>
+                    </div>
+                    <div class="step-arrow">↓</div>
+                </div>
+                
+                <div class="roadmap-step-simple">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>継続的な最適化</h3>
+                        <p>広告やCRMとの連携も視野に入れながら、売上最大化に向けた施策を展開します。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-emphasis">
+                <p>
+                    LPは「作って終わり」ではなく、「作ってからが勝負」です。<br>
+                    仮説を立て、検証し、改善する──このサイクルを回すことで、CVRは2倍、3倍と向上していきます。<br>
+                    私たちは、LP公開後も伴走し、継続的な改善をサポートします。
+                </p>
+            </div>
+            
+            <!-- 仮説検証サイクル（PDCA） -->
+            <div class="visual-card">
+                <div class="visual-card-header">
+                    <h3>仮説検証サイクル（PDCA）</h3>
+                </div>
+                <div class="visual-card-body">
+                    <div class="image-placeholder" data-size="推奨サイズ: 900×500px">
+                        <!-- 画像: PDCAサイクル図（900×500px） -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プラン・料金セクション -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">プラン・料金</h2>
+            <p class="section-subtitle">
+                御社のフェーズや予算に合わせて、最適なプランをご提案します
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>シンプルプラン</h3>
+                    <div class="price">¥128,000</div>
+                    <ul>
+                        <li>1ページ構成</li>
+                        <li>基本的な構成設計</li>
+                        <li>レスポンシブ対応</li>
+                        <li>Shopify実装</li>
+                        <li>納期: 2週間〜</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="plan-badge">おすすめ</div>
+                    <h3>スタンダードプラン</h3>
+                    <div class="price">￥298,000</div>
+                    <ul>
+                        <li>競合調査・ターゲット分析</li>
+                        <li>販売視点の構成設計</li>
+                        <li>オリジナルデザイン</li>
+                        <li>レスポンシブ対応</li>
+                        <li>アクセス解析設定</li>
+                        <li>納期: 3週間〜</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>グロースプラン</h3>
+                    <div class="price">¥500,000〜</div>
+                    <ul>
+                        <li>スタンダードプランの内容</li>
+                        <li>複数パターン制作</li>
+                        <li>動画・アニメーション実装</li>
+                        <li>公開後1ヶ月の改善サポート</li>
+                        <li>A/Bテスト設計・実施</li>
+                        <li>納期: 4週間〜</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="additional-services">
+                <h3>オプションサービス</h3>
+                <div class="additional-grid-simple">
+                    <div class="additional-item">
+                        <div class="option-icon">📢</div>
+                        <h4>広告運用代行</h4>
+                        <p class="price-simple">初期 ¥50,000~ / 月額 広告費の20%~</p>
+                    </div>
+                    <div class="additional-item">
+                        <div class="option-icon">💬</div>
+                        <h4>CRM支援</h4>
+                        <p class="price-simple">初期 ¥100,000~ / 月額 ¥50,000~</p>
+                    </div>
+                    <div class="additional-item">
+                        <div class="option-icon">🔧</div>
+                        <h4>LPO定額サービス</h4>
+                        <p class="price-simple">月額 ¥50,000~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問セクション -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">よくある質問</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>どのくらいの期間で制作できますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>プランによって異なりますが、シンプルプランで2週間〜、スタンダードプランで3週間〜、グロースプランで4週間〜が目安となります。お急ぎの場合はご相談ください。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Shopify以外のプラットフォームでも対応できますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、可能です。WordPress、BASE、STORESなど、各種プラットフォームに対応しています。ただし、当社の推奨はShopifyです。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>LPの素材（商品画像や文章）がない場合でも依頼できますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、可能です。ライティングや撮影ディレクションも含めて対応できます。別途お見積りさせていただきますので、お気軽にご相談ください。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>公開後の修正対応はしてもらえますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>グロースプランには1ヶ月間の改善サポートが含まれています。その他のプランでも、別途契約にて継続的なLPO支援を承っております。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>広告運用だけの依頼も可能ですか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、可能です。既存のLPに対する広告運用代行のみのご依頼も承っております。まずは現状のLPを拝見させていただき、最適なプランをご提案いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>まずは無料相談から</h2>
+            <p>
+                御社の課題をお聞かせください。<br>
+                最適なプランをご提案いたします。
+            </p>
+            <button class="cta-button" onclick="openContactModal()">無料相談を申し込む</button>
+        </div>
+    </section>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <!-- お問い合わせモーダル -->
+    <div id="contact-modal-container">
+      <!-- モーダルコンテンツをインラインで直接配置 -->
+      <div id="contact-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">お問い合わせ</h2>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="contact-form" method="post">
+              <div class="form-group">
+                <label for="company">会社名・組織名 <span class="required">*</span></label>
+                <input type="text" id="company" name="company" required placeholder="合同会社A">
+              </div>
+              
+              <div class="form-group">
+                <label for="name">お名前 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="山田 太郎">
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">電話番号 <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="09012345678">
+              </div>
+              
+              <div class="form-group">
+                <label for="email">メールアドレス <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="mail@example.com">
+              </div>
+              
+              <div class="form-group">
+                <label for="message">ご質問・ご要望</label>
+                <textarea id="message" name="message" rows="4" placeholder="LP制作についてのお問い合わせ内容をご記入ください"></textarea>
+              </div>
+              
+              <div class="form-group privacy-policy">
+                <label>
+                  <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+                  <a href="/privacy-policy/" target="_blank">プライバシーポリシー</a>に同意します
+                </label>
+              </div>
+              
+              <div class="form-group submit-container">
+                <button type="submit" class="btn-submit">内容を送信する</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>

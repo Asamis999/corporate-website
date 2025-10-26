@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wix Studio 運用マニュアル｜06. 予約サービス／カレンダー（基本操作） | Howto BOX</title>
+  <meta name="description" content="Wix予約機能でのサービス名・説明・所要時間・価格の更新方法と、営業日・営業時間・休憩（バッファ）の設定、テスト予約での確認方法を解説します。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/template.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/howto.css">
+  <link rel="stylesheet" href="/assets/css/article-unified.css">
+  <link rel="stylesheet" href="/assets/css/manual.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- マニュアル用の追加スタイル -->
+  <style>
+    /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+    /* 赤系統ボックス - 注意・重要な情報 */
+    .alert-box {
+      background-color: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 黄色系統ボックス - ヒント・補足情報 */
+    .tip-box {
+      background-color: #fffbf0;
+      border-left: 4px solid #f39c12;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 画像下の余白設定 */
+    .article-image-container, .manual-image-container {
+      margin-bottom: 20px;
+    }
+    
+    /* 手順ステップのフォントサイズ調整 */
+    .step-container {
+      font-size: 1.2em;
+    }
+    
+    /* 推奨ページリンク用スタイル */
+    .recommended-pages {
+      list-style-type: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .recommended-pages li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .recommended-page-link {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.8rem;
+      text-decoration: none;
+      color: #333;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .recommended-page-link:hover {
+      background-color: #f1f1f1;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      color: var(--primary-color);
+    }
+    
+    .recommended-page-link i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+    }
+    
+    /* ナビゲーションのミニマルデザイン */
+    .manual-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 2.5rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .nav-prev, .nav-next {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      max-width: 45%;
+    }
+    
+    .nav-prev {
+      text-align: left;
+    }
+    
+    .nav-next {
+      text-align: right;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.2rem;
+    }
+    
+    .nav-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .nav-prev:hover, .nav-next:hover {
+      color: var(--primary-color);
+    }
+  </style>
+  
+  <!-- JS -->
+  <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="howto-article">
+  <!-- 共通ヘッダー -->
+  <div id="site-header"></div>
+  
+  <!-- 共通パンくずリスト -->
+  <div id="breadcrumb-container" data-page="wix6"></div>
+  
+  <main class="main-content">
+    
+    <!-- 記事コンテナ -->
+    <div class="article-container">
+
+      <!-- 記事ヘッダー -->
+      <header class="article-header">
+        <h1 class="article-title">Wix Studio 運用マニュアル｜06. <span>予約サービス／カレンダー（基本操作）</span></h1>
+        <div class="article-meta">公開日: 2025年8月14日 | 最終更新: 2025年8月14日</div>
+        <div class="article-tag-list">
+          <span class="article-tag">Wix Studio</span>
+          <span class="article-tag">運用マニュアル</span>
+          <span class="article-tag">Wix</span>
+          <span class="article-tag">予約機能</span>
+          <span class="article-tag">カレンダー</span>
+        </div>
+      </header>
+
+      <!-- メイン画像（全幅） -->
+      <div class="article-image-container">
+        <img src="/assets/images/manual/wix/wix6-thumb.webp" alt="Wix予約サービスとカレンダーの基本操作" class="article-image" style="max-width: 100%;">
+      </div>
+
+      <!-- 目次 -->
+      <div class="toc-container">
+        <div class="toc-title">目次</div>
+        <ul class="toc-list">
+          <li><a href="#intro">このページでできること</a></li>
+          <li><a href="#preparation">1. 事前準備</a></li>
+          <li><a href="#dashboard">2. 予約ダッシュボードを開く</a></li>
+          <li><a href="#service-edit">3. サービスの基本情報を編集</a></li>
+          <li><a href="#business-hours">5. 営業日・営業時間・休憩（バッファ）</a></li>
+          <li><a href="#notification">7. 通知・支払いまわりの基本（参考）</a></li>
+          <li><a href="#checklist">8. チェック</a></li>
+          <li><a href="#troubleshooting">9. よくあるミスと対処</a></li>
+          <li><a href="#related">このあと読むとよいページ</a></li>
+          <li><a href="#support">専門サポートの案内</a></li>
+        </ul>
+      </div>
+      
+      <!-- 記事本文 -->
+      <div class="article-content">
+        <section id="intro" class="article-section fade-in">
+          <div class="intro-box">
+            <p class="intro-text">このページでできること</p>
+            <ul class="feature-list">
+              <li>Wix 予約で<strong>サービス名／説明／所要時間／価格</strong>を更新できる</li>
+              <li><strong>営業日／営業時間／休憩（バッファ）を設定できる</strong></li>
+              <li><strong>テスト予約でカレンダー表示と通知メール</strong>を確認できる</li>
+            </ul>
+          </div>
+
+          <p class="article-p">
+            <strong>使う場所</strong>：Wix <strong>ダッシュボード → 予約（Bookings）</strong>
+          </p>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="preparation" class="article-section fade-in">
+          <h2 class="article-section-title">1. 事前準備</h2>
+          
+          <ul>
+            <li><strong>#01 はじめに</strong>に従い、<strong>サイト履歴</strong>を作成してから開始</li>
+            <li><strong>タイムゾーン</strong>が事業所在地（例：Asia/Tokyo）になっているか確認（予約設定→一般）</li>
+          </ul>
+
+          <p class="article-p">
+            　※既存の予約サービスが登録されていることを前提にしています。（立上げ時はアプリの導入から設定が必要です）
+          </p>
+          
+          <div class="tip-box">
+            <p>✅ <strong>ポイント</strong>：価格や時間の変更は公開前にテスト予約で必ず確認します。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="dashboard" class="article-section fade-in">
+          <h2 class="article-section-title">2. 予約ダッシュボードを開く</h2>
+          
+          <h3>手順（全2ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>ダッシュボード左メニューから <strong>［予約］</strong> をクリック</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section1.png" alt="予約メニューをクリック" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>上部タブの <strong>［サービス］</strong> を選択（一覧が表示される）</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section2.png" alt="サービスタブを選択" class="article-image">
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="service-edit" class="article-section fade-in">
+          <h2 class="article-section-title">3. サービスの基本情報を編集</h2>
+          
+          <div class="intro-box">
+            <p>サービス名・説明・公開状態を更新します。</p>
+          </div>
+          
+          <h3>手順（4ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>対象サービスの「…」→ 編集 をクリック（新しく作成する場合は複製を選択）</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix6-section3.png" alt="サービス編集メニュー" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>サービス名、説明、所要時間を編集</strong></span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section4.png" alt="サービス名と説明の編集" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>価格</strong>を編集または確認して保存</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section5.png" alt="価格の編集" class="article-image">
+          </div>
+          
+          <p class="article-p">
+            ※詳細設定の調整やサービスに応じて必要な設定が異なるため、専門家にフォローをご依頼ください。
+          </p>
+          
+          <div class="tip-box">
+            <p>💡 <strong>コツ</strong>：価格変更時は税表示ルールを統一。サイト内の表記（例：税込）に合わせて明記。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="business-hours" class="article-section fade-in">
+          <h2 class="article-section-title">5. 営業日・営業時間・休憩（バッファ）</h2>
+          
+          <div class="intro-box">
+            <p>受付できる曜日・時間と、前後の準備/片付け時間（バッファ）を設定します。</p>
+          </div>
+          
+          <h3>手順（5ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>サービス編集画面の <strong>［予約可能時間／可用性］</strong> を開く</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section6.png" alt="予約可能時間の設定" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>勤務スケジュール</strong>をクリック</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section7.png" alt="勤務スケジュール選択" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span>該当スタッフを選択して<strong>勤務時間を編集</strong></span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section8.png" alt="スタッフ勤務時間編集" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❹</span>
+            <span><strong>営業日と時間</strong> を設定（例：10:00–18:00）</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section9.png" alt="営業時間設定" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❺</span>
+            <span>プロフィールを編集したい場合はこちらから</span>
+          </div>
+          
+          <div class="article-image-container">
+            <img src="/assets/images/manual/wix/wix6-section10.png" alt="プロフィール編集" class="article-image">
+          </div>
+          
+          <p class="article-p">
+            ※公開前に、実際の予約導線と通知をテストを行なってください。
+          </p>
+          
+          <div class="alert-box">
+            <p>⚠ <strong>注意</strong>：祝日や臨時休業は 「例外」 で個別に閉じる（[+ 例外を追加] など）。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="notification" class="article-section fade-in">
+          <h2 class="article-section-title">7. 通知・支払いまわりの基本（参考）</h2>
+          
+          <div class="intro-box">
+            <p>このページでは確認のみ。設定の大幅変更は専門対応へ。</p>
+          </div>
+          
+          <ul>
+            <li><strong>通知メール</strong>：予約設定 → 通知（管理者／顧客）で文面や宛先を確認</li>
+            <li><strong>リマインダー</strong>：必要ならオン（送信タイミングは標準のまま推奨）</li>
+            <li><strong>オンライン決済</strong>：導入有無を確認（※決済連携や料金ルールは専門対応）</li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="checklist" class="article-section fade-in">
+          <h2 class="article-section-title">8. チェック</h2>
+          
+          <ul class="check-list">
+            <li>サービス名・説明は<strong>最新</strong>？</li>
+            <li>所要時間・価格は<strong>意図どおり</strong>？</li>
+            <li>営業日・営業時間・休憩は<strong>正しい</strong>？</li>
+            <li>バッファは<strong>過不足ない</strong>？</li>
+            <li>テスト予約で<strong>通知メール</strong>と<strong>カレンダー反映</strong>を確認した？</li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="troubleshooting" class="article-section fade-in">
+          <h2 class="article-section-title">9. よくあるミスと対処</h2>
+          
+          <ul class="trouble-list">
+            <li><strong>時間を変更したのに予約枠が増減しない</strong> → 予約単位（インターバル）を見直す</li>
+            <li><strong>昼休みも予約できてしまう</strong> → 休憩（Break）の入れ忘れ</li>
+            <li><strong>直前予約で準備が足りない</strong> → <strong>事前受付締切</strong>（◯時間前まで）を有効化</li>
+            <li><strong>ダブルブッキング</strong> → <strong>バッファ</strong>を付ける／スタッフの割当てと在席を確認</li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="related" class="article-section fade-in">
+          <h2 class="article-section-title">このあと読むとよいページ</h2>
+          
+          <ul class="recommended-pages">
+            <li>
+              <a href="/howto/posts/manual/wix/wix7/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#07 レスポンシブ編集方法</strong>（スマホでの予約導線確認）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix13/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#13 メニューの編集方法</strong>（予約ページへの導線）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix14/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#14 フォームの編集と通知先メールの変更</strong>（問い合わせ系との整合）</span>
+              </a>
+            </li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="support" class="article-section fade-in">
+          <h2 class="article-section-title">専門サポートの案内</h2>
+          
+          <ul>
+            <li><strong>予約導線UX</strong>（トップ→サービス→予約完了の離脱削減）</li>
+            <li><strong>決済/自動通知</strong>（決済連携・自動返信テンプレ整備）</li>
+            <li><strong>キャンセル規約整備</strong>（締切・手数料・自動返信の文言）</li>
+          </ul>
+
+          <div class="tip-box">
+            <p>予約の取りこぼしを減らす導線設計や決済・通知の自動化は私たちにお任せください。</p>
+          </div>
+          
+          <div class="cta-container" style="text-align: center;">
+            <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+          </div>
+        </section>
+
+        <!-- 前後ナビゲーション -->
+        <div class="manual-navigation">
+          <a href="/howto/posts/manual/wix/wix5/index.html" class="nav-prev">
+            <span class="nav-label">前のマニュアル</span>
+            <span class="nav-title">05. レスポンシブ編集方法</span>
+          </a>
+          <a href="#" class="nav-next">
+            <span class="nav-label">次のマニュアル</span>
+            <span class="nav-title">07. Wix Studio 会員機能の基本</span>
+          </a>
+        </div>
+
+        <!-- 関連記事セクション -->
+        <section class="related-articles fade-in">
+          <h3 class="article-section-title">関連記事</h3>
+          <div class="related-articles-grid">
+            <a href="/howto/posts/manual/wix5/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix5-thumb.webp" alt="レスポンシブ編集方法 サムネイル">
+              </div>
+              <h4 class="related-article-title">05. レスポンシブ編集方法</h4>
+            </a>
+            <a href="/howto/posts/manual/wix1/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix1-thumb.webp" alt="はじめに サムネイル">
+              </div>
+              <h4 class="related-article-title">01. はじめに</h4>
+            </a>
+          </div>
+        </section>
+        
+        <!-- プロフィールセクション -->
+        <div class="divider"></div>
+        <div id="profile-container" class="fade-in"></div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 共通フッター -->
+  <div id="site-footer"></div>
+  
+  <!-- 記事専用JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // プロフィール情報をフェッチして挿入する関数
+      function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('プロフィール情報の読み込みに失敗しました。');
+                  }
+                  return response.text();
+              })
+              .then(html => {
+                  profileContainer.innerHTML = html;
+              })
+              .catch(error => {
+                  console.error('プロフィール情報の挿入エラー:', error);
+              });
+      }
+      
+      // プロフィール情報を挿入
+      insertProfileContent();
+      
+      // 目次リンクのスムーススクロール
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // スクロールに応じた要素のフェードイン
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      function checkFade() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementTop < windowHeight - 100) {
+            element.classList.add('visible');
+          }
+        });
+      }
+      
+      // 初期チェック
+      checkFade();
+      
+      // スクロール時のチェック
+      window.addEventListener('scroll', checkFade);
+    });
+  </script>
+</body>
+</html>

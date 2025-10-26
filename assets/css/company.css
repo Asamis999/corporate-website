@@ -1,0 +1,274 @@
+/* 会社概要ページ専用スタイル */
+
+/* ヒーロー部分 */
+.company-hero {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.company-hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.company-hero h1.section-title {
+  text-align: center;
+}
+
+.company-hero .company-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.company-logo-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.company-logo {
+  max-width: 180px;
+  height: auto;
+}
+
+.company-motto {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+}
+
+/* スローガン部分 */
+.company-slogan {
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  color: #fff;
+}
+
+.company-slogan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.company-slogan .container {
+  position: relative;
+  z-index: 2;
+}
+
+.slogan-en {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.slogan-jp {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #f5f5f5;
+}
+
+/* 会社情報テーブル */
+.company-info {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.info-table-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-table th {
+  width: 30%;
+  font-weight: 500;
+  color: #333;
+}
+
+.info-table td {
+  width: 70%;
+}
+
+/* 理念・ビジョン・事業内容セクション */
+.company-philosophy,
+.company-vision,
+.company-business,
+.company-related,
+.company-operator {
+  padding: 60px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.section-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: left;
+  color: #333;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.philosophy-content, .vision-content, .business-content {
+  padding: 20px 0;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.operator-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.philosophy-content p,
+.vision-content p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* 事業内容 */
+.business-item {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.business-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #333;
+}
+
+.business-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* マーケティングロゴ */
+.marketing-logo-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.marketing-logo {
+  max-width: 180px; /* 1.5倍に拡大 */
+  height: auto;
+  margin: 0 auto;
+}
+
+/* CTA部分 */
+.cta-section {
+  padding: 80px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.cta-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cta-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* .cta-buttonスタイルを削除し、template.cssの.btnスタイルを使用 */
+
+/* template.cssの.btn-primaryと.btn:hoverを使用するため削除 */
+
+.cta-link {
+  margin-top: 15px;
+}
+
+.cta-link a {
+  color: #666;
+  font-size: 15px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.cta-link a:hover {
+  color: var(--color-accent, #e83a3b);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .company-motto {
+    font-size: 16px;
+  }
+  
+  .slogan-en {
+    font-size: 24px;
+  }
+  
+  .slogan-jp {
+    font-size: 16px;
+  }
+  
+  .info-table th,
+  .info-table td {
+    display: block;
+    width: 100%;
+  }
+  
+  .info-table th {
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+  
+  .info-table td {
+    padding-top: 5px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+}

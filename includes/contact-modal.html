@@ -1,0 +1,106 @@
+<!-- お問い合わせモーダル -->
+<div id="contact-modal" class="modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.7);">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">お問い合わせ</h2>
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form id="contact-form" method="post">
+        <div class="form-group">
+          <label>お問い合わせの目的 <span class="required">*</span></label>
+          <div class="checkbox-group" style="display:block; width:100%;">
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ec-shopify"> ECサイト構築について（Shopify / オリジナル開発）</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ec-growth"> ECグロースサポート（月額運用）</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="marketplace"> マーケットプレイス出店支援（Amazon / 楽天）</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="lp"> ランディングページ制作</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ad"> 広告運用代行</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="crm"> CRM支援（LINE / メール）</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ab-test"> ABテスト関連（簡易パック / Proパック）</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="other"> その他</label></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="request-type">ご希望内容 <span class="required">*</span></label>
+          <select id="request-type" name="request-type" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="new">新規制作</option>
+            <option value="renewal">リニューアル</option>
+            <option value="operation">運用改善・施策提案</option>
+            <option value="quote">見積もり希望</option>
+            <option value="contract">契約中プランの相談</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="deadline">ご希望納期</label>
+          <input type="text" id="deadline" name="deadline" placeholder="例：3ヶ月以内、○月頃など">
+        </div>
+
+        <div class="form-group">
+          <label>現在利用中のプラットフォーム</label>
+          <div class="checkbox-group" style="display:block; width:100%;">
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="shopify"> Shopify</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="rakuten"> 楽天</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="amazon"> Amazon</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="base"> BASE</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="woocommerce"> WooCommerce</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="makeshop"> MakeShop</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="ec-cube"> EC-CUBE</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="custom"> 独自システム</label></div>
+            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="other"> その他</label></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">ご予算と目安</label>
+          <input type="text" id="budget" name="budget" placeholder="例：LP制作予算30万円">
+        </div>
+
+        <div class="form-group">
+          <label for="company">会社名・組織名 <span class="required">*</span></label>
+          <input type="text" id="company" name="company" required placeholder="例：合同会社A">
+        </div>
+        
+        <div class="form-group">
+          <label for="name">ご担当者名 <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">メールアドレス <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="例：mail@example.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">電話番号 <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="例：09012345678">
+        </div>
+        
+        <div class="form-group">
+          <label for="website">Webサイト URL</label>
+          <input type="url" id="website" name="website" placeholder="https://">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">ご質問・補足情報</label>
+          <textarea id="message" name="message" rows="4" placeholder="その他ご質問や補足情報があればご記入ください"></textarea>
+        </div>
+        
+        <div class="form-group privacy-policy">
+          <label>
+            <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+            <a href="/privacy-policy/" target="_blank">プライバシーポリシー</a>に同意します
+          </label>
+        </div>
+        
+        <div class="form-navigation">
+          <button type="submit" class="btn-submit">送信</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

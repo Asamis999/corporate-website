@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>マニュアルタイトル | Howto BOX</title>
+    <meta name="description" content="自分でできる範囲の線引きと、安全に始めるための履歴/複製ページ運用を解説。まず最初に読む入門章。">
+    <meta name="keywords" content="マニュアル,運用,初心者向け,バックアップ,安全運用">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    <link rel="stylesheet" href="/assets/css/manual.css">
+    
+    <!-- マニュアル用の追加スタイル -->
+    <style>
+        /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+        /* 赤系統ボックス - 注意・重要な情報 */
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 黄色系統ボックス - ヒント・補足情報 */
+        .tip-box {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 画像下の余白設定 */
+        .article-image-container, .manual-image-container {
+            margin-bottom: 20px;
+        }
+        
+        /* 手順ステップのフォントサイズ調整 */
+        .step-container {
+            font-size: 1.2em;
+        }
+        
+        /* マニュアルナビゲーションスタイル - ミニマルデザイン */
+        .manual-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 2.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-prev, .nav-next {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            max-width: 45%;
+        }
+        
+        .nav-prev {
+            text-align: left;
+        }
+        
+        .nav-next {
+            text-align: right;
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+        
+        .nav-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-prev:hover, .nav-next:hover {
+            color: var(--primary-color);
+        }
+    </style>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="manual-article">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="manual" data-category="カテゴリ名" data-title="マニュアルタイトル"></div>
+    
+    <main class="main-content">
+        
+        <!-- 記事コンテナ -->
+        <div class="article-container">
+
+            <!-- 記事ヘッダー -->
+            <header class="article-header">
+                <h1 class="article-title">マニュアルタイトル</h1>
+                <div class="article-meta">
+                    <time datetime="2023-12-20">2023年12月20日</time> | 最終更新: <time datetime="2023-12-20">2023年12月20日</time>
+                </div>
+                <div class="article-tag-list">
+                    <span class="article-tag">カテゴリ</span>
+                    <span class="article-tag">タグ1</span>
+                    <span class="article-tag">タグ2</span>
+                </div>
+            </header>
+            
+           <!-- 目次 -->
+           <div class="toc-container">
+                <div class="toc-title">目次</div>
+                <ul class="toc-list">
+                    <li><a href="#intro">はじめに</a></li>
+                    <li><a href="#section1">1. セクション1</a></li>
+                    <li><a href="#section2">2. セクション2</a></li>
+                    <li><a href="#section3">3. セクション3</a></li>
+                    <li><a href="#conclusion">まとめ</a></li>
+                </ul>
+            </div>
+
+            <!-- 記事の導入部 -->
+            <section id="intro" class="article-section fade-in">
+                <h2 class="article-section-title">はじめに</h2>
+                <p class="article-p">
+                    ここに導入文が入ります。このマニュアルの目的と概要について説明します。
+                </p>
+                <p class="article-p">
+                    このマニュアルで学べること、実践できることを簡潔に説明します。
+                </p>
+            </section>
+
+            <div class="divider"></div>
+ 
+            <!-- セクション1 -->
+            <section id="section1" class="article-section fade-in">
+                <h2 class="article-section-title">1. セクション1</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/image-placeholder.jpg" alt="セクション1の説明画像" class="article-image">
+                </div>
+                <p class="article-p">
+                    セクション1の説明文がここに入ります。
+                </p>
+
+                <h3 class="subsection-title">サブセクションタイトル</h3>
+                <p class="article-p">
+                    サブセクションの内容がここに入ります。
+                </p>
+                <ul class="article-list">
+                    <li><span class="text-bold">重要ポイント1</span>：説明テキスト</li>
+                    <li><span class="text-bold">重要ポイント2</span>：説明テキスト</li>
+                    <li><span class="text-bold">重要ポイント3</span>：説明テキスト</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション2 -->
+            <section id="section2" class="article-section fade-in">
+                <h2 class="article-section-title">2. セクション2</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/image-placeholder.jpg" alt="セクション2の説明画像" class="article-image">
+                </div>
+                <p class="article-p">
+                    セクション2の説明文がここに入ります。
+                </p>
+
+                <h3 class="subsection-title">サブセクションタイトル</h3>
+                <p class="article-p">
+                    サブセクションの内容がここに入ります。
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- セクション3 -->
+            <section id="section3" class="article-section fade-in">
+                <h2 class="article-section-title">3. セクション3</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/manual/image-placeholder.jpg" alt="セクション3の説明画像" class="article-image">
+                </div>
+                <p class="article-p">
+                    セクション3の説明文がここに入ります。
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- まとめ -->
+            <section id="conclusion" class="article-section fade-in">
+                <h2 class="article-section-title">まとめ</h2>
+                <p class="article-p">
+                    このマニュアルのポイントをまとめます。
+                </p>
+                
+                <div class="cta-container" style="text-align: center;">
+                    <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+                </div>
+                
+                <div class="cta-box">
+                    <h4 class="cta-box-title">サポートが必要ですか？</h4>
+                    <p>さらに詳しい情報や個別のサポートが必要な場合はお気軽にお問い合わせください。</p>
+                </div>
+                
+                <p class="article-p">
+                    実践するための次のステップや関連するその他のマニュアルへの案内を記載します。
+                </p>
+            </section>
+
+            <!-- 前後ナビゲーション -->
+            <div class="manual-navigation">
+                <a href="#" class="nav-prev">
+                    <span class="nav-label">前のマニュアル</span>
+                    <span class="nav-title">前のマニュアルタイトル</span>
+                </a>
+                <a href="#" class="nav-next">
+                    <span class="nav-label">次のマニュアル</span>
+                    <span class="nav-title">次のマニュアルタイトル</span>
+                </a>
+            </div>
+
+            <!-- このあと読むとよいページ -->
+            <section id="related" class="article-section fade-in">
+                <h2 class="article-section-title">このあと読むとよいページ</h2>
+                
+                <ul class="article-list">
+                    <li><span class="text-bold">#4 画像の貼り替え方法</span>：写真の最適サイズやAltテキストの設定方法</li>
+                    <li><span class="text-bold">#6 ページ複製と設定</span>：URL/SEO/OG画像の基本設定方法</li>
+                    <li><span class="text-bold">#9 公開と更新チェック</span>：本番反映前の確認ポイント</li>
+                </ul>
+                
+                <div class="divider"></div>
+            </section>
+
+            <!-- 関連記事セクション -->
+            <section class="related-articles fade-in">
+                <h3 class="article-section-title">関連記事</h3>
+                <div class="related-articles-grid">
+                    <a href="/howto/posts/article/article2/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/howto/article2-thumb.jpg" alt="記事サムネイル">
+                        </div>
+                        <h4 class="related-article-title">無料ツールだけで始めるA/Bテスト入門</h4>
+                    </a>
+                    <a href="/howto/posts/article/article3/index.html" class="related-article-card">
+                        <div class="related-article-image">
+                            <img src="/assets/images/howto/article3-thumb.jpg" alt="記事サムネイル">
+                        </div>
+                        <h4 class="related-article-title">小規模事業のためのWebマーケティング攻略</h4>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- プロフィールセクション -->
+            <div class="divider"></div>
+            <div id="profile-container" class="fade-in"></div>
+            
+            <div class="back-to-manual">
+                <a href="/manual/" class="back-link">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">マニュアル一覧へ戻る</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <script src="/assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // スクロールアニメーション
+        const fadeElements = document.querySelectorAll('.article-section, .cta-box, .related-articles, .related-blog-posts, .manual-navigation, .back-to-manual');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        // fade-inクラスを追加
+        fadeElements.forEach(element => {
+          element.classList.add('fade-in');
+          observer.observe(element);
+        });
+
+        // スムーススクロール（目次クリック時）
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        tocLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const id = this.getAttribute('href').substring(1);
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+
+        // スクロール中の目次アクティブ表示
+        const sections = document.querySelectorAll('.article-section');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= (sectionTop - 300)) {
+              current = section.getAttribute('id');
+            }
+          });
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

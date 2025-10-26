@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Howto BOX | EC物販に強い！制作・企画・販売会社</title>
+    <meta name="description" content="EC物販に関する様々なノウハウやヒント、実践的な情報をご紹介するHowto BOXです。Shopify、楽天、Amazonなどのサイト運営から集客施策まで、役立つ情報を発信しています。">
+    
+    <!-- CSS -->
+    
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link rel="stylesheet" href="../assets/css/howto.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* お役立ちサービスセクション用スタイル */
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .service-card {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        @media (min-width: 768px) {
+            .service-card {
+                width: calc(50% - 15px);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .service-card {
+                width: calc(33.333% - 20px);
+            }
+        }
+        
+        /* カルーセル用追加スタイル */
+        .case-studies-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 0;
+        }
+        
+        .case-studies-slider {
+            display: flex;
+            overflow-x: visible;
+            scroll-behavior: smooth;
+            gap: 30px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .case-study-item {
+            flex: 0 0 auto;
+            width: 600px;
+            margin: 0 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .case-studies-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .case-studies-nav button {
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .case-studies-nav button:hover {
+            background: #f5f5f5;
+            border-color: #aaa;
+        }
+        
+        .case-study-dots {
+            display: flex;
+            gap: 8px;
+            margin: 0 15px;
+        }
+        
+        .case-study-dots .dot {
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-dots .dot.active {
+            background: #007bff;
+            transform: scale(1.2);
+        }
+        
+        @media (min-width: 768px) {
+            .case-study-item {
+                width: calc(50% - 30px);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .case-study-item {
+                width: calc(33.333% - 26.67px);
+            }
+        }
+    </style>
+    
+    <script src="../assets/js/template.js" defer></script>
+    <script src="../assets/js/howto-carousel.js" defer></script>
+    <script src="../assets/js/howto.js" defer></script>
+</head>
+<body class="howto">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="howto"></div>
+
+    <main class="main-content">
+        <!-- 1. ヒーローセクション -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>EC・LP改善のナレッジベース</span>
+                    </div>
+                    <h1 class="hero-title">売上を伸ばすヒントが<br>ここにあります</h1>
+                    <p class="hero-description">ECサイト運営・LP改善・Web集客の実践ノウハウを、<br>現場で培った経験とデータをもとに分かりやすく解説</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat-item">
+                            <div class="stat-number" data-count="14">0</div>
+                            <div class="stat-label">実践記事</div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">マニュアル</div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="stat-number" data-count="6">0</div>
+                            <div class="stat-label">制作事例</div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#latest-articles" class="btn btn-primary cta-button">最新記事を見る</a>
+                        <a href="javascript:void(0);" onclick="openContactModal()" class="btn btn-outline-primary">無料相談する</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 2. 特集ブロック（3～4件） -->
+        <section class="featured-block-section">
+            <div class="container">
+                <h2 class="section-title"><span>注目の特集コンテンツ</span></h2>
+                <div class="featured-blocks">
+                    <div class="featured-block featured-block-pillar">
+                        <div class="featured-block-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="featured-block-content">
+                            <div class="featured-block-tag">ピックアップ記事</div>
+                            <h3 class="featured-block-title">WEBマーケ×クリエイティブ戦略で売上UP！</h3>
+                            <p class="featured-block-desc">専門家が教える、アクセスはあるのに売れない悩みを解決する方法。実例とデータから学ぶ改善施策を徹底解説</p>
+                            <a href="/howto/posts/article/article1/" class="featured-block-link">完全ガイドを読む <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-block featured-block-whitepaper">
+                        <div class="featured-block-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="featured-block-content">
+                            <div class="featured-block-tag">編集マニュアル</div>
+                            <h3 class="featured-block-title">WIX、Shopifyが誰でも編集できる！</h3>
+                            <p class="featured-block-desc">社内でサイトのちょっとした編集や情報更新がスムーズに行える、運用方法・編集方法を用途ごとに解説</p>
+                            <a href="/howto/posts/manual/" class="featured-block-link">操作方法をチェック <i class="fas fa-book"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-block featured-block-webinar">
+                        <div class="featured-block-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="featured-block-content">
+                            <div class="featured-block-tag">ウェビナー告知</div>
+                            <h3 class="featured-block-title">Shopify売上UP講座</h3>
+                            <p class="featured-block-desc">7月15日開催　実績アップが見込める新機能活用要点を徹底解説</p>
+                            <a href="#webinar-register" class="featured-block-link">予約する（先着100名様） <i class="fas fa-calendar-check"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3. 新着記事（ブログロール） -->
+        <section id="latest-articles" class="article-grid-section">
+            <div class="container">
+                <h2 class="section-title"><span>新着記事</span></h2>
+                <div class="posts-grid">
+                    <!-- 記事アイテム 1 (ピラー記事) -->
+                    <article class="post-card post-card-featured">
+                        <a href="/howto/posts/article/article1/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/howto/article1_thumb.png" alt="WEBマーケ×クリエイティブ戦略の概要イメージ" width="400" height="250">
+                                <div class="post-tags">
+                                    <span class="article-tag">web集客</span>
+                                    <span class="article-tag">マーケティング</span>
+                                    <span class="article-tag">クリエイティブ</span>
+                                </div>
+                                <div class="badge badge-accent post-featured-badge">ピラー記事</div>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">WEBマーケ×クリエイティブ戦略で売上UP！</h3>
+                                <p class="post-excerpt">専門家が教える、アクセスはあるのに売れない悩みを解決する方法。実例とデータから学ぶ改善施策を徹底解説します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.05.09</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- 記事アイテム 2 -->
+                    <article class="post-card">
+                        <a href="/howto/posts/article/article2/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/howto/article2_thumb.png" alt="静岡＆神奈川でWeb制作を依頼する" width="400" height="250">
+                                <div class="post-tags">
+                                    <span class="article-tag">web集客</span>
+                                    <span class="article-tag">マーケティング</span>
+                                    <span class="article-tag">ECサイト制作</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">静岡＆神奈川でWeb制作を依頼するなら？</h3>
+                                <p class="post-excerpt">ECサイト制作とマーケ戦略を同時に考える方法。地域特性を活かした成功事例と依頼先選びの重要ポイントを解説します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.05.09</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- 記事アイテム 3 -->
+                    <article class="post-card">
+                        <a href="/howto/posts/article/article3/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/howto/article3_thumb.webp" alt="Shopify導入の決め手" width="400" height="250">
+                                <span class="badge badge-primary post-category">CRO</span>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">Shopify導入の決め手！メニューカスタマイズで売上2倍も可能な理由</h3>
+                                <p class="post-excerpt">Shopifyのメニューカスタマイズとクリエイティブ戦略で成果を出す方法。実践事例と共に解説します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.06.05</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- 記事アイテム 4 -->
+                    <article class="post-card">
+                        <a href="/howto/posts/article/article4/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/howto/article4_thumb.webp" alt="Wixサイト制作を始める前に" width="400" height="250">
+                                <span class="badge badge-primary post-category">Amazon</span>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">Wixサイト制作を始める前に！ホームページを売上につなげる"Webマーケ×クリエイティブ"の考え方</h3>
+                                <p class="post-excerpt">Wixでのサイト制作とクリエイティブ戦略で成果を出す方法。実践事例と共に解説します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.06.01</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- 記事アイテム 5 (マニュアル記事) -->
+                    <article class="post-card">
+                        <a href="/howto/posts/manual/wix6/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/manual/wix/wix6-thumb.webp" alt="Wix予約サービスとカレンダーの基本操作" width="400" height="250">
+                                <span class="badge badge-primary post-category">マニュアル</span>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">Wix予約サービスとカレンダーの基本操作</h3>
+                                <p class="post-excerpt">Wix予約サービスの設定方法と予約カレンダーの管理方法を解説。スタッフ管理や営業時間設定など、予約システムの基本操作を紹介します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.08.13</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- 記事アイテム 6 (マニュアル記事) -->
+                    <article class="post-card">
+                        <a href="/howto/posts/manual/wix5/" class="post-link">
+                            <div class="post-image">
+                                <img src="/assets/images/manual/wix/wix5-thumb.webp" alt="Wix Studioレスポンシブ編集マニュアル" width="400" height="250">
+                                <span class="badge badge-primary post-category">マニュアル</span>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">Wix Studioレスポンシブ編集マニュアル</h3>
+                                <p class="post-excerpt">PCとスマートフォンで最適な表示に調整する方法を解説。レスポンシブ表示のポイントとチェック方法をステップで紹介します。</p>
+                                <div class="post-meta">
+                                    <time class="post-date">2025.08.10</time>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+            <div class="view-all-articles">
+                <a href="posts/index.html" class="btn btn-outline-primary">すべての記事を見る <i class="fas fa-angle-right"></i></a>
+            </div>
+        </section>
+
+        <!-- 5. 制作事例スライダー（新着記事の下に移動） -->
+        <section class="case-studies-section">
+            <div class="container">
+                <h2 class="section-title"><span>制作事例</span></h2>
+                <div class="case-studies-wrapper">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="case-studies-container">
+                        <div class="case-studies-slider">
+                        <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="../assets/images/lpo-ac3.webp" alt="CTA改善事例" width="400" height="250">
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-tag">LP改善</div>
+                            <h3 class="case-study-title">CTA改善でCPA-30％達成</h3>
+                            <p class="case-study-desc">化粧品メーカー様のLPでボタンデザインと文言を改善し、問い合わせ率が向上</p>
+                            <div class="case-study-stats">
+                                <div class="stat">
+                                    <span class="stat-label">クリック率</span>
+                                    <span class="stat-value">+45%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">CPA</span>
+                                    <span class="stat-value">-30%</span>
+                                </div>
+                            </div>
+                            <a href="../services/lp-improvement/" class="case-study-link">LP改善サービスを見る <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="../assets/images/lpo-ac2.webp" alt="Amazon新規出品事例" width="400" height="250">
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-tag">Amazon出品</div>
+                            <h3 class="case-study-title">Amazon新規出品で初月200％達成</h3>
+                            <p class="case-study-desc">アパレルブランド様のアマゾン出品をサポートし、目標を大きく上回る成果</p>
+                            <div class="case-study-stats">
+                                <div class="stat">
+                                    <span class="stat-label">当初目標</span>
+                                    <span class="stat-value">+200%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Review</span>
+                                    <span class="stat-value">4.7★</span>
+                                </div>
+                            </div>
+                            <a href="../services/amazon-support/" class="case-study-link">モール出品サポートを見る <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="../assets/images/lpo-ac1.webp" alt="ファーストビュー改善事例" width="400" height="250">
+                        </div>
+                        <div class="case-study-content">
+                            <div class="case-study-tag">ファーストビュー</div>
+                            <h3 class="case-study-title">ファーストビュー改善で滑在時間+40%</h3>
+                            <p class="case-study-desc">全体デザインとユーザー動線を最適化し、ユーザーのサイト滑在時間とコンバージョン率が向上</p>
+                            <div class="case-study-stats">
+                                <div class="stat">
+                                    <span class="stat-label">滑在時間</span>
+                                    <span class="stat-value">+40%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">CVR</span>
+                                    <span class="stat-value">+25%</span>
+                                </div>
+                            </div>
+                            <a href="../services/lpo/" class="case-study-link">LP最適化サービスを見る <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="case-studies-cta">
+                    <a href="../works/" class="btn btn-outline-primary">すべての制作事例を見る</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 6. お役立ちサービス -->
+        <section class="services-promotion">
+            <div class="container">
+                <h2 class="section-title"><span>お役立ちサービス</span></h2>
+                <div class="service-cards">
+                    <div class="service-item">
+                        <img src="../assets/images/corporate_sv-shopify.webp" alt="Shopify構築" width="360" height="240" class="service-image">
+                        <h3 class="service-title">Shopify構築</h3>
+                        <p class="service-description">世界で最も成長しているECプラットフォーム「Shopify」を活用したオリジナルECサイトを構築します。自社ブランドの世界観を表現しつつ、高い購買率を実現するUI/UXデザイン</p>
+                        <div class="service-button-container">
+                            <a href="../services/shopify" class="btn btn-outline-primary">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="../assets/images/corporate_sv-amazon.webp" alt="Amazon出品・広告運用" width="360" height="240" class="service-image">
+                        <h3 class="service-title">Amazon出品・広告運用</h3>
+                        <p class="service-description">世界最大のECプラットフォーム「Amazon」での出品から広告運用まで一責してサポート。商品ページの最適化や広告戦略の立案・実行により売上最大化</p>
+                        <div class="service-button-container">
+                            <a href="../services/amazon" class="btn btn-outline-primary">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <img src="../assets/images/corporate_sv-bildlp.webp" alt="集客LP制作" width="360" height="240" class="service-image">
+                        <h3 class="service-title">集客LP制作</h3>
+                        <p class="service-description">ユーザーの心理に訴求し、高いコンバージョン率を実現するランディングページを制作。商品やサービスの魅力を最大限に引き出し、成約率向上に貢献</p>
+                        <div class="service-button-container">
+                            <a href="../services/lp-lpo" class="btn btn-outline-primary">詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 無料相談・お問い合わせCTA -->
+        <section class="consultation-cta-section">
+            <div class="container">
+                <div class="consultation-cta-content">
+                    <div class="cta-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h2 class="cta-title">EC・LP改善のお悩み、<br class="sp-only">無料でご相談ください</h2>
+                    <p class="cta-description">
+                        「どこから手をつければいいかわからない」「今の施策が正しいか不安」<br>
+                        そんなお悩みを、EC・LP改善の専門家が無料でアドバイスします
+                    </p>
+                    <div class="cta-features">
+                        <div class="cta-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>相談無料・秘密厳守</span>
+                        </div>
+                        <div class="cta-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>オンライン対応可能</span>
+                        </div>
+                        <div class="cta-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>具体的な改善案を提示</span>
+                        </div>
+                    </div>
+                    <div class="cta-buttons-group">
+                        <a href="javascript:void(0);" onclick="openContactModal()" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> 無料相談を申し込む
+                        </a>
+                        <p class="cta-note">※ 営業日24時間以内にご返信いたします</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/howto.js"></script>
+    <script src="../assets/js/simple-carousel.js"></script>
+    
+    <!-- カウントアップアニメーション -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let animated = false;
+            
+            function animateCount(element) {
+                const target = parseInt(element.getAttribute('data-count'));
+                const duration = 2000; // 2秒
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 16);
+            }
+            
+            function checkScroll() {
+                if (animated) return;
+                
+                const heroSection = document.querySelector('.hero-section');
+                const rect = heroSection.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    animated = true;
+                    statNumbers.forEach(element => {
+                        animateCount(element);
+                    });
+                }
+            }
+            
+            // 初回チェック
+            checkScroll();
+            
+            // スクロール時にチェック
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+</body>
+</html>

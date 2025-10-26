@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wix Studio 運用マニュアル｜07. EC商品の編集と複製登録（Wixストア） | Howto BOX</title>
+  <meta name="description" content="Wixストアでの商品編集・複製登録方法を解説。タイトル、説明、画像、価格、在庫、SKUの編集からバリエーション設定、コレクション（カテゴリ）への紐付け、商品SEO設定まで解説します。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/template.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/howto.css">
+  <link rel="stylesheet" href="/assets/css/article-unified.css">
+  <link rel="stylesheet" href="/assets/css/manual.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- マニュアル用の追加スタイル -->
+  <style>
+    /* マニュアル記事用のボックススタイル - 赤と黄色に統一 */
+    /* 赤系統ボックス - 注意・重要な情報 */
+    .alert-box {
+      background-color: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 黄色系統ボックス - ヒント・補足情報 */
+    .tip-box {
+      background-color: #fffbf0;
+      border-left: 4px solid #f39c12;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    /* 画像下の余白設定 */
+    .article-image-container, .manual-image-container {
+      margin-bottom: 20px;
+    }
+    
+    /* 手順ステップのフォントサイズ調整 */
+    .step-container {
+      font-size: 1.2em;
+    }
+    
+    /* 推奨ページリンク用スタイル */
+    .recommended-pages {
+      list-style-type: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .recommended-pages li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .recommended-page-link {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.8rem;
+      text-decoration: none;
+      color: #333;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .recommended-page-link:hover {
+      background-color: #f1f1f1;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      color: var(--primary-color);
+    }
+    
+    .recommended-page-link i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+    }
+    
+    /* ナビゲーションのミニマルデザイン */
+    .manual-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 2.5rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .nav-prev, .nav-next {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+      max-width: 45%;
+    }
+    
+    .nav-prev {
+      text-align: left;
+    }
+    
+    .nav-next {
+      text-align: right;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.2rem;
+    }
+    
+    .nav-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .nav-prev:hover, .nav-next:hover {
+      color: var(--primary-color);
+    }
+  </style>
+  
+  <!-- JS -->
+  <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="howto-article">
+  <!-- 共通ヘッダー -->
+  <div id="site-header"></div>
+  
+  <!-- 共通パンくずリスト -->
+  <div id="breadcrumb-container" data-page="wix7"></div>
+  
+  <main class="main-content">
+    
+    <!-- 記事コンテナ -->
+    <div class="article-container">
+
+      <!-- 記事ヘッダー -->
+      <header class="article-header">
+        <h1 class="article-title">Wix Studio 運用マニュアル｜07. <span>EC商品の編集と複製登録（Wixストア）</span></h1>
+        <div class="article-meta">公開日: 2025年8月14日 | 最終更新: 2025年8月14日</div>
+        <div class="article-tag-list">
+          <span class="article-tag">Wix Studio</span>
+          <span class="article-tag">運用マニュアル</span>
+          <span class="article-tag">Wix</span>
+          <span class="article-tag">EC</span>
+          <span class="article-tag">ストア</span>
+        </div>
+      </header>
+
+      <!-- メイン画像（全幅） -->
+      <div class="article-image-container">
+        <img src="/assets/images/manual/wix/wix7-thumb.webp" alt="Wix Studio EC商品の編集と複製登録（Wixストア）" class="article-image" style="max-width: 100%;">
+      </div>
+
+      <!-- 目次 -->
+      <div class="toc-container">
+        <div class="toc-title">目次</div>
+        <ul class="toc-list">
+          <li><a href="#intro">このページでできること</a></li>
+          <li><a href="#preparation">1. 事前準備</a></li>
+          <li><a href="#product-list">2. 商品一覧を開く</a></li>
+          <li><a href="#edit-product">3. 既存商品の基本情報を編集</a></li>
+          <li><a href="#variations">4. バリエーション（オプション）を編集</a></li>
+          <li><a href="#collections">5. コレクション（カテゴリー）に追加</a></li>
+          <li><a href="#duplicate">6. 既存商品を複製して新規登録</a></li>
+          <li><a href="#mistakes">9. よくあるミスと対処</a></li>
+          <li><a href="#related">このあと読むとよいページ</a></li>
+          <li><a href="#support">専門サポートの案内</a></li>
+        </ul>
+      </div>
+      
+      <!-- 記事本文 -->
+      <div class="article-content">
+        <section id="intro" class="article-section fade-in">
+          <div class="intro-box">
+            <p class="intro-text">このページでできること</p>
+            <ul class="feature-list">
+              <li>既存商品の<strong>タイトル／説明／画像／価格／在庫／SKU</strong>を編集できる</li>
+              <li>既存商品を<strong>複製</strong>して、新しい商品として<strong>追加登録</strong>できる</li>
+              <li>コレクション（カテゴリ）への紐づけと、<strong>商品SEO</strong>の基本設定ができる</li>
+            </ul>
+          </div>
+
+          <p class="article-p">
+            <strong>使う場所</strong>：Wix <strong>ダッシュボード → ストア → 商品（Products）</strong>
+          </p>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="preparation" class="article-section fade-in">
+          <h2 class="article-section-title">1. 事前準備</h2>
+          
+          <ul>
+            <li><strong>#01 はじめに</strong>に従い、<strong>サイト履歴</strong>を作成してから開始</li>
+            <li>価格の<strong>税込/税抜ルール</strong>、在庫の<strong>追跡有無</strong>を社内基準に合わせる</li>
+            <li>新規商品用の画像（1200px以上）をフォルダ分けして準備</li>
+          </ul>
+          
+          <div class="tip-box">
+            <p>✅ <strong>ポイント</strong>：SKU（商品コード）は重複しないように先に決めておきます。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="product-list" class="article-section fade-in">
+          <h2 class="article-section-title">2. 商品一覧を開く</h2>
+          
+          <h3>手順（全2ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>ダッシュボード左メニュー <strong>［ストア］→［商品］</strong> をクリック</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section1.png" alt="ストアメニューから商品を選択" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>一覧から<strong>編集したい商品</strong>をクリック（または検索）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section2.png" alt="商品一覧から編集したい商品を選択" class="article-image">
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="edit-product" class="article-section fade-in">
+          <h2 class="article-section-title">3. 既存商品の基本情報を編集</h2>
+          
+          <div class="intro-box">
+            <p>商品ページに表示される主要項目を更新します。</p>
+          </div>
+          
+          <h3>手順（全6ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span><strong>商品名</strong>（タイトル）<strong>、説明文</strong>（段落・箇条書きで読みやすく）を編集</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section3.png" alt="商品名と説明文を編集" class="article-image">
+          </div>
+          
+          <ul>
+            <li>提供の<strong>HTMLデザインフレーム</strong>がある場合：<br>本文に貼り付け、<strong>文字と画像だけ差し替え</strong>（クラス名は変えない）</li>
+          </ul>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>メディア（画像/ギャラリー）を追加・並び替え（1枚目がカバー）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section4.png" alt="メディア画像を追加・編集" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>価格</strong> と <strong>比較価格</strong>（セール表示用）を設定</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section5.png" alt="価格と比較価格を設定" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❹</span>
+            <span><strong>SKU</strong> を入力、<strong>在庫</strong>を更新（在庫追跡ONなら数量を入力）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section6.png" alt="SKUと在庫を設定" class="article-image">
+          </div>
+          
+          <p class="article-p"><strong>※商品タイプ</strong>（物理／デジタル）と <strong>重量</strong>（配送に必要）を確認</p>
+          
+          <div class="tip-box">
+            <p>💡 <strong>コツ</strong>：説明は短い見出し＋箇条書きで要点を先に。<br>比較価格は実価格より高く設定するとセール表示になります。</p>
+          </div>
+          
+          <div class="alert-box">
+            <p>⚠ <strong>注意</strong>：SKUの重複は在庫連動の不具合につながります。必ず一意に。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="variations" class="article-section fade-in">
+          <h2 class="article-section-title">4. バリエーション（オプション）を編集</h2>
+          
+          <div class="intro-box">
+            <p>色やサイズなどのオプションと、その組み合わせでできるバリエーションを設定します。</p>
+          </div>
+          
+          <h3>手順（全4ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span><strong>オプション</strong>で属性を追加（例：色、サイズ）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section7.png" alt="オプション属性を追加" class="article-image">
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section8.png" alt="オプション属性の値を設定" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span><strong>バリエーション</strong>一覧が生成される</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section9.png" alt="生成されたバリエーション一覧" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span>各バリエーションの <strong>価格／SKU／在庫</strong> を入力</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section10.png" alt="バリエーションごとの価格・SKU・在庫設定" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❹</span>
+            <span>必要に応じて <strong>バリエーション画像</strong> を割当て</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section11.png" alt="バリエーション画像の割当て" class="article-image">
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section12.png" alt="バリエーション画像の選択と割当て" class="article-image">
+          </div>
+          
+          <div class="alert-box">
+            <p>⚠ <strong>注意</strong>：バリエーション数が多い場合は一括CSVのほうが安全（専門対応推奨）。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="collections" class="article-section fade-in">
+          <h2 class="article-section-title">5. コレクション（カテゴリー）に追加</h2>
+          
+          <div class="intro-box">
+            <p>商品を一覧ページに出すために、該当するコレクションへ紐づけます。</p>
+          </div>
+          
+          <h3>手順（2ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span>商品編集画面の <strong>［カテゴリー］</strong> を開く</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section13.png" alt="カテゴリー設定を開く" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>追加したいカテゴリーを選択して<strong>［商品を追加+］</strong>をクリック</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section14.png" alt="カテゴリーを選択して商品を追加" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span>リストまたは検索から該当の商品を追加して<strong>［保存］</strong></span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section15.png" alt="商品を選択してカテゴリーに追加" class="article-image">
+          </div>
+          
+          <div class="tip-box">
+            <p>💡 <strong>コツ</strong>：コレクションは2つまでに。乱立させると回遊が散ります。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="duplicate" class="article-section fade-in">
+          <h2 class="article-section-title">6. 既存商品を複製して新規登録</h2>
+          
+          <div class="intro-box">
+            <p>似た商品は複製が早くて安全です。</p>
+          </div>
+          
+          <h3>手順（6ステップ）</h3>
+          
+          <div class="step-container">
+            <span class="step-number">❶</span>
+            <span><strong>商品一覧</strong>で対象商品の <strong>「…」→［複製］</strong> をクリック</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section16.png" alt="商品の複製操作" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❷</span>
+            <span>新しい商品名を入れる（任意で画像も変更）</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section17.png" alt="複製した商品の名前変更" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❸</span>
+            <span><strong>URLスラッグ</strong> を<strong>新しい名前</strong>に合わせて修正</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section18.png" alt="URLスラッグの修正" class="article-image">
+          </div>
+          
+          <div class="step-container">
+            <span class="step-number">❹</span>
+            <span>各項目を任意で差し替え/更新して保存</span>
+          </div>
+          
+          <div class="manual-image-container">
+            <img src="/assets/images/manual/wix/wix7-section19.png" alt="各項目の更新と保存" class="article-image">
+          </div>
+          
+          <div class="tip-box">
+            <p>💡 <strong>コツ</strong>：複製前に共通項目のテンプレ（説明の章立て・注意書き）を整えておくと早い。</p>
+          </div>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="mistakes" class="article-section fade-in">
+          <h2 class="article-section-title">9. よくあるミスと対処</h2>
+          
+          <ul>
+            <li><strong>SKU重複</strong> → 新SKUを採番。<strong>全バリエーション</strong>で確認</li>
+            <li><strong>スラッグ重複</strong> → 別の短い英数字-ハイフンに変更（例：<code>mug-blue</code>）</li>
+            <li><strong>在庫0でカート不可</strong> → 在庫数を入力／在庫追跡をOFFに切替</li>
+            <li><strong>比較価格の誤設定</strong> → 実売価格より<strong>高く</strong>設定</li>
+            <li><strong>画像が重い/粗い</strong> → 1200px以上/JPG中心、<strong>2MB以下</strong>推奨</li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="related" class="article-section fade-in">
+          <h2 class="article-section-title">このあと読むとよいページ</h2>
+          
+          <ul class="recommended-pages">
+            <li>
+              <a href="/howto/posts/manual/wix/wix4/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#04 画像の貼り替え方法</strong>（最適サイズ・Alt）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix6/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#06 ページ複製と設定（SEO含む）</strong>（URL/OGの基本）</span>
+              </a>
+            </li>
+            <li>
+              <a href="/howto/posts/manual/wix/wix9/index.html" class="recommended-page-link">
+                <i class="fas fa-file-alt"></i>
+                <span><strong>#09 公開と更新チェック</strong>（本番反映前の最終確認）</span>
+              </a>
+            </li>
+          </ul>
+          
+          <div class="divider"></div>
+        </section>
+
+        <section id="support" class="article-section fade-in">
+          <h2 class="article-section-title">専門サポートの案内</h2>
+          
+          <ul>
+            <li><strong>CSV一括登録/更新</strong>、大量バリエーションの安全運用</li>
+            <li><strong>GA4/タグ計測・コンバージョン</strong>、クロスセル/アップセル設計</li>
+            <li><strong>送料/税設定</strong>、多言語/多通貨、<strong>構造化データ（GTIN/Brand）</strong></li>
+          </ul>
+
+          <div class="tip-box">
+            <p>商品運用をもっと楽に。テンプレ設計やCSV一括更新、計測・SEO強化までお任せください。</p>
+          </div>
+          
+          <div class="cta-container" style="text-align: center;">
+            <a href="/contact/" class="btn btn-primary">お問い合わせはこちら</a>
+          </div>
+        </section>
+
+        <!-- 前後ナビゲーション -->
+        <div class="manual-navigation">
+          <a href="/howto/posts/manual/wix/wix6/index.html" class="nav-prev">
+            <span class="nav-label">前のマニュアル</span>
+            <span class="nav-title">06. 予約サービス／カレンダー（基本操作）</span>
+          </a>
+          <a href="#" class="nav-next">
+            <span class="nav-label">次のマニュアル</span>
+            <span class="nav-title">08. Wix Studio 会員機能の基本</span>
+          </a>
+        </div>
+
+        <!-- 関連記事セクション -->
+        <section class="related-articles fade-in">
+          <h3 class="article-section-title">関連記事</h3>
+          <div class="related-articles-grid">
+            <a href="/howto/posts/manual/wix6/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix6-thumb.webp" alt="予約サービス サムネイル">
+              </div>
+              <h4 class="related-article-title">06. 予約サービス／カレンダー（基本操作）</h4>
+            </a>
+            <a href="/howto/posts/manual/wix4/index.html" class="related-article-card">
+              <div class="related-article-image">
+                <img src="/assets/images/manual/wix/wix4-thumb.webp" alt="画像の貼り替え方法 サムネイル">
+              </div>
+              <h4 class="related-article-title">04. 画像の貼り替え方法</h4>
+            </a>
+          </div>
+        </section>
+        
+        <!-- プロフィールセクション -->
+        <div class="divider"></div>
+        <div id="profile-container" class="fade-in"></div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 共通フッター -->
+  <div id="site-footer"></div>
+  
+  <!-- 記事専用JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // プロフィール情報をフェッチして挿入する関数
+      function insertProfileContent() {
+          const profileContainer = document.getElementById('profile-container');
+          if (!profileContainer) return;
+          
+          // プロフィールHTMLファイルのパスを指定
+          fetch('/assets/includes/author-profile.html')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('プロフィール情報の読み込みに失敗しました。');
+                  }
+                  return response.text();
+              })
+              .then(html => {
+                  profileContainer.innerHTML = html;
+              })
+              .catch(error => {
+                  console.error('プロフィール情報の挿入エラー:', error);
+              });
+      }
+      
+      // プロフィール情報を挿入
+      insertProfileContent();
+      
+      // 目次リンクのスムーススクロール
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // スクロールに応じた要素のフェードイン
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      function checkFade() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementTop < windowHeight - 100) {
+            element.classList.add('visible');
+          }
+        });
+      }
+      
+      // 初期チェック
+      checkFade();
+      
+      // スクロール時のチェック
+      window.addEventListener('scroll', checkFade);
+    });
+  </script>
+</body>
+</html>

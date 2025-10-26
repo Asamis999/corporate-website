@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopify構築サービス | 編集できる×売れるECサイト構築 | 合同会社A</title>
+    <meta name="description" content="社内で誰でも更新できるShopifyサイト構築サービス。編集しやすい情報設計、CVR最大化の売れる導線、運用サポートをワンストップで提供します。セクション設計・メタデータ設計・多言語/多通貨・決済/在庫連携まで対応。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/modal.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- EC LP用カスタムスタイル -->
+    <link rel="stylesheet" href="ec-lp-style.css">
+</head>
+<body>
+    
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero hero-fullscreen">
+        <div class="hero-background">
+            <!-- PC用画像 -->
+            <div class="hero-image-pc">
+                <div class="image-placeholder">
+                    <div>
+                        <div class="image-placeholder-icon">🖼️</div>
+                        <div style="font-weight: bold; margin: 16px 0;">PC用ファーストビュー画像</div>
+                        <div style="font-size: 14px; line-height: 1.6;">
+                            <strong>推奨サイズ:</strong> 1920×1080px<br>
+                            <strong>アスペクト比:</strong> 16:9<br>
+                            <strong>ファイル形式:</strong> JPG, PNG, WebP<br>
+                            <strong>注意:</strong> テキストは画像に含めず、下部のCTAボタンエリアを考慮
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- スマホ用画像 -->
+            <div class="hero-image-sp">
+                <div class="image-placeholder">
+                    <div>
+                        <div class="image-placeholder-icon">📱</div>
+                        <div style="font-weight: bold; margin: 16px 0;">スマホ用ファーストビュー画像</div>
+                        <div style="font-size: 14px; line-height: 1.6;">
+                            <strong>推奨サイズ:</strong> 750×1334px<br>
+                            <strong>アスペクト比:</strong> 9:16<br>
+                            <strong>ファイル形式:</strong> JPG, PNG, WebP<br>
+                            <strong>注意:</strong> 縦長構図、下部にCTAボタンスペース確保
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTAボタンオーバーレイ -->
+        <div class="hero-cta-overlay">
+            <button class="cta-button cta-hero" onclick="openContactModal()">
+                <span>まずは気軽に相談</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ベネフィットセクション -->
+    <section class="section">
+        <div class="section-container">
+            <h2>モールでは売れるのに、<br>なぜ自社ECだと不安なのか?</h2>
+            <p class="section-intro">
+                多くの方が「自社ECは集客が難しいから」と考えています。<br>
+                しかし、本当の理由はそれだけではありません。<br><br>
+                
+                実は、売れるECを作るには<strong>販売戦略に基づく導線設計</strong>と<strong>運用ノウハウ</strong>が必要です。<br>
+                モールでは、これらがプラットフォーム側で用意されているため、出品すれば売れる仕組みになっています。<br><br>
+                
+                自社ECでも同じように、<strong>戦略・設計・運用・改善</strong>の仕組みを整えれば成果は出せます。<br>
+                知見がないだけで、資産価値の高い販路を諦めてしまうのはもったいない。<br><br>
+                
+                私たちは、モール出店者が自社ECで成功するための、その全てをワンストップで提供します。
+            </p>
+            
+            <!-- 4つの強みハイライト -->
+            <div class="strengths-highlight">
+                <div class="strength-highlight-item">
+                    <div class="strength-icon">🎯</div>
+                    <h4>戦略</h4>
+                    <p>販売戦略に基づく<br>導線設計</p>
+                </div>
+                <div class="strength-highlight-item">
+                    <div class="strength-icon">✏️</div>
+                    <h4>設計</h4>
+                    <p>社内で編集できる<br>仕組み構築</p>
+                </div>
+                <div class="strength-highlight-item">
+                    <div class="strength-icon">🚀</div>
+                    <h4>運用</h4>
+                    <p>集客から販売まで<br>一気通貫支援</p>
+                </div>
+                <div class="strength-highlight-item">
+                    <div class="strength-icon">📈</div>
+                    <h4>改善</h4>
+                    <p>データに基づく<br>継続的な最適化</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強み詳細セクション1: 戦略 -->
+    <section class="section strength-detail-section">
+        <div class="section-container">
+            <div class="strength-detail">
+                <div class="strength-detail-header">
+                    <div class="strength-number">1</div>
+                    <div class="strength-icon-large">🎯</div>
+                    <h2>戦略から設計できる構築力</h2>
+                    <p class="strength-subtitle">モール出店では得られない、自社EC特有の「売る戦略」</p>
+                </div>
+                
+                <div class="strength-content">
+                    <div class="strength-visual">
+                        <!-- PC用画像 -->
+                        <div class="strength-image-pc">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📊</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">戦略設計のイメージ図（PC用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 1200×600px<br>
+                                        <strong>アスペクト比:</strong> 2:1（横長）<br>
+                                        <strong>内容例:</strong> 戦略フロー図、ターゲット分析図、導線設計図など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- スマホ用画像 -->
+                        <div class="strength-image-sp">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📱</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">戦略設計のイメージ図（スマホ用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 300×300px<br>
+                                        <strong>アスペクト比:</strong> 1:1（正方形）<br>
+                                        <strong>内容例:</strong> 戦略フロー図、ターゲット分析図、導線設計図など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-text">
+                        <h3>なぜ戦略が必要なのか？</h3>
+                        <p>
+                            モールは「出品すれば売れる」仕組みですが、自社ECは違います。<br>
+                            販売戦略・集客動線・顧客体験を踏まえ、「どう売るか」から設計する必要があります。<br>
+                            販売者・運用者の目線から、販売計画に沿ったEC構成を実現します。
+                        </p>
+                        
+                        <h4>具体的な取り組み</h4>
+                        <ul class="strength-list">
+                            <li><strong>商品特性に合わせた訴求設計</strong><br>モールとは異なる見せ方で、商品の魅力を最大化</li>
+                            <li><strong>ターゲット顧客の購買行動を考慮した導線</strong><br>顧客心理に基づいた購入フローを設計</li>
+                            <li><strong>ブランドフェーズに合わせた情報設計</strong><br>認知拡大期・成長期・成熟期に応じた最適な構成</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強み詳細セクション2: 設計 -->
+    <section class="section section-alt strength-detail-section">
+        <div class="section-container">
+            <div class="strength-detail">
+                <div class="strength-detail-header">
+                    <div class="strength-number">2</div>
+                    <div class="strength-icon-large">✏️</div>
+                    <h2>自社で編集・改善できる仕組み</h2>
+                    <p class="strength-subtitle">モール運用で培ったスピード感を、自社ECでも</p>
+                </div>
+                
+                <div class="strength-content">
+                    <div class="strength-visual">
+                        <!-- PC用画像 -->
+                        <div class="strength-image-pc">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">🖥️</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">編集画面のスクリーンショット（PC用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 1200×600px<br>
+                                        <strong>アスペクト比:</strong> 2:1（横長）<br>
+                                        <strong>内容例:</strong> 実際の管理画面、編集UI、ドラッグ&ドロップ操作など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- スマホ用画像 -->
+                        <div class="strength-image-sp">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📱</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">編集画面のスクリーンショット（スマホ用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 300×300px<br>
+                                        <strong>アスペクト比:</strong> 1:1（正方形）<br>
+                                        <strong>内容例:</strong> 実際の管理画面、編集UI、ドラッグ&ドロップ操作など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-text">
+                        <h3>編集しやすさが成果を左右する</h3>
+                        <p>
+                            モールでは商品ページをすぐに編集できたのに、自社ECでは外注待ち―<br>
+                            そんなストレスを解消します。誰でも更新できるUIで、販促やキャンペーンを即日反映。<br>
+                            運用のスピードが、売上のスピードに直結します。
+                        </p>
+                        
+                        <h4>編集できる項目</h4>
+                        <ul class="strength-list">
+                            <li><strong>ノーコードで文字・画像を編集</strong><br>モール管理画面のような手軽さで、専門知識不要</li>
+                            <li><strong>特集ページやバナーを自由に追加</strong><br>セール・キャンペーンに合わせて柔軟に対応</li>
+                            <li><strong>すばやくPDCAを回して成長を止めない</strong><br>仮説検証のサイクルを高速化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強み詳細セクション3: 運用 -->
+    <section class="section strength-detail-section">
+        <div class="section-container">
+            <div class="strength-detail">
+                <div class="strength-detail-header">
+                    <div class="strength-number">3</div>
+                    <div class="strength-icon-large">🚀</div>
+                    <h2>集客・販売・運用をワンストップで</h2>
+                    <p class="strength-subtitle">モールに頼らない、自社の集客と販売の仕組みづくり</p>
+                </div>
+                
+                <div class="strength-content">
+                    <div class="strength-visual">
+                        <!-- PC用画像 -->
+                        <div class="strength-image-pc">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">🔄</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">集客・販売フロー図（PC用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 1200×600px<br>
+                                        <strong>アスペクト比:</strong> 2:1（横長）<br>
+                                        <strong>内容例:</strong> 集客から販売までのフロー、各施策の連携図など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- スマホ用画像 -->
+                        <div class="strength-image-sp">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📱</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">集客・販売フロー図（スマホ用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 300×300px<br>
+                                        <strong>アスペクト比:</strong> 1:1（正方形）<br>
+                                        <strong>内容例:</strong> 集客から販売までのフロー、各施策の連携図など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-text">
+                        <h3>集客の不安を解消する</h3>
+                        <p>
+                            自社ECの最大の不安は「集客」。でも、正しい戦略があれば集客できます。<br>
+                            広告運用・LINE CRM・LP改善・顧客対応まで、<br>
+                            集客→販売→リピートを一気通貫で支援します。
+                        </p>
+                        
+                        <h4>提供する運用支援</h4>
+                        <ul class="strength-list">
+                            <li><strong>Web広告運用</strong><br>Google・Meta・LINE等、最適なチャネルで集客</li>
+                            <li><strong>CRM設計・シナリオ構築</strong><br>モールではできない顧客育成で、LTV最大化</li>
+                            <li><strong>LP/サイト改善・ABテスト</strong><br>データに基づく継続的な改善でCVR向上</li>
+                            <li><strong>カスタマーサポート体制構築</strong><br>顧客満足度を高め、リピート率を向上</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強み詳細セクション4: 改善 -->
+    <section class="section section-alt strength-detail-section">
+        <div class="section-container">
+            <div class="strength-detail">
+                <div class="strength-detail-header">
+                    <div class="strength-number">4</div>
+                    <div class="strength-icon-large">📈</div>
+                    <h2>継続的な成果検証と提案</h2>
+                    <p class="strength-subtitle">データで伸ばす、感覚に頼らない改善</p>
+                </div>
+                
+                <div class="strength-content">
+                    <div class="strength-visual">
+                        <!-- PC用画像 -->
+                        <div class="strength-image-pc">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📊</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">データ分析ダッシュボード（PC用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 1200×600px<br>
+                                        <strong>アスペクト比:</strong> 2:1（横長）<br>
+                                        <strong>内容例:</strong> GA4画面、売上推移グラフ、改善前後の比較など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- スマホ用画像 -->
+                        <div class="strength-image-sp">
+                            <div class="image-placeholder">
+                                <div>
+                                    <div class="image-placeholder-icon">📱</div>
+                                    <div style="font-weight: bold; margin: 16px 0;">データ分析ダッシュボード（スマホ用）</div>
+                                    <div style="font-size: 14px; line-height: 1.6;">
+                                        <strong>推奨サイズ:</strong> 300×300px<br>
+                                        <strong>アスペクト比:</strong> 1:1（正方形）<br>
+                                        <strong>内容例:</strong> GA4画面、売上推移グラフ、改善前後の比較など
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-text">
+                        <h3>データが成長を加速させる</h3>
+                        <p>
+                            アクセス分析と販売データをもとに、根拠ある改善提案を実施。<br>
+                            "なんとなく"ではなく、"データで伸ばす"体制が整っています。<br>
+                            継続的な改善サイクルで、売上を着実に伸ばします。
+                        </p>
+                        
+                        <h4>改善サイクルの内容</h4>
+                        <ul class="strength-list">
+                            <li><strong>定例ミーティングでの改善提案</strong><br>月次レビューで課題を特定し、次の施策を立案</li>
+                            <li><strong>アクセス解析レポート</strong><br>GA4やヒートマップで、ユーザー行動を可視化</li>
+                            <li><strong>販売データに基づく施策立案</strong><br>売上・CVR・客単価などのKPIを分析し、改善策を提示</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UIデモセクション -->
+    <section class="section section-alt">
+        <div class="section-container">
+            <h2>実際に、スタッフが操作できるECとは?</h2>
+            <p class="section-intro">
+                専門知識がなくても、直感的に編集できるUI設計。<br>
+                修正やキャンペーン更新のたびに外注せず、社内でスピーディに改善できる環境を。<br>
+                <strong>"運用の速さ"が"売上の速さ"につながります。</strong>
+            </p>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-visual">
+                        <div class="image-placeholder">
+                            <div>
+                                <div class="image-placeholder-icon">✏️</div>
+                                <div>文字修正デモ動画</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h4>文字修正 → 即反映</h4>
+                        <p>商品説明やキャッチコピーをその場で編集。プレビューしながら即座に反映可能。</p>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <div class="demo-visual">
+                        <div class="image-placeholder">
+                            <div>
+                                <div class="image-placeholder-icon">🖼️</div>
+                                <div>画像差し替えデモ動画</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h4>トップ画像差替 → 更新完了</h4>
+                        <p>ドラッグ&ドロップで画像をアップロード。季節やキャンペーンに合わせて柔軟に変更。</p>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <div class="demo-visual">
+                        <div class="image-placeholder">
+                            <div>
+                                <div class="image-placeholder-icon">📱</div>
+                                <div>特集枠追加デモ動画</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h4>特集枠追加 → 配信</h4>
+                        <p>新商品や期間限定キャンペーンの特集ページを自由に追加・編集・公開。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box mt-40">
+                <strong>💡 ポイント:</strong> 
+                モール運用では当たり前だった「即座の更新」が、自社ECでは外注待ちになっていませんか?<br>
+                市場の変化やトレンドに即座に対応できる「運用力」こそが、自社EC成功の鍵です。
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== セクション 5: 成果が出る設計とは ========== -->
+    <section class="section">
+        <div class="section-container">
+            <h2>"きれい"より"成果"。<br>フェーズに合わせて変化する設計。</h2>
+            <p class="section-intro">
+                デザインが美しいだけでは売れません。<br>
+                ブランドの成長フェーズに合わせて、訴求構成を柔軟に変える。<br>
+                それが「成果を出すサイト設計」の具体的な中身です。
+            </p>
+            
+            <div class="phase-comparison-grid">
+                <div class="phase-card phase-initial">
+                    <h3>
+                        📌 初期フェーズ: 情報量で信頼獲得
+                    </h3>
+                    <p>
+                        <strong>無名ブランドの課題:</strong> 認知度がなく、信頼されていない。<br><br>
+                        <strong>解決策:</strong><br>
+                        ✓ 商品情報・使用方法・お客様の声を充実<br>
+                        ✓ FAQやサポート体制を明示<br>
+                        ✓ 安心感を与える情報設計<br>
+                        ✓ 詳細なスペック・成分説明
+                    </p>
+                    <div class="image-placeholder" style="margin-top: 30px;">
+                        <div>
+                            <div class="image-placeholder-icon">📊</div>
+                            <div>[画像: 情報量重視型のサイト例]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phase-card phase-mature">
+                    <h3>
+                        🏆 成熟フェーズ: 世界観で差別化
+                    </h3>
+                    <p>
+                        <strong>認知後の課題:</strong> 競合との差別化、ブランド価値の向上。<br><br>
+                        <strong>解決策:</strong><br>
+                        ✓ ビジュアル重視の世界観構築<br>
+                        ✓ ブランドストーリーの訴求<br>
+                        ✓ 洗練されたデザイン<br>
+                        ✓ ライフスタイル提案型の訴求
+                    </p>
+                    <div class="image-placeholder" style="margin-top: 30px;">
+                        <div>
+                            <div class="image-placeholder-icon">✨</div>
+                            <div>[画像: 世界観重視型のサイト例]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="design-process-title">
+                成果を出す設計プロセス
+            </h3>
+            
+            <div class="design-process-grid">
+                <div class="design-process-item">
+                    <div class="design-process-icon">🔍</div>
+                    <h4>商品USP深堀り</h4>
+                    <p>独自の強みを明確化</p>
+                </div>
+                
+                <div class="design-process-item">
+                    <div class="design-process-icon">📊</div>
+                    <h4>市場動向ウォッチ</h4>
+                    <p>競合・トレンド分析</p>
+                </div>
+                
+                <div class="design-process-item">
+                    <div class="design-process-icon">🎯</div>
+                    <h4>訴求軸明確化</h4>
+                    <p>刺さるメッセージ設計</p>
+                </div>
+                
+                <div class="design-process-item">
+                    <div class="design-process-icon">🚀</div>
+                    <h4>構成に落とし込み</h4>
+                    <p>実装・テスト・改善</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box mt-40">
+                <strong>💡 重要:</strong> 
+                "どんなフェーズの商品にも最適な見せ方を設計できる"<br>
+                これが「成果を出すサイト設計」の本質です。見た目の良さではなく、売上につながる設計を追求します。
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略設計セクション -->
+    <section class="section">
+        <div class="section-container">
+            <h2>モール出店者だからこそ知っている、<br>自社ECで成功するための戦略設計。</h2>
+            <p class="section-intro">
+                私たちは、実際の販売・運用経験を持つチームです。<br>
+                モールでは見えなかった「顧客データ」を活用し、商材ごとの"売れる導線"を設計。<br>
+                自社ECだからこそできる、戦略を提案します。
+            </p>
+            
+            <!-- CRMフロー図 -->
+            <div class="crm-flow-visual">
+                <div class="image-placeholder">
+                    <div>
+                        <div class="image-placeholder-icon">📊</div>
+                        <div>画像: CRMフロー図（集客→育成→販売→リピート）</div>
+                        <div style="font-size: 14px; margin-top: 12px; opacity: 0.7;">推奨サイズ: 1000x500px</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="font-size: 28px; margin: 60px 0 32px; font-weight: 700; text-align: center;">CRM設計のシナリオ提案例</h3>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>商材タイプ</th>
+                            <th>戦略アプローチ</th>
+                            <th>具体的施策</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>クローズド商材</strong><br><small>（例: インティメント系）</small></td>
+                            <td>段階的な情報開示で信頼構築</td>
+                            <td>
+                                ① リスト集客（SNS広告・SEO）<br>
+                                ② LINEでの段階的情報開示<br>
+                                ③ 信頼醸成後に販売ページへ誘導
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>D2C / 単品リピート商品</strong><br><small>（例: サプリ・化粧品）</small></td>
+                            <td>アフターフォローでLTV最大化</td>
+                            <td>
+                                ① 初回購入後、LINE登録促進<br>
+                                ② 使用方法・効果的な活用法を配信<br>
+                                ③ リピート購入促進シナリオ
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>BtoC ブランド</strong><br><small>（例: アパレル・雑貨）</small></td>
+                            <td>パーソナライズで購買率向上</td>
+                            <td>
+                                ① LINEアンケートで嗜好データ取得<br>
+                                ② 行動ログ活用で属性分析<br>
+                                ③ パーソナライズ提案・レコメンド
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="highlight-box mt-40">
+                <strong>🎯 モール出店者への提案:</strong> 
+                モールでは得られなかった「顧客データ」を自社ECでは取得・活用できます。<br>
+                この違いを理解し、実際の販売・運用経験から培った知見で、あなたのビジネスを成長させます。
+            </div>
+        </div>
+    </section>
+
+    <!-- 改善ロードマップセクション -->
+    <section class="section section-alt">
+        <div class="section-container">
+            <h2>改善は"仕組み"で回す。<br>A.incの改善ロードマップ。</h2>
+            <p class="section-intro">
+                「作って終わり」ではなく、<strong>作ってからがスタート</strong>。<br>
+                成果を測り、改善していくことを前提とした運用フローで、ECを成長させます。
+            </p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>現状分析</h4>
+                    <p>
+                        市場・競合・顧客データの収集と分析。<br>
+                        現在地を正確に把握。
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>改善仮説立案</h4>
+                    <p>
+                        導線・訴求・構成の改善仮説を立案。<br>
+                        テスト設計を準備。
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>実装・検証</h4>
+                    <p>
+                        ABテスト・アクセス分析を実施。<br>
+                        データに基づく検証。
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>成果反映・提案</h4>
+                    <p>
+                        定例ミーティングで報告。<br>
+                        次サイクルの改善提案。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="image-container mt-40">
+                <div class="image-placeholder">
+                    <div>
+                        <div class="image-placeholder-icon">🔄</div>
+                        <div>PDCAサイクルの循環イメージ図</div>
+                        <div style="font-size: 14px; margin-top: 12px; opacity: 0.7;">継続的な改善サイクルで、ECサイトを成長させ続けます</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 実績セクション -->
+    <section class="section section-dark">
+        <div class="section-container">
+            <h2>モール出店だけでは得られない、<br>自社ECならではの成果実績。</h2>
+            <p class="section-intro">
+                「モールでしか売れない」は思い込みです。<br>
+                正しい設計と運用体制があれば、自社ECでも確実に成果は出ます。<br>
+                広告・CRM・LP制作を自社で経験し、ABテストと販売データから効果的訴求を抽出してきました。
+            </p>
+            
+            <!-- 成果グラフ画像 -->
+            <div class="results-graph-container">
+                <div class="image-placeholder">
+                    <div>
+                        <div class="image-placeholder-icon">📈</div>
+                        <div>画像: 成果推移グラフ（改善前後の比較）</div>
+                        <div style="font-size: 14px; margin-top: 12px; opacity: 0.7;">推奨サイズ: 1000x600px</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">-18%</div>
+                    <div class="stat-label">離脱率改善</div>
+                    <p>導線設計の最適化により、サイト離脱率を大幅に削減</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">+27%</div>
+                    <div class="stat-label">CVR向上</div>
+                    <p>訴求改善とUI最適化で、コンバージョン率を向上</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">+35%</div>
+                    <div class="stat-label">LINE経由リピート率</div>
+                    <p>CRMシナリオ設計により、リピート購入を促進</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金プランセクション -->
+    <section class="section">
+        <div class="section-container">
+            <h2>あなたに合った始め方を。</h2>
+            <p class="section-intro">
+                「いきなり大きく投資するのは不安」―その気持ち、よくわかります。<br>
+                ビジネスのフェーズや目標に合わせて、3つのプランをご用意。<br>
+                まずはスモールプランでテスト販売から始め、成果を見ながら拡張していくことも可能です。
+            </p>
+            
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <div class="plan-name">スモール</div>
+                    <p class="plan-description">まず試す</p>
+                    <div class="plan-price">¥〇〇〇,〇〇〇~</div>
+                    <ul class="plan-features">
+                        <li>基本的なEC機能</li>
+                        <li>スタッフ編集機能</li>
+                        <li>レスポンシブデザイン</li>
+                        <li>基本的な決済連携</li>
+                        <li>アクセス解析設定</li>
+                        <li>初期運用サポート(1ヶ月)</li>
+                    </ul>
+                </div>
+                
+                <div class="plan-card featured">
+                    <div class="plan-badge">人気</div>
+                    <div class="plan-name">スタンダード</div>
+                    <p class="plan-description">ブランドを育てる</p>
+                    <div class="plan-price">¥〇〇〇,〇〇〇~</div>
+                    <ul class="plan-features">
+                        <li>スモールの全機能</li>
+                        <li>CRM設計・LINE連携</li>
+                        <li>広告運用支援</li>
+                        <li>カスタムデザイン</li>
+                        <li>会員機能・ポイント機能</li>
+                        <li>定例ミーティング(月1回)</li>
+                        <li>継続改善サポート(3ヶ月)</li>
+                    </ul>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-name">プレミアム</div>
+                    <p class="plan-description">越境・多言語・拡張</p>
+                    <div class="plan-price">¥〇〇〇,〇〇〇~</div>
+                    <ul class="plan-features">
+                        <li>スタンダードの全機能</li>
+                        <li>多言語・越境EC対応</li>
+                        <li>高度なカスタマイズ</li>
+                        <li>外部システム連携</li>
+                        <li>API開発</li>
+                        <li>専任担当者アサイン</li>
+                        <li>定例ミーティング(月2回)</li>
+                        <li>長期運用サポート(6ヶ月~)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box mt-40">
+                <strong>⚠️ 重要なお願い:</strong><br>
+                「安く作れば売れる」という考え方では、成果は出ません。<br>
+                販売戦略・設計・検証を重ねることで、初めて成果が生まれます。<br>
+                まずはスモールプランでテスト販売から始め、運用で得たデータをもとに設計を再構築し、<br>
+                長期的に拡張していくサポート体制を整えています。
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">よくある質問</h2>
+                <p class="section-intro">
+                    モール出店者からよくいただくご質問をまとめました。<br>
+                    その他のご質問は、お気軽にお問い合わせください。
+                </p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q1. モールと比べて、本当に自社ECで売れますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、正しい戦略と運用体制があれば売れます。モールは「集客力」がありますが、自社ECには「顧客データを自由に活用できる」「手数料がかからない」「ブランド体験を自由に設計できる」といったメリットがあります。私たちは、集客から運用改善までを一貫してサポートし、自社ECでの成果創出を実現します。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q2. 本当に社内スタッフでも更新できますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、可能です。モールの管理画面と同じような手軽さで操作できるUIを設計しています。文字修正、画像差し替え、特集ページ追加など、日常的な更新作業は全てスタッフ自身で行えます。初期導入時には、操作方法のレクチャーも実施いたします。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q3. 集客はどうやって行うのですか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Web広告（Google・Meta・LINE等）を中心に、SEO対策、SNS活用、CRMによる顧客育成など、多角的なアプローチで集客を支援します。モールと違い、自社ECでは「自分でコントロールできる集客」を構築できます。広告運用の実績とノウハウを活かし、費用対効果の高い集客戦略をご提案します。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q4. 構築にどのくらいの期間がかかりますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>プランや要件によって異なりますが、スモールプランで約2~3ヶ月、スタンダードプランで約3~4ヶ月、プレミアムプランで約4~6ヶ月が目安です。ヒアリング・設計・開発・テスト・納品まで、しっかりとした工程を踏んで進めます。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q5. モールと並行して運用できますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>もちろん可能です。むしろ、モールと自社ECを並行運用することで、「モールで集客→自社ECでリピート化」という理想的な導線を構築できます。モールの実績を活かしながら、自社ECで顧客との関係を深め、LTVを最大化する戦略を提案します。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Q6. サポート期間終了後はどうなりますか?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>サポート期間終了後も、継続的なサポートプランをご用意しています。月額制の運用サポート、定例ミーティング、改善提案など、長期的なパートナーとして伴走します。もちろん、自社運用に切り替えることも可能です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- クロージングセクション -->
+    <section class="section section-dark" id="contact">
+        <div class="section-container text-center">
+            <h2>"売れる"を積み上げる、<br>長期的なパートナーとして。</h2>
+            <p class="section-intro">
+                モールで実績があるあなたなら、自社ECでも必ず成果を出せます。<br>
+                「本当に売れるのか?」その疑問に、実績とデータでお答えします。<br>
+                まずは課題や目標をお聞かせください。販売戦略から設計、運用改善まで、一気通貫でサポートいたします。
+            </p>
+            
+            <button class="cta-button" onclick="openContactModal()">🗣️ まずは気軽に相談する</button>
+            <p class="microcopy">
+                無料相談受付中 | 30分のヒアリングで最適なプランをご提案<br>
+                <small>営業時間: 平日 10:00 - 18:00</small>
+            </p>
+        </div>
+    </section>
+
+    <!-- 共通フッター -->
+    <div id="site-footer"></div>
+    
+    <!-- お問い合わせモーダル -->
+    <div id="contact-modal-container">
+      <!-- モーダルコンテンツをインラインで直接配置 -->
+      <div id="contact-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">お問い合わせ</h2>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="contact-form" method="post">
+              <div class="form-group">
+                <label for="company">会社名・組織名 <span class="required">*</span></label>
+                <input type="text" id="company" name="company" required placeholder="合同会社A">
+              </div>
+              
+              <div class="form-group">
+                <label for="name">お名前 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="山田 太郎">
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">電話番号 <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="09012345678">
+              </div>
+              
+              <div class="form-group">
+                <label for="email">メールアドレス <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="mail@example.com">
+              </div>
+              
+              <div class="form-group">
+                <label for="message">ご質問・ご要望</label>
+                <textarea id="message" name="message" rows="4" placeholder="Shopify構築についてのお問い合わせ内容をご記入ください"></textarea>
+              </div>
+              
+              <div class="form-group privacy-policy">
+                <label>
+                  <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+                  <a href="/privacy-policy/" target="_blank">プライバシーポリシー</a>に同意します
+                </label>
+              </div>
+              
+              <div class="form-group submit-container">
+                <button type="submit" class="btn-submit">内容を送信する</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js"></script>
+    <script src="/assets/js/modal.js"></script>
+    <script src="/assets/js/contact-modal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQアコーディオンの機能
+            const faqItems = document.querySelectorAll('.faq-question');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.textContent = '+';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

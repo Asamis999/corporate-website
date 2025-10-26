@@ -1,0 +1,110 @@
+<!-- ヘッダーテンプレート -->
+<template id="header-template">
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="/">
+                    <img src="/assets/images/corporate_logos.webp" alt="会社ロゴ" width="180" height="60">
+                </a>
+            </div>
+            
+            <nav class="global-nav" id="global-nav">
+                <ul>
+                    <li><a href="/works/">制作事例</a></li>
+                    <li><a href="/services/">サービス一覧</a></li>
+                    <li><a href="/pricing/">制作料金</a></li>
+                    <li><a href="/process/">制作までの流れ</a></li>
+                    <li><a href="/howto/">Howto BOX</a></li>
+                    <li><a href="/company/">会社概要</a></li>
+                    <li><a href="javascript:void(0);" onclick="openContactModal()" class="contact-btn">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="sr-only">メニュー</span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- モバイルメニュー -->
+<div id="mobile-menu" class="mobile-menu" hidden>
+    <div class="mobile-menu-inner">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="/works/">制作事例</a></li>
+                <li><a href="/services/">サービス一覧</a></li>
+                <li><a href="/pricing/">制作料金</a></li>
+                <li><a href="/process/">制作までの流れ</a></li>
+                <li><a href="/howto/">Howto BOX</a></li>
+                <li><a href="/company/">会社概要</a></li>
+                <li><a href="/contact/">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</template>
+
+<!-- パンくずリストテンプレート -->
+<template id="breadcrumb-template">
+<div class="breadcrumb">
+    <div class="container">
+        <ul id="breadcrumb-list">
+            <!-- パンくずリストの内容はJavaScriptで動的に生成されます -->
+        </ul>
+    </div>
+</div>
+</template>
+
+<!-- フッターテンプレート -->
+<template id="footer-template">
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="/assets/images/corporate_logo-main.webp" alt="会社ロゴ" width="120" height="40">
+                <p>EC物販に強い！<br>制作・企画・販売会社</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-nav-column">
+                    <h3>サイトマップ</h3>
+                    <ul>
+                        <li><a href="/works/">制作事例</a></li>
+                        <li><a href="/services/">サービス一覧</a></li>
+                        <li><a href="/pricing/">制作料金</a></li>
+                        <li><a href="/process/">制作までの流れ</a></li>
+                        <li><a href="/howto/">Howto BOX</a></li>
+                        <li><a href="/company/">会社概要</a></li>
+                        <li><a href="/recruit/">採用情報</a></li>
+                        <li><a href="javascript:void(0);" onclick="openContactModal()">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav-column">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/services/lp-lpo/index.html">LPO-継続的なLP改善</a></li>
+                        <li><a href="/services/shopify/index.html">Shopify EC構築</a></li>
+                        <li><a href="/services/amazon/index.html">Amazon商品ページ制作</a></li>
+                        <li><a href="/services/lp-lpo/index.html">楽天商品ページ制作</a></li>
+                        <li><a href="/services/lp-lpo/index.html">2ステップマーケティング構築</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="/legal/">特定商取引法に基づく表記</a>
+                <a href="/privacy-policy/">プライバシーポリシー</a>
+            </div>
+            <p class="copyright">&copy; 2025 社名 A.Inc. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</template>
