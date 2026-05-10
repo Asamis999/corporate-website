@@ -9,7 +9,7 @@ const articlesData = [
     title: 'WEBマーケ×クリエイティブ戦略で売上UP！',
     excerpt: '専門家が教える、アクセスはあるのに売れない悩みを解決する方法。実例とデータから学ぶ改善施策を徹底解説します。',
     url: '/howto/posts/article/article1/',
-    image: '/assets/images/howto/article1_thumb.png',
+    image: '/assets/images/howto/article/article1_thumb.png',
     date: '2025.05.09',
     tags: ['web集客', 'マーケティング', 'クリエイティブ'],
     category: 'article',
@@ -21,7 +21,7 @@ const articlesData = [
     title: '静岡＆神奈川でWeb制作を依頼するなら？',
     excerpt: 'ECサイト制作とマーケ戦略を同時に考える方法。地域特性を活かした成功事例と依頼先選びの重要ポイントを解説します。',
     url: '/howto/posts/article/article2/',
-    image: '/assets/images/howto/article2_thumb.png',
+    image: '/assets/images/howto/article/article2_thumb.png',
     date: '2025.05.09',
     tags: ['web集客', 'マーケティング', 'ECサイト制作'],
     category: 'article'
@@ -31,7 +31,7 @@ const articlesData = [
     title: 'Shopify導入の決め手！メニューカスタマイズで売上2倍も可能な理由',
     excerpt: 'Shopifyのメニューカスタマイズとクリエイティブ戦略で成果を出す方法。実践事例と共に解説します。',
     url: '/howto/posts/article/article3/',
-    image: '/assets/images/howto/article3_thumb.webp',
+    image: '/assets/images/howto/article/article3_thumb.webp',
     date: '2025.06.05',
     tags: ['Shopify', 'ECサイト', 'マーケファネル'],
     category: 'article',
@@ -42,7 +42,7 @@ const articlesData = [
     title: 'Wixサイト制作を始める前に！ホームページを売上につなげる"Webマーケ×クリエイティブ"の考え方',
     excerpt: 'Wixでのサイト制作とクリエイティブ戦略で成果を出す方法。実践事例と共に解説します。',
     url: '/howto/posts/article/article4/',
-    image: '/assets/images/howto/article4_thumb.webp',
+    image: '/assets/images/howto/article/article4_thumb.webp',
     date: '2025.06.01',
     tags: ['Wix', 'LP改善・最適化', 'ECサイト運営'],
     category: 'article',
@@ -53,7 +53,7 @@ const articlesData = [
     title: '広告代理店を選ぶ前に知りたい！Web制作とマーケ支援を一体化するメリット',
     excerpt: 'Web制作と広告運用を一体化することで得られるメリットと、実際の改善事例を紹介します。',
     url: '/howto/posts/article/article5/',
-    image: '/assets/images/howto/article5_thumb.webp',
+    image: '/assets/images/howto/article/article5_thumb.webp',
     date: '2025.06.10',
     tags: ['Webマーケティング', 'LP改善', 'ECサイト制作・運営'],
     category: 'article'
@@ -63,7 +63,7 @@ const articlesData = [
     title: 'EC LPで"売れない"を解決！クリエイティブ×マーケで実現するCVR向上術',
     excerpt: 'ECランディングページの課題を解決し、CVRを向上させるクリエイティブ×マーケティングの実践手法を解説します。',
     url: '/howto/posts/article/article6/',
-    image: '/assets/images/howto/article6_thumb.webp',
+    image: '/assets/images/howto/article/article6_thumb.webp',
     date: '2025.06.15',
     tags: ['Webマーケティング', 'クリエイティブ戦略'],
     category: 'article'
@@ -73,7 +73,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜01. はじめに',
     excerpt: 'Wix Studioの基本的な使い方と運用方法を解説。初めての方でも安心して使えるように、基本操作から応用まで丁寧に説明します。',
     url: '/howto/posts/manual/wix1/',
-    image: '/assets/images/manual/wix/wix1-thumb.webp',
+    image: '/assets/images/manual/wix/wix1_thumb.webp',
     date: '2025.08.01',
     tags: ['Wix Studio', 'マニュアル'],
     category: 'manual',
@@ -84,7 +84,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜02. 基本操作の前提知識',
     excerpt: 'Wix Studioの基本操作を学ぶ前に知っておきたい前提知識。ログイン方法やエディタの起動方法を解説します。',
     url: '/howto/posts/manual/wix2/',
-    image: '/assets/images/manual/wix/wix2-thumb.webp',
+    image: '/assets/images/manual/wix/wix2_thumb.webp',
     date: '2025.08.02',
     tags: ['Wix Studio', 'マニュアル'],
     category: 'manual',
@@ -95,7 +95,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜03. テキストやフレームパーツの再利用・編集',
     excerpt: 'Wix Studioでテキストやフレームパーツを複製・編集する方法を解説。効率的なサイト更新のコツを紹介します。',
     url: '/howto/posts/manual/wix3/',
-    image: '/assets/images/manual/wix/wix3-thumb.webp',
+    image: '/assets/images/manual/wix/wix3_thumb.webp',
     date: '2025.08.03',
     tags: ['Wix Studio', 'マニュアル'],
     category: 'manual',
@@ -106,7 +106,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜04. ページ複製と設定（SEO含む）',
     excerpt: 'Wix Studioでページを複製し、SEO設定を含めた各種設定方法を解説します。',
     url: '/howto/posts/manual/wix4/',
-    image: '/assets/images/manual/wix/wix4-thumb.webp',
+    image: '/assets/images/manual/wix/wix4_thumb.webp',
     date: '2025.08.04',
     tags: ['Wix Studio', 'マニュアル', 'SEO'],
     category: 'manual',
@@ -117,7 +117,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜05. レスポンシブ編集方法',
     excerpt: 'PCとスマートフォンで最適な表示に調整する方法を解説。レスポンシブ表示のポイントとチェック方法をステップで紹介します。',
     url: '/howto/posts/manual/wix5/',
-    image: '/assets/images/manual/wix/wix5-thumb.webp',
+    image: '/assets/images/manual/wix/wix5_thumb.webp',
     date: '2025.08.10',
     tags: ['Wix Studio', 'マニュアル', 'レスポンシブ'],
     category: 'manual',
@@ -128,7 +128,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜06. 予約サービス／カレンダー（基本操作）',
     excerpt: 'Wix予約サービスの設定方法と予約カレンダーの管理方法を解説。スタッフ管理や営業時間設定など、予約システムの基本操作を紹介します。',
     url: '/howto/posts/manual/wix6/',
-    image: '/assets/images/manual/wix/wix6-thumb.webp',
+    image: '/assets/images/manual/wix/wix6_thumb.webp',
     date: '2025.08.13',
     tags: ['Wix Studio', 'マニュアル', '予約システム'],
     category: 'manual',
@@ -139,7 +139,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜07. EC商品の編集と複製登録（Wixストア）',
     excerpt: 'Wixストアでの商品編集と複製登録の方法を解説。効率的な商品管理のコツを紹介します。',
     url: '/howto/posts/manual/wix7/',
-    image: '/assets/images/manual/wix/wix7-thumb.webp',
+    image: '/assets/images/manual/wix/wix7_thumb.webp',
     date: '2025.08.15',
     tags: ['Wix Studio', 'マニュアル', 'ECサイト'],
     category: 'manual',
@@ -150,7 +150,7 @@ const articlesData = [
     title: 'Wix Studio 運用マニュアル｜08. ブログ記事の作成と設定',
     excerpt: 'Wix Studioでブログ記事を作成・編集する方法を解説。カテゴリー設定やSEO設定など、ブログ運用の基本を紹介します。',
     url: '/howto/posts/manual/wix8/',
-    image: '/assets/images/manual/wix/wix8-thumb.webp',
+    image: '/assets/images/manual/wix/wix8_thumb.webp',
     date: '2025.08.18',
     tags: ['Wix Studio', 'マニュアル', 'ブログ'],
     category: 'manual',
@@ -158,8 +158,41 @@ const articlesData = [
   }
 ];
 
+window.articlesData = articlesData;
+
+function updateHeroStatsCounts() {
+  const statItems = document.querySelectorAll('.hero-stats .hero-stat-item');
+  if (!statItems.length) return;
+
+  const insights = (typeof window.insightsData !== 'undefined' && Array.isArray(window.insightsData))
+    ? window.insightsData
+    : [];
+  const mergedArticlesData = [...articlesData, ...insights];
+
+  const articleCount = mergedArticlesData.filter(item => item && (item.category === 'article' || item.category === 'insights')).length;
+  const manualCount = mergedArticlesData.filter(item => item && item.category === 'manual').length;
+  const caseStudyCount = document.querySelectorAll('.case-studies-section .case-study-item').length;
+
+  statItems.forEach(item => {
+    const labelEl = item.querySelector('.stat-label');
+    const numberEl = item.querySelector('.stat-number');
+    if (!labelEl || !numberEl) return;
+
+    const label = (labelEl.textContent || '').trim();
+    let count = null;
+    if (label === '実践記事') count = articleCount;
+    if (label === 'マニュアル') count = manualCount;
+    if (label === '実績事例') count = caseStudyCount;
+    if (count === null) return;
+
+    numberEl.setAttribute('data-count', String(count));
+  });
+}
+
 // カテゴリーフィルター機能
 document.addEventListener('DOMContentLoaded', function() {
+  updateHeroStatsCounts();
+
   // 記事を動的に読み込む
   loadArticles();
   
@@ -327,11 +360,17 @@ function initCategoryCarousel() {
 function loadArticles() {
   const postsGrid = document.querySelector('.posts-grid');
   if (!postsGrid) return;
+
+  const insights = (typeof window.insightsData !== 'undefined' && Array.isArray(window.insightsData))
+    ? window.insightsData
+    : [];
+
+  const mergedArticlesData = [...articlesData, ...insights];
   
   // 日付でソート（新しい順）
-  const sortedArticles = [...articlesData].sort((a, b) => {
-    const dateA = new Date(a.date.replace(/\./g, '-'));
-    const dateB = new Date(b.date.replace(/\./g, '-'));
+  const sortedArticles = [...mergedArticlesData].sort((a, b) => {
+    const dateA = a.date ? new Date(a.date.replace(/\./g, '-')) : new Date(0);
+    const dateB = b.date ? new Date(b.date.replace(/\./g, '-')) : new Date(0);
     return dateB - dateA;
   });
   

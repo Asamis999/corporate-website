@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/howto.css">
     <link rel="stylesheet" href="/assets/css/article-unified.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     
     <!-- JS -->
     <script src="/assets/js/template.js" defer></script>
+    <script src="/assets/js/howto.js"></script>
     
     <style>
         .hero-section {
@@ -270,42 +271,23 @@
         document.addEventListener('DOMContentLoaded', async function() {
             // 記事データを保持する配列
             const articles = [];
-            
-            // 記事ソースの定義
-            const articleSources = [
-                // 既存の記事ディレクトリ（article1-6）
-                {
-                    type: 'numbered',
-                    basePath: '/howto/posts/article/',
-                    pattern: 'article',
-                    count: 6,
-                    category: 'article'
-                }
-            ];
-            
-            // 各記事ソースから記事を取得
-            for (const source of articleSources) {
-                if (source.type === 'numbered') {
-                    // 連番形式の記事取得（article1, article2, ...）
-                    for (let i = 1; i <= source.count; i++) {
-                        const articleId = `${source.pattern}${i}`;
-                        const articleUrl = `${source.basePath}${articleId}/`;
-                        
-                        try {
-                            const articleInfo = await fetchArticleInfo(articleUrl);
-                            if (articleInfo) {
-                                articles.push({
-                                    ...articleInfo,
-                                    id: `article-${i}`,
-                                    url: articleUrl,
-                                    category: source.category
-                                });
-                            }
-                        } catch (error) {
-                            console.error(`記事${articleId}の情報取得に失敗しました:`, error);
-                        }
-                    }
-                }
+
+            if (typeof window.articlesData !== 'undefined' && Array.isArray(window.articlesData)) {
+                window.articlesData
+                    .filter(a => a && a.category === 'article')
+                    .forEach(a => {
+                        articles.push({
+                            title: a.title,
+                            description: a.excerpt,
+                            date: a.date,
+                            thumbnail: a.image,
+                            tags: a.tags,
+                            url: a.url,
+                            category: a.category
+                        });
+                    });
+            } else {
+                console.error('articlesData が読み込まれていません');
             }
             
             // 記事情報を取得する共通関数
@@ -346,7 +328,7 @@
                     if (articleId) {
                         // article1, article2はpng、article3以降はwebp
                         const extension = (articleId === '1' || articleId === '2') ? 'png' : 'webp';
-                        thumbnail = `/assets/images/howto/article${articleId}_thumb.${extension}`;
+                        thumbnail = `/assets/images/howto/article/article${articleId}_thumb.${extension}`;
                     } else {
                         // 記事内の画像を探す（フォールバック）
                         const articleImage = doc.querySelector('.article-image');

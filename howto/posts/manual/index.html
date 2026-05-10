@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/howto.css">
     <link rel="stylesheet" href="/assets/css/article-unified.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     
     <!-- JS -->
     <script src="/assets/js/template.js" defer></script>
@@ -355,7 +355,7 @@
                     const manualId = articleUrl.match(/wix(\d+)/)?.[1];
                     if (manualId) {
                         // マニュアル記事のサムネイル
-                        thumbnail = `/assets/images/manual/wix/wix${manualId}-thumb.webp`;
+                        thumbnail = `/assets/images/manual/wix/wix${manualId}_thumb.webp`;
                     } else {
                         // 記事内の画像を探す（フォールバック）
                         const articleImage = doc.querySelector('.article-image');

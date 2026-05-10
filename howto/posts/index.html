@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/howto.css">
     <link rel="stylesheet" href="/assets/css/article-unified.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     
     <!-- JS -->
     <script src="/assets/js/template.js" defer></script>
+    <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/howto.js"></script>
     
     <style>
@@ -227,13 +228,17 @@
         <!-- 記事一覧セクション -->
         <section class="articles-section">
             <div class="container">
-                <!-- カテゴリナビゲーション -->
-                <nav class="category-nav">
-                    <a href="/howto/posts/" class="category-nav-item active">すべて</a>
-                    <a href="/howto/posts/article/" class="category-nav-item">ノウハウ記事</a>
-                    <a href="/howto/posts/manual/" class="category-nav-item">マニュアル</a>
-                </nav>
-                
+                <!-- カテゴリタブ -->
+                <div class="filter-container">
+                    <h3>カテゴリー</h3>
+                    <div class="filter-options" id="category-filters">
+                        <span class="filter-tag active" data-category="all">すべて</span>
+                        <span class="filter-tag" data-category="article">ノウハウ記事</span>
+                        <span class="filter-tag" data-category="manual">マニュアル</span>
+                        <span class="filter-tag" data-category="insights">ナレッジ</span>
+                    </div>
+                </div>
+
                 <!-- タグフィルター -->
                 <div class="filter-container">
                     <h3>タグ</h3>
@@ -289,8 +294,14 @@
                 return;
             }
             
+            const insights = (typeof window.insightsData !== 'undefined' && Array.isArray(window.insightsData))
+                ? window.insightsData
+                : [];
+
+            const mergedArticlesData = [...articlesData, ...insights];
+
             // 記事データを変換
-            const articles = articlesData.map(article => ({
+            const articles = mergedArticlesData.map(article => ({
                 id: article.id,
                 title: article.title,
                 description: article.excerpt,
@@ -337,7 +348,7 @@
                         articleCard.className = 'article-card';
                         articleCard.dataset.category = article.category;
                         
-                        // タグ情報をdata属性に追加
+                        // タグ情報をdata属性に追加(article.category === manual' ? ' : 'Insights')
                         if (article.tags && article.tags.length > 0) {
                             articleCard.dataset.tags = article.tags.join(',');
                         }
@@ -355,7 +366,7 @@
                                     <img src="${article.thumbnail}" alt="${article.title}" class="article-image">
                                 </div>
                                 <div class="article-content">
-                                    <span class="article-category">${article.category === 'article' ? 'ノウハウ記事' : 'マニュアル'}</span>
+                                    <span class="article-category">${article.category === 'article' ? 'ノウハウ記事' : (article.category === 'manual' ? 'マニュアル' : 'ナレッジ')}</span>
                                     <h3 class="article-title">${article.title}</h3>
                                     <p class="article-desc">${article.description}</p>
                                     <div class="article-meta">
@@ -385,6 +396,17 @@
             
             // フィルタリング機能を初期化する関数
             function initializeFilters() {
+                // カテゴリフィルター
+                const categoryFilters = document.querySelectorAll('#category-filters .filter-tag');
+                categoryFilters.forEach(filter => {
+                    filter.addEventListener('click', function() {
+                        const category = this.getAttribute('data-category');
+                        document.querySelectorAll('#category-filters .filter-tag').forEach(f => f.classList.remove('active'));
+                        this.classList.add('active');
+                        applyFilters();
+                    });
+                });
+
                 // タグフィルター
                 const tagFilters = document.querySelectorAll('#tag-filters .filter-tag');
                 tagFilters.forEach(filter => {
@@ -397,32 +419,26 @@
                         });
                         this.classList.add('active');
                         
-                        // 記事をフィルタリング
-                        filterArticlesByTag(tag);
+                        applyFilters();
                     });
                 });
             }
             
-            // タグでフィルタリングする関数
-            function filterArticlesByTag(tag) {
+            function applyFilters() {
+                const activeCategory = document.querySelector('#category-filters .filter-tag.active')?.getAttribute('data-category') || 'all';
+                const activeTag = document.querySelector('#tag-filters .filter-tag.active')?.getAttribute('data-filter') || 'all';
+
                 const articleElements = document.querySelectorAll('.article-card');
                 
-                if (tag === 'all') {
-                    // すべて表示
-                    articleElements.forEach(article => {
-                        article.style.display = 'block';
-                    });
-                } else {
-                    // 特定のタグを持つ記事のみ表示
-                    articleElements.forEach(article => {
-                        const articleTags = article.dataset.tags ? article.dataset.tags.split(',') : [];
-                        if (articleTags.includes(tag)) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
-                }
+                articleElements.forEach(article => {
+                    const articleCategory = article.dataset.category || '';
+                    const articleTags = article.dataset.tags ? article.dataset.tags.split(',') : [];
+
+                    const matchCategory = (activeCategory === 'all') || (articleCategory === activeCategory);
+                    const matchTag = (activeTag === 'all') || articleTags.includes(activeTag);
+
+                    article.style.display = (matchCategory && matchTag) ? 'block' : 'none';
+                });
                 
                 // 表示される記事がない場合は「記事が見つかりません」を表示
                 const visibleArticles = document.querySelectorAll('.article-card[style="display: block"]');

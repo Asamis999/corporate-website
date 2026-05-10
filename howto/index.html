@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/css/howto.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
     
     <style>
         /* お役立ちサービスセクション用スタイル */
@@ -49,31 +49,6 @@
             .service-card {
                 width: calc(33.333% - 20px);
             }
-        }
-        
-        /* カルーセル用追加スタイル */
-        .case-studies-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 0;
-        }
-        
-        .case-studies-slider {
-            display: flex;
-            overflow-x: visible;
-            scroll-behavior: smooth;
-            gap: 30px;
-            width: 100%;
-            position: relative;
-        }
-        
-        .case-study-item {
-            flex: 0 0 auto;
-            width: 600px;
-            margin: 0 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
         }
         
         .case-studies-nav {
@@ -136,6 +111,7 @@
     
     <script src="../assets/js/template.js" defer></script>
     <script src="../assets/js/howto-carousel.js" defer></script>
+    <script src="../assets/js/insights.js" defer></script>
     <script src="../assets/js/howto.js" defer></script>
 </head>
 <body class="howto">
@@ -167,7 +143,7 @@
                         </div>
                         <div class="hero-stat-item">
                             <div class="stat-number" data-count="6">0</div>
-                            <div class="stat-label">制作事例</div>
+                            <div class="stat-label">実績事例</div>
                         </div>
                     </div>
                     <div class="cta-buttons">
@@ -231,7 +207,7 @@
                     <article class="post-card post-card-featured">
                         <a href="/howto/posts/article/article1/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/howto/article1_thumb.png" alt="WEBマーケ×クリエイティブ戦略の概要イメージ" width="400" height="250">
+                                <img src="/assets/images/howto/article/article1_thumb.png" alt="WEBマーケ×クリエイティブ戦略の概要イメージ" width="400" height="250">
                                 <div class="post-tags">
                                     <span class="article-tag">web集客</span>
                                     <span class="article-tag">マーケティング</span>
@@ -253,7 +229,7 @@
                     <article class="post-card">
                         <a href="/howto/posts/article/article2/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/howto/article2_thumb.png" alt="静岡＆神奈川でWeb制作を依頼する" width="400" height="250">
+                                <img src="/assets/images/howto/article/article2_thumb.png" alt="静岡＆神奈川でWeb制作を依頼する" width="400" height="250">
                                 <div class="post-tags">
                                     <span class="article-tag">web集客</span>
                                     <span class="article-tag">マーケティング</span>
@@ -274,7 +250,7 @@
                     <article class="post-card">
                         <a href="/howto/posts/article/article3/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/howto/article3_thumb.webp" alt="Shopify導入の決め手" width="400" height="250">
+                                <img src="/assets/images/howto/article/article3_thumb.webp" alt="Shopify導入の決め手" width="400" height="250">
                                 <span class="badge badge-primary post-category">CRO</span>
                             </div>
                             <div class="post-content">
@@ -291,7 +267,7 @@
                     <article class="post-card">
                         <a href="/howto/posts/article/article4/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/howto/article4_thumb.webp" alt="Wixサイト制作を始める前に" width="400" height="250">
+                                <img src="/assets/images/howto/article/article4_thumb.webp" alt="Wixサイト制作を始める前に" width="400" height="250">
                                 <span class="badge badge-primary post-category">Amazon</span>
                             </div>
                             <div class="post-content">
@@ -308,7 +284,7 @@
                     <article class="post-card">
                         <a href="/howto/posts/manual/wix6/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/manual/wix/wix6-thumb.webp" alt="Wix予約サービスとカレンダーの基本操作" width="400" height="250">
+                                <img src="/assets/images/manual/wix/wix6_thumb.webp" alt="Wix予約サービスとカレンダーの基本操作" width="400" height="250">
                                 <span class="badge badge-primary post-category">マニュアル</span>
                             </div>
                             <div class="post-content">
@@ -325,7 +301,7 @@
                     <article class="post-card">
                         <a href="/howto/posts/manual/wix5/" class="post-link">
                             <div class="post-image">
-                                <img src="/assets/images/manual/wix/wix5-thumb.webp" alt="Wix Studioレスポンシブ編集マニュアル" width="400" height="250">
+                                <img src="/assets/images/manual/wix/wix5_thumb.webp" alt="Wix Studioレスポンシブ編集マニュアル" width="400" height="250">
                                 <span class="badge badge-primary post-category">マニュアル</span>
                             </div>
                             <div class="post-content">
@@ -344,10 +320,10 @@
             </div>
         </section>
 
-        <!-- 5. 制作事例スライダー（新着記事の下に移動） -->
+        <!-- 5. 実績事例スライダー（新着記事の下に移動） -->
         <section class="case-studies-section">
             <div class="container">
-                <h2 class="section-title"><span>制作事例</span></h2>
+                <h2 class="section-title"><span>実績事例</span></h2>
                 <div class="case-studies-wrapper">
                     <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <div class="case-studies-container">
@@ -370,7 +346,7 @@
                                     <span class="stat-value">-30%</span>
                                 </div>
                             </div>
-                            <a href="../services/lp-improvement/" class="case-study-link">LP改善サービスを見る <i class="fas fa-arrow-right"></i></a>
+                            <a href="/services/marketing/lpo_add-more.html" class="case-study-link">LP改善サービスを見る <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -392,7 +368,7 @@
                                     <span class="stat-value">4.7★</span>
                                 </div>
                             </div>
-                            <a href="../services/amazon-support/" class="case-study-link">モール出品サポートを見る <i class="fas fa-arrow-right"></i></a>
+                            <a href="/services/ec-mall/amazon-more.html" class="case-study-link">モール出品サポートを見る <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -414,7 +390,7 @@
                                     <span class="stat-value">+25%</span>
                                 </div>
                             </div>
-                            <a href="../services/lpo/" class="case-study-link">LP最適化サービスを見る <i class="fas fa-arrow-right"></i></a>
+                            <a href="/services/marketing/lpo_add-more.html" class="case-study-link">LP最適化サービスを見る <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                         </div>
@@ -422,7 +398,7 @@
                     <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 <div class="case-studies-cta">
-                    <a href="../works/" class="btn btn-outline-primary">すべての制作事例を見る</a>
+                    <a href="../works/" class="btn btn-outline-primary">すべての実績事例を見る</a>
                 </div>
             </div>
         </section>
@@ -437,7 +413,7 @@
                         <h3 class="service-title">Shopify構築</h3>
                         <p class="service-description">世界で最も成長しているECプラットフォーム「Shopify」を活用したオリジナルECサイトを構築します。自社ブランドの世界観を表現しつつ、高い購買率を実現するUI/UXデザイン</p>
                         <div class="service-button-container">
-                            <a href="../services/shopify" class="btn btn-outline-primary">詳細を見る</a>
+                            <a href="/services/shopify/shopify-more.html" class="btn btn-outline-primary">詳細を見る</a>
                         </div>
                     </div>
                     <div class="service-item">
@@ -445,7 +421,7 @@
                         <h3 class="service-title">Amazon出品・広告運用</h3>
                         <p class="service-description">世界最大のECプラットフォーム「Amazon」での出品から広告運用まで一責してサポート。商品ページの最適化や広告戦略の立案・実行により売上最大化</p>
                         <div class="service-button-container">
-                            <a href="../services/amazon" class="btn btn-outline-primary">詳細を見る</a>
+                            <a href="/services/ec-mall/amazon-more.html" class="btn btn-outline-primary">詳細を見る</a>
                         </div>
                     </div>
                     <div class="service-item">
@@ -453,7 +429,7 @@
                         <h3 class="service-title">集客LP制作</h3>
                         <p class="service-description">ユーザーの心理に訴求し、高いコンバージョン率を実現するランディングページを制作。商品やサービスの魅力を最大限に引き出し、成約率向上に貢献</p>
                         <div class="service-button-container">
-                            <a href="../services/lp-lpo" class="btn btn-outline-primary">詳細を見る</a>
+                            <a href="/services/lp-lpo-v2/" class="btn btn-outline-primary">詳細を見る</a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ナレッジ一覧 | Howto BOX</title>
+    <meta name="description" content="ナレッジ記事の一覧です。Shopify構築・運用・成長に関する実践的な知見をまとめています。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/template.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/howto.css">
+    <link rel="stylesheet" href="/assets/css/article-unified.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    
+    <!-- JS -->
+    <script src="/assets/js/template.js" defer></script>
+    <script src="/assets/js/insights.js"></script>
+
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/howto/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .articles-section {
+            padding: 60px 0;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .article-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        
+        .article-card:hover .article-image {
+            transform: scale(1.1);
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-category {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .article-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        .filter-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-container h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-tag:hover, .filter-tag.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        
+        .no-articles {
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+        }
+        
+        .article-tags {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .article-tag {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="howto">
+    <!-- 共通ヘッダー -->
+    <div id="site-header"></div>
+
+    <!-- 共通パンくずリスト -->
+    <div id="breadcrumb-container" data-page="howto"></div>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">ナレッジ一覧</h1>
+                <p class="hero-subtitle">Shopify構築・運用・成長に関する実践的な知見（ナレッジ）をまとめています</p>
+            </div>
+        </section>
+
+        <section class="articles-section">
+            <div class="container">
+                <!-- タグフィルター -->
+                <div class="filter-container">
+                    <h3>タグ</h3>
+                    <div class="filter-options" id="tag-filters">
+                        <span class="filter-tag active" data-filter="all">すべて</span>
+                    </div>
+                </div>
+
+                <!-- 読み込み中 -->
+                <div class="loading" id="articles-loading">
+                    <p>記事を読み込んでいます...</p>
+                </div>
+
+                <!-- 記事グリッド -->
+                <div class="articles-grid" id="articles-grid" style="display: none;"></div>
+
+                <!-- 記事がない場合 -->
+                <div class="no-articles" id="no-articles">
+                    <h3>記事が見つかりません</h3>
+                    <p>条件に一致する記事がありませんでした。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- フッター内容はテンプレートで読み込まれる -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof window.insightsData === 'undefined' || !Array.isArray(window.insightsData)) {
+                console.error('insightsData が読み込まれていません');
+                document.getElementById('articles-loading').style.display = 'none';
+                document.getElementById('no-articles').style.display = 'block';
+                return;
+            }
+
+            const articles = window.insightsData.map(article => ({
+                id: article.id,
+                title: article.title,
+                description: article.excerpt,
+                date: article.date,
+                thumbnail: article.image,
+                tags: article.tags,
+                url: article.url,
+                category: article.category
+            }));
+
+            const allTags = new Set();
+            articles.forEach(a => {
+                if (a.tags && a.tags.length) {
+                    a.tags.forEach(t => allTags.add(t));
+                }
+            });
+
+            const tagFiltersContainer = document.getElementById('tag-filters');
+            Array.from(allTags).sort().forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'filter-tag';
+                tagElement.setAttribute('data-filter', tag);
+                tagElement.textContent = tag;
+                tagFiltersContainer.appendChild(tagElement);
+            });
+
+            // 日付の新しい順にソート（空は末尾）
+            articles.sort((a, b) => {
+                const dateA = a.date ? new Date(a.date.replace(/\./g, '-')) : new Date(0);
+                const dateB = b.date ? new Date(b.date.replace(/\./g, '-')) : new Date(0);
+                return dateB - dateA;
+            });
+
+            displayArticles(articles);
+            initializeFilters();
+
+            function displayArticles(articlesToDisplay) {
+                const articlesGrid = document.getElementById('articles-grid');
+                const loadingElement = document.getElementById('articles-loading');
+                const noArticlesElement = document.getElementById('no-articles');
+
+                articlesGrid.innerHTML = '';
+
+                if (articlesToDisplay.length > 0) {
+                    articlesToDisplay.forEach(article => {
+                        const articleCard = document.createElement('div');
+                        articleCard.className = 'article-card';
+                        articleCard.dataset.category = article.category;
+
+                        if (article.tags && article.tags.length > 0) {
+                            articleCard.dataset.tags = article.tags.join(',');
+                        }
+
+                        let tagsHtml = '';
+                        if (article.tags && article.tags.length > 0) {
+                            tagsHtml = '<div class="article-tags">' +
+                                article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('') +
+                                '</div>';
+                        }
+
+                        articleCard.innerHTML = `
+                            <a href="${article.url}">
+                                <div class="article-image-container">
+                                    <img src="${article.thumbnail}" alt="${article.title}" class="article-image">
+                                </div>
+                                <div class="article-content">
+                                    <span class="article-category">ナレッジ</span>
+                                    <h3 class="article-title">${article.title}</h3>
+                                    <p class="article-desc">${article.description}</p>
+                                    <div class="article-meta">
+                                        <span>${article.date || '日付なし'}</span>
+                                    </div>
+                                    ${tagsHtml}
+                                </div>
+                            </a>
+                        `;
+
+                        articlesGrid.appendChild(articleCard);
+                    });
+
+                    loadingElement.style.display = 'none';
+                    articlesGrid.style.display = 'grid';
+                    noArticlesElement.style.display = 'none';
+                } else {
+                    loadingElement.style.display = 'none';
+                    articlesGrid.style.display = 'none';
+                    noArticlesElement.style.display = 'block';
+                }
+            }
+
+            function initializeFilters() {
+                const tagFilters = document.querySelectorAll('#tag-filters .filter-tag');
+                tagFilters.forEach(filter => {
+                    filter.addEventListener('click', function() {
+                        const tag = this.getAttribute('data-filter');
+
+                        document.querySelectorAll('#tag-filters .filter-tag').forEach(f => f.classList.remove('active'));
+                        this.classList.add('active');
+
+                        applyFilters(tag);
+                    });
+                });
+            }
+
+            function applyFilters(activeTag) {
+                const articleElements = document.querySelectorAll('.article-card');
+
+                articleElements.forEach(article => {
+                    const articleTags = article.dataset.tags ? article.dataset.tags.split(',') : [];
+                    const matchTag = (activeTag === 'all') || articleTags.includes(activeTag);
+                    article.style.display = matchTag ? 'block' : 'none';
+                });
+
+                const visibleArticles = document.querySelectorAll('.article-card[style="display: block"]');
+                if (visibleArticles.length === 0) {
+                    document.getElementById('no-articles').style.display = 'block';
+                } else {
+                    document.getElementById('no-articles').style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

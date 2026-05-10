@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Howto BOX - 画像とディレクトリ構造ガイドライン</title>
+    <title>コーポレートサイト - 画像とディレクトリ構造ガイドライン</title>
     <style>
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -111,8 +111,8 @@
 <body>
     <div class="header">
         <div>
-            <h1>Howto BOX - 画像とディレクトリ構造ガイドライン</h1>
-            <p>バージョン: 1.0 | 2025年8月25日</p>
+            <h1>コーポレートサイト - 画像とディレクトリ構造ガイドライン</h1>
+            <p>バージョン: 2.0 | 2026年5月11日</p>
         </div>
         <div class="company-info">
             <p>作成: Web開発チーム</p>
@@ -122,63 +122,91 @@
     <div class="section">
         <h2>1. はじめに</h2>
         <p>
-            このドキュメントは、Howto BOXの記事（ノウハウ記事とマニュアル）の画像管理とディレクトリ構造に関するガイドラインです。
+            このドキュメントは、コーポレートサイトの全記事コンテンツ（howto、manual、insights）の画像管理とディレクトリ構造に関するガイドラインです。
             一貫した構造と命名規則を採用することで、コンテンツの管理と保守が容易になります。
         </p>
+        <h3>1.1 対象コンテンツ</h3>
+        <table>
+            <tr><th>大カテゴリ</th><th>小カテゴリ</th><th>内容</th></tr>
+            <tr><td>howto</td><td>article</td><td>ノウハウ記事</td></tr>
+            <tr><td>manual</td><td>wix</td><td>Wix Studio 運用マニュアル</td></tr>
+            <tr><td>manual</td><td>shopify</td><td>Shopifyマニュアル（今後追加）</td></tr>
+            <tr><td>insights</td><td>ec-growth</td><td>EC成長・Shopify構築ナレッジ</td></tr>
+            <tr><td>insights</td><td>web-marketing</td><td>Webマーケティングナレッジ</td></tr>
+        </table>
     </div>
 
     <div class="section">
-        <h2>2. 基本ディレクトリ構造</h2>
-        <p>Howto BOXコンテンツは以下の基本構造に従って整理されています：</p>
+        <h2>2. コンテンツディレクトリ構造</h2>
+        <p>記事HTMLファイルは以下の構造で管理されています：</p>
         
         <div class="directory-structure">
 /howto/
-  ├── article/          # ノウハウ記事ディレクトリ
-  │   ├── article1/     # 記事ID = article1
-  │   │   └── index.html
-  │   ├── article2/
-  │   │   └── index.html
-  │   └── article-template.html  # ノウハウ記事テンプレート
-  │
-  ├── manual/           # マニュアル記事ディレクトリ
-  │   ├── manual1/      # マニュアルID = manual1
-  │   │   └── index.html
-  │   └── manual-template.html   # マニュアルテンプレート
-  │
-  └── allpost/          # 全記事一覧
-      ├── article/      # ノウハウ記事一覧
-      ├── manual/       # マニュアル一覧
-      └── tag/          # タグ別一覧
-</div>
+  ├── posts/
+  │   ├── article/        # ノウハウ記事
+  │   │   ├── article1/
+  │   │   │   └── index.html
+  │   │   └── article2/
+  │   │       └── index.html
+  │   └── manual/         # マニュアル
+  │       ├── wix1/
+  │       │   └── index.html
+  │       └── wix2/
+  │           └── index.html
+  ├── templates/          # テンプレート
+  │   ├── unified-article-template.html
+  │   └── unified-manual-template.html
+  └── allpost/            # 全記事一覧
 
-        <p>各記事フォルダには<code>index.html</code>ファイルが含まれ、これが記事のメインコンテンツです。</p>
+/insights/
+  ├── ec-growth/          # EC成長テーマ
+  │   ├── index.html      # ピラー記事
+  │   ├── a-1/
+  │   │   └── index.html
+  │   └── b-1/
+  │       └── index.html
+  └── web-marketing/      # Webマーケテーマ
+      ├── index.html      # ピラー記事
+      └── a-1/
+          └── index.html
+</div>
     </div>
 
     <div class="section">
         <h2>3. 画像ディレクトリ構造</h2>
-        <p>画像は以下のディレクトリ構造で管理します：</p>
+        <p>画像は以下の<strong>2階層（大カテゴリ/小カテゴリ）</strong>で管理します。小カテゴリ直下にフラット配置します。</p>
         
         <div class="directory-structure">
-/assets/
-  └── images/
-      ├── article/         # ノウハウ記事用の画像
-      │   ├── article1/    # article1の画像フォルダ
-      │   │   ├── article1-main.png    # メイン画像
-      │   │   ├── article1-section1.png # セクション1の画像
-      │   │   └── article1-section2.png # セクション2の画像
-      │   └── article2/
-      │       └── ...
-      │
-      └── manual/          # マニュアル用の画像
-          ├── manual1/     # manual1の画像フォルダ
-          │   ├── manual1-main.jpg     # メイン画像
-          │   └── manual1-section1.jpg # セクション画像
-          └── manual2/
-              └── ...
+/assets/images/
+  ├── howto/
+  │   └── article/              # ノウハウ記事画像
+  │       ├── article1_thumb.png
+  │       ├── article1_section1.png
+  │       ├── article2_thumb.png
+  │       └── ...
+  │
+  ├── manual/
+  │   ├── wix/                  # Wixマニュアル画像
+  │   │   ├── wix1_thumb.webp
+  │   │   ├── wix1_section1.png
+  │   │   └── ...
+  │   └── shopify/              # Shopifyマニュアル画像（今後）
+  │
+  └── insights/
+      ├── ec-growth/            # EC成長テーマ画像
+      │   ├── pillar_thumb.webp
+      │   ├── pillar_section1.webp
+      │   ├── a-1_thumb.webp
+      │   └── ...
+      └── web-marketing/        # Webマーケテーマ画像
+          ├── pillar_thumb.webp
+          ├── a-1_thumb.webp
+          ├── a-1_section1.webp
+          └── ...
 </div>
 
-        <p class="note">
-            注意: 画像ファイルは各記事IDに対応するフォルダ内に格納します。これにより記事と画像の関連性が明確になり、管理が容易になります。
+        <p class="warning">
+            重要: 記事ごとのサブフォルダは作成しません。小カテゴリ直下にすべての画像をフラットに配置してください。
         </p>
     </div>
 
@@ -186,163 +214,201 @@
 
     <div class="section">
         <h2>4. 画像命名規則</h2>
-        <p>画像ファイルは以下の命名規則に従ってください：</p>
         
-        <h3>4.1 基本形式</h3>
-        <pre>[記事ID]-[用途].拡張子</pre>
+        <h3>4.1 基本パターン</h3>
+        <pre>/assets/images/[大カテゴリ]/[小カテゴリ]/[記事ID]_[用途].[拡張子]</pre>
         
-        <p>例：</p>
-        <ul>
-            <li><code>article1-main.png</code> - article1のメイン画像</li>
-            <li><code>article1-section1.png</code> - article1のセクション1の画像</li>
-            <li><code>manual2-thumbnail.jpg</code> - manual2のサムネイル画像</li>
-        </ul>
-        
-        <h3>4.2 特別な画像タイプ</h3>
+        <p class="note">
+            セパレータはアンダースコア <code>_</code> を使用します。ハイフン <code>-</code> は記事ID内のみで使用可能です（例: <code>a-1</code>）。
+        </p>
+
+        <h3>4.2 用途別の命名パターン</h3>
         <table>
             <tr>
-                <th>タイプ</th>
+                <th>用途</th>
                 <th>命名パターン</th>
                 <th>説明</th>
             </tr>
             <tr>
-                <td>メイン画像</td>
-                <td>[記事ID]-main.拡張子</td>
-                <td>記事のヘッダー画像、一覧表示のサムネイルとしても使用</td>
+                <td>サムネイル</td>
+                <td><code>[記事ID]_thumb.[拡張子]</code></td>
+                <td>記事一覧やカード表示用のサムネイル画像</td>
             </tr>
             <tr>
                 <td>セクション画像</td>
-                <td>[記事ID]-section[番号].拡張子</td>
-                <td>記事内の各セクションに使用する画像</td>
+                <td><code>[記事ID]_section[番号].[拡張子]</code></td>
+                <td>記事内の各セクションに使用するキャプション画像</td>
             </tr>
             <tr>
-                <td>サムネイル</td>
-                <td>[記事ID]-thumbnail.拡張子</td>
-                <td>任意。特別なサムネイルが必要な場合（main画像と異なる場合）</td>
+                <td>メインバナー</td>
+                <td><code>[記事ID]_main.[拡張子]</code></td>
+                <td>記事ヘッダーのメインビジュアル（サムネイルと別の場合）</td>
+            </tr>
+            <tr>
+                <td>共有プレースホルダ</td>
+                <td><code>shared_main.[拡張子]</code></td>
+                <td>個別画像が未設定の記事で使用する共通画像</td>
+            </tr>
+            <tr>
+                <td>ピラー記事専用</td>
+                <td><code>pillar_[用途].[拡張子]</code></td>
+                <td>insightsピラー記事の画像（pillar_thumb, pillar_section1 等）</td>
             </tr>
         </table>
-        
+
+        <h3>4.3 各系統の具体例</h3>
+
+        <h4>howto/article:</h4>
+        <pre>/assets/images/howto/article/article1_thumb.png
+/assets/images/howto/article/article1_section1.png
+/assets/images/howto/article/article3_thumb.webp</pre>
+
+        <h4>manual/wix:</h4>
+        <pre>/assets/images/manual/wix/wix1_thumb.webp
+/assets/images/manual/wix/wix1_section1.png
+/assets/images/manual/wix/wix5_section3.png</pre>
+
+        <h4>insights/ec-growth:</h4>
+        <pre>/assets/images/insights/ec-growth/pillar_thumb.webp
+/assets/images/insights/ec-growth/pillar_section1.webp
+/assets/images/insights/ec-growth/a-1_thumb.webp
+/assets/images/insights/ec-growth/shared_main.webp</pre>
+
+        <h4>insights/web-marketing:</h4>
+        <pre>/assets/images/insights/web-marketing/pillar_thumb.webp
+/assets/images/insights/web-marketing/a-1_thumb.webp
+/assets/images/insights/web-marketing/a-1_section1.webp</pre>
+
         <p class="warning">
-            重要: 画像ファイル名には必ず記事IDをプレフィックスとして含めてください。これにより、どの記事に属する画像かが一目で分かります。
+            禁止事項:
+            <ul>
+                <li>日本語のファイル名・フォルダ名（例: <code>Shopify導入事例.webp</code> → NG）</li>
+                <li>記事ごとのサブフォルダ作成（例: <code>ec-growth/クラスター記事A/</code> → NG）</li>
+                <li>セパレータにハイフンを使用（例: <code>wix1-thumb.webp</code> → NG、正しくは <code>wix1_thumb.webp</code>）</li>
+                <li>大カテゴリを跨いだ画像参照（例: insights記事から <code>/assets/images/howto/</code> を参照 → NG）</li>
+            </ul>
         </p>
     </div>
 
     <div class="section">
         <h2>5. HTMLでの画像参照方法</h2>
-        <p>HTMLファイル内で画像を参照する際は、以下のパターンに従ってください：</p>
         
-        <h3>5.1 ノウハウ記事内での参照</h3>
-        <pre>&lt;img src="/assets/images/article/[記事ID]/[記事ID]-[用途].拡張子" alt="代替テキスト"&gt;</pre>
-        
+        <h3>5.1 howto/article</h3>
+        <pre>&lt;img src="/assets/images/howto/article/[記事ID]_[用途].[拡張子]" alt="代替テキスト"&gt;</pre>
         <p>例：</p>
-        <pre>&lt;img src="/assets/images/article/article1/article1-main.png" alt="記事メイン画像"&gt;</pre>
+        <pre>&lt;img src="/assets/images/howto/article/article1_thumb.png" alt="記事サムネイル"&gt;
+&lt;img src="/assets/images/howto/article/article1_section1.png" alt="セクション1の画像"&gt;</pre>
         
-        <h3>5.2 マニュアル内での参照</h3>
-        <pre>&lt;img src="/assets/images/manual/[マニュアルID]/[マニュアルID]-[用途].拡張子" alt="代替テキスト"&gt;</pre>
-        
+        <h3>5.2 manual/wix</h3>
+        <pre>&lt;img src="/assets/images/manual/wix/[記事ID]_[用途].[拡張子]" alt="代替テキスト"&gt;</pre>
         <p>例：</p>
-        <pre>&lt;img src="/assets/images/manual/manual1/manual1-section2.jpg" alt="手順の説明画像"&gt;</pre>
+        <pre>&lt;img src="/assets/images/manual/wix/wix1_thumb.webp" alt="マニュアルサムネイル"&gt;
+&lt;img src="/assets/images/manual/wix/wix1_section1.png" alt="手順の説明画像"&gt;</pre>
+
+        <h3>5.3 insights/ec-growth</h3>
+        <pre>&lt;img src="/assets/images/insights/ec-growth/[記事ID]_[用途].[拡張子]" alt="代替テキスト"&gt;</pre>
+        <p>例：</p>
+        <pre>&lt;img src="/assets/images/insights/ec-growth/a-1_thumb.webp" alt="記事サムネイル"&gt;
+&lt;img src="/assets/images/insights/ec-growth/pillar_section1.webp" alt="ピラー記事画像"&gt;</pre>
+
+        <h3>5.4 insights/web-marketing</h3>
+        <pre>&lt;img src="/assets/images/insights/web-marketing/[記事ID]_[用途].[拡張子]" alt="代替テキスト"&gt;</pre>
+        <p>例：</p>
+        <pre>&lt;img src="/assets/images/insights/web-marketing/a-1_thumb.webp" alt="記事サムネイル"&gt;</pre>
     </div>
 
     <div class="page-break"></div>
 
     <div class="section">
-        <h2>6. パンくずリスト生成</h2>
-        <p>パンくずリストは、記事タイプ（ノウハウ記事/マニュアル）に基づいて動的に生成されます。</p>
+        <h2>6. JSデータファイルでの画像パス</h2>
+        <p>記事一覧や関連記事の表示は、以下のJSデータファイルの <code>image</code> プロパティを参照します。</p>
         
-        <h3>6.1 HTMLマークアップ</h3>
-        <p>各記事ページには以下のマークアップを含めます：</p>
+        <table>
+            <tr><th>ファイル</th><th>対象</th></tr>
+            <tr><td><code>/assets/js/howto.js</code></td><td>howto/article + manual の記事データ</td></tr>
+            <tr><td><code>/assets/js/insights.js</code></td><td>insights の記事データ</td></tr>
+        </table>
+        
+        <p>新しい記事を追加する際は、対応するJSファイルにエントリを追加し、<code>image</code> プロパティに正しいパスを設定してください。</p>
+        <pre>  {
+    id: 'article7',
+    title: '記事タイトル',
+    image: '/assets/images/howto/article/article7_thumb.webp',
+    ...
+  }</pre>
+    </div>
+
+    <div class="section">
+        <h2>7. パンくずリスト生成</h2>
+        <p>パンくずリストは、記事タイプに基づいて動的に生成されます。</p>
+        
+        <h3>7.1 HTMLマークアップ</h3>
         <pre>&lt;div id="breadcrumb-container" data-page="[記事ID]"&gt;&lt;/div&gt;</pre>
         
         <p>例：</p>
-        <pre>&lt;div id="breadcrumb-container" data-page="article1"&gt;&lt;/div&gt;</pre>
-        <pre>&lt;div id="breadcrumb-container" data-page="manual1" data-title="カスタムタイトル"&gt;&lt;/div&gt;</pre>
-        
-        <h3>6.2 生成されるパンくず構造</h3>
-        <p>記事タイプに基づいて、以下の構造でパンくずが生成されます：</p>
-        
-        <h4>ノウハウ記事の場合：</h4>
-        <pre>ホーム > Howto BOX > ノウハウ記事 > [記事タイトル]</pre>
-        
-        <h4>マニュアルの場合：</h4>
-        <pre>ホーム > Howto BOX > マニュアル > [記事タイトル]</pre>
-        
-        <p>記事タイトルは<code>data-title</code>属性から取得されます。属性がない場合はページのh1タグから取得します。</p>
+        <pre>&lt;div id="breadcrumb-container" data-page="article1"&gt;&lt;/div&gt;
+&lt;div id="breadcrumb-container" data-page="wix1"&gt;&lt;/div&gt;
+&lt;div id="breadcrumb-container" data-page="ec-growth-a-1"&gt;&lt;/div&gt;</pre>
     </div>
 
     <div class="section">
-        <h2>7. 記事テンプレートの使用方法</h2>
-        <p>新しい記事を作成する際は、提供されたテンプレートを使用してください：</p>
+        <h2>8. テンプレートの使用方法</h2>
+        <p>新しい記事を作成する際は、以下のテンプレートを使用してください：</p>
         
-        <ul>
-            <li>ノウハウ記事: <code>/howto/article/article-template.html</code></li>
-            <li>マニュアル: <code>/howto/manual/manual-template.html</code></li>
-        </ul>
+        <table>
+            <tr><th>種類</th><th>テンプレート</th></tr>
+            <tr><td>ノウハウ記事</td><td><code>/howto/templates/unified-article-template.html</code></td></tr>
+            <tr><td>マニュアル</td><td><code>/howto/templates/unified-manual-template.html</code></td></tr>
+        </table>
         
-        <h3>7.1 テンプレート使用の手順</h3>
+        <h3>8.1 新規記事作成の手順</h3>
         <ol>
-            <li>適切なテンプレートファイルをコピーします</li>
-            <li>新しい記事IDに基づいて適切なディレクトリを作成します（例：<code>/howto/article/article4/</code>）</li>
-            <li>コピーしたテンプレートを<code>index.html</code>としてディレクトリに保存します</li>
-            <li>以下の要素を更新します：
+            <li>テンプレートファイルをコピー</li>
+            <li>記事ディレクトリを作成（例: <code>/howto/posts/article/article7/</code>）</li>
+            <li>コピーしたファイルを <code>index.html</code> として保存</li>
+            <li>以下を更新：
                 <ul>
-                    <li>タイトル、メタ情報</li>
-                    <li>記事ID（<code>data-page</code>属性を設定）</li>
-                    <li>画像パス（記事IDに合わせて修正）</li>
+                    <li>title、meta description</li>
+                    <li><code>data-page</code> 属性（パンくず用）</li>
+                    <li>画像パス（命名規則に従う）</li>
                     <li>記事コンテンツ</li>
                 </ul>
             </li>
+            <li>画像ファイルを <code>/assets/images/[大カテゴリ]/[小カテゴリ]/</code> に配置</li>
+            <li>JSデータファイル（<code>howto.js</code> or <code>insights.js</code>）にエントリを追加</li>
         </ol>
-    </div>
-
-    <div class="section">
-        <h2>8. 既存コンテンツの移行</h2>
-        <p>既存の記事を新しい構造に移行する際のステップ：</p>
-        
-        <ol>
-            <li>記事IDを決定します（例：<code>article1</code>, <code>manual2</code>など）</li>
-            <li>適切なディレクトリ構造を作成します</li>
-            <li>関連する画像ファイルを新しい命名規則に従ってリネームし、適切なディレクトリに移動します</li>
-            <li>HTML内の画像参照パスを新しいパスに更新します</li>
-            <li>パンくずリストのマークアップを更新します（<code>data-page</code>属性を設定）</li>
-        </ol>
-        
-        <p class="note">
-            注意: 移行作業は、一貫性を保つために計画的に行ってください。一部の記事だけを移行すると、サイト内で異なる構造が混在することになります。
-        </p>
     </div>
 
     <div class="section">
         <h2>9. ベストプラクティス</h2>
         <ul>
-            <li>画像は適切な形式を選択してください：
+            <li>推奨フォーマット：
                 <ul>
-                    <li>写真やグラデーションが多い画像：JPG形式</li>
-                    <li>シンプルなイラストやアイコン、透明度が必要な画像：PNG形式</li>
+                    <li>サムネイル・セクション画像: <strong>WebP形式</strong>（軽量・高品質）</li>
+                    <li>スクリーンショット: PNG形式（文字の可読性が重要な場合）</li>
+                    <li>写真: JPGまたはWebP形式</li>
                 </ul>
             </li>
-            <li>画像サイズは用途に適したものを選択してください：
+            <li>推奨サイズ：
                 <ul>
-                    <li>メイン画像：幅1200px程度</li>
-                    <li>セクション画像：幅800px程度</li>
-                    <li>サムネイル：幅400px程度</li>
+                    <li>サムネイル: 幅400px程度</li>
+                    <li>セクション画像: 幅800px程度</li>
+                    <li>メイン画像: 幅1200px程度</li>
                 </ul>
             </li>
-            <li>すべての画像に適切な代替テキスト（alt属性）を設定してください</li>
-            <li>ファイル名には日本語や特殊文字を使用しないでください</li>
+            <li>すべての画像に適切な代替テキスト（alt属性）を設定</li>
+            <li>ファイル名には<strong>英数字・ハイフン・アンダースコアのみ</strong>使用（日本語・スペース禁止）</li>
+            <li>他の大カテゴリのディレクトリから画像を参照しない</li>
         </ul>
     </div>
 
     <div class="section">
         <h2>10. まとめ</h2>
         <p>
-            このガイドラインに従うことで、Howto BOXのコンテンツ管理が効率化され、
-            統一感のあるユーザー体験を提供できます。適切なディレクトリ構造と命名規則を守ることで、
-            将来のコンテンツ更新や拡張も容易になります。
+            このガイドラインに従うことで、コーポレートサイトの全コンテンツ（howto、manual、insights）の
+            画像管理が統一され、運用効率が向上します。
         </p>
-        <p>
-            不明点がある場合は、Web開発チームにお問い合わせください。
-        </p>
+        <p>不明点がある場合は、Web開発チームにお問い合わせください。</p>
     </div>
 </body>
 </html>
