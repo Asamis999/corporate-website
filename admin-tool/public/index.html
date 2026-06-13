@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事アップロード管理ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>記事アップロード管理ツール</h1>
+    <button id="btn-refresh" class="btn btn-secondary">🔄 一覧更新</button>
+  </header>
+
+  <main class="app-main">
+    <!-- ===== STEP 1: 記事一覧 ===== -->
+    <section id="section-list" class="card">
+      <h2>デプロイ待ち記事一覧</h2>
+      <div id="article-list-loading" class="loading">読み込み中...</div>
+      <table id="article-table" class="hidden">
+        <thead>
+          <tr>
+            <th>記事タイトル</th>
+            <th>大カテゴリ</th>
+            <th>小カテゴリ</th>
+            <th>記事ID</th>
+            <th>更新日</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="article-list-body"></tbody>
+      </table>
+      <p id="article-list-empty" class="empty-msg hidden">デプロイ待ち記事はありません</p>
+    </section>
+
+    <!-- ===== STEP 2: 記事詳細 ===== -->
+    <section id="section-detail" class="card hidden">
+      <div class="section-header">
+        <h2>記事確認・作業</h2>
+        <button id="btn-back" class="btn btn-secondary">← 一覧に戻る</button>
+      </div>
+
+      <div id="detail-info" class="detail-info"></div>
+
+      <!-- バリデーション結果 -->
+      <div class="subsection">
+        <h3>① 原文バリデーション</h3>
+        <button id="btn-reload-content" class="btn btn-secondary btn-sm">🔄 Notionから再読み込み</button>
+        <div id="validation-area" class="validation-area"></div>
+
+        <!-- METAプレビュー -->
+        <div id="meta-preview" class="meta-preview hidden"></div>
+
+        <!-- TOCプレビュー -->
+        <div id="toc-preview" class="toc-preview hidden"></div>
+      </div>
+
+      <!-- 画像アップロード -->
+      <div class="subsection">
+        <h3>② 画像アップロード</h3>
+        <p class="hint">保存先: <code id="image-dir-path"></code></p>
+        <div id="image-check-list" class="image-check"></div>
+        <div class="upload-area">
+          <label for="image-files" class="btn btn-secondary">画像ファイルを選択</label>
+          <input type="file" id="image-files" multiple accept="image/*" class="hidden">
+          <span id="upload-file-count"></span>
+          <button id="btn-upload" class="btn btn-primary" disabled>アップロード実行</button>
+        </div>
+        <div id="upload-result"></div>
+      </div>
+
+      <!-- HTML プレビュー -->
+      <div class="subsection">
+        <h3>③ 生成HTML確認</h3>
+        <p class="hint">出力先: <code id="output-path"></code></p>
+        <button id="btn-preview" class="btn btn-secondary">HTMLプレビュー生成</button>
+        <div id="preview-area" class="hidden">
+          <iframe id="preview-frame" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+        </div>
+      </div>
+
+      <!-- デプロイ実行 -->
+      <div class="subsection deploy-section">
+        <h3>④ デプロイ実行</h3>
+        <div id="deploy-checklist" class="checklist"></div>
+        <button id="btn-deploy" class="btn btn-danger" disabled>🚀 Cloudflare Pagesにデプロイ</button>
+        <div id="deploy-status" class="hidden"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

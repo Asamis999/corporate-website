@@ -3,11 +3,11 @@
  */
 
 // 代表プロフィールモーダル
-function openModal() {
+function openProfileModal() {
     document.getElementById('profileModal').style.display = 'block';
 }
 
-function closeModal() {
+function closeProfileModal() {
     document.getElementById('profileModal').style.display = 'none';
 }
 
@@ -72,6 +72,108 @@ function handleQuestionSubmit(event) {
     }, 500);
 }
 
+function buildRecruitFormConfirmText(formData) {
+    const entries = [];
+    for (const [key, value] of formData.entries()) {
+        if (key === 'bot-field') continue;
+        if (key === 'form-name') continue;
+        if (value instanceof File) {
+            if (value && value.name) {
+                entries.push([key, value.name]);
+            }
+            continue;
+        }
+        entries.push([key, String(value)]);
+    }
+    return entries
+        .filter(([_, v]) => v && v.trim() !== '')
+        .map(([k, v]) => `${k}: ${v}`)
+        .join('\n');
+}
+
+function buildRecruitFormFieldsForEmail(formData) {
+    const fields = [];
+    for (const [key, value] of formData.entries()) {
+        if (key === 'bot-field') continue;
+        if (key === 'form-name') continue;
+        if (value instanceof File) {
+            if (value && value.name) {
+                fields.push({ key, value: value.name });
+            }
+            continue;
+        }
+        const v = String(value || '').trim();
+        if (!v) continue;
+        fields.push({ key, value: v });
+    }
+    return fields;
+}
+
+async function sendRecruitAutoReplyEmail({ toEmail, formName, fields }) {
+    if (!toEmail) return;
+
+    await fetch('/.netlify/functions/send-recruit-confirmation', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            toEmail,
+            formName,
+            fields
+        })
+    });
+}
+
+async function submitNetlifyFormWithPopup(form, { afterSuccess } = {}) {
+    const formData = new FormData(form);
+    const formName = form.getAttribute('name') || formData.get('form-name');
+
+    if (!formData.get('form-name') && formName) {
+        formData.append('form-name', formName);
+    }
+
+    const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+    const originalDisabled = submitButton ? submitButton.disabled : false;
+    if (submitButton) submitButton.disabled = true;
+
+    try {
+        const action = form.getAttribute('action') || window.location.pathname;
+        const res = await fetch(action, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!res.ok) {
+            throw new Error(`Form submit failed: ${res.status}`);
+        }
+
+        const toEmail = String(formData.get('email') || '').trim();
+        const fields = buildRecruitFormFieldsForEmail(formData);
+        try {
+            await sendRecruitAutoReplyEmail({
+                toEmail,
+                formName,
+                fields
+            });
+        } catch (e) {
+            console.error(e);
+        }
+
+        const confirmText = buildRecruitFormConfirmText(formData);
+        window.alert(`送信が完了しました。\n\n【送信内容】\n${confirmText}`);
+
+        if (typeof afterSuccess === 'function') {
+            afterSuccess();
+        }
+    } catch (e) {
+        window.alert('送信に失敗しました。時間をおいて再度お試しください。');
+        console.error(e);
+    } finally {
+        if (submitButton) submitButton.disabled = originalDisabled;
+    }
+}
+
 // ファイル選択時の処理とフォーム送信処理
 document.addEventListener('DOMContentLoaded', function() {
     // 履歴書
@@ -104,30 +206,77 @@ document.addEventListener('DOMContentLoaded', function() {
         applicationForm.addEventListener('submit', function(event) {
             // Netlify Formsが送信を処理するため、preventDefault()は基本不要
             // 送信前のバリデーションのみ実行
-            const resume = document.getElementById('app-resume').files[0];
-            const career = document.getElementById('app-career').files[0];
-            const motivation = document.getElementById('app-motivation').files[0];
-            
-            if (!resume || !career || !motivation) {
-                event.preventDefault();
-                alert('すべての必須書類（履歴書、職務経歴書、志望動機書）を添付してください。');
-                return false;
-            }
-            
-            // ファイルサイズチェック（各10MB）
-            const maxSize = 10 * 1024 * 1024;
-            if (resume.size > maxSize || career.size > maxSize || motivation.size > maxSize) {
-                event.preventDefault();
-                alert('各ファイルのサイズは10MB以下にしてください。');
-                return false;
+            const resumeInput = document.getElementById('app-resume');
+            const careerInput = document.getElementById('app-career');
+            const motivationInput = document.getElementById('app-motivation');
+
+            const resume = resumeInput ? resumeInput.files[0] : null;
+            const career = careerInput ? careerInput.files[0] : null;
+            const motivation = motivationInput ? motivationInput.files[0] : null;
+
+            // 既存の新卒ページ（/recruit/）向け：3ファイルが存在する場合のみ必須チェックを行う
+            if (resumeInput && careerInput && motivationInput) {
+                if (!resume || !career || !motivation) {
+                    event.preventDefault();
+                    alert('すべての必須書類（履歴書、職務経歴書、志望動機書）を添付してください。');
+                    return false;
+                }
+
+                // ファイルサイズチェック（各10MB）
+                const maxSize = 10 * 1024 * 1024;
+                if (resume.size > maxSize || career.size > maxSize || motivation.size > maxSize) {
+                    event.preventDefault();
+                    alert('各ファイルのサイズは10MB以下にしてください。');
+                    return false;
+                }
             }
         });
+
+        applicationForm.addEventListener('submit', function(event) {
+            if (event.defaultPrevented) return;
+            event.preventDefault();
+            submitNetlifyFormWithPopup(applicationForm, {
+                afterSuccess: () => {
+                    closeApplicationModal();
+                    applicationForm.reset();
+                    // ファイル名表示をまとめてリセット（別職種ページの差分にも対応）
+                    applicationForm.querySelectorAll('.file-name').forEach((el) => {
+                        el.classList.remove('active');
+                        el.textContent = '';
+                    });
+                }
+            });
+        });
     }
+
+    const questionForm = document.querySelector('form.question-form[name="recruit-question"], form[name="recruit-question"].question-form');
+    if (questionForm) {
+        questionForm.addEventListener('submit', function(event) {
+            if (event.defaultPrevented) return;
+            event.preventDefault();
+            submitNetlifyFormWithPopup(questionForm, {
+                afterSuccess: () => {
+                    closeQuestionModal();
+                    questionForm.reset();
+                }
+            });
+        });
+    }
+
+    // 任意ファイル入力（ページ追加を前提とした汎用処理）
+    document.querySelectorAll('input[type="file"][data-file-name-target]').forEach((input) => {
+        input.addEventListener('change', (e) => {
+            const targetId = input.getAttribute('data-file-name-target');
+            if (!targetId) return;
+            handleFileSelect(e, targetId);
+        });
+    });
 });
 
 function handleFileSelect(event, displayId) {
     const file = event.target.files[0];
     const displayElement = document.getElementById(displayId);
+    if (!displayElement) return;
     
     if (file) {
         // ファイルサイズチェック（10MB）
@@ -139,8 +288,9 @@ function handleFileSelect(event, displayId) {
             return;
         }
         
-        // PDFチェック
-        if (file.type !== 'application/pdf') {
+        // accept=".pdf" の場合のみPDFチェック（ページごとの差分に対応）
+        const accept = String(event.target.getAttribute('accept') || '').toLowerCase();
+        if (accept.includes('.pdf') && file.type !== 'application/pdf') {
             alert('PDF形式のファイルを選択してください。');
             event.target.value = '';
             displayElement.classList.remove('active');

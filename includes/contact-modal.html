@@ -6,19 +6,10 @@
       <span class="close-modal" onclick="closeModal()">&times;</span>
     </div>
     <div class="modal-body">
-      <form id="contact-form" method="post">
-        <div class="form-group">
-          <label>お問い合わせの目的 <span class="required">*</span></label>
-          <div class="checkbox-group" style="display:block; width:100%;">
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ec-shopify"> ECサイト構築について（Shopify / オリジナル開発）</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ec-growth"> ECグロースサポート（月額運用）</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="marketplace"> マーケットプレイス出店支援（Amazon / 楽天）</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="lp"> ランディングページ制作</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ad"> 広告運用代行</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="crm"> CRM支援（LINE / メール）</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="ab-test"> ABテスト関連（簡易パック / Proパック）</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="inquiry-purpose[]" value="other"> その他</label></div>
-          </div>
+      <form id="contact-form" name="contact" method="post" action="/contact/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <div style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
         </div>
         
         <div class="form-group">
@@ -35,23 +26,23 @@
         </div>
 
         <div class="form-group">
-          <label for="deadline">ご希望納期</label>
-          <input type="text" id="deadline" name="deadline" placeholder="例：3ヶ月以内、○月頃など">
+          <label for="service">ご希望のサービス <span class="required">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>今回お問い合わせ目的を選択してください</option>
+            <option value="ec-shopify">ECサイト構築について（Shopify / オリジナル開発）</option>
+            <option value="ec-growth">ECグロースサポート（月額運用）</option>
+            <option value="marketplace">マーケットプレイス出店支援（Amazon / 楽天）</option>
+            <option value="lp">ランディングページ制作</option>
+            <option value="ad">広告運用代行</option>
+            <option value="crm">CRM支援（LINE / メール）</option>
+            <option value="ab-test">ABテスト関連（簡易パック / Proパック）</option>
+            <option value="other">その他</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label>現在利用中のプラットフォーム</label>
-          <div class="checkbox-group" style="display:block; width:100%;">
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="shopify"> Shopify</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="rakuten"> 楽天</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="amazon"> Amazon</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="base"> BASE</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="woocommerce"> WooCommerce</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="makeshop"> MakeShop</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="ec-cube"> EC-CUBE</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="custom"> 独自システム</label></div>
-            <div style="display:block; width:100%; margin-bottom:10px;"><label style="display:block; width:100%;"><input type="checkbox" name="current-platform[]" value="other"> その他</label></div>
-          </div>
+          <label for="deadline">ご希望納期</label>
+          <input type="text" id="deadline" name="deadline" placeholder="例：3ヶ月以内、○月頃など">
         </div>
 
         <div class="form-group">
@@ -87,6 +78,11 @@
         <div class="form-group">
           <label for="message">ご質問・補足情報</label>
           <textarea id="message" name="message" rows="4" placeholder="その他ご質問や補足情報があればご記入ください"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="sales-info">販売をお考えの商品・サービス情報</label>
+          <textarea id="sales-info" name="sales-info" rows="3" placeholder="商品URLまたは商品情報を記入"></textarea>
         </div>
         
         <div class="form-group privacy-policy">

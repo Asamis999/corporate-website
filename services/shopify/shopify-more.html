@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopify構築 | サービス詳細</title>
+  <link rel="stylesheet" href="../../assets/css/template.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/modal.css" />
+  <link rel="stylesheet" href="/assets/css/service.css" />
+  <script src="../../assets/js/template.js" defer></script>
+</head>
+
+<body>
+<div id="site-header"></div>
+<main class="service" aria-labelledby="service-title">
+  <!-- Hero -->
+  <header class="service__hero">
+    <div class="container">
+      <p class="eyebrow">サービス</p>
+      <h1 id="service-title" class="service__title">Shopify構築</h1>
+      <p class="service__lead">
+        世界で最も成長しているECプラットフォーム「Shopify」を活用し、<br>
+        ブランドの世界観を表現したオリジナルECサイトを構築します。
+      </p>
+
+      <div class="service__cta">
+        <a class="btn btn--primary" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+        <a class="btn btn--ghost" href="#pricing">料金プランを見る</a>
+      </div>
+
+      <nav class="service__nav" aria-label="ページ内ナビゲーション">
+        <a href="#overview">概要</a>
+        <a href="#deliverables">提供内容</a>
+        <a href="#pricing">料金プラン</a>
+        <a href="#growth">ECグロースサポート</a>
+        <a href="#fit">おすすめの方</a>
+        <a href="#outcomes">実現できること</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <div class="container prose">
+      <p>
+        Shopifyは拡張性と運用性に優れたECシステムで、<br>
+        国内外の多くのブランドが採用しています。
+      </p>
+      <p>
+        当社では単なるECサイト制作ではなく、<br>
+        「売れる仕組み」を前提としたEC設計を行います。
+      </p>
+      <p>
+        ブランドの世界観、購買導線、運用効率までを考慮した<br>
+        長く運用できるECサイトを構築します。
+      </p>
+    </div>
+  </section>
+
+  <!-- Deliverables -->
+  <section id="deliverables" class="section section--muted">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">提供内容</h2>
+      </div>
+
+      <ul class="list-grid" role="list">
+        <li class="pill">Shopifyストア構築</li>
+        <li class="pill">オリジナルデザイン制作</li>
+        <li class="pill">モバイル最適化</li>
+        <li class="pill">決済設定</li>
+        <li class="pill">配送設定</li>
+        <li class="pill">Shopifyアプリ導入</li>
+        <li class="pill">分析ツール設定（Google Analytics / Pixel等）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">料金プラン</h2>
+        <p class="section__desc">
+          ECサイトの規模やブランドの方向性に合わせて、<br>
+          3つのプランをご用意しています。
+        </p>
+      </div>
+
+      <div class="cards">
+        <!-- SMALL -->
+        <article class="card" aria-label="SMALL プラン">
+          <div class="card__top">
+            <p class="badge">SMALL</p>
+            <h3 class="card__title">スモールプラン</h3>
+            <p class="card__subtitle">小規模EC / 商品点数が少ない</p>
+            <p class="price">¥300,000 ～<span class="price__note">（初期費用）</span></p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">内容</p>
+            <ul class="bullet">
+              <li>Shopify既存テーマカスタム</li>
+              <li>商品登録（5点まで）</li>
+              <li>決済設定</li>
+            </ul>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">追加オプション</p>
+            <ul class="bullet">
+              <li>カスタムデザイン：+100,000円～</li>
+              <li>LPO対応：+50,000円～</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- STANDARD -->
+        <article class="card card--featured" aria-label="STANDARD プラン">
+          <div class="card__top">
+            <p class="badge badge--solid">STANDARD</p>
+            <h3 class="card__title">スタンダードプラン</h3>
+            <p class="card__subtitle">本格的なブランディング / UIUX重視</p>
+            <p class="price">¥600,000 ～<span class="price__note">（初期費用）</span></p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">内容</p>
+            <ul class="bullet">
+              <li>オリジナルデザイン</li>
+              <li>商品登録（10点まで）</li>
+              <li>UI/UX最適化</li>
+              <li>在庫・発送管理システム連携</li>
+            </ul>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">追加オプション</p>
+            <ul class="bullet">
+              <li>商品追加登録：+2,000円 / 商品</li>
+              <li>会員機能：+80,000円～</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PREMIUM -->
+        <article class="card" aria-label="PREMIUM プラン">
+          <div class="card__top">
+            <p class="badge">PREMIUM</p>
+            <h3 class="card__title">プレミアムプラン</h3>
+            <p class="card__subtitle">高度カスタマイズ / 多言語対応</p>
+            <p class="price">¥1,000,000 ～<span class="price__note">（初期費用）</span></p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">内容</p>
+            <ul class="bullet">
+              <li>要件定義～開発</li>
+              <li>大規模デザイン設計</li>
+              <li>基幹システム連携</li>
+              <li>多言語 / 多通貨対応</li>
+              <li>サブスクリプション機能</li>
+            </ul>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">追加オプション</p>
+            <ul class="bullet">
+              <li>特殊機能開発：個別見積</li>
+              <li>サブスクモデル：+150,000円～</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <!-- ※補足（枠なしテキスト） -->
+      <div class="note" aria-label="補足">
+        <br>
+        <p>※スタンダード以上のプランもまずはトライアル利用が可能です</p><br>
+        <p>※リメイキング（改修）は通常制作費の50％で対応（デザイン変更・機能追加など）</p>
+        <br>
+      </div>
+
+      
+      <!-- How to choose -->
+      <div class="section__head">
+        <h2 class="section__title">プランの選び方</h2>
+      </div>
+
+      <div class="choice">
+        <div class="choice__col">
+          <h3 class="choice__title">SMALLがおすすめ</h3>
+          <ul class="bullet">
+            <li>商品数が少ない</li>
+            <li>テスト販売をしたい</li>
+            <li>低コストでECを始めたい</li>
+          </ul>
+        </div>
+
+        <div class="choice__col">
+          <h3 class="choice__title">STANDARDがおすすめ</h3>
+          <ul class="bullet">
+            <li>ブランドECを作りたい</li>
+            <li>デザインやUIUXにこだわりたい</li>
+            <li>広告やLPと連携して売上を作りたい</li>
+          </ul>
+        </div>
+
+        <div class="choice__col">
+          <h3 class="choice__title">PREMIUMがおすすめ</h3>
+          <ul class="bullet">
+            <li>海外販売を考えている</li>
+            <li>独自機能が必要</li>
+            <li>既存システムと連携したい</li>
+            <li>サブスクECを作りたい</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growth Support -->
+  <section id="growth" class="section section--muted">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">ECグロースサポート（月額）</h2>
+      </div>
+
+      <div class="prose">
+        <p>ECサイト公開後の運営もサポートしています。</p>
+        <p>
+          サイトは公開して終わりではなく、<br>
+          改善と運用によって売上を伸ばしていくことが重要です。
+        </p>
+        <br>
+      </div>
+
+      <div class="cards cards--two">
+        <article class="card" aria-label="ベーシックサポート">
+          <div class="card__top">
+            <h3 class="card__title">ベーシックサポート</h3>
+            <p class="card__subtitle">小規模運営 / 初めてのEC運営</p>
+            <p class="price">¥20,000 / 月～</p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">内容</p>
+            <ul class="bullet">
+              <li>Shopify保守</li>
+              <li>月次レポート</li>
+              <li>小規模改善</li>
+              <li>デザイン修正</li>
+            </ul>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">契約目安</p>
+            <p class="plain">3ヶ月～</p>
+          </div>
+        </article>
+
+        <article class="card" aria-label="プレミアムサポート">
+          <div class="card__top">
+            <h3 class="card__title">プレミアムサポート</h3>
+            <p class="card__subtitle">EC売上を本格的に伸ばしたい企業向け</p>
+            <p class="price">成果報酬：売上の10％<small>　※審査制・条件緩和あり</small></p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">内容</p>
+            <ul class="bullet">
+              <li>Shopify保守</li>
+              <li>キャンペーン / LP更新</li>
+              <li>分析レポート</li>
+              <li>改善提案・実行</li>
+              <li>クリエイティブ編集込み</li>
+              <li>広告バナー制作</li>
+              <li>広告運用 / CRM連携対応</li>
+            </ul>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">追加オプション</p>
+            <p class="plain">・LINE / メールCRM運用<br>+30,000円 / 月〜<br><small>※構築予算別途</small></p>
+          </div>
+
+          <div class="card__block">
+            <p class="card__label">契約目安</p>
+            <p class="plain">12ヶ月～<br><small>※原則継続介入でのみ対応可<br>※限定的な介入をご希望の場合は個別でお見積もり致します。</small></p>
+          </div>
+        </article>
+      </div>
+
+      <!-- ※補足（枠なしテキスト） -->
+      <div class="note note--single" aria-label="補足">
+        <p>※本プランは<br>ECサイト構築プランをご利用の方を対象としたサポートです</p>
+      </div>
+    </div>
+  </section>
+
+  
+
+
+  <!-- Fit (simple list) -->
+  <section id="fit" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">このサービスがおすすめの方</h2>
+        <p class="section__desc">
+          このサービスは<br>
+          次のような企業やブランドにおすすめです。
+        </p>
+      </div>
+
+      <ul class="simple-list" role="list">
+        <li class="simple-list__item">
+          <p class="simple-list__title">自社ECを立ち上げたい</p>
+        </li>
+
+        <li class="simple-list__item">
+          <p class="simple-list__title">Amazonや楽天だけでなく<br>ブランドECを持ちたい</p>
+        </li>
+
+        <li class="simple-list__item">
+          <p class="simple-list__title">ブランドの世界観を表現したい</p>
+          <p class="simple-list__desc">モールではできない<br>独自のブランド体験を作りたい</p>
+        </li>
+
+        <li class="simple-list__item">
+          <p class="simple-list__title">ECの売上を本格的に伸ばしたい</p>
+          <p class="simple-list__desc">広告 / LP / CRMなどと連携し<br>売上の仕組みを作りたい</p>
+        </li>
+
+        <li class="simple-list__item">
+          <p class="simple-list__title">Shopifyに興味があるが不安がある</p>
+          <ul class="simple-list__sub" role="list">
+            <li>Shopifyが自社に合うかわからない</li>
+            <li>どこから始めればいいかわからない</li>
+            <li>運営できるか不安</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section id="outcomes" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">このサービスで実現できること</h2>
+      </div>
+
+      <ul class="list-grid" role="list">
+        <li class="pill">ブランドECサイト構築</li>
+        <li class="pill">スマホでの購買率向上</li>
+        <li class="pill">広告運用との連携</li>
+        <li class="pill">海外販売対応</li>
+        <li class="pill">長く運用できるEC基盤</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section section--cta" aria-label="お問い合わせ">
+    <div class="container cta">
+      <div class="cta__text">
+        <h2 class="cta__title">Shopify構築について相談する</h2>
+        <p class="cta__desc">
+          Shopifyが自社に合うかどうかも含め、<br>
+          お気軽にご相談ください。
+        </p>
+      </div>
+      <div class="cta__actions">
+        <!-- 実運用のURLに差し替え -->
+        <a class="btn btn--primary btn--wide" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+</body>
+</html>

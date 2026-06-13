@@ -1,4 +1,17 @@
 const insightsData = [
+    {
+        id: 'web-marketing-b-1',
+        title: 'ECで成果が出る企業が、必ず最初にやっている「整理」とは何か',
+        excerpt: 'ECで成果を出す企業が、施策の前に整理していることを解説します。',
+        url: '/insights/web-marketing/b-1/',
+        image: '/assets/images/insights/web-marketing/b-1_thumb.webp',
+        date: '2026.06.13',
+        tags: ["EC戦略設計","ECサイト改善","LPO","Webマーケティング","販売導線"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'web-marketing',
+        group: 'web-marketing'
+    },
   {
     id: 'ec-growth',
     title: '初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実',

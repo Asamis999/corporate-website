@@ -205,53 +205,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * 月額・年額プラン切り替え機能
+     * 月額・年額プラン切り替え機能（削除済み）
      */
     function initPlanPeriodToggle() {
-        const toggleButtons = document.querySelectorAll('.plan-toggle-button');
-        
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const period = this.getAttribute('data-period');
-                const container = this.closest('.featured-plan-section');
-                
-                // トグルボタンのアクティブ状態を切り替え
-                toggleButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // タイトルを更新
-                const titleElement = container.querySelector('.featured-plan-title');
-                if (titleElement) {
-                    if (period === 'month') {
-                        titleElement.textContent = 'ECグロースサポート（月額プラン）';
-                    } else {
-                        titleElement.textContent = 'ECグロースサポート（年額プラン）';
-                    }
-                }
-                
-                // 価格表示を切り替え
-                const priceElements = container.querySelectorAll('.price-value');
-                const priceNotes = container.querySelectorAll('.price-note');
-                
-                if (period === 'month') {
-                    // 月額プランの表示
-                    if (priceElements[0]) priceElements[0].textContent = '¥20,000';
-                    if (priceNotes[0]) priceNotes[0].textContent = '円～/月';
-                    
-                    if (priceElements[1]) priceElements[1].textContent = '¥50,000';
-                    if (priceNotes[1]) priceNotes[1].textContent = '円～/月';
-                } else {
-                    // 年額プランの表示（10%割引を適用）
-                    if (priceElements[0]) priceElements[0].textContent = '¥216,000';
-                    if (priceNotes[0]) priceNotes[0].textContent = '円～/年（10%OFF）';
-                    
-                    if (priceElements[1]) priceElements[1].textContent = '¥540,000';
-                    if (priceNotes[1]) priceNotes[1].textContent = '円～/年（10%OFF）';
-                }
-                
-                console.log(`料金プラン切り替え: ${period}`);
-            });
-        });
+        // トグル機能は削除されました
     }
     
     // 各機能の初期化

@@ -1,7 +1,16 @@
 /**
  * プログレッシブ型お問い合わせフォーム用JavaScript
  * ステップ遷移・動的表示のロジック実装
+ *
  */
+
+function encodeFormData(formData) {
+  const params = new URLSearchParams();
+  for (const [key, value] of formData.entries()) {
+    params.append(key, value);
+  }
+  return params.toString();
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   // モーダルが読み込まれた後に初期化
@@ -138,36 +147,35 @@ function handleFormSubmit(event) {
   
   // フォームデータ取得
   const formData = new FormData(event.target);
+
+  // Netlify Formsに認識させるため form-name を補完
+  if (!formData.get('form-name')) {
+    const formName = event.target.getAttribute('name') || 'contact';
+    formData.append('form-name', formName);
+  }
   
   // 送信中表示
   document.querySelector('.btn-submit').textContent = '送信中...';
   document.querySelector('.btn-submit').disabled = true;
   
-  // サンプル：実際の送信（既存関数を使用）
-  if (typeof window.sendContactEmail === 'function') {
-    window.sendContactEmail(formData)
-      .then(response => {
-        // 送信成功時の処理
-        showCompletionMessage();
-      })
-      .catch(error => {
-        // 送信失敗時の処理
-        alert('送信に失敗しました。時間をおいて再度お試しください。');
-        console.error('送信エラー:', error);
-        
-        // ボタンを元に戻す
-        document.querySelector('.btn-submit').textContent = '送信する';
-        document.querySelector('.btn-submit').disabled = false;
-      });
-  } else {
-    // sendContactEmailが定義されていない場合（デモ用）
-    console.log('送信関数が見つかりません。フォームデータ:', Object.fromEntries(formData));
-    
-    // 2秒後に完了メッセージを表示（デモ用）
-    setTimeout(function() {
+  fetch('/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: encodeFormData(formData)
+  })
+    .then(() => {
       showCompletionMessage();
-    }, 2000);
-  }
+    })
+    .catch(error => {
+      alert('送信に失敗しました。時間をおいて再度お試しください。');
+      console.error('送信エラー:', error);
+
+      // ボタンを元に戻す
+      document.querySelector('.btn-submit').textContent = '送信する';
+      document.querySelector('.btn-submit').disabled = false;
+    });
 }
 
 /**

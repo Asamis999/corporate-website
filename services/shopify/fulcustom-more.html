@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>オリジナルECサイト開発 | サービス詳細</title>
+
+  <link rel="stylesheet" href="../../assets/css/template.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/modal.css" />
+  <link rel="stylesheet" href="/assets/css/service.css" />
+  <script src="../../assets/js/template.js" defer></script>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="service" aria-labelledby="service-title">
+    <!-- Hero -->
+    <header class="service__hero">
+      <div class="container">
+        <p class="eyebrow">サービス</p>
+        <h1 id="service-title" class="service__title">オリジナルECサイト開発</h1>
+
+        <p class="service__lead">
+          既存のECサービスでは実現できない<br>
+          独自のビジネスモデルに対応したECサイトを開発します。
+        </p>
+
+        <div class="service__cta">
+          <a class="btn btn--primary" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+          <a class="btn btn--ghost" href="#pricing">料金を見る</a>
+        </div>
+
+        <nav class="service__nav" aria-label="ページ内ナビゲーション">
+          <a href="#overview">概要</a>
+          <a href="#deliverables">提供内容</a>
+          <a href="#pricing">料金</a>
+          <a href="#cases">必要になるケース</a>
+          <a href="#difference">Shopify構築との違い</a>
+          <a href="#contact">相談する</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container prose">
+        <p>
+          一般的なECサイトはShopifyなどのECプラットフォームで構築することが可能ですが、<br>
+          ビジネスモデルによっては標準機能では対応できない場合があります。
+        </p>
+
+        <p>
+          当社では、要件定義から設計・開発まで一貫して行い、<br>
+          ビジネスモデルに最適化されたECシステムを構築します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="section section--muted">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">提供内容</h2>
+        </div>
+
+        <ul class="list-grid" role="list">
+          <li class="pill">要件定義</li>
+          <li class="pill">システム設計</li>
+          <li class="pill">ECシステム開発</li>
+          <li class="pill">独自会員システム構築</li>
+          <li class="pill">API連携</li>
+          <li class="pill">基幹システム連携</li>
+          <li class="pill">独自購入フロー設計</li>
+          <li class="pill">サブスクリプション機能対応</li>
+        </ul>
+
+        <div class="note note--single" aria-label="補足">
+          <p>※プロジェクト内容に応じて個別に設計します。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">料金</h2>
+        </div>
+
+        <div class="cards cards--two">
+          <article class="card" aria-label="初期制作費">
+            <div class="card__top">
+              <p class="badge">初期制作費</p>
+              <p class="price">¥1,500,000 ～</p>
+              <p class="card__subtitle">（要件定義により個別見積）</p>
+            </div>
+            <div class="card__block">
+              <p class="card__label">補足</p>
+              <p class="plain">
+                ※ECサイト構築後は<br>
+                <strong>ECグロースサポート（月額プラン）</strong>を<br>
+                任意で組み合わせることが可能です。
+              </p>
+            </div>
+          </article>
+
+          <article class="card" aria-label="進め方の目安">
+            <div class="card__top">
+              <p class="badge">進め方</p>
+              <h3 class="card__title">要件定義から一貫対応</h3>
+              <p class="card__subtitle">
+                要件定義 → 設計 → 開発まで、ビジネスモデルに合わせて最適化します。
+              </p>
+            </div>
+            <div class="card__block">
+              <p class="card__label">ポイント</p>
+              <ul class="bullet">
+                <li>標準機能で難しい要件を前提に設計</li>
+                <li>連携（API / 基幹 / 在庫等）まで含めて検討</li>
+                <li>将来の拡張を見据えたEC基盤を構築</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases -->
+    <section id="cases" class="section section--muted">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">フルカスタマイズECが必要になるケース</h2>
+          <p class="section__desc">
+            以下のような場合、<br>
+            既存ECサービスでは対応が難しく<br>
+            オリジナルEC開発が必要になります。
+          </p>
+        </div>
+
+        <ul class="simple-list" role="list">
+          <li class="simple-list__item">
+            <p class="simple-list__title">独自の販売フローがある</p>
+            <p class="simple-list__desc">
+              など、一般的なECの購入フローでは対応できない場合。
+            </p>
+            <ul class="simple-list__sub" role="list">
+              <li>見積販売</li>
+              <li>法人専用EC</li>
+              <li>特注商品の注文</li>
+              <li>複雑な注文フロー</li>
+            </ul>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">既存システムとの連携が必要</p>
+            <p class="simple-list__desc">
+              など、社内システムとの連携が必要な場合。
+            </p>
+            <ul class="simple-list__sub" role="list">
+              <li>在庫管理システム</li>
+              <li>基幹システム</li>
+              <li>顧客管理システム</li>
+            </ul>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">会員制ECを構築したい</p>
+            <p class="simple-list__desc">
+              など、独自の会員制度を導入する場合。
+            </p>
+            <ul class="simple-list__sub" role="list">
+              <li>会員ランク制度</li>
+              <li>会員限定商品</li>
+              <li>特別価格販売</li>
+            </ul>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">サブスクリプション型EC</p>
+            <p class="simple-list__desc">
+              など、継続課金モデルを導入する場合。
+            </p>
+            <ul class="simple-list__sub" role="list">
+              <li>定期購入</li>
+              <li>サブスク販売</li>
+              <li>継続課金</li>
+            </ul>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">BtoB ECサイト</p>
+            <p class="simple-list__desc">
+              など、BtoB取引に対応したECを構築する場合。
+            </p>
+            <ul class="simple-list__sub" role="list">
+              <li>法人専用EC</li>
+              <li>掛け払い</li>
+              <li>企業ごとの価格設定</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Difference -->
+    <section id="difference" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Shopify構築との違い</h2>
+        </div>
+
+        <div class="prose">
+          <p>
+            一般的なECサイトは<br>
+            Shopify構築で十分対応可能です。
+          </p>
+
+          <p>
+            しかし次のようなケースでは<br>
+            オリジナルEC開発が必要になります。
+          </p>
+        </div>
+
+        <ul class="list-grid" role="list" aria-label="オリジナルEC開発が必要になりやすいケース">
+          <li class="pill">独自の販売モデル</li>
+          <li class="pill">基幹システム連携</li>
+          <li class="pill">特殊な会員制度</li>
+          <li class="pill">BtoB販売</li>
+        </ul>
+
+        <div class="prose" style="margin-top:14px;">
+          <p>
+            これらに該当する場合、<br>
+            フルカスタマイズECをご提案しています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--cta" aria-label="お問い合わせ">
+      <div class="container cta">
+        <div class="cta__text">
+          <h2 class="cta__title">オリジナルEC開発について相談する</h2>
+          <p class="cta__desc">
+            自社のEC構築に<br>
+            既存サービスが適しているか、<br>
+            フルカスタマイズが必要かも含めてご相談ください。
+          </p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--wide" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

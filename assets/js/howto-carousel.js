@@ -37,14 +37,24 @@ function initSimpleCarousel() {
     console.error('カルーセル要素が見つかりません');
     return;
   }
-  
-  // 各カードの幅を800pxに固定
-  const itemWidth = 800; // カードの固定幅
-  const itemGap = 30; // カード間のギャップ
-  const itemMargin = itemGap / 2; // アイテム間のマージン
-  
-  // カードの幅を設定
-  updateSliderWidth();
+
+  // CSSで決まる実寸のカード幅/gapを元にスクロール幅を算出する
+  function getItemGap() {
+    const styles = window.getComputedStyle(slider);
+    const gap = styles.gap || styles.columnGap || '0px';
+    const n = parseFloat(gap);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  function getItemWidth() {
+    const first = items[0];
+    if (!first) return 0;
+    return first.getBoundingClientRect().width;
+  }
+
+  function getStep() {
+    return getItemWidth() + getItemGap();
+  }
   
   // スクロールが機能しない場合の対策として、
   // スクロール動作をアシストするクリックイベントを追加
@@ -61,9 +71,10 @@ function initSimpleCarousel() {
     
     // スクロール位置を計算
     const currentScroll = container.scrollLeft;
+    const step = getStep();
     const targetScroll = isRightSide ? 
-      currentScroll + itemWidth + itemGap : 
-      currentScroll - (itemWidth + itemGap);
+      currentScroll + step : 
+      currentScroll - step;
     
     // スムーズスクロール
     container.scrollTo({
@@ -107,7 +118,8 @@ function initSimpleCarousel() {
       
       // スクロール位置から現在のカードインデックスを計算
       const scrollPosition = container.scrollLeft;
-      currentIndex = Math.round(scrollPosition / (itemWidth + itemGap));
+      const step = getStep() || 1;
+      currentIndex = Math.round(scrollPosition / step);
       
       // インデックスの境界値チェック
       if (currentIndex >= totalItems) currentIndex = totalItems - 1;
@@ -254,29 +266,17 @@ function initSimpleCarousel() {
     });
   }
   
-  // スライダーの幅を計算する関数
-  function updateSliderWidth() {
-    // 各アイテムの幅とギャップを考慮した全体の幅を設定
-    const totalWidth = (itemWidth + itemGap) * totalItems - itemGap; // 最後のギャップを引く
-    slider.style.width = `${totalWidth}px`;
-    
-    // 各カードの幅を固定に設定
-    items.forEach(item => {
-      item.style.width = `${itemWidth}px`;
-      item.style.minWidth = `${itemWidth}px`;
-      item.style.maxWidth = `${itemWidth}px`;
-      item.style.flexBasis = `${itemWidth}px`;
-    });
-  }
-  
   // スライダー位置更新
   function updateSliderPosition() {
-    // カード位置に基づいてオフセットを計算（ギャップを考慮）
-    const offset = currentIndex * (itemWidth + itemGap);
-    console.log('Updating slider position:', `-${offset}px`);
+    const step = getStep();
+    if (!step) return;
+    const offset = currentIndex * step;
     
     // translateXではなくscrollLeftを使用して自然なスクロール動作に変更
-    slider.scrollLeft = offset;
+    container.scrollTo({
+      left: offset,
+      behavior: 'smooth'
+    });
     updateNavButtons();
   }
   
@@ -329,19 +329,6 @@ function initSimpleCarousel() {
   
   // ウィンドウリサイズ対応
   window.addEventListener('resize', function() {
-    // ウィンドウサイズ変更時にカード幅とスライダー幅を再計算
-    let newItemWidth;
-    if (window.innerWidth >= 992) {
-      newItemWidth = container.offsetWidth * 0.333 - 30;
-    } else if (window.innerWidth >= 768) {
-      newItemWidth = container.offsetWidth * 0.5 - 30;
-    } else {
-      newItemWidth = container.offsetWidth - 30;
-    }
-    
-    const newTotalItemWidth = newItemWidth + (itemMargin * 2);
-    slider.style.width = `${Math.max(container.offsetWidth * 2, totalItems * newTotalItemWidth)}px`;
-    
     // スライダー位置を更新
     updateSliderPosition();
   });

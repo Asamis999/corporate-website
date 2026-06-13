@@ -4,6 +4,14 @@
 /* 共通の.breadcrumbsスタイルはcommon.cssに定義されています */
 
 /***** ヒーローセクション *****/
+.process-page {
+    --header-bg-image: url('/assets/images/process-background.webp');
+}
+
+.process-page .page-header::before {
+    opacity: 1;
+}
+
 .page-header {
     background-color: #f5f5f5;
     padding: 60px 0;

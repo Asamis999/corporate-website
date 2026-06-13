@@ -11,7 +11,8 @@ body {
 section .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* ヒーローセクション */
@@ -353,18 +354,18 @@ section:nth-child(even) {
 }
 
 .roadmap-goal-box {
-    background: #d5f4e6;
+    background: linear-gradient(135deg, #c9a96e 0%, #b8925a 100%);
     display: inline-block;
-    padding: 30px 60px;
-    border-radius: 50px;
-    border: 3px solid #27ae60;
+    padding: 28px 48px;
+    border-radius: 8px;
+    border: none;
     max-width: 800px;
 }
 
 .roadmap-goal-box p {
-    font-size: 1.3em;
-    color: #27ae60;
-    font-weight: 500;
+    font-size: 1.15em;
+    color: #fff;
+    font-weight: 600;
     margin: 0;
     line-height: 1.6;
 }
@@ -413,18 +414,38 @@ section:nth-child(even) {
 }
 
 .goal-box {
-    background: #d5f4e6;
-    padding: 20px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #c9a96e 0%, #b8925a 100%);
+    padding: 20px 24px;
+    border-radius: 8px;
     margin-top: 20px;
-    border-left: 4px solid #27ae60;
+    border: none;
+    text-align: center;
+}
+
+.goal-box h3 {
+    font-size: 1.3em;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.6;
 }
 
 .goal-box p {
-    font-size: 1.1em;
-    color: #27ae60;
+    font-size: 1.05em;
+    color: #fff;
     font-weight: 500;
-    margin: 0;
+    margin: 0 0 12px;
+    line-height: 1.8;
+}
+
+.goal-box p:last-of-type {
+    margin-bottom: 0;
+}
+
+.goal-box .read-more-btn .btn {
+    background: #fff;
+    color: #9a7d4a;
+    border-color: #fff;
 }
 
 /* 選考プロセス */
@@ -861,48 +882,189 @@ section:nth-child(even) {
 
 /* レスポンシブ */
 @media (max-width: 768px) {
+    section {
+        padding: 40px 0;
+    }
+
+    section .container {
+        padding-left: var(--container-padding) !important;
+        padding-right: var(--container-padding) !important;
+    }
+
+    .hero {
+        padding: 48px var(--container-padding) 56px;
+        min-height: auto;
+    }
+
     .hero h1 {
-        font-size: 2em;
+        font-size: 1.6em;
+        margin-bottom: 16px;
     }
 
     .hero p {
-        font-size: 1.1em;
+        font-size: 0.95em;
+        margin-bottom: 24px;
+    }
+
+    .hero-label {
+        margin-bottom: 16px;
+        font-size: 0.85em;
     }
 
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
     }
 
     .section-title {
-        font-size: 2em;
+        font-size: 1.4em;
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 28px;
+    }
+
+    .company-intro {
+        font-size: 1em;
     }
 
     .environment-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 28px auto;
+    }
+
+    .env-card {
+        padding: 20px;
+    }
+
+    .env-card h4 {
+        font-size: 1.1em;
+    }
+
+    .env-card p {
+        font-size: 0.95em;
+    }
+
+    .job-item h3 {
+        font-size: 1.3em;
     }
 
     .roadmap-item {
         flex-direction: column;
         text-align: center;
+        padding: 16px;
+        margin-bottom: 24px;
     }
 
     .roadmap-item::before {
         display: none;
     }
 
+    .roadmap-content h4 {
+        font-size: 1.2em;
+    }
+
+    .timeline-item {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+
+    .timeline-item h4 {
+        font-size: 1.2em;
+    }
+
+    .process-step {
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .step-number {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2em;
+    }
+
+    .step-content h4 {
+        font-size: 1.1em;
+    }
+
     .info-table th,
     .info-table td {
         display: block;
         width: 100%;
+        padding: 12px;
+        font-size: 0.95em;
     }
 
     .info-table th {
         border-bottom: none;
+        padding: 10px 12px;
     }
 
-    .message-box,
+    .message-box {
+        padding: 20px;
+    }
+
+    .message-box h3 {
+        font-size: 1.4em;
+    }
+
+    .message-box p {
+        font-size: 1em;
+    }
+
     .modal-content {
-        padding: 30px;
+        padding: 20px;
+        margin: 5% 8px;
+    }
+
+    .closing {
+        padding: 40px var(--container-padding);
+    }
+
+    .closing h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .closing-text {
+        font-size: 0.95em;
+        margin-bottom: 28px;
+    }
+
+    .closing-cta {
+        margin-top: 28px;
+    }
+
+    .roadmap-goal-box {
+        padding: 16px 20px;
+    }
+
+    .roadmap-goal-box p {
+        font-size: 1.05em;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95em;
+    }
+
+    .highlight-box {
+        padding: 16px;
+    }
+
+    .year-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 1.1em;
+    }
+
+    .document-item {
+        padding: 14px;
     }
 }

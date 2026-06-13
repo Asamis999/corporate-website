@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/css/modal.css">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
     
     <!-- LP Service用カスタムスタイル -->
     <link rel="stylesheet" href="style.css">
@@ -28,8 +28,6 @@
 </head>
 <body>
     
-    <!-- 共通ヘッダー -->
-    <div id="site-header"></div>
     
     <!-- ヒーローセクション -->
     <section class="hero hero-fullscreen">
@@ -60,7 +58,7 @@
     <!-- 問題提起セクション -->
     <section id="problem" class="section-alt-bg">
         <div class="container">
-            <h2 class="section-title">こんなお悩み、ありませんか?</h2>
+            <h2 class="section-title">よくあるトラブル</h2>
             
             <div class="problem-grid-simple">
                 <div class="problem-card">
@@ -103,7 +101,7 @@
             <div class="problem-conclusion">
                 <p class="section-subtitle">
                     LPは「作ること」がゴールではありません。<br>
-                    <strong>「売上を上げること」</strong>がゴールです。
+                    <strong>売上や成果</strong>がなければ、価値はゼロです。
                 </p>
             </div>
         </div>
@@ -112,10 +110,7 @@
     <!-- 他社との違いセクション -->
     <section id="difference">
         <div class="container">
-            <h2 class="section-title">一般的なデザイン会社との違い</h2>
-            <p class="section-subtitle">
-                私たちは「デザイン会社」ではなく、「販売視点のチーム」です。
-            </p>
+            <h2 class="section-title">デザイン会社との違い</h2>
             <div class="comparison-table">
                 <div class="comparison-card design-company">
                     <h3>一般的なデザイン会社</h3>
@@ -153,12 +148,15 @@
         </div>
     </section>
 
+    <!-- セクション間デコレーション -->
+    <div class="section-divider" style="margin-top: -60px;"></div>
+
     <!-- 強みセクション -->
     <section id="strengths">
         <div class="container">
-            <h2 class="section-title">私たちがあなたを徹底サポートします</h2>
+            <h2 class="section-title">実績があるから<br>結果を提供できます。</h2>
             <p class="section-subtitle">
-                EC運営の実績があるからこそ、提供できる価値があります。
+                私たちは「デザイン会社」ではなく、「EC販売のプロ集団」です
             </p>
             
             <!-- 強み1 -->
@@ -211,6 +209,9 @@
         </div>
     </section>
 
+    <!-- セクション間デコレーション -->
+    <div class="section-divider" style="margin-top: -60px;"></div>
+
     <!-- サービス詳細セクション -->
     <section id="services">
         <div class="container">
@@ -240,35 +241,19 @@
                 <div class="service-card">
                     <div class="service-image">
                         <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
-                            <!-- 画像: LPOイメージ（600×300px） -->
+                            <!-- 画像: LPO・広告運用イメージ（600×300px） -->
                         </div>
                     </div>
-                    <h3>🔄 LPO（改善支援）</h3>
+                    <h3>🔄 LPO・広告運用</h3>
                     <div class="service-description">
-                        公開後の数値分析と継続的な改善提案で、CVRを最大化
+                        公開後の数値分析と継続的な改善、広告運用まで一貫サポート
                     </div>
                     <ul>
                         <li>アクセス解析・ヒートマップ分析</li>
-                        <li>CVR改善提案</li>
-                        <li>A/Bテストの設計・実施</li>
-                        <li>定期レポート提出</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <div class="image-placeholder" data-size="推奨サイズ: 600×300px">
-                            <!-- 画像: 広告運用イメージ（600×300px） -->
-                        </div>
-                    </div>
-                    <h3>📢 広告運用代行</h3>
-                    <div class="service-description">
-                        Meta広告・Google広告の戦略設計から運用、レポーティングまで
-                    </div>
-                    <ul>
-                        <li>広告戦略の立案</li>
-                        <li>クリエイティブ制作</li>
-                        <li>日次の運用最適化</li>
-                        <li>月次レポート・改善提案</li>
+                        <li>CVR改善提案・A/Bテスト実施</li>
+                        <li>Meta・Google広告の戦略設計</li>
+                        <li>クリエイティブ制作・運用最適化</li>
+                        <li>定期レポート・改善提案</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -426,163 +411,10 @@
         </div>
     </section>
 
-    <!-- クラウドファンディング実績セクション
-    削除済み
-    <section id="crowdfunding" style="display: none;">
-        <div class="container">
-            <h2 class="section-title">クラウドファンディングの集客支援も実績豊富</h2>
-            <p class="section-subtitle">
-                Makuake、CAMPFIREなど主要プラットフォームで、数多くのプロジェクトを成功に導いてきました。<br>
-                LP制作・広告運用・CRM施策を組み合わせた集客支援で、目標達成率300%超えの実績も。
-            </p>
-
-            <div class="crowdfunding-grid">
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトA
-                        <span class="crowdfunding-badge">達成率 420%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>スマートウォッチ型健康デバイス</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥2,100万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">1,250名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            LP制作+Meta広告運用で初動から支援者を獲得。CRM施策でリピーター育成も実施。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトB
-                        <span class="crowdfunding-badge">達成率 380%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>完全ワイヤレス骨伝導イヤホン</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥1,900万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">980名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            商品特性を活かしたLP構成設計。Google広告で顕在層を効率的に獲得。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトC
-                        <span class="crowdfunding-badge">達成率 520%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>オーガニックスキンケアセット</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥1,560万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">1,820名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            ストーリー性を重視したLP。Instagram広告でターゲット層に的確にリーチ。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトD
-                        <span class="crowdfunding-badge">達成率 350%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>多機能キャンプギア</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥1,750万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">890名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            動画素材を活用したリッチなLP。YouTube広告でアウトドア愛好家にアプローチ。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトE
-                        <span class="crowdfunding-badge">達成率 480%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>ミニマルデザインの革財布</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥1,440万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">1,620名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            職人のこだわりを伝えるLP構成。Facebook広告で30-50代男性に訴求。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="crowdfunding-card">
-                    <div class="crowdfunding-image">
-                        プロジェクトF
-                        <span class="crowdfunding-badge">達成率 390%</span>
-                    </div>
-                    <div class="crowdfunding-content">
-                        <h4>IoT対応スマートロック</h4>
-                        <div class="crowdfunding-stats">
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">¥2,340万</div>
-                                <div class="crowdfunding-stat-label">調達額</div>
-                            </div>
-                            <div class="crowdfunding-stat">
-                                <div class="crowdfunding-stat-number">1,120名</div>
-                                <div class="crowdfunding-stat-label">支援者数</div>
-                            </div>
-                        </div>
-                        <p class="crowdfunding-description">
-                            セキュリティと利便性を訴求するLP。リスティング広告で検索ニーズを獲得。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <!-- CRMセクション -->
     <section id="crm">
         <div class="container">
-            <h2 class="section-title">CRMで顧客と直接つながる。</h2>
+            <h2 class="section-title">資産価値ある集客を。</h2>
             <p class="section-subtitle">
                 LPだけでは得られない、圧倒的な売上機会。<br>
                 CRMを活用することで、リピート通販だけでなく、多様なビジネスチャンスが生まれます。
@@ -643,7 +475,7 @@
     <!-- ロードマップセクション -->
     <section id="roadmap" class="section-alt-bg">
         <div class="container">
-            <h2 class="section-title">制作から成果まで、一気通貫でサポート</h2>
+            <h2 class="section-title">一気通貫でサポート</h2>
             <p class="section-subtitle">
                 LP公開後も継続的に改善サイクルを回すことで、CVRは着実に向上します。
             </p>

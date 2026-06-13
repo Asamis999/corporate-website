@@ -693,6 +693,21 @@ body.home #breadcrumb-container {
   .hero-title {
     font-size: 2.8rem;
   }
+
+  .main-copy {
+    font-size: 3.0rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .sub-copy {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .guide-text {
+    font-size: 1.2rem;
+  }
   
   /* スマホ用背景画像に切り替え */
   .hero-bg {

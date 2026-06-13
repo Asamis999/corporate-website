@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRM支援 | サービス詳細</title>
+
+  <link rel="stylesheet" href="../../assets/css/template.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/modal.css" />
+  <link rel="stylesheet" href="/assets/css/service.css" />
+  <script src="../../assets/js/template.js" defer></script>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="service" aria-labelledby="service-title">
+    <!-- Hero -->
+    <header class="service__hero">
+      <div class="container">
+        <p class="eyebrow">サービス</p>
+        <h1 id="service-title" class="service__title">CRM支援</h1>
+
+        <p class="service__lead">
+          LINEやメールマーケティングを活用し、<br>
+          顧客との長期的な関係構築とリピート売上の最大化を支援します。
+        </p>
+
+        <div class="service__cta">
+          <a class="btn btn--primary" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+          <a class="btn btn--ghost" href="#pricing">料金を見る</a>
+        </div>
+
+        <nav class="service__nav" aria-label="ページ内ナビゲーション">
+          <a href="#overview">概要</a>
+          <a href="#deliverables">提供内容</a>
+          <a href="#pricing">CRM構築</a>
+          <a href="#ops">CRM運用支援</a>
+          <a href="#outcomes">CRMで実現できること</a>
+          <a href="#fit">おすすめの企業</a>
+          <a href="#contact">相談する</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container prose">
+        <p>
+          ECでは新規顧客の獲得だけでなく、<br>
+          既存顧客との関係構築が売上成長の重要な要素になります。
+        </p>
+
+        <p>当社では</p>
+        <p>
+          ・LINE公式アカウント<br>
+          ・メールマーケティング
+        </p>
+
+        <p>
+          を活用し、<br>
+          顧客育成（CRM）を仕組み化します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="section section--muted">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">提供内容</h2>
+        </div>
+
+        <ul class="list-grid" role="list">
+          <li class="pill">LINE構築</li>
+          <li class="pill">メルマガ設計</li>
+          <li class="pill">ステップ配信設計</li>
+          <li class="pill">シナリオ設計</li>
+          <li class="pill">リピート促進施策</li>
+          <li class="pill">顧客分析</li>
+          <li class="pill">レポート作成</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CRM Build / Pricing -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">CRM構築</h2>
+        </div>
+
+        <div class="prose">
+          <p>
+            顧客とのコミュニケーション設計を行い、<br>
+            継続的な関係構築の仕組みを作ります。
+          </p>
+          <br>
+        </div>
+
+        <div class="cards cards--two">
+          <article class="card" aria-label="CRM設計">
+            <div class="card__top">
+              <p class="badge">CRM設計</p>
+              <p class="card__subtitle">初期構築費</p>
+              <p class="price">¥100,000～</p>
+            </div>
+
+            <div class="card__block">
+              <p class="card__label">内容</p>
+              <ul class="bullet">
+                <li>LINE / メールマーケティング設計</li>
+                <li>ステップ配信設計</li>
+                <li>シナリオ設計</li>
+                <li>顧客導線設計</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card" aria-label="CRM運用サポート（概要）">
+            <div class="card__top">
+              <p class="badge">ポイント</p>
+              <h3 class="card__title">仕組み化と改善</h3>
+              <p class="card__subtitle">
+                配信・導線・分析を前提に設計し、<br>
+                運用しながら成果を伸ばします。
+              </p>
+            </div>
+
+            <div class="card__block">
+              <p class="plain">
+                LINE/メールは配信して終わりではなく、<br>
+                ユーザー行動と購買データをもとに改善することで<br>
+                リピート売上の最大化につながります。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRM Ops -->
+    <section id="ops" class="section section--muted">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">CRM運用支援</h2>
+        </div>
+
+        <div class="prose">
+          <p>
+            CRMは構築して終わりではなく、<br>
+            運用による改善が重要です。
+          </p>
+          <p>
+            顧客データを分析し、<br>
+            リピート促進施策を継続的に行います。
+          </p>
+          <br>
+        </div>
+
+        <div class="cards cards--two">
+          <article class="card" aria-label="CRM運用サポート">
+            <div class="card__top">
+              <p class="badge">CRM運用サポート</p>
+              <p class="card__subtitle">月額</p>
+              <p class="price">¥50,000～</p>
+            </div>
+
+            <div class="card__block">
+              <p class="card__label">内容</p>
+              <ul class="bullet">
+                <li>ステップ配信改善</li>
+                <li>CRM施策設計</li>
+                <li>顧客分析</li>
+                <li>レポート提出</li>
+                <li>LINE / メール運用支援</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card" aria-label="運用の考え方">
+            <div class="card__top">
+              <p class="badge">運用の考え方</p>
+              <h3 class="card__title">データ起点で改善</h3>
+              <p class="card__subtitle">
+                配信・導線・オファーを見直し、<br>
+                成果が出るパターンを積み上げます。
+              </p>
+            </div>
+
+            <div class="card__block">
+              <p class="plain">
+                配信内容・タイミング・セグメントを調整しながら、<br>
+                リピート率とLTVの向上を狙います。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section id="outcomes" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">CRMで実現できること</h2>
+        </div>
+
+        <ul class="list-grid" role="list">
+          <li class="pill">リピート率の向上</li>
+          <li class="pill">顧客LTVの向上</li>
+          <li class="pill">ファン顧客の育成</li>
+          <li class="pill">継続的な売上創出</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Fit -->
+    <section id="fit" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">このサービスがおすすめの企業</h2>
+          <p class="section__desc">以下のような企業におすすめです。</p>
+        </div>
+
+        <ul class="simple-list" role="list">
+          <li class="simple-list__item">
+            <p class="simple-list__title">ECのリピート率を上げたい</p>
+            <p class="simple-list__desc">
+              新規顧客の獲得だけでなく、<br>
+              既存顧客との関係構築を強化したい。
+            </p>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">LINEやメルマガを活用したい</p>
+            <p class="simple-list__desc">
+              LINEやメールを活用した<br>
+              顧客育成の仕組みを作りたい。
+            </p>
+          </li>
+
+          <li class="simple-list__item">
+            <p class="simple-list__title">顧客データを活用したい</p>
+            <p class="simple-list__desc">
+              顧客の購買履歴や行動データを分析し、<br>
+              マーケティングに活用したい。
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--cta" aria-label="お問い合わせ">
+      <div class="container cta">
+        <div class="cta__text">
+          <h2 class="cta__title">CRM支援について相談する</h2>
+          <p class="cta__desc">
+            CRM設計やLINE・メールマーケティングについて<br>
+            お気軽にご相談ください。
+          </p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--wide" href="javascript:void(0);" onclick="openContactModal()">お問い合わせ / 無料相談はこちら</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

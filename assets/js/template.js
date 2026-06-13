@@ -456,7 +456,12 @@
                   }
                   
                   // フッターお問い合わせリンク設定、より広いセレクタで対応
-                  const footerContactLinks = document.querySelectorAll('footer a[href*="contact"], footer a:contains("お問い合わせ")');
+                  const footerLinks = document.querySelectorAll('footer a');
+                  const footerContactLinks = Array.from(footerLinks).filter(link => {
+                    const href = (link.getAttribute('href') || '').toLowerCase();
+                    const text = (link.textContent || '').trim();
+                    return href.includes('contact') || text.includes('お問い合わせ');
+                  });
                   if (footerContactLinks.length > 0) {
                     footerContactLinks.forEach(link => {
                       // 一度だけ設定するためのチェック
@@ -479,7 +484,12 @@
                   }
                   
                   // 全てのお問い合わせリンクをモーダル化
-                  const allContactLinks = document.querySelectorAll('a[href*="contact"], a:contains("お問い合わせ")');
+                  const allLinks = document.querySelectorAll('a');
+                  const allContactLinks = Array.from(allLinks).filter(link => {
+                    const href = (link.getAttribute('href') || '').toLowerCase();
+                    const text = (link.textContent || '').trim();
+                    return href.includes('contact') || text.includes('お問い合わせ');
+                  });
                   if (allContactLinks.length > 0) {
                     allContactLinks.forEach(link => {
                       // 二重登録防止とフッター以外のお問い合わせリンクの処理
@@ -617,6 +627,10 @@
       generateBreadcrumb();
     } else if (targetId === 'site-header') {
       setActiveMenuItem();
+      initMobileMenu();
+    } else if (targetId === 'header-include') {
+      setActiveMenuItem();
+      initMobileMenu();
     }
     
     // イベント発火
@@ -838,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'web-marketing-b-1': 'ECで成果が出る企業が、必ず最初にやっている「整理」とは何か',
       'howto': 'Howto BOX',
       'howto-posts': 'すべての記事一覧',
       'posts': '記事一覧',
@@ -861,13 +876,17 @@
       'wix7': '07. EC商品の編集と複製登録（Wixストア）',
       'wix8': '08. ブログ記事の作成と設定（HTMLデザイン活用）',
       // その他のページ
-      'works': '制作事例',
+      'works': '実績事例',
       'services': 'サービス一覧',
-      'pricing': '制作料金',
+      'pricing': '料金案内',
       'process': '制作までの流れ',
       'company': '会社概要',
+      'profile': 'プロフィール',
       'contact': 'お問い合わせ',
-      'recruit': '採用情報'
+      'recruit': '採用情報',
+      'new-graduate': '新卒採用｜プロジェクトマネージャー候補',
+      'figma-designer': 'デザイナー募集（Figma / LP・広告バナー）',
+      'ai-generation': 'AI画像生成・バナー制作スタッフ募集'
     };
     
     return titleMap[segment] || segment;
@@ -902,58 +921,94 @@
    * UI共通処理
    * ==================================== */
 
+  function toggleMobileMenuFromToggle(toggle) {
+    if (!toggle) return;
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu) return;
+
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+
+    if (expanded) {
+      mobileMenu.setAttribute('hidden', '');
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
+      toggle.classList.remove('is-active');
+      toggle.classList.remove('active');
+    } else {
+      mobileMenu.removeAttribute('hidden');
+      mobileMenu.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+      toggle.classList.add('is-active');
+      toggle.classList.add('active');
+    }
+  }
+
+  // onclickフォールバック用（イベント伝播に依存しない）
+  window.toggleMobileMenu = function(toggle) {
+    toggleMobileMenuFromToggle(toggle);
+  };
+
   /**
    * モバイルメニューの初期化
    */
   function initMobileMenu() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (!menuToggle || !mobileMenu) return;
-    
-    // トグルボタンのクリックイベント
-    menuToggle.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      
-      // メニューの表示/非表示
-      if (expanded) {
-        mobileMenu.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-        document.body.classList.remove('menu-open');
-        // ハンバーガーメニューアイコンの状態を戻す
-        this.classList.remove('is-active');
-        this.classList.remove('active');
-      } else {
-        mobileMenu.removeAttribute('hidden');
-        document.body.style.overflow = 'hidden'; // スクロール防止
-        document.body.classList.add('menu-open');
-        // ハンバーガーメニューアイコンを×に変更
-        this.classList.add('is-active');
-        this.classList.add('active');
+    // イベント委譲で確実に拾う（テンプレ挿入でDOMが差し替わっても動作させる）
+    if (document.documentElement.getAttribute('data-mobile-menu-delegated') === 'true') return;
+    document.documentElement.setAttribute('data-mobile-menu-delegated', 'true');
+
+    function handleMobileMenuEvent(e) {
+      const toggle = e.target.closest('.mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      // トグルボタン
+      if (toggle) {
+        // onclickフォールバックがある場合はそちらに任せる（委譲側で二重トグルすると開→即閉になる）
+        if (toggle.getAttribute('onclick')) return;
+        toggleMobileMenuFromToggle(toggle);
+        return;
       }
-    });
-    
-    // モバイルメニューの各リンクをクリックしたらメニューを閉じる
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-        document.body.classList.remove('menu-open');
-        menuToggle.classList.remove('is-active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
+
+      // メニュー内リンク
+      const menuLink = e.target.closest('#mobile-menu a');
+      if (menuLink) {
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        // 遷移（clickのデフォルト動作）を阻害しないよう、閉じ処理は遅延
+        setTimeout(() => {
+          if (mobileMenu) {
+            mobileMenu.setAttribute('hidden', '');
+            mobileMenu.classList.add('hidden');
+          }
+          if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('is-active');
+            menuToggle.classList.remove('active');
+          }
+          document.body.style.overflow = '';
+          document.body.classList.remove('menu-open');
+        }, 0);
+      }
+    }
+
+    // captureで拾う（途中でstopPropagationされても拾える）
+    document.addEventListener('click', handleMobileMenuEvent, true);
+
     // リサイズ時の処理（PCサイズになった時にモバイルメニューを閉じる）
     window.addEventListener('resize', function() {
       if (window.innerWidth > 992) {
-        mobileMenu.setAttribute('hidden', '');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.classList.remove('is-active');
-        menuToggle.classList.remove('active');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        if (mobileMenu) {
+          mobileMenu.setAttribute('hidden', '');
+          mobileMenu.classList.add('hidden');
+        }
+        if (menuToggle) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          menuToggle.classList.remove('active');
+        }
         document.body.style.overflow = '';
         document.body.classList.remove('menu-open');
       }

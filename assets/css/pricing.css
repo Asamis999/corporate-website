@@ -3,6 +3,10 @@
 /* ページヘッダー */
 .page-header {
   background-color: #f8f9fa;
+  background-image: url('../images/pricing-background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 60px 0;
   text-align: center;
   margin-bottom: 40px;
@@ -10,17 +14,7 @@
 }
 
 .page-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/corporate_sv-background.webp');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  z-index: 0;
+  content: none;
 }
 
 .page-header .container {
@@ -1384,7 +1378,7 @@
 
 @media (max-width: 768px) {
   .page-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .section-title {
@@ -1424,7 +1418,7 @@
 
 @media (max-width: 576px) {
   .page-title {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 
   .section-title {
@@ -1620,6 +1614,50 @@
     flex: 0 0 auto !important;
     margin: 10px 0 !important;
     box-sizing: border-box !important;
+  }
+
+  .modern-card,
+  .pricing-card,
+  .option-item,
+  .horizontal-card {
+    min-width: 0;
+  }
+
+  .modern-feature-list,
+  .modern-option-list,
+  .plan-features,
+  .service-features {
+    padding-left: 18px;
+  }
+
+  .modern-feature-list li,
+  .modern-option-list li,
+  .plan-features li,
+  .plan-notes p,
+  .option-description {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .section-subtitle,
+  .plan-notes p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+
+  .plan-price,
+  .modern-price .price-value {
+    font-size: 2.0rem;
+  }
+
+  .plan-name,
+  .modern-plan-name {
+    font-size: 1.6rem;
+  }
+
+  .pricing-tabs li span {
+    font-size: 1.3rem;
+    padding: 12px 12px;
   }
   
   /* カードの上下余白調整 */

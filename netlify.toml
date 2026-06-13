@@ -1,6 +1,9 @@
 [build]
   publish = "/"
 
+[functions]
+  directory = "netlify/functions"
+
 # プロダクション環境のコンテキストに対する環境変数
 [context.production.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"

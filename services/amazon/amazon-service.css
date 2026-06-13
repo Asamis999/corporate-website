@@ -149,7 +149,6 @@ section {
 /* 白背景セクション */
 section.hero,
 section#benefits,
-section#services,
 section#pricing,
 section#faq {
     background: #ffffff;
@@ -157,14 +156,60 @@ section#faq {
 
 /* グレー背景セクション */
 section#problem,
-section#comparison,
+section#services,
 section.product-categories {
     background: #f8f9fa;
 }
 
+/* 比較セクション - 目立つ背景 */
+section#comparison {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    position: relative;
+}
+
+section#comparison::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="100" cy="100" r="80" fill="rgba(255,153,0,0.03)"/><circle cx="1100" cy="700" r="120" fill="rgba(255,102,0,0.03)"/><circle cx="900" cy="200" r="60" fill="rgba(255,153,0,0.03)"/></svg>') no-repeat center;
+    background-size: cover;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+section#comparison .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 比較画像 */
+.comparison-image-wrapper {
+    margin: 50px auto;
+    max-width: 1000px;
+}
+
+.comparison-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(255, 102, 0, 0.15);
+}
+
+/* PC/スマホ画像切り替え */
+.comparison-image-pc {
+    display: block;
+}
+
+.comparison-image-sp {
+    display: none;
+}
+
 .section-title {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.1em;
     margin-bottom: 20px;
     color: #2c3e50;
     font-weight: bold;
@@ -224,6 +269,133 @@ section.product-categories {
     font-size: 1.5em;
 }
 
+/* 解決提案へのリード */
+.solution-lead-wrapper {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.arrow-down-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.arrow-icon {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid #FF6600;
+    position: relative;
+    animation: arrowBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(255, 102, 0, 0.3));
+}
+
+.arrow-icon::before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: -3px;
+    width: 6px;
+    height: 15px;
+    background: #FF6600;
+    border-radius: 3px;
+}
+
+.arrow-icon:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.arrow-icon:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.arrow-icon:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(15px);
+        opacity: 1;
+    }
+}
+
+.solution-lead-box {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
+    border: 3px solid #FF6600;
+    border-radius: 20px;
+    padding: 50px 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    box-shadow: 0 10px 40px rgba(255, 102, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-lead-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 102, 0, 0.05) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.solution-lead-label {
+    display: inline-block;
+    background: #FF6600;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 24px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.solution-lead-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.solution-lead-text {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* 旧スタイル（後方互換性のため残す） */
 .solution-text {
     text-align: center;
     font-size: 1.3em;
@@ -253,14 +425,14 @@ section.product-categories {
 .benefit-table th {
     background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
     color: white;
-    padding: 25px;
+    padding: 45px;
     text-align: left;
     font-size: 1.2em;
-    width: 25%;
+    width: 30%;
 }
 
 .benefit-table td {
-    padding: 30px 25px;
+    padding: 20px 45px;
     border-bottom: 1px solid #ecf0f1;
     font-size: 1.05em;
     line-height: 1.8;
@@ -279,6 +451,158 @@ section.product-categories {
     color: #FF6600;
     font-size: 1.2em;
     margin-right: 8px;
+}
+
+/* 初速の重要性メッセージボックス */
+.benefit-message-box {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 40px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.benefit-message-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.benefit-message-main {
+    font-size: 18px;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.benefit-message-main strong {
+    color: #FF6600;
+    font-weight: 700;
+}
+
+/* 比較画像 */
+.benefit-comparison-image {
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.benefit-comparison-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.benefit-warning-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #fff8f0;
+    border: 2px solid #FF9900;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.warning-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.warning-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #555;
+    margin: 0;
+}
+
+.warning-text strong {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.benefit-conclusion {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.conclusion-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.benefit-conclusion p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #333;
+    margin: 0;
+}
+
+.benefit-conclusion strong {
+    color: #27ae60;
+    font-weight: 700;
+}
+
+/* 提供価値セクション */
+.benefit-features {
+    margin-top: 60px;
+}
+
+.benefit-features-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #FF6600;
+    display: inline-block;
+    width: 100%;
+}
+
+.benefit-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.benefit-feature-card {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.benefit-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #FF6600;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.benefit-feature-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.benefit-feature-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
 }
 
 .benefit-highlight {
@@ -314,7 +638,7 @@ section.product-categories {
 /* サービスフロー画像 */
 .service-flow-image {
     margin: 40px auto;
-    max-width: 900px;
+    max-width: 1200px;
     text-align: center;
 }
 
@@ -322,7 +646,15 @@ section.product-categories {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* PC/スマホ画像切り替え */
+.flow-image-pc {
+    display: block;
+}
+
+.flow-image-sp {
+    display: none;
 }
 
 /* 相乗効果グラフ画像 */
@@ -432,6 +764,7 @@ section.product-categories {
     font-style: italic;
 }
 
+/* 旧スタイル（後方互換性のため残す） */
 .tactics-section {
     margin-top: 30px;
 }
@@ -490,6 +823,157 @@ section.product-categories {
     line-height: 1.6;
 }
 
+/* 洗練された具体的な施策エリア */
+.tactics-section-refined {
+    margin-top: 40px;
+    padding: 40px;
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border-radius: 20px;
+    border: 1px solid #e8e8e8;
+}
+
+.tactics-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #FF6600;
+    display: inline-block;
+}
+
+/* シンプルなベネフィットリスト */
+.simple-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.simple-benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.simple-benefit-item:hover {
+    border-color: #FF9900;
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.benefit-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-content h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.benefit-content p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.benefit-content strong {
+    color: #FF6600;
+    font-weight: 700;
+}
+
+.tactics-list-refined {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tactic-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tactic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #FF6600 0%, #FF9900 100%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.tactic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: #FF6600;
+}
+
+.tactic-card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.tactic-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #FF6600 0%, #FF9900 100%);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25);
+}
+
+.tactic-details {
+    flex: 1;
+}
+
+.tactic-details h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.tactic-details p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
 .service-note {
     background: #e8f5e9;
     padding: 30px;
@@ -513,7 +997,7 @@ section.product-categories {
 
 /* 自社EC相乗効果セクション */
 section.synergy-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background: #2c3e50 !important;
     color: white !important;
     padding: 80px 20px !important;
     position: relative;
@@ -589,11 +1073,11 @@ section.synergy-section {
 }
 
 .synergy-example {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
     border-radius: 10px;
     padding: 30px;
     margin-top: 50px;
-    border-left: 5px solid #FFD700;
+    border-left: 5px solid #FF9900;
 }
 
 .synergy-example h4 {
@@ -621,7 +1105,7 @@ section.synergy-section {
 .synergy-metric-value {
     font-size: 2em;
     font-weight: bold;
-    color: #FFD700;
+    color: #FF9900;
     display: block;
     margin-bottom: 8px;
 }
@@ -684,6 +1168,101 @@ section.synergy-section {
     color: #27ae60;
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/* 強調CTAボックス */
+.pricing-cta-box {
+    background: linear-gradient(135deg, #FF6600 0%, #FF9900 100%);
+    padding: 50px 40px;
+    border-radius: 20px;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 102, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-cta-box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.cta-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-size: 2.2em;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-description {
+    font-size: 1.15em;
+    color: white;
+    line-height: 1.9;
+    margin-bottom: 35px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    color: #FF6600;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: #fff;
+}
+
+.cta-button-arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.cta-button-large:hover .cta-button-arrow {
+    transform: translateX(5px);
+}
+
+.cta-note {
+    font-size: 0.95em;
+    color: white;
+    margin-top: 20px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
 
 .pricing-note {
@@ -1011,6 +1590,14 @@ section.cta-section {
         font-size: 1.1em;
     }
 
+    .container {
+        padding: 0 20px;
+    }
+    /* セクション共通スタイル */
+    section {
+    padding: 40px 5px;
+    }
+
     /* 画像エリア */
     .problem-image-wrapper,
     .service-flow-image,
@@ -1018,9 +1605,86 @@ section.cta-section {
         margin: 30px auto;
         padding: 10px;
     }
+    
+    /* サービスフロー画像切り替え */
+    .flow-image-pc {
+        display: none !important;
+    }
+    
+    .flow-image-sp {
+        display: block !important;
+    }
+    
+    /* 比較画像切り替え */
+    .comparison-image-pc {
+        display: none !important;
+    }
+    
+    .comparison-image-sp {
+        display: block !important;
+    }
+    
+    .comparison-image-wrapper {
+        margin: 30px auto;
+        max-width: 400px;
+    }
+    
+    .service-flow-image {
+        max-width: 350px;
+    }
+    
+    /* 解決提案リード */
+    .solution-lead-wrapper {
+        margin-top: 40px;
+    }
+    
+    .arrow-down-animation {
+        gap: 10px;
+        margin: 30px 0;
+    }
+    
+    .arrow-icon {
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 22px solid #FF6600;
+    }
+    
+    .arrow-icon::before {
+        top: -26px;
+        left: -2.5px;
+        width: 5px;
+        height: 12px;
+    }
+    
+    .solution-lead-box {
+        padding: 30px 20px;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+    
+    .solution-lead-label {
+        font-size: 12px;
+        padding: 6px 16px;
+        margin-bottom: 15px;
+    }
+    
+    .solution-lead-title {
+        font-size: 22px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .solution-lead-text {
+        font-size: 15px;
+        line-height: 1.7;
+    }
 
     .section-title, .synergy-title {
         font-size: 1.8em;
+    }
+
+    section.synergy-section {
+    padding: 40px 5px !important;
     }
 
     .synergy-grid,
@@ -1033,10 +1697,185 @@ section.cta-section {
     .tactics-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* 洗練された施策エリア */
+    
+    .tactics-section-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+    
+    /* シンプルなベネフィットリスト */
+    .simple-benefits-list {
+        gap: 20px;
+        margin-top: 25px;
+    }
+    
+    .simple-benefit-item {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 20px;
+    }
+    
+    .benefit-icon {
+        font-size: 36px;
+    }
+    
+    .benefit-content h5 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .benefit-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    
+    .tactics-list-refined {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .tactic-card {
+        padding: 20px;
+        gap: 16px;
+    }
+    
+    .tactic-number {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+    
+    .tactic-details h5 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+    
+    .tactic-details p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
 
     .benefit-table th, .benefit-table td {
         display: block;
         width: 100%;
+    }
+    
+    /* 初速メッセージボックス */
+    .benefit-message-box {
+        padding: 30px 20px;
+        margin: 30px 0;
+    }
+    
+    .benefit-message-main {
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    
+    /* 比較画像 */
+    .benefit-comparison-image {
+        margin: 30px auto;
+    }
+    
+    .benefit-warning-box {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .warning-icon,
+    .conclusion-icon {
+        font-size: 28px;
+    }
+    
+    .warning-text p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    
+    .benefit-conclusion {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    /* 強調CTAボックス */
+    .pricing-cta-box {
+        padding: 40px 25px;
+        margin-top: 40px;
+    }
+    
+    .cta-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+    
+    .cta-title {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+    
+    .cta-description {
+        font-size: 1em;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+    
+    .cta-button-large {
+        padding: 18px 35px;
+        font-size: 1.1em;
+        gap: 10px;
+    }
+    
+    .cta-note {
+        font-size: 0.85em;
+        margin-top: 15px;
+    }
+    
+    .benefit-conclusion p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    /* 提供価値セクション */
+    .benefit-features {
+        margin-top: 40px;
+    }
+    
+    .benefit-features-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 12px;
+    }
+    
+    .benefit-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .benefit-feature-card {
+        padding: 25px 20px;
+    }
+    
+    .feature-icon {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .benefit-feature-card h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .benefit-feature-card p {
+        font-size: 13px;
+        line-height: 1.7;
     }
 
     /* 比較表を横スクロール対応 */
@@ -1134,6 +1973,10 @@ section.cta-section {
     .step-header-with-image {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .step-container {
+    padding: 30px 20px;
     }
 
     .step-image-area {

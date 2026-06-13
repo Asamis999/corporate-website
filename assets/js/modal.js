@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function validateForm() {
     let isValid = true;
     const requiredFields = contactForm.querySelectorAll('[required]');
+    let firstInvalidField = null;
     
     // エラーメッセージをクリア
     const errorMessages = contactForm.querySelectorAll('.error-message');
@@ -123,9 +124,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 必須フィールドのチェック
     requiredFields.forEach(field => {
-      if (!field.value.trim()) {
+      let fieldValid = true;
+
+      // checkbox / radio は value ではなく checked で判定
+      if (field.type === 'checkbox' || field.type === 'radio') {
+        fieldValid = field.checked;
+      } else {
+        fieldValid = !!field.value && !!field.value.trim();
+      }
+
+      if (!fieldValid) {
         isValid = false;
         field.classList.add('error');
+
+        if (!firstInvalidField) {
+          firstInvalidField = field;
+        }
         
         // エラーメッセージの追加
         const errorMessage = document.createElement('div');
@@ -140,11 +154,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (emailField && emailField.value.trim() && !validateEmail(emailField.value)) {
       isValid = false;
       emailField.classList.add('error');
+
+      if (!firstInvalidField) {
+        firstInvalidField = emailField;
+      }
       
       const errorMessage = document.createElement('div');
       errorMessage.className = 'error-message';
       errorMessage.textContent = '有効なメールアドレスを入力してください';
       emailField.parentNode.appendChild(errorMessage);
+    }
+
+    // エラーがある場合は先頭へフォーカスし、簡易アラート
+    if (!isValid) {
+      if (firstInvalidField && typeof firstInvalidField.focus === 'function') {
+        firstInvalidField.focus();
+      }
+      alert('必須項目を入力（選択）してください。');
     }
     
     return isValid;
@@ -160,71 +186,37 @@ document.addEventListener('DOMContentLoaded', function() {
   function sendFormData() {
     const formData = new FormData(contactForm);
     const submitButton = contactForm.querySelector('.btn-submit');
+
+    // Netlify Formsに認識させるため form-name を補完
+    if (!formData.get('form-name')) {
+      const formName = contactForm.getAttribute('name') || 'contact';
+      formData.append('form-name', formName);
+    }
     
     // 送信ボタンを非活性化
     submitButton.disabled = true;
     submitButton.textContent = '送信中...';
-    
-    // contact-modal.jsで定義されたsendContactEmail関数を呼び出す
-    if (typeof window.sendContactEmail === 'function') {
-      window.sendContactEmail(formData)
-        .then(response => {
-          // 送信成功
-          submitButton.textContent = '送信完了！';
-          
-          // 送信成功メッセージ
-          const successMessage = document.createElement('div');
-          successMessage.className = 'success-message';
-          successMessage.textContent = 'お問い合わせありがとうございます。内容を確認次第、担当者からご連絡いたします。';
-          successMessage.style.color = '#28a745';
-          successMessage.style.marginTop = '15px';
-          successMessage.style.textAlign = 'center';
-          contactForm.appendChild(successMessage);
-          
-          // フォームをクリア
-          contactForm.reset();
-          
-          // 3秒後にモーダルを閉じる
-          setTimeout(() => {
-            closeModal();
-            submitButton.disabled = false;
-            submitButton.textContent = '内容を送信する';
-            
-            // 成功メッセージを削除
-            successMessage.remove();
-          }, 3000);
-        })
-        .catch(error => {
-          // エラー時の処理
-          console.error('メール送信エラー:', error);
-          submitButton.textContent = 'エラーが発生しました';
-          
-          // エラーメッセージ
-          const errorMessage = document.createElement('div');
-          errorMessage.className = 'error-message';
-          errorMessage.textContent = 'メール送信に失敗しました。時間をおいて再度お試しください。';
-          errorMessage.style.color = '#dc3545';
-          errorMessage.style.marginTop = '15px';
-          errorMessage.style.textAlign = 'center';
-          contactForm.appendChild(errorMessage);
-          
-          // 5秒後にボタンを元に戻す
-          setTimeout(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = '内容を送信する';
-            
-            // エラーメッセージを削除
-            errorMessage.remove();
-          }, 5000);
-        });
-    } else {
-      // sendContactEmail関数が存在しない場合（開発環境など）
-      console.warn('sendContactEmail関数が見つかりません。代わりにデモ動作を実行します。');
-      
-      // デモ用のタイマー処理
-      setTimeout(() => {
+
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value);
+    }
+
+    const actionUrl = contactForm.getAttribute('action') || window.location.pathname || '/';
+
+    fetch(actionUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: params.toString()
+    })
+      .then(() => {
+        // 送信成功
         submitButton.textContent = '送信完了！';
-        
+
+        window.alert('送信が完了しました。\n\nお問い合わせありがとうございます。内容を確認次第、担当者からご連絡いたします。');
+
         // 送信成功メッセージ
         const successMessage = document.createElement('div');
         successMessage.className = 'success-message';
@@ -233,20 +225,42 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.style.marginTop = '15px';
         successMessage.style.textAlign = 'center';
         contactForm.appendChild(successMessage);
-        
+
         // フォームをクリア
         contactForm.reset();
-        
+
         // 3秒後にモーダルを閉じる
         setTimeout(() => {
           closeModal();
           submitButton.disabled = false;
           submitButton.textContent = '内容を送信する';
-          
+
           // 成功メッセージを削除
           successMessage.remove();
         }, 3000);
-      }, 1500);
-    }
+      })
+      .catch(error => {
+        // エラー時の処理
+        console.error('フォーム送信エラー:', error);
+        submitButton.textContent = 'エラーが発生しました';
+
+        // エラーメッセージ
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        errorMessage.style.color = '#dc3545';
+        errorMessage.style.marginTop = '15px';
+        errorMessage.style.textAlign = 'center';
+        contactForm.appendChild(errorMessage);
+
+        // 5秒後にボタンを元に戻す
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = '内容を送信する';
+
+          // エラーメッセージを削除
+          errorMessage.remove();
+        }, 5000);
+      });
   }
 });

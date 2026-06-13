@@ -129,30 +129,7 @@ img {
     display: inline-block;
 }
 
-@media screen and (max-width: 768px) {
-    .hero-image-pc {
-        display: none;
-    }
-    
-    .hero-image-sp {
-        display: block;
-    }
-    
-    .hero-cta-overlay {
-        bottom: 60px;
-        left: 0;
-        right: 0;
-        padding: 0 20px;
-    }
-    
-    .cta-hero {
-        padding: 20px 48px;
-        font-size: 1.2em;
-        width: 100%;
-        max-width: 400px;
-        min-width: auto;
-    }
-}
+/* 768px以下のメディアクエリは下部に統合 */
 
 .hero::before {
     content: '';
@@ -912,84 +889,8 @@ h2 {
 }
 
 /* ========================================
-   レスポンシブデザイン
+   レスポンシブデザイン（768px以下は下部に統合）
    ======================================== */
-@media screen and (max-width: 768px) {
-    .hero-badge {
-        font-size: 12px;
-        padding: 8px 16px;
-    }
-    
-    .hero-badge-1 {
-        right: 10px;
-        top: 10px;
-    }
-    
-    .hero-badge-2 {
-        left: 10px;
-        bottom: 20px;
-    }
-    
-    .benefit-card-image {
-        margin: -48px -24px 24px -24px;
-    }
-    
-    .phase-comparison-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .phase-card {
-        padding: 32px 24px;
-    }
-    
-    .design-process-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .section {
-        padding: 60px 20px;
-    }
-    
-    .hero-content {
-        padding: 60px 20px;
-    }
-    
-    .bullet-points {
-        grid-template-columns: 1fr;
-    }
-    
-    .benefit-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .benefit-card {
-        padding: 32px 24px;
-    }
-    
-    .demo-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .process-steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .plan-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .comparison-table {
-        overflow-x: auto;
-    }
-    
-    .comparison-table table {
-        min-width: 600px;
-    }
-}
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .bullet-points {
@@ -1021,6 +922,29 @@ h2 {
     }
 }
 
+
+/* ========================================
+   セクション間デコレーション
+   ======================================== */
+.section-divider {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--border-color), var(--primary-color));
+}
 
 /* ========================================
    ユーティリティクラス
@@ -3046,210 +2970,7 @@ section#crm {
     }
 }
 
-@media screen and (max-width: 768px) {
-    section {
-        padding: 60px 24px;
-    }
-
-    .hero {
-        min-height: 60vh;
-        padding: 80px 24px 60px;
-    }
-    
-    .hero-badge {
-        display: none;
-    }
-    
-    .hero-cta-wrapper {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
-    .cta-button {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .comparison-table,
-    .strength-grid,
-    .service-grid,
-    .results-stats,
-    .crm-benefits,
-    .roadmap-grid,
-    .pricing-grid,
-    .additional-grid,
-    .crowdfunding-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .problem-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card h3 {
-        padding: 24px 24px 0;
-    }
-    
-    .service-card .service-description {
-        padding: 0 24px;
-    }
-    
-    .service-card ul {
-        padding: 0 24px 24px;
-    }
-    
-    .comparison-image {
-        margin: -40px -24px 24px -24px;
-    }
-    
-    .problem-visual-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .process-steps {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .process-arrow {
-        transform: rotate(90deg);
-    }
-    
-    .process-arrow-loop {
-        transform: rotate(90deg);
-    }
-    
-    .strength-flow-body {
-        flex-direction: column;
-        padding: 40px 24px;
-    }
-    
-    .flow-arrow {
-        transform: rotate(90deg);
-    }
-    
-    .chart-row {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-    
-    .chart-label {
-        text-align: left;
-        font-size: 14px;
-    }
-    
-    .chart-bar-badge {
-        position: static;
-        display: inline-block;
-        margin-left: 8px;
-    }
-    
-    .success-flow-body {
-        flex-direction: column;
-        padding: 40px 24px;
-    }
-    
-    .success-arrow {
-        transform: rotate(90deg);
-        padding-top: 0;
-        padding: 20px 0;
-    }
-    
-    .crm-flow-body {
-        padding: 40px 24px;
-    }
-    
-    .crm-flow-step {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .pdca-cycle-body {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 24px;
-        padding: 200px 24px 60px;
-        min-height: auto;
-    }
-    
-    .pdca-center {
-        top: 100px;
-        width: 140px;
-        height: 140px;
-    }
-    
-    .pdca-center-icon {
-        font-size: 40px;
-    }
-    
-    .pdca-center-text {
-        font-size: 16px;
-    }
-    
-    .pdca-plan,
-    .pdca-do,
-    .pdca-check,
-    .pdca-action {
-        grid-column: 1;
-        grid-row: auto;
-    }
-
-    .pricing-card.featured {
-        transform: scale(1);
-    }
-
-    .pricing-card.featured:hover {
-        transform: translateY(-6px);
-    }
-
-    .slider-track {
-        gap: 16px;
-    }
-
-    .result-image-card {
-        flex: 0 0 280px;
-    }
-    
-    .phase-comparison-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .phase-card {
-        padding: 32px 24px;
-    }
-    
-    .design-process-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .problem-box,
-    .comparison-card,
-    .strength-card,
-    .service-card,
-    .stat-card,
-    .crowdfunding-card,
-    .crm-benefit-card,
-    .roadmap-card,
-    .pricing-card,
-    .additional-card {
-        padding: 32px 24px;
-    }
-
-    .roadmap-step h3 {
-        display: block;
-        margin-top: 16px;
-    }
-    
-    .roadmap-step p {
-        margin-left: 0;
-    }
-
-    .cta-section {
-        padding: 80px 24px;
-    }
-}
+/* 768px以下のメディアクエリは下部に統合 */
 
 /* 問題提起3カラム */
 .problem-grid-simple {
@@ -3536,56 +3257,7 @@ section#crm {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    .roadmap-step-simple {
-        flex-direction: column;
-        text-align: center;
-        padding: 32px 28px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-bottom: 50px !important;
-        position: relative;
-    }
-    
-    .step-number {
-        margin: 0 auto 20px auto;
-    }
-    
-    .step-content {
-        width: 100%;
-        padding: 0 8px !important;
-    }
-    
-    .step-content h3 {
-        margin-bottom: 16px !important;
-        font-size: 1.3em !important;
-        line-height: 1.5 !important;
-    }
-    
-    .step-content p {
-        margin: 0 !important;
-        font-size: 0.95em !important;
-        line-height: 1.7 !important;
-        padding: 0 4px !important;
-    }
-    
-    .step-arrow {
-        position: absolute !important;
-        bottom: -40px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        font-size: 28px !important;
-        z-index: 10 !important;
-    }
-    
-    .roadmap-step-simple:last-child {
-        margin-bottom: 0 !important;
-    }
-}
+/* 768px以下のメディアクエリは下部に統合 */
 
 /* 追加サービスシンプル */
 .additional-grid-simple {
@@ -3666,26 +3338,296 @@ section#crm {
     }
 }
 
+/* ========================================
+   統合メディアクエリ: 768px以下
+   ======================================== */
 @media screen and (max-width: 768px) {
-    .crm-benefits-compact {
-        grid-template-columns: 1fr;
+    /* ヒーロー画像切り替え */
+    .hero-image-pc {
+        display: none;
     }
     
-    .additional-grid {
-        grid-template-columns: 1fr;
+    .hero-image-sp {
+        display: block;
     }
     
+    .hero-cta-overlay {
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        padding: 0 20px;
+    }
+    
+    .cta-hero {
+        padding: 20px 48px;
+        font-size: 1.2em;
+        width: 100%;
+        max-width: 400px;
+        min-width: auto;
+    }
+
+    /* ヒーローバッジ */
+    .hero-badge {
+        font-size: 12px;
+        padding: 8px 16px;
+        display: none;
+    }
+    
+    .hero-badge-1 {
+        right: 10px;
+        top: 10px;
+    }
+    
+    .hero-badge-2 {
+        left: 10px;
+        bottom: 20px;
+    }
+
+    /* セクション共通 */
+    section {
+        padding: 30px 5px;
+    }
+    
+    .hero {
+        min-height: 60vh;
+        padding: 80px 24px 60px;
+    }
+    
+    .hero-content {
+        padding: 60px 20px;
+    }
+    
+    .hero-cta-wrapper {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* グリッドレイアウト */
+    .bullet-points,
+    .benefit-grid,
+    .demo-grid,
+    .process-steps,
+    .stats-grid,
+    .plan-grid,
+    .comparison-table,
+    .strength-grid,
+    .service-grid,
+    .results-stats,
+    .crm-benefits,
+    .roadmap-grid,
+    .pricing-grid,
+    .additional-grid,
+    .crowdfunding-grid,
+    .problem-grid,
+    .crm-benefits-compact,
     .additional-grid-simple {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* カード類 */
+    .benefit-card,
+    .phase-card {
+        padding: 32px 24px;
+    }
+    
+    .benefit-card-image {
+        margin: -48px -24px 24px -24px;
+    }
+    
+    .phase-comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .design-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .comparison-table {
+        overflow-x: auto;
+    }
+    
+    .comparison-table table {
+        min-width: 600px;
+    }
+
+    /* サービスカード */
+    .service-card h3 {
+        padding: 24px 24px 0;
+    }
+    
+    .service-card .service-description {
+        padding: 0 24px;
+    }
+    
+    .service-card ul {
+        padding: 0 24px 24px;
+    }
+
+    /* 画像・ビジュアル */
+    .comparison-image {
+        margin: -40px -24px 24px -24px;
+    }
+    
+    .problem-visual-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* プロセス・フロー */
+    .process-steps {
+        flex-direction: column;
         gap: 20px;
     }
     
-    .additional-item {
+    .process-arrow,
+    .process-arrow-loop,
+    .flow-arrow,
+    .success-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .success-arrow {
+        padding-top: 0;
+        padding: 20px 0;
+    }
+    
+    .strength-flow-body,
+    .success-flow-body {
+        flex-direction: column;
+        padding: 40px 24px;
+    }
+    
+    .crm-flow-body {
+        padding: 40px 24px;
+    }
+    
+    .crm-flow-step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* チャート */
+    .chart-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .chart-label {
+        text-align: left;
+        font-size: 14px;
+    }
+    
+    .chart-bar-badge {
+        position: static;
+        display: inline-block;
+        margin-left: 8px;
+    }
+
+    /* PDCAサイクル */
+    .pdca-cycle-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 24px;
+        padding: 200px 24px 60px;
+        min-height: auto;
+    }
+    
+    .pdca-center {
+        top: 100px;
+        width: 140px;
+        height: 140px;
+    }
+    
+    .pdca-center-icon {
+        font-size: 40px;
+    }
+    
+    .pdca-center-text {
+        font-size: 16px;
+    }
+    
+    .pdca-plan,
+    .pdca-do,
+    .pdca-check,
+    .pdca-action {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    /* 料金カード */
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .pricing-card.featured:hover {
+        transform: translateY(-6px);
+    }
+
+    /* スライダー */
+    .slider-track {
+        gap: 16px;
+    }
+
+    .result-image-card {
+        flex: 0 0 280px;
+    }
+
+    /* ロードマップ */
+    .roadmap-step-simple {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 28px !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 50px !important;
+        position: relative;
     }
     
+    .step-number {
+        margin: 0 auto 20px auto;
+    }
+    
+    .step-content {
+        width: 100%;
+        padding: 0 8px !important;
+    }
+    
+    .step-content h3 {
+        margin-bottom: 16px !important;
+        font-size: 1.3em !important;
+        line-height: 1.5 !important;
+    }
+    
+    .step-content p {
+        margin: 0 !important;
+        font-size: 0.95em !important;
+        line-height: 1.7 !important;
+        padding: 0 4px !important;
+    }
+    
+    .step-arrow {
+        position: absolute !important;
+        bottom: -40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        font-size: 28px !important;
+        z-index: 10 !important;
+    }
+    
+    .roadmap-step-simple:last-child {
+        margin-bottom: 0 !important;
+    }
+
     .roadmap-step {
         padding-left: 60px;
     }
@@ -3699,9 +3641,24 @@ section#crm {
         height: 32px;
         font-size: 1em;
     }
-}
 
-@media screen and (max-width: 768px) {
+    .roadmap-step h3 {
+        display: block;
+        margin-top: 16px;
+    }
+    
+    .roadmap-step p {
+        margin-left: 0;
+    }
+
+    /* 追加サービス */
+    .additional-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* オーバーフロー対策 */
     html, body {
         overflow-x: hidden;
         width: 100%;
@@ -3726,16 +3683,8 @@ section#crm {
         width: 100% !important;
         box-sizing: border-box !important;
     }
-    
-    section {
-        padding: 60px 20px !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
-    }
-    
+
+    /* 共通要素 */
     .problem-card,
     .strength-detail,
     .testimonial-card,
@@ -3791,7 +3740,8 @@ section#crm {
         font-size: 0.95em !important;
         line-height: 1.7 !important;
     }
-    
+
+    /* グリッド要素 */
     .problem-grid-simple,
     .comparison-table,
     .strength-grid,
@@ -3814,7 +3764,8 @@ section#crm {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    
+
+    /* 強み詳細 */
     .strength-detail {
         padding: 30px 20px !important;
         margin-bottom: 40px !important;
@@ -3862,17 +3813,8 @@ section#crm {
         aspect-ratio: 3 / 2 !important;
         box-sizing: border-box !important;
     }
-    
-    .problem-card,
-    .roadmap-step-simple,
-    .additional-item {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    
+
+    /* 比較カード */
     .comparison-card {
         width: 100% !important;
         max-width: 100% !important;
@@ -3897,7 +3839,8 @@ section#crm {
         align-items: center !important;
         border-radius: 0 !important;
     }
-    
+
+    /* 画像プレースホルダー */
     .image-placeholder,
     .strength-detail-image .image-placeholder,
     .comparison-image .image-placeholder {
@@ -3908,11 +3851,61 @@ section#crm {
         justify-content: center !important;
         align-items: center !important;
     }
+
+    /* 各種カード */
+    .problem-box,
+    .comparison-card,
+    .strength-card,
+    .service-card,
+    .stat-card,
+    .crowdfunding-card,
+    .crm-benefit-card,
+    .roadmap-card,
+    .pricing-card,
+    .additional-card {
+        padding: 32px 24px;
+    }
+
+    /* CTAセクション */
+    .cta-section {
+        padding: 80px 24px;
+    }
+    .solution-intro-block {
+    text-align: center;
+    margin: 0 auto 60px;
+    position: relative;
+    max-width: 1000px;
+    padding-top: 0;
 }
 
+/* 解決策ブロックの装飾は削除 */
+
+.solution-intro-block h2 {
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+}
+
+/* ========================================
+   統合メディアクエリ: 480px以下
+   ======================================== */
 @media screen and (max-width: 480px) {
     section {
-        padding: 48px 20px !important;
+        padding: 30px 5px !important;
     }
 
     .hero {

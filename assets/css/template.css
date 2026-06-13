@@ -138,6 +138,8 @@ body {
 /* 基本設定 */
 html {
   font-size: 62.5%; /* 10px = 1rem */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -146,6 +148,22 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .page-description {
+    font-size: 14px;
+  }
 }
 
 /* コンテナ */
@@ -161,7 +179,7 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10000;
   background-color: var(--color-primary);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   height: var(--header-height);
@@ -195,11 +213,15 @@ body {
   justify-content: space-between;
   align-items: center;
   height: var(--header-height);
+  position: relative;
+  z-index: 10000;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 10000;
 }
 
 .logo a {
@@ -278,6 +300,10 @@ body {
   justify-content: space-between;
   width: 30px;
   height: 20px;
+  position: relative;
+  z-index: 10001;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
 .mobile-menu-toggle .bar {
@@ -288,15 +314,19 @@ body {
 }
 
 .mobile-menu {
-  display: none;
+  display: block;
   position: fixed;
   top: var(--header-height-mobile);
   left: 0;
   width: 100%;
   height: calc(100vh - var(--header-height-mobile));
-  background-color: var(--color-bg);
-  z-index: 99;
+  background-color: var(--color-primary);
+  z-index: 9999;
   overflow-y: auto;
+}
+
+.mobile-menu[hidden] {
+  display: none;
 }
 
 .mobile-menu-inner {
@@ -314,7 +344,8 @@ body {
   padding: 10px 0;
   font-size: 18px;
   font-weight: 500;
-  border-bottom: 1px solid var(--color-border);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* パンくずリスト */
@@ -373,6 +404,51 @@ body {
   text-decoration: underline;
 }
 
+ .breadcrumbs {
+   padding: 10px 0;
+   background-color: #f5f5f5;
+   font-size: 12px;
+   color: #333333;
+   position: relative;
+   z-index: 10;
+   clear: both;
+   display: block;
+   width: 100%;
+   border-bottom: 1px solid #eeeeee;
+ }
+
+ .breadcrumbs ul {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+ }
+
+ .breadcrumbs li {
+   display: inline-flex;
+   align-items: center;
+ }
+
+ .breadcrumbs li:not(:last-child)::after {
+   content: ">";
+   margin-left: 5px;
+   margin-right: 5px;
+   color: #666666;
+   font-size: 12px;
+ }
+
+ .breadcrumbs a {
+   color: #333333;
+   text-decoration: none;
+   font-size: 12px;
+ }
+
+ .breadcrumbs a:hover {
+   text-decoration: underline;
+ }
+
 /* メインコンテンツ */
 .main-content {
   padding: 0;
@@ -399,27 +475,7 @@ body {
   color: var(--color-text-light);
 }
 
-/* サブナビゲーション */
-.sub-nav {
-  background-color: var(--color-bg-light);
-  padding: 20px 0;
-}
-
-.sub-nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.sub-nav a {
-  font-weight: 500;
-}
-
-.sub-nav a:hover {
-  color: var(--color-accent);
-}
-
+ 
 /* CTA */
 .cta-section {
   background-color: var(--color-bg-light);
@@ -1118,12 +1174,6 @@ body {
   .breadcrumbs {
     padding: 10px 0;
     font-size: 12px;
-  }
-  
-  .sub-nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
   }
   
   /* スマホサイズのフッターレイアウト */

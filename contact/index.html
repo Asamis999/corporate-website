@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ</title>
+</head>
+<body>
+  <main>
+    <h1>お問い合わせ</h1>
+
+    <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;">
+        <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+      </p>
+      <input type="text" name="company">
+      <input type="text" name="company-furigana">
+      <input type="text" name="name">
+      <input type="text" name="name-furigana">
+      <input type="tel" name="phone">
+      <input type="email" name="email">
+      <input type="text" name="address">
+      <input type="text" name="chat">
+      <select name="request-type">
+        <option value="new">new</option>
+        <option value="renewal">renewal</option>
+        <option value="operation">operation</option>
+        <option value="quote">quote</option>
+        <option value="contract">contract</option>
+        <option value="other">other</option>
+      </select>
+      <select name="service">
+        <option value="ec-shopify">ec-shopify</option>
+        <option value="ec-growth">ec-growth</option>
+        <option value="marketplace">marketplace</option>
+        <option value="lp">lp</option>
+        <option value="ad">ad</option>
+        <option value="crm">crm</option>
+        <option value="ab-test">ab-test</option>
+        <option value="other">other</option>
+      </select>
+      <input type="text" name="deadline">
+      <input type="text" name="budget">
+      <input type="text" name="product">
+      <input type="url" name="product-url">
+      <textarea name="message"></textarea>
+      <textarea name="sales-info"></textarea>
+      <input type="checkbox" name="privacy-agree">
+    </form>
+  </main>
+</body>
+</html>
