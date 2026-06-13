@@ -1,3 +1,4 @@
+// insights article data
 const insightsData = [
     {
         id: 'web-marketing-b-1',
