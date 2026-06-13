@@ -39,13 +39,17 @@ function findEntryBlock(content, entryId) {
   return { start, end };
 }
 
-// ─── UPSERT: id 一致があれば置換、なければ先頭に挿入 ───
+// ─── UPSERT: 同 id のエントリを全て削除してから先頭に挿入 ───
 function upsertEntry(content, arrayName, entryId, newEntry) {
-  const block = findEntryBlock(content, entryId);
-  if (block) {
-    return content.slice(0, block.start) + '\n' + newEntry + ',' + content.slice(block.end);
+  // 重複含め全て削除（旧コードが複数追加していた場合に対応）
+  let cleaned = content;
+  for (;;) {
+    const block = findEntryBlock(cleaned, entryId);
+    if (!block) break;
+    cleaned = cleaned.slice(0, block.start) + cleaned.slice(block.end);
   }
-  return content.replace(
+  // 先頭に新エントリを挿入
+  return cleaned.replace(
     new RegExp(`^(const ${arrayName}\\s*=\\s*\\[)`, 'm'),
     `$1\n${newEntry},`
   );
@@ -86,7 +90,7 @@ function updateArticleJs(siteRoot, dbArticle, parsedContent) {
         category: 'insights',
         type: '${articleType}',
         theme: '${smallCat}',
-        group: '${smallCat}'
+        group: '${articleId ? articleId[0].toUpperCase() : ''}'
     }`;
 
     content = upsertEntry(content, 'insightsData', entryId, newEntry);

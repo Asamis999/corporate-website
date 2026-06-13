@@ -271,19 +271,6 @@ const insightsData = [
     group: 'A'
   },
   {
-    id: 'web-marketing-b-1',
-    title: 'ECで成果が出る企業が、必ず最初にやっている「整理」とは何か',
-    excerpt: '施策ではなく整理から始める理由を言語化し、親記事へ導線をつなぎます。',
-    url: '/insights/web-marketing/b-1/',
-    image: '/assets/images/insights/web-marketing/pillar_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC', '戦略', '設計'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'web-marketing',
-    group: 'B'
-  },
-  {
     id: 'web-marketing-b-2',
     title: 'なぜ多くのECは「施策の数」ばかり増えてしまうのか',
     excerpt: '迷走が起きるメカニズムを構造で整理し、親記事へ導線をつなぎます。',
