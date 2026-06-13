@@ -16,6 +16,9 @@ const PORT = process.env.PORT || 3001;
 const SITE_ROOT = process.env.SITE_ROOT;
 const CF_PROJECT = process.env.CF_PROJECT_NAME;
 
+// ─── 静的ファイルは認証より先に配信（CSS/JSがブロックされないよう）───
+app.use(express.static(path.join(__dirname, 'public')));
+
 // ─── Basic 認証（ADMIN_USER / ADMIN_PASSWORD が設定されている場合のみ有効）───
 if (process.env.ADMIN_USER && process.env.ADMIN_PASSWORD) {
   app.use((req, res, next) => {
@@ -35,7 +38,6 @@ if (process.env.ADMIN_USER && process.env.ADMIN_PASSWORD) {
 }
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // コーポレートサイトのアセットをプレビュー用に配信（/assets, /howto, /insights 等）
 if (SITE_ROOT) {
