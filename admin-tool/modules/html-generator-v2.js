@@ -236,7 +236,7 @@ ${bodyHtml}
 
             <div class="divider"></div>
 
-            <section class="cta-banner fade-in">
+            <section class="cta-banner" style="margin:2rem 0;">
                 <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
                     <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
                 </a>

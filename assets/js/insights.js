@@ -10,7 +10,7 @@ const insightsData = [
         category: 'insights',
         type: 'cluster',
         theme: 'web-marketing',
-        group: 'web-marketing'
+        group: 'B'
     },
   {
     id: 'ec-growth',
