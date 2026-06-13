@@ -190,7 +190,9 @@ function generateHtml(dbArticle, parsedContent) {
     ? `    <script>window.__currentArticle = ${currentArticleJson};</script>\n    <script src="/assets/js/main.js"></script>\n    <script src="/assets/js/insights.js"></script>\n    <script src="/assets/js/insights-related.js"></script>`
     : `    <script>window.__currentArticle = ${currentArticleJson};</script>\n    <script src="/assets/js/main.js"></script>\n    <script src="/assets/js/howto.js"></script>\n    <script src="/assets/js/howto-related.js"></script>`;
 
-  const metaTheme = bigCat === 'insights' ? `テーマ：${smallCat}` : date;
+  const metaLine = bigCat === 'insights'
+    ? `テーマ：${smallCat}`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="ja">
@@ -218,7 +220,7 @@ function generateHtml(dbArticle, parsedContent) {
         <div class="article-container">
             <header class="article-header">
                 <h1 class="article-title">${title}</h1>
-                <div class="article-meta">${metaTheme}</div>
+                <div class="article-meta">${metaLine ? metaLine + '　' : ''}更新日：${date}</div>
                 <div class="article-tag-list">
 ${tagHtml}
                 </div>

@@ -21,7 +21,7 @@
     
     <style>
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/howto/hero-bg.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/howto-background.webp');
             background-size: cover;
             background-position: center;
             padding: 100px 0;
@@ -130,7 +130,7 @@
         }
         
         .article-image-container {
-            height: 200px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             position: relative;
         }
@@ -370,7 +370,7 @@
                                     <h3 class="article-title">${article.title}</h3>
                                     <p class="article-desc">${article.description}</p>
                                     <div class="article-meta">
-                                        <span>${article.date || '日付なし'}</span>
+                                        <span>${article.date ? '更新日：' + article.date : '日付なし'}</span>
                                     </div>
                                     ${tagsHtml}
                                 </div>
