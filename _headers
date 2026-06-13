@@ -17,5 +17,14 @@
 /assets/css/*
   Cache-Control: public, max-age=86400
 
+/assets/js/insights.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/js/howto.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/js/template.js
+  Cache-Control: public, max-age=0, must-revalidate
+
 /assets/js/*
   Cache-Control: public, max-age=86400
