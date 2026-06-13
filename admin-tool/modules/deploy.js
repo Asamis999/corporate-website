@@ -1,5 +1,8 @@
 const { execSync } = require('child_process');
 const path = require('path');
+const { pushToGitHub } = require('./git-repo');
+
+const ADMIN_TOOL_DIR = path.join(__dirname, '..');
 
 function gitCommit(siteRoot, message) {
   try {
@@ -16,6 +19,15 @@ function gitCommit(siteRoot, message) {
 function deploy(siteRoot, cfProject) {
   const tmpDir = '/tmp/cf-deploy';
 
+  // 本番環境: デプロイ前に最新をプル
+  if (process.env.GITHUB_REPO_URL) {
+    try {
+      execSync('git pull origin main', { cwd: siteRoot, stdio: 'pipe' });
+    } catch (e) {
+      console.warn('[Deploy] git pull スキップ:', e.message);
+    }
+  }
+
   execSync(
     `rsync -a --delete \
       --exclude='node_modules' \
@@ -28,8 +40,11 @@ function deploy(siteRoot, cfProject) {
 
   const output = execSync(
     `npx wrangler pages deploy ${tmpDir} --project-name ${cfProject} --commit-dirty=true`,
-    { cwd: siteRoot, stdio: 'pipe' }
+    { cwd: ADMIN_TOOL_DIR, stdio: 'pipe', env: { ...process.env } }
   );
+
+  // 本番環境: デプロイ後にGitHubへプッシュして同期
+  pushToGitHub(siteRoot);
 
   return output.toString();
 }

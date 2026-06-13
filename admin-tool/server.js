@@ -9,11 +9,30 @@ const htmlGen = require('./modules/html-generator-v2');
 const jsUpdater = require('./modules/js-updater-v2');
 const deployer = require('./modules/deploy');
 const { parseArticleContent, validateContent } = require('./modules/parser');
+const { ensureRepo } = require('./modules/git-repo');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const SITE_ROOT = process.env.SITE_ROOT;
 const CF_PROJECT = process.env.CF_PROJECT_NAME;
+
+// ─── Basic 認証（ADMIN_USER / ADMIN_PASSWORD が設定されている場合のみ有効）───
+if (process.env.ADMIN_USER && process.env.ADMIN_PASSWORD) {
+  app.use((req, res, next) => {
+    const auth = req.headers.authorization;
+    if (!auth || !auth.startsWith('Basic ')) {
+      res.setHeader('WWW-Authenticate', 'Basic realm="A-Inc Admin Tool"');
+      return res.status(401).send('認証が必要です');
+    }
+    const [user, pass] = Buffer.from(auth.slice(6), 'base64').toString().split(':');
+    if (user === process.env.ADMIN_USER && pass === process.env.ADMIN_PASSWORD) {
+      return next();
+    }
+    res.setHeader('WWW-Authenticate', 'Basic realm="A-Inc Admin Tool"');
+    return res.status(401).send('認証情報が正しくありません');
+  });
+  console.log('[Auth] Basic認証が有効です');
+}
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -211,6 +230,61 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`記事アップロード管理ツール起動中: http://localhost:${PORT}`);
-});
+async function main() {
+  // 本番環境: GitHubリポジトリをクローン or プル
+  if (process.env.GITHUB_REPO_URL && SITE_ROOT) {
+    try {
+      ensureRepo(
+        SITE_ROOT,
+        process.env.GITHUB_REPO_URL,
+        process.env.GITHUB_USER_NAME,
+        process.env.GITHUB_USER_EMAIL
+      );
+    } catch (e) {
+      console.error('[起動] リポジトリ初期化失敗:', e.message);
+      console.error('GITHUB_REPO_URL の設定を確認してください');
+    }
+  }
+
+  app.listen(PORT, () => {
+    console.log(`記事アップロード管理ツール起動中: http://localhost:${PORT}`);
+    checkDataSync();
+  });
+}
+
+main();
+
+// ─── 起動時データ整合性チェック ───
+async function checkDataSync() {
+  const SITE_URL = 'https://a-inc.info';
+  const targets = [
+    { remote: `${SITE_URL}/assets/js/insights.js`,  local: path.join(SITE_ROOT, 'assets/js/insights.js'),  arrayName: 'insightsData' },
+    { remote: `${SITE_URL}/assets/js/howto.js`,     local: path.join(SITE_ROOT, 'assets/js/howto.js'),     arrayName: 'articlesData' },
+  ];
+
+  for (const t of targets) {
+    try {
+      const res = await fetch(t.remote, { headers: { 'Cache-Control': 'no-cache' } });
+      if (!res.ok) { console.warn(`[起動チェック] ${t.remote} 取得失敗 (${res.status})`); continue; }
+      const remoteText = await res.text();
+      const localText  = fs.readFileSync(t.local, 'utf8');
+
+      const countRemote = (remoteText.match(/\bid:/g) || []).length;
+      const countLocal  = (localText.match(/\bid:/g)  || []).length;
+
+      const idRemote = (remoteText.match(/id:\s*'([^']+)'/) || [])[1] ?? '?';
+      const idLocal  = (localText.match(/id:\s*'([^']+)'/)  || [])[1] ?? '?';
+
+      if (countRemote !== countLocal || idRemote !== idLocal) {
+        console.warn(`\n⚠️  [起動チェック] ${t.arrayName} に差異があります`);
+        console.warn(`   デプロイ済み: ${countRemote}件 / 先頭ID: ${idRemote}`);
+        console.warn(`   ローカル    : ${countLocal}件 / 先頭ID: ${idLocal}`);
+        console.warn(`   → ローカルが最新でない可能性があります。確認してください。\n`);
+      } else {
+        console.log(`✅ [起動チェック] ${t.arrayName}: ローカル = デプロイ済み (${countLocal}件)`);
+      }
+    } catch (e) {
+      console.warn(`[起動チェック] ${t.arrayName} チェックエラー: ${e.message}`);
+    }
+  }
+}
