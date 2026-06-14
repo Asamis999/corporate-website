@@ -55,47 +55,95 @@ function splitSections(rawBlocks) {
 }
 
 // ─────────────────────────────────────────
-// META解析
+// META解析（新旧フォーマット対応）
+// 旧形式: bulleted_list_item に "key: value"
+// 新形式: paragraph に "key: value"、tags は paragraph "tags:" + 後続 bulleted_list_item
 // ─────────────────────────────────────────
 function parseMeta(blocks) {
   const meta = {};
+  let collectingTags = false;
+
   for (const b of blocks) {
-    if (b.type !== 'bulleted_list_item') continue;
-    const text = blockPlain(b).trim();
-    const ci = text.indexOf(':');
-    if (ci < 0) continue;
-    const key = text.slice(0, ci).trim();
-    const val = text.slice(ci + 1).trim();
-    if (['description', 'tags', 'date', 'excerpt'].includes(key)) meta[key] = val;
+    if (b.type === 'bulleted_list_item') {
+      const text = blockPlain(b).trim();
+      const ci = text.indexOf(':');
+      if (ci >= 0) {
+        const key = text.slice(0, ci).trim();
+        const val = text.slice(ci + 1).trim();
+        if (['description', 'tags', 'date', 'excerpt'].includes(key)) {
+          meta[key] = val;
+          collectingTags = false;
+        } else if (collectingTags && text) {
+          if (!Array.isArray(meta.tags)) meta.tags = meta.tags ? [meta.tags] : [];
+          meta.tags.push(text);
+        }
+      } else if (collectingTags && text) {
+        // 新形式: tags: 後の箇条書きが個々のタグ
+        if (!Array.isArray(meta.tags)) meta.tags = [];
+        meta.tags.push(text);
+      } else {
+        collectingTags = false;
+      }
+      continue;
+    }
+
+    if (b.type === 'paragraph') {
+      const text = blockPlain(b).trim();
+      const ci = text.indexOf(':');
+      if (ci >= 0) {
+        const key = text.slice(0, ci).trim();
+        const val = text.slice(ci + 1).trim();
+        if (['description', 'date', 'excerpt'].includes(key)) {
+          meta[key] = val;
+          collectingTags = false;
+        } else if (key === 'tags') {
+          if (val) {
+            meta.tags = val;
+          } else {
+            meta.tags = [];
+            collectingTags = true;
+          }
+        }
+      } else {
+        collectingTags = false;
+      }
+      continue;
+    }
+
+    collectingTags = false;
   }
+
   if (!Object.keys(meta).length) return null;
-  if (meta.tags) meta.tags = meta.tags.split(',').map(t => t.trim()).filter(Boolean);
+  if (meta.tags && !Array.isArray(meta.tags)) {
+    meta.tags = meta.tags.split(',').map(t => t.trim()).filter(Boolean);
+  }
+  // 日付正規化: YYYY-MM-DD → YYYY.MM.DD
+  if (meta.date) meta.date = meta.date.replace(/-/g, '.');
   return meta;
 }
 
 // ─────────────────────────────────────────
-// TOC解析
+// TOC解析（bulleted / numbered 両対応）
 // ─────────────────────────────────────────
 function parseToc(blocks) {
   const toc = [];
   for (const b of blocks) {
-    if (b.type !== 'bulleted_list_item') continue;
+    if (b.type !== 'bulleted_list_item' && b.type !== 'numbered_list_item') continue;
     const text = blockPlain(b).trim();
 
-    // 形式1: [見出し](#sectionN) (Notionがプレーンテキストとして保存)
+    // 形式1: [見出し](#sectionN) プレーンテキスト
     const m1 = text.match(/^\[(.+?)\]\(#(section\d+)\)$/);
     if (m1) { toc.push({ text: m1[1], anchor: m1[2] }); continue; }
 
     // 形式2: Notionがリンクアノテーションに変換した場合
-    const rt = b.bulleted_list_item?.rich_text || [];
+    const listData = (b.bulleted_list_item || b.numbered_list_item);
+    const rt = listData?.rich_text || [];
     for (const t of rt) {
       if (!t.href) continue;
-      // 形式2a: href が #sectionN で始まる
       if (t.href.startsWith('#section')) {
         toc.push({ text: t.plain_text, anchor: t.href.slice(1) });
         break;
       }
-      // 形式2b: ChatGPT等のフルURLで末尾に #sectionN フラグメントが付いている
       const fm = t.href.match(/#(section\d+)$/);
       if (fm) {
         toc.push({ text: t.plain_text, anchor: fm[1] });
@@ -162,15 +210,37 @@ function parseImages(blocks) {
 }
 
 // ─────────────────────────────────────────
-// メインパース
+// メインパース（新旧フォーマット対応）
 // ─────────────────────────────────────────
 function parseArticleContent(rawBlocks) {
   const { titleText, buckets } = splitSections(rawBlocks);
+
+  // ── フォールバック: ## BODY マーカーがない場合
+  // META バケット内に heading_3 が含まれていたら、
+  // 最初の heading_3 以降を BODY に移動する
+  if (!buckets.BODY.length) {
+    const firstH3 = buckets.META.findIndex(b => b.type === 'heading_3');
+    if (firstH3 >= 0) {
+      buckets.BODY = buckets.META.splice(firstH3);
+    }
+  }
+
+  const body = parseBody(buckets.BODY);
+
+  // ── TOC 自動生成: ## TOC セクションが空の場合、BODY の H3 から生成
+  let toc = parseToc(buckets.TOC);
+  if (!toc) {
+    const h3Items = body.filter(b => b.type === 'h3');
+    if (h3Items.length) {
+      toc = h3Items.map((item, i) => ({ text: item.raw, anchor: `section${i + 1}` }));
+    }
+  }
+
   return {
     title: titleText,
     meta: parseMeta(buckets.META),
-    toc: parseToc(buckets.TOC),
-    body: parseBody(buckets.BODY),
+    toc,
+    body,
     images: parseImages(buckets.IMAGES)
   };
 }
