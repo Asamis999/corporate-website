@@ -189,7 +189,7 @@ function parseBody(blocks) {
 }
 
 // ─────────────────────────────────────────
-// IMAGES解析
+// IMAGES解析（bulleted_list_item / paragraph 両対応）
 // ─────────────────────────────────────────
 function parseImages(blocks) {
   const images = {};
@@ -198,11 +198,14 @@ function parseImages(blocks) {
     if (b.type === 'heading_3') {
       cur = blockPlain(b).trim();
       images[cur] = {};
-    } else if (b.type === 'bulleted_list_item' && cur) {
+    } else if ((b.type === 'bulleted_list_item' || b.type === 'paragraph') && cur) {
       const text = blockPlain(b).trim();
+      if (!text) continue;
       const ci = text.indexOf(':');
       if (ci >= 0) {
-        images[cur][text.slice(0, ci).trim()] = text.slice(ci + 1).trim();
+        const key = text.slice(0, ci).trim();
+        const val = text.slice(ci + 1).trim();
+        if (key) images[cur][key] = val;
       }
     }
   }
