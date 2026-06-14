@@ -15,15 +15,15 @@ async function getDeployReadyArticles() {
 
   return response.results.map(page => ({
     pageId: page.id,
-    title: page.properties['記事タイトル'].title[0]?.plain_text ?? '',
-    articleId: page.properties['記事ID（ハンドル名）'].rich_text[0]?.plain_text ?? '',
-    bigCategory: page.properties['大カテゴリ'].select?.name ?? '',
-    smallCategory: page.properties['小カテゴリ'].select?.name ?? '',
-    updatedAt: page.properties['更新日'].date?.start ?? '',
-    status: page.properties['ステータス'].select?.name ?? '',
-    publicUrl: page.properties['公開URL'].url ?? '',
-    memo1: page.properties['メモ1'].rich_text[0]?.plain_text ?? '',
-    memo2: page.properties['メモ2'].rich_text[0]?.plain_text ?? ''
+    title: page.properties['記事タイトル']?.title[0]?.plain_text ?? '',
+    articleId: page.properties['記事ID（ハンドル名）']?.rich_text[0]?.plain_text ?? '',
+    bigCategory: page.properties['大カテゴリ']?.select?.name ?? '',
+    smallCategory: page.properties['小カテゴリ']?.select?.name ?? '',
+    updatedAt: page.properties['更新日']?.date?.start ?? '',
+    status: page.properties['ステータス']?.select?.name ?? '',
+    publicUrl: page.properties['公開URL']?.url ?? '',
+    memo1: page.properties['メモ1']?.rich_text[0]?.plain_text ?? '',
+    memo2: page.properties['メモ2']?.rich_text[0]?.plain_text ?? ''
   }));
 }
 
