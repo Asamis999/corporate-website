@@ -79,11 +79,13 @@ app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
     env: {
-      NOTION_TOKEN: process.env.NOTION_TOKEN ? '✅ 設定済み' : '❌ 未設定',
-      NOTION_DB_ID: process.env.NOTION_DB_ID ? '✅ 設定済み' : '❌ 未設定',
-      SITE_ROOT: process.env.SITE_ROOT || '❌ 未設定',
-      CLOUDFLARE_PROJECT: process.env.CLOUDFLARE_PROJECT || '❌ 未設定',
-      ADMIN_USER: process.env.ADMIN_USER ? '✅ 設定済み' : '❌ 未設定',
+      NOTION_TOKEN:          process.env.NOTION_TOKEN          ? '✅ 設定済み' : '❌ 未設定',
+      NOTION_DB_ID:          process.env.NOTION_DB_ID          ? '✅ 設定済み' : '❌ 未設定',
+      SITE_ROOT:             process.env.SITE_ROOT             || '❌ 未設定',
+      CF_PROJECT_NAME:       process.env.CF_PROJECT_NAME       || '❌ 未設定',
+      CLOUDFLARE_API_TOKEN:  process.env.CLOUDFLARE_API_TOKEN  ? '✅ 設定済み' : '❌ 未設定',
+      GITHUB_REPO_URL:       process.env.GITHUB_REPO_URL       ? '✅ 設定済み' : '❌ 未設定',
+      ADMIN_USER:            process.env.ADMIN_USER            ? '✅ 設定済み' : '❌ 未設定',
     }
   });
 });
