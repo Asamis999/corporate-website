@@ -25,11 +25,25 @@ async function loadArticles() {
   $$('article-table').classList.add('hidden');
   $$('article-list-empty').classList.add('hidden');
 
-  const res = await fetch('/api/articles').then(r => r.json());
+  let res;
+  try {
+    res = await fetch('/api/articles').then(r => r.json());
+  } catch (e) {
+    $$('article-list-loading').classList.add('hidden');
+    $$('article-list-empty').classList.remove('hidden');
+    $$('article-list-empty').innerHTML = `<p style="color:red">⚠️ 通信エラー: ${e.message}</p>`;
+    return;
+  }
   $$('article-list-loading').classList.add('hidden');
 
-  if (!res.ok || !res.articles.length) {
+  if (!res.ok) {
     $$('article-list-empty').classList.remove('hidden');
+    $$('article-list-empty').innerHTML = `<p style="color:red">⚠️ APIエラー: ${res.error || '不明なエラー'}</p><p style="font-size:0.85em;color:#666">Render.comの環境変数（NOTION_TOKEN・NOTION_DB_ID）を確認してください</p>`;
+    return;
+  }
+  if (!res.articles.length) {
+    $$('article-list-empty').classList.remove('hidden');
+    $$('article-list-empty').innerHTML = '<p>デプロイ待ちの記事はありません。<br>Notionでステータスを「デプロイ待ち」に設定してください。</p>';
     return;
   }
 

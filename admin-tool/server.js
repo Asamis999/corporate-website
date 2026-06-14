@@ -73,6 +73,22 @@ async function findArticle(pageId) {
 }
 
 // -------------------------------------------------------
+// GET /api/health  → 環境変数・接続確認
+// -------------------------------------------------------
+app.get('/api/health', (req, res) => {
+  res.json({
+    ok: true,
+    env: {
+      NOTION_TOKEN: process.env.NOTION_TOKEN ? '✅ 設定済み' : '❌ 未設定',
+      NOTION_DB_ID: process.env.NOTION_DB_ID ? '✅ 設定済み' : '❌ 未設定',
+      SITE_ROOT: process.env.SITE_ROOT || '❌ 未設定',
+      CLOUDFLARE_PROJECT: process.env.CLOUDFLARE_PROJECT || '❌ 未設定',
+      ADMIN_USER: process.env.ADMIN_USER ? '✅ 設定済み' : '❌ 未設定',
+    }
+  });
+});
+
+// -------------------------------------------------------
 // GET /api/articles  → デプロイ待ち記事一覧
 // -------------------------------------------------------
 app.get('/api/articles', async (req, res) => {
