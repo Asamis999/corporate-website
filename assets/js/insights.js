@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'web-marketing-a-3',
+        title: '広告を回しているのに売れないECに共通する設計ミス',
+        excerpt: '広告を回しているのに売れないとき、多くの企業は広告文やターゲティング、予算配分を疑います。しかし現場で見る限り、問題は広告管理画面の中だけではなく、広告を受け止めるLP・商品ページ・販売導線の構造にあるケースが少なくありません。',
+        url: '/insights/web-marketing/a-3/',
+        image: '/assets/images/insights/web-marketing/a-3_thumb.webp',
+        date: '2026.06.14',
+        tags: ["EC広告","広告運用","自社EC","EC売上改善","ECマーケティング","LP改善","LPO","Shopify構築","戦略設計"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'web-marketing',
+        group: 'A'
+    },
+    {
         id: 'ec-growth',
         title: '初月1000万円規模の売上を作ってきたチームが語る、EC構築の現実',
         excerpt: 'Shopifyは誰でも始めやすい一方で、初月から売上を作るECと、公開後に運用や集客で止まってしまうECに分かれます。その差は、デザインや機能の多さではなく、最初から売上・運用・改善を前提に設計されているかどうかにあります。',
@@ -229,19 +242,6 @@ const insightsData = [
     image: '/assets/images/insights/web-marketing/a-2_thumb.webp',
     date: '2026.03.03',
     tags: ['EC', '売上', '原因'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'web-marketing',
-    group: 'A'
-  },
-  {
-    id: 'web-marketing-a-3',
-    title: '広告を回しているのに売れないECに共通する設計ミス',
-    excerpt: '広告の前に詰まる「設計」の論点を整理し、親記事へ導線をつなぎます。',
-    url: '/insights/web-marketing/a-3/',
-    image: '/assets/images/insights/web-marketing/a-3_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC', '広告', '売れない'],
     category: 'insights',
     type: 'cluster',
     theme: 'web-marketing',
