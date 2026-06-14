@@ -1100,11 +1100,24 @@
 // ─── 記事CTAボックスを共通インクルードで一括置換 ───
 document.addEventListener('DOMContentLoaded', function () {
   const ctaBoxes = document.querySelectorAll('.cta-box');
-  if (ctaBoxes.length === 0) return;
-  fetch('/assets/includes/article-cta.html')
+  if (ctaBoxes.length > 0) {
+    fetch('/assets/includes/article-cta.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        ctaBoxes.forEach(function (box) { box.innerHTML = html; });
+      })
+      .catch(function () {});
+  }
+});
+
+// ─── 筆者プロフィールを共通インクルードで自動挿入 ───
+document.addEventListener('DOMContentLoaded', function () {
+  const profileContainer = document.getElementById('profile-container');
+  if (!profileContainer) return;
+  fetch('/assets/includes/author-profile.html')
     .then(function (r) { return r.text(); })
     .then(function (html) {
-      ctaBoxes.forEach(function (box) { box.innerHTML = html; });
+      profileContainer.innerHTML = html;
     })
     .catch(function () {});
 });
