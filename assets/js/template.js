@@ -1096,3 +1096,15 @@
     });
   }
 })();
+
+// ─── 記事CTAボックスを共通インクルードで一括置換 ───
+document.addEventListener('DOMContentLoaded', function () {
+  const ctaBoxes = document.querySelectorAll('.cta-box');
+  if (ctaBoxes.length === 0) return;
+  fetch('/assets/includes/article-cta.html')
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      ctaBoxes.forEach(function (box) { box.innerHTML = html; });
+    })
+    .catch(function () {});
+});
