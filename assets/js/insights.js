@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'web-marketing',
+        title: '自社ECが伸びない本当の理由',
+        excerpt: '自社ECが伸びないとき、多くの企業は広告、SNS、LP改善などの施策を増やそうとします。しかし、現場で見る限り、本当の原因は施策不足ではなく、商品・顧客・市場の整理不足にあることが少なくありません。',
+        url: '/insights/web-marketing/',
+        image: '/assets/images/insights/web-marketing/thumb.webp',
+        date: '2026.06.14',
+        tags: ["自社EC","Shopify","EC戦略","広告運用","LPO","LP改善","ECマーケティング"],
+        category: 'insights',
+        type: 'pillar',
+        theme: 'web-marketing',
+        group: ''
+    },
+    {
         id: 'web-marketing-b-1',
         title: 'ECで成果が出る企業が、必ず最初にやっている「整理」とは何か',
         excerpt: 'ECで成果を出す企業が、施策の前に整理していることを解説します。',
@@ -193,18 +206,6 @@ const insightsData = [
     type: 'cluster',
     theme: 'ec-growth',
     group: 'E'
-  },
-  {
-    id: 'web-marketing',
-    title: '売れるECのWebマーケ設計',
-    excerpt: '「売れない理由が分からない」状態から抜け出すために、集客・設計・意思決定を構造で整理します。',
-    url: '/insights/web-marketing/',
-    image: '/assets/images/insights/web-marketing/pillar_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC', 'マーケティング', '集客'],
-    category: 'insights',
-    type: 'pillar',
-    theme: 'web-marketing'
   },
   {
     id: 'web-marketing-a-1',

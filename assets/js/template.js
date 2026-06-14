@@ -852,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'web-marketing': '自社ECが伸びない本当の理由',
         'web-marketing-b-1': 'ECで成果が出る企業が、必ず最初にやっている「整理」とは何か',
       'howto': 'Howto BOX',
       'howto-posts': 'すべての記事一覧',
