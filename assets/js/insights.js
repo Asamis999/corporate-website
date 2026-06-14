@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth',
+        title: '初月1000万円規模の売上を作ってきたチームが語る、EC構築の現実',
+        excerpt: 'Shopifyは誰でも始めやすい一方で、初月から売上を作るECと、公開後に運用や集客で止まってしまうECに分かれます。その差は、デザインや機能の多さではなく、最初から売上・運用・改善を前提に設計されているかどうかにあります。',
+        url: '/insights/ec-growth/',
+        image: '/assets/images/insights/ec-growth/thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","Shopifyカスタマイズ","自社EC","EC集客","Shopify運用","EC設計","Shopifyテーマ","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'pillar',
+        theme: 'ec-growth',
+        group: ''
+    },
+    {
         id: 'web-marketing',
         title: '自社ECが伸びない本当の理由',
         excerpt: '自社ECが伸びないとき、多くの企業は広告、SNS、LP改善などの施策を増やそうとします。しかし、現場で見る限り、本当の原因は施策不足ではなく、商品・顧客・市場の整理不足にあることが少なくありません。',
@@ -26,18 +39,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth',
-    title: '初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実',
-    excerpt: '初月から売上を作るShopify構築とは何が違うのか。構築・運用・集客をやり切ってきた現場視点で解説。',
-    url: '/insights/ec-growth/',
-    image: '/assets/images/insights/ec-growth/pillar_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', 'Shopifyカスタマイズ', '自社EC', 'EC集客', 'Shopify運用', 'EC設計', 'Shopifyテーマ'],
-    category: 'insights',
-    type: 'pillar',
-    theme: 'ec-growth'
-  },
   {
     id: 'ec-growth-a-1',
     title: '初月から売上を作るShopifyは、なぜ誰が作っても同じにならないのか',
