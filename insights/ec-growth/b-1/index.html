@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>初月から売上を作ってきた現場で見えた 運用を知らないエンジニアShopifyの限界 | ナレッジ</title>
-    <meta name="description" content="運用を知らないまま構築されたShopifyは、必ず現場で詰まります。初月から売上を作ってきた現場で実際に起きている「エンジニア構築の限界」を解説します。">
+    <title>そのサイト、作った後も社内で運用できますか？ | ナレッジ</title>
+    <meta name="description" content="技術的には正しく作られたShopifyでも、社内で運用できなければ売上改善は進みません。誰でも迷わず更新・改善できるShopify構築の考え方を解説します。">
+    <link rel="canonical" href="https://a-inc.info/insights/ec-growth/b-1/">
 
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -22,194 +23,328 @@
     <main class="main-content">
         <div class="article-container">
             <header class="article-header">
-                <h1 class="article-title">初月から売上を作ってきた現場で見えた 運用を知らないエンジニアShopifyの限界</h1>
-                <div class="article-meta">カテゴリB｜運用目線の設計（最大の強み）</div>
+                <h1 class="article-title">そのサイト、作った後も社内で運用できますか？</h1>
+                <div class="article-meta">テーマ：ec-growth　更新日：2026.06.14</div>
                 <div class="article-tag-list">
                     <span class="article-tag">Shopify構築</span>
                     <span class="article-tag">Shopify運用</span>
+                    <span class="article-tag">Shopifyカスタマイズ</span>
+                    <span class="article-tag">自社EC</span>
                     <span class="article-tag">EC設計</span>
+                    <span class="article-tag">EC改善</span>
+                    <span class="article-tag">LP改善</span>
+                    <span class="article-tag">LPO</span>
+                    <span class="article-tag">広告運用</span>
+                    <span class="article-tag">EC売上改善</span>
                 </div>
             </header>
 
             <div class="article-image-container">
-                <img src="/assets/images/insights/ec-growth/shared_main.webp" alt="初月から売上を作ってきた現場で見えた 運用を知らないエンジニアShopifyの限界" class="article-image" style="max-width: 100%;">
+                <img src="/assets/images/insights/ec-growth/b-1_thumb.webp" alt="Shopify管理画面を前に社内運用や改善が進まず手が止まっている実写イメージ" class="article-image" style="max-width: 100%;">
             </div>
 
             <section class="article-section fade-in">
                 <h2 class="article-section-title">目次</h2>
                 <ol class="article-list">
-                    <li>「ちゃんと作ったはずなのに、回らない」Shopify</li>
-                    <li>エンジニア構築が悪いわけではない</li>
-                    <li>運用を知らない構築が、現場で起こすこと</li>
-                    <li>限界①｜管理画面が“触れない”</li>
-                    <li>限界②｜改善のたびに手が止まる</li>
-                    <li>限界③｜売上が伸びるほど負担が増える</li>
-                    <li>それなら、ノーコード構築の方がまだマシな理由</li>
-                    <li>なぜ、このズレが起こるのか</li>
-                    <li>初月から売上を作るECが見ている視点</li>
-                    <li>まとめ：Shopifyは「回してきた人」が作らないと詰む</li>
+                    <li><a href="#section1">「ちゃんと作ったはずなのに、社内で運用できない」Shopifyで起きていること</a></li>
+                    <li><a href="#section2">エンジニア構築が悪い、という話ではない</a></li>
+                    <li><a href="#section3">運用を知らない構築は、社内での改善スピードを止める</a></li>
+                    <li><a href="#section4">管理画面が触れないShopifyは、公開後に詰まりやすい</a></li>
+                    <li><a href="#section5">改善のたびに制作側へ戻るECは、売上改善が遅くなる</a></li>
+                    <li><a href="#section6">売上が伸びるほど、社内の運用負荷が増えてしまう理由</a></li>
+                    <li><a href="#section7">場合によっては、ノーコード構築の方が健全なこともある</a></li>
+                    <li><a href="#section8">なぜ「作る人」と「運用する人」のズレが起きるのか</a></li>
+                    <li><a href="#section9">初月から売上を作るECは、社内運用と集客を前提に構築している</a></li>
+                    <li><a href="#section10">まとめ：Shopifyは、作れる人ではなく運用まで見据えられる人の視点で設計する</a></li>
                 </ol>
             </section>
 
             <div class="divider"></div>
 
             <section class="article-section fade-in">
-                <h2 class="article-section-title">「ちゃんと作ったはずなのに、回らない」Shopify</h2>
-                <ul class="article-list">
-                    <li>エンジニアに依頼した</li>
-                    <li>技術的には問題ない</li>
-                    <li>表示も崩れていない</li>
-                </ul>
-                <p class="article-p">それなのに、</p>
-                <p class="article-p"><strong>運用が回らない。</strong></p>
-                <p class="article-p">これは、</p>
-                <p class="article-p">実際に集客・改善フェーズで介入すると</p>
-                <p class="article-p">非常によく出会う状態です。</p>
 
-                <h2 class="article-section-title">エンジニア構築が悪いわけではない</h2>
-                <p class="article-p">最初にお伝えしておきます。</p>
-                <p class="article-p"><strong>エンジニアが悪い、という話ではありません。</strong></p>
-                <ul class="article-list">
-                    <li>技術的に正しい</li>
-                    <li>要件どおりに実装している</li>
-                </ul>
-                <p class="article-p">それ自体は、間違っていません。</p>
-                <p class="article-p">ただし、</p>
-                <p class="article-p"><strong>「技術的に正しい」ことと
-「売上が回る」ことは、別問題</strong>です。</p>
+                <h2 id="section1" class="article-section-title">「ちゃんと作ったはずなのに、社内で運用できない」Shopifyで起きていること</h2>
+                <p class="article-p">Shopifyをエンジニアや制作会社に依頼した。</p>
+                <p class="article-p">技術的には問題なく実装されている。</p>
+                <p class="article-p">表示も崩れていない。</p>
+                <p class="article-p">購入もできる。</p>
+                <p class="article-p">要件どおりに公開できている。</p>
+                <p class="article-p">それなのに、公開後に社内で運用できない。</p>
+                <p class="article-p">これは、Shopify構築後の改善や集客支援に入ると、よく見える課題です。</p>
+                <p class="article-p">一見すると、サイトとしては完成しています。</p>
+                <p class="article-p">デザインも整っている。</p>
+                <p class="article-p">商品も掲載されている。</p>
+                <p class="article-p">カートも動く。</p>
+                <p class="article-p">ページも表示される。</p>
+                <p class="article-p">しかし、いざ売上を伸ばそうとすると、社内の運用が止まります。</p>
+                <p class="article-p">バナーを変えたいのに、どこを触ればよいか分からない。</p>
+                <p class="article-p">商品ページにFAQを追加したいのに、管理画面から編集できない。</p>
+                <p class="article-p">広告で反応が良かった訴求をLPに反映したいのに、毎回改修が必要になる。</p>
+                <p class="article-p">レビューや実績を見せたいのに、設置場所を変えられない。</p>
+                <p class="article-p">キャンペーンを始めたいのに、ページ構造が柔軟に対応できない。</p>
+                <p class="article-p">この状態では、売上改善のスピードは上がりません。</p>
+                <p class="article-p">Shopifyは、公開して終わりのサイトではありません。</p>
+                <p class="article-p">公開後に社内で運用し、数字を見て、LPや商品ページを改善し、広告やSNSの反応を反映しながら育てていくECです。</p>
+                <p class="article-p">だからこそ、技術的に正しく作られているだけでは不十分です。</p>
+                <p class="article-p">社内で更新できる構造になっているか。</p>
+                <p class="article-p">改善しやすい設計になっているか。</p>
+                <p class="article-p">誰でも迷わず触れる状態になっているか。</p>
+                <p class="article-p">ここまで考えられていないShopifyは、公開後に必ずどこかで詰まります。</p>
 
-                <h2 class="article-section-title">運用を知らない構築が、現場で起こすこと</h2>
-                <p class="article-p">運用を知らないまま構築されたShopifyでは、</p>
-                <p class="article-p">次のようなことが起こります。</p>
-                <ul class="article-list">
-                    <li>管理画面が複雑すぎる</li>
-                    <li>更新に専門知識が必要</li>
-                    <li>変更のたびに制作側に依存する</li>
-                </ul>
-                <p class="article-p">結果として、</p>
-                <ul class="article-list">
-                    <li>スピードが落ち</li>
-                    <li>判断が遅れ</li>
-                    <li>改善が止まります</li>
-                </ul>
-                <p class="article-p">これは、</p>
-                <p class="article-p"><strong>現場にとって致命的</strong>です。</p>
+                <h2 id="section2" class="article-section-title">エンジニア構築が悪い、という話ではない</h2>
+                <p class="article-p">最初に整理しておきたいのは、これは「エンジニアが悪い」という話ではないということです。</p>
+                <p class="article-p">エンジニアが技術的に正しく実装することは重要です。</p>
+                <p class="article-p">表示崩れがないこと。</p>
+                <p class="article-p">要件どおりに機能すること。</p>
+                <p class="article-p">パフォーマンスや保守性を考えること。</p>
+                <p class="article-p">コードの品質を担保すること。</p>
+                <p class="article-p">これらは、Shopify構築において欠かせません。</p>
+                <p class="article-p">問題は、技術的に正しいことと、売上改善が進むことは別だという点です。</p>
+                <p class="article-p">エンジニア視点では正しい実装でも、社内運用では使いにくいことがあります。</p>
+                <p class="article-p">制作側から見ると整った構造でも、EC担当者にとっては触りづらいことがあります。</p>
+                <p class="article-p">デザインどおりに再現されていても、広告やLP改善の観点では変更しにくいことがあります。</p>
+                <p class="article-p">たとえば、コードとしてはきれいでも、管理画面から更新できる範囲が狭い。</p>
+                <p class="article-p">見た目は整っていても、商品ページごとに訴求やFAQを変えにくい。</p>
+                <p class="article-p">セクション設計が固定的で、キャンペーンや広告流入に合わせた改善がしづらい。</p>
+                <p class="article-p">これは、技術の問題というより、前提の違いです。</p>
+                <p class="article-p">作ることを前提にした構築なのか。</p>
+                <p class="article-p">社内で運用することを前提にした構築なのか。</p>
+                <p class="article-p">集客して改善することを前提にした構築なのか。</p>
+                <p class="article-p">この違いが、公開後の成果に大きく影響します。</p>
+                <p class="article-p">Shopify構築では、技術力だけでなく、社内運用と売上改善の視点が必要です。</p>
 
-                <h2 class="article-section-title">限界①｜管理画面が“触れない”</h2>
-                <p class="article-p">運用フェーズで最初に詰まるのが、</p>
-                <p class="article-p"><strong>管理画面</strong>です。</p>
-                <ul class="article-list">
-                    <li>どこを触ればいいか分からない</li>
-                    <li>少し変えるだけで怖い</li>
-                    <li>間違えると壊れそう</li>
-                </ul>
-                <p class="article-p">この状態では、</p>
-                <ul class="article-list">
-                    <li>改善</li>
-                    <li>テスト</li>
-                    <li>スピード感のある運用</li>
-                </ul>
-                <p class="article-p">は、まず不可能です。</p>
+                <h2 id="section3" class="article-section-title">運用を知らない構築は、社内での改善スピードを止める</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/b-1_section1.webp" alt="Shopify運用で小さな改善タスクが積み上がり社内での改善スピードが止まっている実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">運用を知らないまま構築されたShopifyでは、公開後に小さな詰まりが積み重なります。</p>
+                <p class="article-p">管理画面が複雑で、どこを触ればよいか分からない。</p>
+                <p class="article-p">テキストや画像の差し替えに専門知識が必要になる。</p>
+                <p class="article-p">変更のたびに制作側へ依頼する必要がある。</p>
+                <p class="article-p">更新できる範囲が限られている。</p>
+                <p class="article-p">ページごとに柔軟な訴求変更ができない。</p>
+                <p class="article-p">広告やSNSの反応をページに反映しづらい。</p>
+                <p class="article-p">ひとつひとつは小さな不便に見えるかもしれません。</p>
+                <p class="article-p">しかし、EC運用ではこの小さな不便が大きな差になります。</p>
+                <p class="article-p">売上を伸ばすには、改善を繰り返す必要があります。</p>
+                <p class="article-p">広告で反応が良かった言葉をLPに反映する。</p>
+                <p class="article-p">問い合わせで多い質問を商品ページに追加する。</p>
+                <p class="article-p">レビューや実績を購入判断に効く場所へ配置する。</p>
+                <p class="article-p">季節やキャンペーンに合わせて訴求を変える。</p>
+                <p class="article-p">LPOの仮説に合わせてファーストビューやCTAを調整する。</p>
+                <p class="article-p">この改善が社内ですぐできるECは、数字を見ながら前に進めます。</p>
+                <p class="article-p">一方で、改善のたびに手が止まるECは、施策のスピードが落ちます。</p>
+                <p class="article-p">広告費をかけているのに、ページ改善が追いつかない。</p>
+                <p class="article-p">SNSで反応が取れているのに、商品ページへ反映できない。</p>
+                <p class="article-p">LPで改善すべき点が見えているのに、すぐに直せない。</p>
+                <p class="article-p">この状態では、売上改善の機会を逃します。</p>
+                <p class="article-p">運用を知らない構築は、社内での判断と改善スピードを止めてしまうのです。</p>
 
-                <h2 class="article-section-title">限界②｜改善のたびに手が止まる</h2>
-                <p class="article-p">売上を伸ばすためには、</p>
-                <ul class="article-list">
-                    <li>文言を変える</li>
-                    <li>並びを変える</li>
-                    <li>見せ方を試す</li>
-                </ul>
-                <p class="article-p">こうした改善が不可欠です。</p>
-                <p class="article-p">しかし、</p>
-                <p class="article-p"><strong>変更のたびに構築者に戻らなければならないEC</strong>は、</p>
-                <p class="article-p">その時点で勝負になりません。</p>
+                <h2 id="section4" class="article-section-title">管理画面が触れないShopifyは、公開後に詰まりやすい</h2>
+                <p class="article-p">運用フェーズで最初に詰まりやすいのが、管理画面です。</p>
+                <p class="article-p">Shopifyは本来、社内担当者が管理画面から更新しやすい仕組みを持っています。</p>
+                <p class="article-p">商品情報、画像、ページ、セクション、ブログ、コレクションなどを、比較的扱いやすく管理できます。</p>
+                <p class="article-p">しかし、構築の仕方によっては、その良さが失われます。</p>
+                <p class="article-p">どこを触ればよいか分からない。</p>
+                <p class="article-p">編集項目の名前が分かりにくい。</p>
+                <p class="article-p">管理画面から変更できず、コード編集が必要になる。</p>
+                <p class="article-p">セクションの自由度が低く、ページごとの調整ができない。</p>
+                <p class="article-p">少し変更するとレイアウトが崩れそうで怖い。</p>
+                <p class="article-p">テーマの更新やアプリ追加に不安がある。</p>
+                <p class="article-p">こうなると、社内担当者は管理画面を触らなくなります。</p>
+                <p class="article-p">触れない管理画面は、改善を止めます。</p>
+                <p class="article-p">本来なら、問い合わせで多い質問をFAQに追加する。</p>
+                <p class="article-p">広告流入に合わせてファーストビューの文言を変える。</p>
+                <p class="article-p">商品ごとにレビューや使用シーンを追加する。</p>
+                <p class="article-p">キャンペーンに合わせてバナーや導線を変える。</p>
+                <p class="article-p">こうした運用ができるはずです。</p>
+                <p class="article-p">しかし、管理画面が触りにくいと、毎回外部に依頼する必要が出ます。</p>
+                <p class="article-p">その結果、改善までの時間が伸び、費用も増え、社内の改善スピードも下がっていきます。</p>
+                <p class="article-p">Shopify構築では、管理画面の使いやすさを軽視してはいけません。</p>
+                <p class="article-p">見た目の完成度だけでなく、社内の誰でも迷わず更新できる状態になっているかが重要です。</p>
 
-                <h2 class="article-section-title">限界③｜売上が伸びるほど負担が増える</h2>
-                <p class="article-p">皮肉なことに、</p>
-                <p class="article-p">こうしたShopifyは、</p>
-                <p class="article-p"><strong>売れ始めてから一気に苦しくなります。</strong></p>
-                <ul class="article-list">
-                    <li>注文が増える</li>
-                    <li>問い合わせが増える</li>
-                    <li>直したい箇所も増える</li>
-                </ul>
-                <p class="article-p">それでも、</p>
-                <ul class="article-list">
-                    <li>触れない</li>
-                    <li>直せない</li>
-                    <li>すぐ変えられない</li>
-                </ul>
-                <p class="article-p">結果、</p>
-                <p class="article-p">運用負荷だけが積み上がっていきます。</p>
+                <h2 id="section5" class="article-section-title">改善のたびに制作側へ戻るECは、売上改善が遅くなる</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/b-1_section2.webp" alt="Shopify改善のたびに制作側への依頼待ちが発生して売上改善が遅くなる状態を示す実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">売上を伸ばすためには、改善のスピードが重要です。</p>
+                <p class="article-p">ECは、公開した瞬間に完成するものではありません。</p>
+                <p class="article-p">広告を回す。</p>
+                <p class="article-p">数字を見る。</p>
+                <p class="article-p">LPを直す。</p>
+                <p class="article-p">商品ページを改善する。</p>
+                <p class="article-p">FAQを追加する。</p>
+                <p class="article-p">レビューを見せる。</p>
+                <p class="article-p">CTAを調整する。</p>
+                <p class="article-p">購入導線を見直す。</p>
+                <p class="article-p">この繰り返しで、売上改善の精度が上がります。</p>
+                <p class="article-p">しかし、改善のたびに制作側へ戻る必要があるECは、スピードが出ません。</p>
+                <p class="article-p">ちょっとした文言変更に依頼が必要になる。</p>
+                <p class="article-p">画像の差し替えにも作業待ちが発生する。</p>
+                <p class="article-p">商品ページにセクションを追加したいだけなのに改修扱いになる。</p>
+                <p class="article-p">LPのABテストをしたくても、構造上すぐに試せない。</p>
+                <p class="article-p">広告ごとに訴求を変えたいのに、ページを柔軟に作れない。</p>
+                <p class="article-p">こうなると、改善の判断が遅れます。</p>
+                <p class="article-p">本来なら今すぐ試せるはずの施策が、見積もり、依頼、確認、実装、修正という流れになります。</p>
+                <p class="article-p">その間に、広告費は使われ続けます。</p>
+                <p class="article-p">顧客の反応も変わっていきます。</p>
+                <p class="article-p">社内の改善意欲も落ちます。</p>
+                <p class="article-p">制作側に依頼すること自体が悪いわけではありません。</p>
+                <p class="article-p">大きな改修や技術的な変更は、専門家に任せるべきです。</p>
+                <p class="article-p">問題は、日常運用で社内が触るべき範囲まで外部依存になっていることです。</p>
+                <p class="article-p">Shopify構築では、どこまでを社内で触れるようにするのか、どこから制作側が対応するのかを最初に分けておく必要があります。</p>
+                <p class="article-p">この設計がないと、売上改善のたびに社内の手が止まります。</p>
 
-                <h2 class="article-section-title">それなら、ノーコード構築の方がまだマシな理由</h2>
-                <p class="article-p">ここは、</p>
-                <p class="article-p">現場を見てきた立場として</p>
-                <p class="article-p">はっきり伝えておきたい点です。</p>
-                <p class="article-p"><strong>運用を理解していないエンジニアや制作に任せるくらいなら、
-Shopifyのデフォルト機能だけでノーコード構築した方が、
-正直よっぽどマシです。</strong></p>
-                <p class="article-p">理由はシンプルで、</p>
-                <ul class="article-list">
-                    <li>Shopify本来の思想に沿っている</li>
-                    <li>管理画面が壊れにくい</li>
-                    <li>運用者が自分で触れる</li>
-                </ul>
-                <p class="article-p">からです。</p>
-                <p class="article-p">中途半端なカスタマイズで、</p>
-                <ul class="article-list">
-                    <li>最新機能が使えない</li>
-                    <li>編集しづらい</li>
-                    <li>改修が怖い</li>
-                </ul>
-                <p class="article-p">状態になるくらいなら、</p>
-                <p class="article-p"><strong>制限があっても“正しく制限された構築”の方が、
-長期的には健全</strong>です。</p>
+                <h2 id="section6" class="article-section-title">売上が伸びるほど、社内の運用負荷が増えてしまう理由</h2>
+                <p class="article-p">皮肉なことに、運用を想定していないShopifyほど、売れ始めてから苦しくなります。</p>
+                <p class="article-p">注文が増える。</p>
+                <p class="article-p">問い合わせが増える。</p>
+                <p class="article-p">商品ページを改善したくなる。</p>
+                <p class="article-p">キャンペーンを増やしたくなる。</p>
+                <p class="article-p">広告を強化したくなる。</p>
+                <p class="article-p">新しいLPを試したくなる。</p>
+                <p class="article-p">レビューやUGCを活用したくなる。</p>
+                <p class="article-p">売上が伸びるほど、やるべきことは増えます。</p>
+                <p class="article-p">本来であれば、これは良い状態です。</p>
+                <p class="article-p">売上が伸びているからこそ、改善材料も増え、次の施策も見えてきます。</p>
+                <p class="article-p">しかし、Shopify側が運用に耐えられない構造だと、成長がそのまま社内負荷になります。</p>
+                <p class="article-p">管理画面が触れない。</p>
+                <p class="article-p">商品ページを柔軟に改善できない。</p>
+                <p class="article-p">キャンペーンを素早く反映できない。</p>
+                <p class="article-p">広告ごとのLPを作りにくい。</p>
+                <p class="article-p">問い合わせ内容をFAQに戻せない。</p>
+                <p class="article-p">アプリ追加やテーマ更新が怖い。</p>
+                <p class="article-p">この状態では、売れているのに社内が疲弊します。</p>
+                <p class="article-p">売上が伸びるほど、対応が増える。</p>
+                <p class="article-p">対応が増えるほど、改善が遅れる。</p>
+                <p class="article-p">改善が遅れるほど、機会損失が増える。</p>
+                <p class="article-p">これは、最初の構築時点で社内運用の負荷を見ていないことが原因です。</p>
+                <p class="article-p">Shopifyは、売れた後の運用まで見て設計する必要があります。</p>
+                <p class="article-p">初期段階では小さな不便に見えても、売上が伸びるほどその不便は大きな負担になります。</p>
 
-                <h2 class="article-section-title">なぜ、このズレが起こるのか</h2>
-                <p class="article-p">理由は明確です。</p>
-                <ul class="article-list">
-                    <li>エンジニアは「作る」ことが仕事</li>
-                    <li>運用側は「回す」ことが仕事</li>
-                </ul>
-                <p class="article-p">この2つの視点が、</p>
-                <p class="article-p"><strong>最初から分断されている</strong>からです。</p>
-                <p class="article-p">Shopifyは、</p>
-                <p class="article-p">運用されて初めて価値を持つツールです。</p>
+                <h2 id="section7" class="article-section-title">場合によっては、ノーコード構築の方が健全なこともある</h2>
+                <p class="article-p">ここは、実際の運用支援や改善支援で強く感じる点です。</p>
+                <p class="article-p">運用を理解しないまま中途半端にカスタマイズされたShopifyよりも、Shopifyのデフォルト機能を活かしたノーコード構築の方が、長期的に健全なことがあります。</p>
+                <p class="article-p">理由はシンプルです。</p>
+                <p class="article-p">Shopify本来の思想に沿っている。</p>
+                <p class="article-p">管理画面から触りやすい。</p>
+                <p class="article-p">テーマの更新やアプリ連携に対応しやすい。</p>
+                <p class="article-p">社内担当者が自分で変更しやすい。</p>
+                <p class="article-p">余計なカスタマイズによる壊れやすさが少ない。</p>
+                <p class="article-p">もちろん、ノーコード構築が常に最適という意味ではありません。</p>
+                <p class="article-p">独自要件がある場合や、事業規模が大きい場合、技術的なカスタマイズが必要になる場面はあります。</p>
+                <p class="article-p">しかし、そのカスタマイズは運用や改善を助けるために行うべきです。</p>
+                <p class="article-p">問題なのは、目的が曖昧なままカスタマイズされることです。</p>
+                <p class="article-p">見た目を再現するために、編集しにくい構造になる。</p>
+                <p class="article-p">独自実装が増えすぎて、テーマ更新ができなくなる。</p>
+                <p class="article-p">管理画面から触れない箇所が増える。</p>
+                <p class="article-p">アプリや計測との相性が悪くなる。</p>
+                <p class="article-p">制作側しか分からない構造になる。</p>
+                <p class="article-p">こうなるくらいなら、制限があっても、Shopifyの標準機能に沿った構築の方が運用しやすいことがあります。</p>
+                <p class="article-p">重要なのは、ノーコードかカスタマイズかではありません。</p>
+                <p class="article-p">社内で運用できるか。</p>
+                <p class="article-p">誰でも迷わず更新できるか。</p>
+                <p class="article-p">改善しやすいか。</p>
+                <p class="article-p">広告やLPの反応を反映できるか。</p>
+                <p class="article-p">Shopifyのアップデートや将来の拡張に耐えられるか。</p>
+                <p class="article-p">この視点で構築方法を選ぶことです。</p>
 
-                <h2 class="article-section-title">初月から売上を作るECが見ている視点</h2>
-                <p class="article-p">初月から売上を作っているECでは、</p>
-                <ul class="article-list">
-                    <li>運用者が触れる前提</li>
-                    <li>改善を繰り返す前提</li>
-                    <li>集客を回す前提</li>
-                </ul>
-                <p class="article-p">で、構築されています。</p>
-                <p class="article-p">だから、</p>
-                <ul class="article-list">
-                    <li>管理画面が分かりやすい</li>
-                    <li>変更が怖くない</li>
-                    <li>改善スピードが落ちない</li>
-                </ul>
-                <p class="article-p">この差が、</p>
-                <p class="article-p">結果に直結します。</p>
+                <h2 id="section8" class="article-section-title">なぜ「作る人」と「運用する人」のズレが起きるのか</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/b-1_section3.webp" alt="Shopify構築における作る視点と社内で運用する視点のズレを実写のメモで整理しているイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">このズレが起きる理由は明確です。</p>
+                <p class="article-p">作る人と、運用する人の視点が分断されているからです。</p>
+                <p class="article-p">エンジニアや制作側は、要件どおりに作ることを重視します。</p>
+                <p class="article-p">デザインを再現する。</p>
+                <p class="article-p">機能を実装する。</p>
+                <p class="article-p">表示崩れをなくす。</p>
+                <p class="article-p">納期までに公開する。</p>
+                <p class="article-p">一方で、社内で運用する側は公開後に使い続けることを重視します。</p>
+                <p class="article-p">商品情報を更新する。</p>
+                <p class="article-p">キャンペーンを反映する。</p>
+                <p class="article-p">広告やSNSの反応を見て訴求を変える。</p>
+                <p class="article-p">問い合わせ内容をFAQに反映する。</p>
+                <p class="article-p">LPOでページを改善する。</p>
+                <p class="article-p">売上やCVRを見ながら判断する。</p>
+                <p class="article-p">この2つの視点が構築前にすり合っていないと、公開後に問題が出ます。</p>
+                <p class="article-p">制作側は「要件どおり作った」と考える。</p>
+                <p class="article-p">社内側は「触りにくくて改善できない」と感じる。</p>
+                <p class="article-p">どちらかが悪いわけではありません。</p>
+                <p class="article-p">最初に運用と改善の前提を共有していないことが問題です。</p>
+                <p class="article-p">Shopifyは、運用されて初めて価値を持つツールです。</p>
+                <p class="article-p">だからこそ、構築時点で次のような問いを持つ必要があります。</p>
+                <p class="article-p">誰が更新するのか。</p>
+                <p class="article-p">どの箇所を頻繁に変えるのか。</p>
+                <p class="article-p">広告の反応をどこに反映するのか。</p>
+                <p class="article-p">LP改善をどのように行うのか。</p>
+                <p class="article-p">商品ページごとに訴求を変えられるか。</p>
+                <p class="article-p">計測やタグ管理はどうするのか。</p>
+                <p class="article-p">将来の拡張やテーマ更新に対応できるか。</p>
+                <p class="article-p">この問いがないまま作ると、作る人と運用する人のズレは公開後に表面化します。</p>
 
-                <h2 class="article-section-title">まとめ：Shopifyは「回してきた人」が作らないと詰む</h2>
-                <p class="article-p">Shopifyは、</p>
-                <ul class="article-list">
-                    <li>技術力</li>
-                    <li>見た目</li>
-                </ul>
-                <p class="article-p">だけでは、回りません。</p>
-                <ul class="article-list">
-                    <li>実際に運用してきたか</li>
-                    <li>詰んだ経験があるか</li>
-                    <li>改善と向き合ってきたか</li>
-                </ul>
-                <p class="article-p">この経験があるかどうかで、</p>
-                <p class="article-p">構築の質は決まります。</p>
-                <p class="article-p">全体像については、</p>
-                <p class="article-p">こちらの記事で整理しています。</p>
-                <p class="article-p">👉 <a href="/insights/ec-growth/">ピラー記事：初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実</a></p>
+                <h2 id="section9" class="article-section-title">初月から売上を作るECは、社内運用と集客を前提に構築している</h2>
+                <p class="article-p">初月から売上を作るECは、構築時点で見ている範囲が違います。</p>
+                <p class="article-p">単にページを作るのではありません。</p>
+                <p class="article-p">社内で運用できる前提。</p>
+                <p class="article-p">誰でも迷わず更新できる前提。</p>
+                <p class="article-p">改善を繰り返す前提。</p>
+                <p class="article-p">広告やSNSから集客する前提。</p>
+                <p class="article-p">LPや商品ページを検証する前提。</p>
+                <p class="article-p">数字を見て判断する前提。</p>
+                <p class="article-p">売れ始めたあとに拡張する前提。</p>
+                <p class="article-p">この前提で構築されています。</p>
+                <p class="article-p">だから、管理画面が分かりやすい。</p>
+                <p class="article-p">変更が怖くない。</p>
+                <p class="article-p">キャンペーン対応がしやすい。</p>
+                <p class="article-p">商品ページを改善しやすい。</p>
+                <p class="article-p">広告で反応があった訴求をすぐ反映できる。</p>
+                <p class="article-p">問い合わせ内容をFAQや説明文に戻しやすい。</p>
+                <p class="article-p">計測や改善の土台が整っている。</p>
+                <p class="article-p">この差は、結果に直結します。</p>
+                <p class="article-p">Shopify構築で重要なのは、見た目を作ることだけではありません。</p>
+                <p class="article-p">広告で人を集めたあと、どのLPで受け止めるのか。</p>
+                <p class="article-p">商品ページでどの不安を解消するのか。</p>
+                <p class="article-p">カートまでの導線は迷わないか。</p>
+                <p class="article-p">購入後のCRMにつなげられるか。</p>
+                <p class="article-p">社内で数字を見て改善できるか。</p>
+                <p class="article-p">ここまで含めて、Shopify構築です。</p>
+                <p class="article-p">A.Incでは、Shopify構築を単なる制作としてではなく、LP・LPO支援、広告運用、商品ページ改善まで含めた販売導線の設計として捉えています。</p>
+                <p class="article-p">作って終わりではなく、社内で運用し、改善し続けられる状態を作ること。</p>
+                <p class="article-p">それが、売上につながるShopify構築には必要です。</p>
+
+                <h2 id="section10" class="article-section-title">まとめ：Shopifyは、作れる人ではなく運用まで見据えられる人の視点で設計する</h2>
+                <p class="article-p">Shopifyは、技術力や見た目だけでは成果につながりません。</p>
+                <p class="article-p">もちろん、技術力は必要です。</p>
+                <p class="article-p">デザインも重要です。</p>
+                <p class="article-p">表示速度や保守性も大切です。</p>
+                <p class="article-p">しかし、それだけでは売上改善は進みません。</p>
+                <p class="article-p">公開後に社内で運用できるか。</p>
+                <p class="article-p">誰でも迷わず更新できるか。</p>
+                <p class="article-p">広告やLP、商品ページの数字を見て改善できるか。</p>
+                <p class="article-p">社内の担当者がどこで止まりやすいかを想定できているか。</p>
+                <p class="article-p">Shopifyの管理画面を誰がどう触るかまで考えているか。</p>
+                <p class="article-p">この視点があるかどうかで、構築の質は大きく変わります。</p>
+                <p class="article-p">Shopifyは、作れる人ではなく、運用まで見据えられる人の視点で設計する必要があります。</p>
+                <p class="article-p">社内で更新できる。</p>
+                <p class="article-p">改善が止まらない。</p>
+                <p class="article-p">広告やSNSの反応を反映できる。</p>
+                <p class="article-p">商品ページを育てられる。</p>
+                <p class="article-p">売れ始めても拡張できる。</p>
+                <p class="article-p">この状態を作れて初めて、Shopifyは売上改善の土台になります。</p>
+                <p class="article-p">この全体像については、親記事「初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実」で詳しく整理しています。</p>
+                <p class="article-p">👉 親記事への内部リンク</p>
+                <p class="article-p">（初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実）</p>
+                <p class="article-p">A.Incでは、Shopify構築、LP・LPO支援、広告運用を個別の施策としてではなく、売上改善につながる販売導線として設計しています。</p>
+                <p class="article-p">Shopifyを構築したのに社内で運用しづらい、改善のたびに手が止まるという場合は、作り直す前に、社内運用と集客を前提にした構造になっているかを見直してみてください。</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
             </section>
 
             <div class="divider"></div>
@@ -220,12 +355,16 @@ Shopifyのデフォルト機能だけでノーコード構築した方が、
             </section>
 
             <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
             <div id="profile-container" class="fade-in"></div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
+    <script>window.__currentArticle = {"id":"ec-growth-b-1","title":"そのサイト、作った後も社内で運用できますか？","url":"/insights/ec-growth/b-1/","image":"/assets/images/insights/ec-growth/b-1_thumb.webp","date":"2026.06.14","tags":["Shopify構築","Shopify運用","Shopifyカスタマイズ","自社EC","EC設計","EC改善","LP改善","LPO","広告運用","EC売上改善"],"category":"insights","type":"cluster","theme":"ec-growth","group":"ec-growth"};</script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/insights-related.js"></script>

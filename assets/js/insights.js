@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-b-1',
+        title: 'そのサイト、作った後も社内で運用できますか？',
+        excerpt: 'Shopifyは技術的に正しく作られていても、社内で更新できない、改善できない、広告やLPの反応を反映できない状態では売上改善が止まります。重要なのは、作れることではなく、公開後に社内で運用しながら改善できる構造になっているかです。',
+        url: '/insights/ec-growth/b-1/',
+        image: '/assets/images/insights/ec-growth/b-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","Shopify運用","Shopifyカスタマイズ","自社EC","EC設計","EC改善","LP改善","LPO","広告運用","EC売上改善"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'B'
+    },
+    {
         id: 'ec-growth-a-4',
         title: 'ECを始めたのに、成果が出ない企業の体質',
         excerpt: 'ECサイトを作り、商品を掲載し、広告やSNSも始めた。それでも成果が出ない企業には、共通するつまずきがあります。多くの場合、原因は集客不足だけではなく、自社ECを「事業」として設計できていないことにあります。',
@@ -103,19 +116,6 @@ const insightsData = [
     type: 'cluster',
     theme: 'ec-growth',
     group: 'A'
-  },
-  {
-    id: 'ec-growth-b-1',
-    title: '初月から売上を作ってきた現場で見えた 運用を知らないエンジニアShopifyの限界',
-    excerpt: '技術的に正しくても、運用できなければ売上は回らない。現場で見えたShopify構築の限界。',
-    url: '/insights/ec-growth/b-1/',
-    image: '/assets/images/insights/ec-growth/b-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', 'Shopify運用', 'EC設計', 'EC改善', 'Shopifyカスタマイズ', '自社EC'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'B'
   },
   {
     id: 'ec-growth-b-2',

@@ -852,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'ec-growth-b-1': 'そのサイト、作った後も社内で運用できますか？',
         'ec-growth-a-4': 'ECを始めたのに、成果が出ない企業の体質',
         'ec-growth-a-3': '広告費をかけても売れない。どこで止まっている？',
         'ec-growth-a-1': '初月から伸びるECサイトは、何が違うのか？',
