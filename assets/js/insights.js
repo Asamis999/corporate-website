@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'web-marketing-a-4',
+        title: '自社ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
+        excerpt: '自社ECを始めたのに成果が出ないとき、原因はサイトの見た目や集客施策だけではありません。多くの場合、自社ECをモール販売や実店舗の延長として捉えてしまい、価格設計・顧客対応・ブランド評価まで含めた事業設計が不足していることにあります。',
+        url: '/insights/web-marketing/a-4/',
+        image: '/assets/images/insights/web-marketing/a-4_thumb.webp',
+        date: '2026.06.14',
+        tags: ["自社EC","EC事業設計","EC売上改善","EC価格設計","顧客対応","ブランド評価","Shopify構築","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'web-marketing',
+        group: 'A'
+    },
+    {
         id: 'web-marketing-a-1',
         title: 'Shopifyで売れないのは本当に集客の問題なのか？',
         excerpt: 'Shopifyで売れないとき、多くの企業は集客不足や広告費不足を疑います。しかし現場で見る限り、成果が出ない原因はツールや努力ではなく、誰に・何を・なぜ選ばれるものとして届けるのかが整理されていないことにあるケースが少なくありません。',
@@ -242,19 +255,6 @@ const insightsData = [
     image: '/assets/images/insights/web-marketing/a-2_thumb.webp',
     date: '2026.03.03',
     tags: ['EC', '売上', '原因'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'web-marketing',
-    group: 'A'
-  },
-  {
-    id: 'web-marketing-a-4',
-    title: 'ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
-    excerpt: 'やることが増えるほどズレる原因を構造で整理し、親記事へ導線をつなぎます。',
-    url: '/insights/web-marketing/a-4/',
-    image: '/assets/images/insights/web-marketing/pillar_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC', '失敗', '原因'],
     category: 'insights',
     type: 'cluster',
     theme: 'web-marketing',
