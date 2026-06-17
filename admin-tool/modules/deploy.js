@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { execSync, spawnSync } = require('child_process');
 const path = require('path');
 const { pushToGitHub } = require('./git-repo');
 
@@ -38,15 +38,30 @@ function deploy(siteRoot, cfProject) {
     { stdio: 'pipe' }
   );
 
-  const output = execSync(
-    `npx wrangler pages deploy ${tmpDir} --project-name ${cfProject} --commit-dirty=true`,
-    { cwd: ADMIN_TOOL_DIR, stdio: 'pipe', env: { ...process.env } }
+  const wrangler = spawnSync(
+    'npx',
+    ['wrangler', 'pages', 'deploy', tmpDir, '--project-name', cfProject, '--commit-dirty=true'],
+    { cwd: ADMIN_TOOL_DIR, env: { ...process.env }, encoding: 'utf8' }
   );
+
+  const wranglerStdout = wrangler.stdout || '';
+  const wranglerStderr = wrangler.stderr || '';
+  const wranglerOutput = [wranglerStdout, wranglerStderr].filter(Boolean).join('\n');
+
+  console.log('[Deploy] wrangler exit:', wrangler.status);
+  console.log('[Deploy] wrangler stdout:', wranglerStdout.slice(0, 500));
+  console.log('[Deploy] wrangler stderr:', wranglerStderr.slice(0, 500));
+
+  if (wrangler.status !== 0) {
+    const err = new Error(`wrangler 失敗 (exit ${wrangler.status}): ${wranglerStderr || wranglerStdout}`);
+    err.wranglerOutput = wranglerOutput;
+    throw err;
+  }
 
   // 本番環境: デプロイ後にGitHubへプッシュして同期
   pushToGitHub(siteRoot);
 
-  return output.toString();
+  return wranglerOutput;
 }
 
 module.exports = { gitCommit, deploy };

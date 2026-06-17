@@ -236,8 +236,9 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
     try {
       deployOutput = deployer.deploy(SITE_ROOT, CF_PROJECT);
     } catch (deployErr) {
-      await notion.updateArticleStatus(pageId, '差し戻し', `デプロイエラー: ${deployErr.message}`);
-      return res.status(500).json({ ok: false, step: 'deploy', error: deployErr.message });
+      const detail = deployErr.wranglerOutput || deployErr.message;
+      await notion.updateArticleStatus(pageId, '差し戻し', `デプロイエラー: ${detail.slice(0, 500)}`);
+      return res.status(500).json({ ok: false, step: 'deploy', error: deployErr.message, wranglerOutput: detail });
     }
 
     // 6. Notionステータス → 掲載完了

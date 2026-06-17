@@ -271,7 +271,8 @@ async function confirmAndDeploy() {
     setTimeout(() => { loadArticles(); showList(); }, 4000);
   } else {
     const errMsg = res.errors ? res.errors.join('\n') : res.error;
-    statusEl.textContent = `❌ 失敗 (${res.step || 'error'})\n\n${errMsg}`;
+    const wOut = res.wranglerOutput ? `\n\n--- wrangler出力 ---\n${res.wranglerOutput}` : '';
+    statusEl.textContent = `❌ 失敗 (${res.step || 'error'})\n\n${errMsg}${wOut}`;
     statusEl.className = 'error';
     $$('btn-deploy').disabled = false;
   }
