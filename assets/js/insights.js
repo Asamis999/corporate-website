@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-a-2',
+        title: '自社ECが伸びないのは、本当に広告のせいですか？',
+        excerpt: '自社ECの売上が伸びないとき、多くの企業は集客不足や広告費不足を疑います。しかし現場で見る限り、売上が伸びない原因は「誰に売るのか」「何を価値として届けるのか」「なぜ自社ECで買う理由があるのか」が整理されていないことにあるケースが少なくありません。',
+        url: '/insights/ec-growth/a-2/',
+        image: '/assets/images/insights/ec-growth/a-2_thumb.webp',
+        date: '2026.06.14',
+        tags: ["自社EC","EC売上改善","EC戦略","Shopify運用","Shopify構築","EC設計","EC集客","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'A'
+    },
+    {
         id: 'web-marketing-a-5',
         title: 'SNSを頑張っているのに売れないECの典型パターン',
         excerpt: 'SNSを頑張っているのにECの売上につながらないとき、原因は投稿量やアルゴリズムだけではありません。多くの場合、SNSで生まれた興味を、LP・商品ページ・購入導線で受け止められていないことにあります。',
@@ -143,19 +156,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-a-2',
-    title: '自社ECの売上が伸びないときに、最初に疑うべき3つのこと',
-    excerpt: '売上が伸びない原因は集客以前にある。自社ECで最初に疑うべき3つの視点を整理。',
-    url: '/insights/ec-growth/a-2/',
-    image: '/assets/images/insights/ec-growth/a-2_thumb.webp',
-    date: '2026.03.03',
-    tags: ['自社EC', 'EC売上改善', 'EC戦略', 'Shopify運用', 'EC設計', 'EC集客'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'A'
-  },
   {
     id: 'ec-growth-b-2',
     title: '売上が伸びているECほど、Shopify構築でデザインを後回しにする理由',

@@ -852,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'ec-growth-a-2': '自社ECが伸びないのは、本当に広告のせいですか？',
         'web-marketing-a-5': 'SNSを頑張っているのに売れないECの典型パターン',
         'web-marketing-a-4': '自社ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
         'web-marketing-a-1': 'Shopifyで売れないのは本当に集客の問題なのか？',
