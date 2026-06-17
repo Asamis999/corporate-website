@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'web-marketing-a-5',
+        title: 'SNSを頑張っているのに売れないECの典型パターン',
+        excerpt: 'SNSを頑張っているのにECの売上につながらないとき、原因は投稿量やアルゴリズムだけではありません。多くの場合、SNSで生まれた興味を、LP・商品ページ・購入導線で受け止められていないことにあります。',
+        url: '/insights/web-marketing/a-5/',
+        image: '/assets/images/insights/web-marketing/a-5_thumb.webp',
+        date: '2026.06.14',
+        tags: ["SNS集客","自社EC","EC売上改善","SNSマーケティング","ブランド設計","LP改善","LPO","Shopify構築","広告運用","マーケティング思考"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'web-marketing',
+        group: 'A'
+    },
+    {
         id: 'web-marketing-a-4',
         title: '自社ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
         excerpt: '自社ECを始めたのに成果が出ないとき、原因はサイトの見た目や集客施策だけではありません。多くの場合、自社ECをモール販売や実店舗の延長として捉えてしまい、価格設計・顧客対応・ブランド評価まで含めた事業設計が不足していることにあります。',
@@ -255,19 +268,6 @@ const insightsData = [
     image: '/assets/images/insights/web-marketing/a-2_thumb.webp',
     date: '2026.03.03',
     tags: ['EC', '売上', '原因'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'web-marketing',
-    group: 'A'
-  },
-  {
-    id: 'web-marketing-a-5',
-    title: 'SNSを頑張っているのに売れないECの典型パターン',
-    excerpt: 'SNS運用の「努力」が売上に繋がらない構造を整理し、親記事へ導線をつなぎます。',
-    url: '/insights/web-marketing/a-5/',
-    image: '/assets/images/insights/web-marketing/a-5_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC', 'SNS', '売れない'],
     category: 'insights',
     type: 'cluster',
     theme: 'web-marketing',
