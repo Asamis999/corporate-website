@@ -22,7 +22,7 @@ function deploy(siteRoot, cfProject) {
   // 本番環境: デプロイ前に最新をプル
   if (process.env.GITHUB_REPO_URL) {
     try {
-      execSync('git pull origin main', { cwd: siteRoot, stdio: 'pipe' });
+      execSync('git pull origin main --rebase', { cwd: siteRoot, stdio: 'pipe' });
     } catch (e) {
       console.warn('[Deploy] git pull スキップ:', e.message);
     }

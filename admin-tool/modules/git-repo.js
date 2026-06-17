@@ -46,7 +46,15 @@ function pushToGitHub(siteRoot) {
     execSync('git push origin main', { cwd: siteRoot, stdio: 'pipe' });
     console.log('[Git] GitHubへのプッシュ完了');
   } catch (e) {
-    console.warn('[Git] プッシュ失敗:', e.message);
+    console.warn('[Git] プッシュ失敗、rebase して再試行:', e.message);
+    try {
+      execSync('git pull origin main --rebase', { cwd: siteRoot, stdio: 'pipe' });
+      execSync('git push origin main', { cwd: siteRoot, stdio: 'pipe' });
+      console.log('[Git] rebase 後プッシュ完了');
+    } catch (e2) {
+      const msg = e2.stdout?.toString() || e2.stderr?.toString() || e2.message;
+      throw new Error(`GitHub push 失敗: ${msg}`);
+    }
   }
 }
 
