@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-a-4',
+        title: 'ECを始めたのに、成果が出ない企業の体質',
+        excerpt: 'ECサイトを作り、商品を掲載し、広告やSNSも始めた。それでも成果が出ない企業には、共通するつまずきがあります。多くの場合、原因は集客不足だけではなく、自社ECを「事業」として設計できていないことにあります。',
+        url: '/insights/ec-growth/a-4/',
+        image: '/assets/images/insights/ec-growth/a-4_thumb.webp',
+        date: '2026.06.14',
+        tags: ["自社EC","EC失敗","Shopify運用","Shopify構築","EC戦略","ブランド設計","EC顧客対応","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'A'
+    },
+    {
         id: 'ec-growth-a-3',
         title: '広告費をかけても売れない。どこで止まっている？',
         excerpt: '広告を回しているのに売れないとき、多くの企業は広告設定やクリエイティブを疑います。しかし現場で見る限り、問題は広告そのものではなく、誰に届けるのか、LPで何を受け止めるのか、Shopifyの商品ページで購入判断を支えられているのかが整理されていないことにあるケースが少なくありません。',
@@ -86,19 +99,6 @@ const insightsData = [
     image: '/assets/images/insights/ec-growth/a-2_thumb.webp',
     date: '2026.03.03',
     tags: ['自社EC', 'EC売上改善', 'EC戦略', 'Shopify運用', 'EC設計', 'EC集客'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'A'
-  },
-  {
-    id: 'ec-growth-a-4',
-    title: 'ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
-    excerpt: '自社ECが伸びない原因は集客以前にある。企業が最初にハマる構造的な落とし穴を解説。',
-    url: '/insights/ec-growth/a-4/',
-    image: '/assets/images/insights/ec-growth/a-4_thumb.webp',
-    date: '2026.03.03',
-    tags: ['自社EC', 'EC失敗', 'Shopify運用', 'EC戦略', 'ブランド設計', 'EC顧客対応'],
     category: 'insights',
     type: 'cluster',
     theme: 'ec-growth',
