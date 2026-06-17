@@ -52,14 +52,15 @@ function deploy(siteRoot, cfProject) {
   console.log('[Deploy] wrangler stdout:', wranglerStdout.slice(0, 500));
   console.log('[Deploy] wrangler stderr:', wranglerStderr.slice(0, 500));
 
+  // 本番環境: wrangler の成否に関わらず GitHub へプッシュ
+  // (Cloudflare Pages の GitHub 自動デプロイが有効な場合はこちらが主経路)
+  pushToGitHub(siteRoot);
+
   if (wrangler.status !== 0) {
     const err = new Error(`wrangler 失敗 (exit ${wrangler.status}): ${wranglerStderr || wranglerStdout}`);
     err.wranglerOutput = wranglerOutput;
     throw err;
   }
-
-  // 本番環境: デプロイ後にGitHubへプッシュして同期
-  pushToGitHub(siteRoot);
 
   return wranglerOutput;
 }

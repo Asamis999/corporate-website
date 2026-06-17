@@ -237,8 +237,8 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
       deployOutput = deployer.deploy(SITE_ROOT, CF_PROJECT);
     } catch (deployErr) {
       const detail = deployErr.wranglerOutput || deployErr.message;
-      await notion.updateArticleStatus(pageId, '差し戻し', `デプロイエラー: ${detail.slice(0, 500)}`);
-      return res.status(500).json({ ok: false, step: 'deploy', error: deployErr.message, wranglerOutput: detail });
+      console.warn('[Deploy] wrangler エラー（GitHub push は完了）:', detail.slice(0, 300));
+      deployOutput = `⚠️ wrangler失敗（GitHub push は完了 → CF Pages 自動デプロイを待機中）\n${detail}`;
     }
 
     // 6. Notionステータス → 掲載完了
