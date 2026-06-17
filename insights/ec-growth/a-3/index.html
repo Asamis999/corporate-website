@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>広告を回しているのに売れないECに共通する設計ミス | ナレッジ</title>
-    <meta name="description" content="広告を回しているのに売れないECには共通する設計ミスがあります。Google広告やSNS広告以前に見直すべき「構造」の問題を、現場視点で解説します。">
+    <title>広告費をかけても売れない。どこで止まっている？ | ナレッジ</title>
+    <meta name="description" content="広告を回しているのにECの売上が伸びない理由を解説。広告設定だけでなく、LP・Shopify商品ページ・購入導線まで含めた設計の問題を整理します。">
+    <link rel="canonical" href="https://a-inc.info/insights/ec-growth/a-3/">
 
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -22,146 +23,344 @@
     <main class="main-content">
         <div class="article-container">
             <header class="article-header">
-                <h1 class="article-title">広告を回しているのに売れないECに共通する設計ミス</h1>
-                <div class="article-meta">カテゴリA｜Shopify構築の前提を壊す（認識破壊）</div>
+                <h1 class="article-title">広告費をかけても売れない。どこで止まっている？</h1>
+                <div class="article-meta">テーマ：ec-growth　更新日：2026.06.14</div>
                 <div class="article-tag-list">
                     <span class="article-tag">EC広告</span>
+                    <span class="article-tag">広告運用</span>
                     <span class="article-tag">EC売上改善</span>
+                    <span class="article-tag">自社EC</span>
+                    <span class="article-tag">Shopify運用</span>
+                    <span class="article-tag">Shopify構築</span>
                     <span class="article-tag">EC設計</span>
+                    <span class="article-tag">LP改善</span>
+                    <span class="article-tag">LPO</span>
+                    <span class="article-tag">ECマーケティング</span>
                 </div>
             </header>
 
             <div class="article-image-container">
-                <img src="/assets/images/insights/ec-growth/shared_main.webp" alt="広告を回しているのに売れないECに共通する設計ミス" class="article-image" style="max-width: 100%;">
+                <img src="/assets/images/insights/ec-growth/a-3_thumb.webp" alt="広告管理画面を見ながらECの売上がどこで止まっているのかを考えている実写イメージ" class="article-image" style="max-width: 100%;">
             </div>
 
             <section class="article-section fade-in">
                 <h2 class="article-section-title">目次</h2>
                 <ol class="article-list">
-                    <li>広告は回しているのに、なぜ売れないのか</li>
-                    <li>「広告のせいだ」と思いたくなる理由</li>
-                    <li>売れないECに共通する広告前の状態</li>
-                    <li>設計ミス①｜誰に向けた広告か分からない</li>
-                    <li>設計ミス②｜LPが広告の受け皿になっていない</li>
-                    <li>設計ミス③｜広告データを判断に使えていない</li>
-                    <li>広告費を増やすほど苦しくなる理由</li>
-                    <li>広告が機能し始めるECの共通点</li>
-                    <li>まとめ：広告は「設計」があって初めて武器になる</li>
+                    <li><a href="#section1">広告を回しているのに売れないECで起きていること</a></li>
+                    <li><a href="#section2">広告が悪いと思いたくなるのは自然なこと</a></li>
+                    <li><a href="#section3">売れない原因は、広告の前の設計にある</a></li>
+                    <li><a href="#section4">誰に向けた広告なのかが曖昧になっていないか</a></li>
+                    <li><a href="#section5">LPが広告の受け皿になっていないと、クリックは売上に変わらない</a></li>
+                    <li><a href="#section6">Shopifyの商品ページで購入判断が止まっていないか</a></li>
+                    <li><a href="#section7">広告データを見ても、次の判断ができない理由</a></li>
+                    <li><a href="#section8">広告費を増やすほど苦しくなるECの共通点</a></li>
+                    <li><a href="#section9">広告が機能し始めるECは、何が違うのか</a></li>
+                    <li><a href="#section10">まとめ：広告を直す前に、構築と集客設計を見直す</a></li>
                 </ol>
             </section>
 
             <div class="divider"></div>
 
             <section class="article-section fade-in">
-                <h2 class="article-section-title">広告は回しているのに、なぜ売れないのか</h2>
-                <ul class="article-list">
-                    <li>Google広告を出している</li>
-                    <li>SNS広告も試している</li>
-                    <li>それなりにクリックもある</li>
-                </ul>
-                <p class="article-p">それでも、</p>
-                <p class="article-p"><strong>売上につながらない。</strong></p>
-                <p class="article-p">この状態に陥っているECは、</p>
-                <p class="article-p">決して少なくありません。</p>
 
-                <h2 class="article-section-title">「広告のせいだ」と思いたくなる理由</h2>
-                <p class="article-p">売れないとき、</p>
-                <p class="article-p">真っ先に疑われるのが広告です。</p>
-                <ul class="article-list">
-                    <li>設定が悪いのか</li>
-                    <li>クリエイティブが弱いのか</li>
-                    <li>広告費が足りないのか</li>
-                </ul>
-                <p class="article-p">そう考えるのは自然です。</p>
-                <p class="article-p">ですが、</p>
-                <p class="article-p">実際に現場で多いのは、</p>
-                <p class="article-p"><strong>広告以前の段階で詰まっているケース</strong>です。</p>
+                <h2 id="section1" class="article-section-title">広告を回しているのに売れないECで起きていること</h2>
+                <p class="article-p">Google広告を出している。</p>
+                <p class="article-p">Meta広告も試している。</p>
+                <p class="article-p">SNS広告にも予算をかけている。</p>
+                <p class="article-p">クリックも発生している。</p>
+                <p class="article-p">アクセスもゼロではない。</p>
+                <p class="article-p">それでも、売上につながらない。</p>
+                <p class="article-p">この状態に陥っているECは、決して少なくありません。</p>
+                <p class="article-p">広告管理画面を見ると、数字は動いています。</p>
+                <p class="article-p">インプレッションもある。</p>
+                <p class="article-p">クリックもある。</p>
+                <p class="article-p">場合によっては、カート投入や商品ページ閲覧も発生している。</p>
+                <p class="article-p">それなのに、購入が増えない。</p>
+                <p class="article-p">CPAが合わない。</p>
+                <p class="article-p">ROASが目標に届かない。</p>
+                <p class="article-p">広告費をかけているのに、利益が残らない。</p>
+                <p class="article-p">こうなると、多くの企業は広告そのものを疑い始めます。</p>
+                <p class="article-p">広告文が悪いのではないか。</p>
+                <p class="article-p">クリエイティブが弱いのではないか。</p>
+                <p class="article-p">ターゲティングがズレているのではないか。</p>
+                <p class="article-p">広告費が足りないのではないか。</p>
+                <p class="article-p">媒体選定が間違っているのではないか。</p>
+                <p class="article-p">もちろん、広告運用に改善余地があることはあります。</p>
+                <p class="article-p">広告文、バナー、ターゲティング、配信面、予算配分、入札戦略は、成果に影響します。</p>
+                <p class="article-p">しかし現場で自社ECやShopify構築、LP改善、広告運用を見ていると、広告が売上につながらない原因は、広告管理画面の中だけにあるとは限りません。</p>
+                <p class="article-p">むしろ、広告の前後にある設計が整っていないことで、広告費が売上に変わっていないケースが多くあります。</p>
+                <p class="article-p">誰に届ける広告なのか。</p>
+                <p class="article-p">その人に何を伝えるのか。</p>
+                <p class="article-p">クリック後、LPで何を理解してもらうのか。</p>
+                <p class="article-p">Shopifyの商品ページでは、どの不安を解消するのか。</p>
+                <p class="article-p">数字が悪かったとき、広告・LP・商品ページのどこを疑うのか。</p>
+                <p class="article-p">ここが曖昧なまま広告を回しても、売上は安定しません。</p>
+                <p class="article-p">広告費をかけても売れないECは、広告そのものではなく、広告から購入までのどこかで止まっている可能性があります。</p>
 
-                <h2 class="article-section-title">売れないECに共通する広告前の状態</h2>
-                <p class="article-p">広告がうまくいかないECには、</p>
-                <p class="article-p">共通する初期状態があります。</p>
-                <ul class="article-list">
-                    <li>誰に売りたいのかが曖昧</li>
-                    <li>商品の価値が整理されていない</li>
-                    <li>LPが何を伝えたいのか分からない</li>
-                </ul>
-                <p class="article-p">この状態で広告を回しても、</p>
-                <p class="article-p">判断できるデータは溜まりません。</p>
+                <h2 id="section2" class="article-section-title">広告が悪いと思いたくなるのは自然なこと</h2>
+                <p class="article-p">広告を回しているのに売れないとき、広告を疑いたくなるのは自然です。</p>
+                <p class="article-p">なぜなら、広告は数字が見えやすいからです。</p>
+                <p class="article-p">CTR。</p>
+                <p class="article-p">CPC。</p>
+                <p class="article-p">CPA。</p>
+                <p class="article-p">ROAS。</p>
+                <p class="article-p">CVR。</p>
+                <p class="article-p">クリック数。</p>
+                <p class="article-p">インプレッション数。</p>
+                <p class="article-p">コンバージョン数。</p>
+                <p class="article-p">広告管理画面には、判断材料に見える数字がたくさん並んでいます。</p>
+                <p class="article-p">CPAが高ければ、広告が悪いように見える。</p>
+                <p class="article-p">CTRが低ければ、クリエイティブが弱いように見える。</p>
+                <p class="article-p">ROASが合わなければ、広告を止めた方がよいように感じる。</p>
+                <p class="article-p">しかし、広告の数字は広告だけで決まりません。</p>
+                <p class="article-p">広告をクリックした後に見るLP。</p>
+                <p class="article-p">Shopifyの商品ページ。</p>
+                <p class="article-p">購入前の不安解消。</p>
+                <p class="article-p">レビューや実績の見せ方。</p>
+                <p class="article-p">配送や返品の説明。</p>
+                <p class="article-p">価格やオファーの納得感。</p>
+                <p class="article-p">カートから購入完了までの導線。</p>
+                <p class="article-p">これらが噛み合っていなければ、広告の数字は悪くなります。</p>
+                <p class="article-p">たとえば、広告のクリック率が悪い場合、広告クリエイティブだけが原因とは限りません。</p>
+                <p class="article-p">そもそも誰に届けるべきかが曖昧で、訴求が広すぎる可能性があります。</p>
+                <p class="article-p">CPAが高い場合も、広告のターゲティングだけが原因とは限りません。</p>
+                <p class="article-p">LPで購入理由が伝わっていないかもしれません。</p>
+                <p class="article-p">Shopifyの商品ページで購入前の不安が解消されていないかもしれません。</p>
+                <p class="article-p">ROASが合わない場合も、広告運用だけではなく、価格設計やLTV、購入後CRMまで含めて見る必要があります。</p>
+                <p class="article-p">広告の数字は、販売導線全体の状態を映す結果です。</p>
+                <p class="article-p">だからこそ、広告費をかけても売れないときは、広告だけを直そうとするのではなく、広告から購入までの流れを分解して見る必要があります。</p>
 
-                <h2 class="article-section-title">設計ミス①｜誰に向けた広告か分からない</h2>
-                <p class="article-p">広告で最初に必要なのは、</p>
-                <p class="article-p"><strong>「誰に向けて出しているか」</strong>です。</p>
-                <ul class="article-list">
-                    <li>広すぎるターゲット</li>
-                    <li>なんとなくの年齢・性別設定</li>
-                </ul>
-                <p class="article-p">これでは、</p>
-                <ul class="article-list">
-                    <li>反応が良いのか</li>
-                    <li>悪いのか</li>
-                </ul>
-                <p class="article-p">すら判断できません。</p>
-                <p class="article-p">広告は、</p>
-                <p class="article-p"><strong>前提が曖昧だと失敗します。</strong></p>
+                <h2 id="section3" class="article-section-title">売れない原因は、広告の前の設計にある</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/a-3_section1.webp" alt="広告を出す前に顧客や価値、LP、商品ページの設計を実写の付箋で整理しているイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">売れないECには、広告を回す前の段階で共通する状態があります。</p>
+                <p class="article-p">誰に売りたいのかが曖昧。</p>
+                <p class="article-p">商品の価値が顧客視点で整理されていない。</p>
+                <p class="article-p">LPで何を伝えるべきか決まっていない。</p>
+                <p class="article-p">Shopifyの商品ページが購入判断に必要な情報を満たしていない。</p>
+                <p class="article-p">広告とLP、商品ページの訴求がつながっていない。</p>
+                <p class="article-p">この状態で広告を回しても、判断できるデータは溜まりません。</p>
+                <p class="article-p">クリックはある。</p>
+                <p class="article-p">LPの閲覧もある。</p>
+                <p class="article-p">商品ページへの遷移もある。</p>
+                <p class="article-p">しかし、何が良くて、何が悪いのかが分からない。</p>
+                <p class="article-p">広告で集める人が違うのか。</p>
+                <p class="article-p">広告の訴求が弱いのか。</p>
+                <p class="article-p">LPのファーストビューが悪いのか。</p>
+                <p class="article-p">商品ページで不安が解消できていないのか。</p>
+                <p class="article-p">価格やオファーが合っていないのか。</p>
+                <p class="article-p">購入導線に問題があるのか。</p>
+                <p class="article-p">これを切り分けられないまま広告を回し続けると、改善ではなく消耗になります。</p>
+                <p class="article-p">広告運用で重要なのは、広告を出すことそのものではありません。</p>
+                <p class="article-p">広告によって何を検証し、どこを改善するかを判断できる状態にすることです。</p>
+                <p class="article-p">そのためには、広告を回す前に設計が必要です。</p>
+                <p class="article-p">誰に届けるのか。</p>
+                <p class="article-p">何を価値として伝えるのか。</p>
+                <p class="article-p">クリック後にどのLPで受け止めるのか。</p>
+                <p class="article-p">Shopifyの商品ページで何を納得してもらうのか。</p>
+                <p class="article-p">購入前の不安をどこで解消するのか。</p>
+                <p class="article-p">ここが整理されていないと、広告は売上を作る武器ではなく、原因不明の数字を増やすだけの施策になってしまいます。</p>
 
-                <h2 class="article-section-title">設計ミス②｜LPが広告の受け皿になっていない</h2>
-                <p class="article-p">広告で興味を持ったユーザーが、</p>
-                <p class="article-p">次に見るのはLPです。</p>
-                <p class="article-p">ここで、</p>
-                <ul class="article-list">
-                    <li>広告とLPの言っていることが違う</li>
-                    <li>価値がすぐに伝わらない</li>
-                    <li>何をすればいいか分からない</li>
-                </ul>
-                <p class="article-p">この状態だと、</p>
-                <p class="article-p">広告は無力になります。</p>
+                <h2 id="section4" class="article-section-title">誰に向けた広告なのかが曖昧になっていないか</h2>
+                <p class="article-p">広告で最初に必要なのは、「誰に向けて出しているのか」です。</p>
+                <p class="article-p">これは、年齢や性別、地域などの設定だけを指しているわけではありません。</p>
+                <p class="article-p">重要なのは、その人がどのような状況で、どんな課題を持ち、なぜ今その商品に興味を持つのかです。</p>
+                <p class="article-p">初めて商品カテゴリを知る人なのか。</p>
+                <p class="article-p">すでに比較検討している人なのか。</p>
+                <p class="article-p">他社商品で失敗した経験がある人なのか。</p>
+                <p class="article-p">価格よりも安心感を重視している人なのか。</p>
+                <p class="article-p">今すぐ買いたい人なのか。</p>
+                <p class="article-p">まだ情報収集中の人なのか。</p>
+                <p class="article-p">この違いによって、広告で伝えるべきことは変わります。</p>
+                <p class="article-p">たとえば、まだ課題に気づいていない人に対して、いきなり商品スペックを訴求しても反応しづらいかもしれません。</p>
+                <p class="article-p">比較検討中の人には、他社との違いや選ばれる理由を伝える必要があります。</p>
+                <p class="article-p">購入直前の人には、配送、返品、保証、レビューなどの安心材料が効くかもしれません。</p>
+                <p class="article-p">誰に向けた広告なのかが曖昧なままでは、広告の良し悪しも判断できません。</p>
+                <p class="article-p">クリック率が低いのは、クリエイティブが弱いからなのか。</p>
+                <p class="article-p">そもそも届けている相手が違うのか。</p>
+                <p class="article-p">訴求する悩みがズレているのか。</p>
+                <p class="article-p">購入意欲の低い層に広げすぎているのか。</p>
+                <p class="article-p">ここが分からないまま広告を調整しても、改善の方向性は定まりません。</p>
+                <p class="article-p">現場でよくあるのは、「広く届ければ売れるはず」と考えて、ターゲットや訴求を広げすぎてしまうケースです。</p>
+                <p class="article-p">しかし、広げるほど言葉は一般的になります。</p>
+                <p class="article-p">一般的な言葉になるほど、顧客は「自分のことだ」と感じにくくなります。</p>
+                <p class="article-p">広告は、多くの人に見せることが目的ではありません。</p>
+                <p class="article-p">買う理由がある人に、適切な切り口で届けることが目的です。</p>
 
-                <h2 class="article-section-title">設計ミス③｜広告データを判断に使えていない</h2>
-                <p class="article-p">広告は、</p>
-                <ul class="article-list">
-                    <li>回すこと</li>
-                    <li>数字を見ること</li>
-                </ul>
-                <p class="article-p">が目的ではありません。</p>
-                <p class="article-p">本来は、</p>
-                <ul class="article-list">
-                    <li>仮説が合っているか</li>
-                    <li>どこでズレているか</li>
-                </ul>
-                <p class="article-p">を判断するためのものです。</p>
-                <p class="article-p">設計が曖昧なECでは、</p>
-                <p class="article-p">広告データを「次の判断」に使えません。</p>
+                <h2 id="section5" class="article-section-title">LPが広告の受け皿になっていないと、クリックは売上に変わらない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/a-3_section2.webp" alt="広告の訴求とLPの内容を揃えてクリックを売上につなげる設計をしている実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">広告で興味を持ったユーザーが次に見るのは、LPや商品ページです。</p>
+                <p class="article-p">ここで広告とLPの内容がつながっていないと、クリックは売上に変わりません。</p>
+                <p class="article-p">たとえば、広告では「悩みの解決」を訴求している。</p>
+                <p class="article-p">しかし、LPでは商品の特徴説明から始まっている。</p>
+                <p class="article-p">広告では「価格の納得感」を訴求している。</p>
+                <p class="article-p">しかし、LPでは価格に見合う理由が説明されていない。</p>
+                <p class="article-p">広告では「他社との違い」を打ち出している。</p>
+                <p class="article-p">しかし、遷移先では比較情報が見当たらない。</p>
+                <p class="article-p">広告では「今すぐ買う理由」を提示している。</p>
+                <p class="article-p">しかし、LPや商品ページでは購入を後押しする情報が不足している。</p>
+                <p class="article-p">このようなズレがあると、ユーザーはクリック後に離脱します。</p>
+                <p class="article-p">広告で生まれた期待が、LPで受け止められていないからです。</p>
+                <p class="article-p">LPは、広告流入を受け止めるためのページです。</p>
+                <p class="article-p">単に商品を説明する場所ではありません。</p>
+                <p class="article-p">広告で興味を持った人に対して、なぜこの商品が自分に関係あるのかを理解してもらう。</p>
+                <p class="article-p">なぜ他の商品ではなくこれを選ぶべきなのかを納得してもらう。</p>
+                <p class="article-p">購入前の不安を解消する。</p>
+                <p class="article-p">次に何をすればよいかを迷わせない。</p>
+                <p class="article-p">この役割を果たせて初めて、LPは広告の受け皿になります。</p>
+                <p class="article-p">現場でよく見るのは、広告運用とLP改善が別々に進んでいる状態です。</p>
+                <p class="article-p">広告側ではクリックを集める。</p>
+                <p class="article-p">LP側では別の文脈で商品を説明する。</p>
+                <p class="article-p">Shopifyの商品ページではさらに別の情報が並ぶ。</p>
+                <p class="article-p">これでは、販売導線としてつながりません。</p>
+                <p class="article-p">広告で何を約束し、LPで何を納得させ、商品ページで何を確認してもらうのか。</p>
+                <p class="article-p">この役割分担がないまま広告を回しても、売上にはつながりにくくなります。</p>
 
-                <h2 class="article-section-title">広告費を増やすほど苦しくなる理由</h2>
-                <p class="article-p">よくある誤解が、</p>
-                <p class="article-p"><strong>「広告費を増やせば売れる」</strong></p>
-                <p class="article-p">という考えです。</p>
-                <p class="article-p">整理されていない状態で広告費を増やすと、</p>
-                <ul class="article-list">
-                    <li>判断できないデータが増える</li>
-                    <li>改善の方向が見えなくなる</li>
-                    <li>資金だけが減っていく</li>
-                </ul>
-                <p class="article-p">という状態になります。</p>
+                <h2 id="section6" class="article-section-title">Shopifyの商品ページで購入判断が止まっていないか</h2>
+                <p class="article-p">広告とLPが整っていても、Shopifyの商品ページで購入判断が止まることがあります。</p>
+                <p class="article-p">これは、自社ECで非常によく起こります。</p>
+                <p class="article-p">LPで興味を持った。</p>
+                <p class="article-p">広告で気になった。</p>
+                <p class="article-p">SNSでも見たことがある。</p>
+                <p class="article-p">商品ページまで来た。</p>
+                <p class="article-p">それでも購入されない。</p>
+                <p class="article-p">この場合、商品ページで購入前の不安に答えられていない可能性があります。</p>
+                <p class="article-p">本当に自分に合うのか。</p>
+                <p class="article-p">他の商品と何が違うのか。</p>
+                <p class="article-p">価格に見合う価値があるのか。</p>
+                <p class="article-p">レビューはあるのか。</p>
+                <p class="article-p">配送はいつ届くのか。</p>
+                <p class="article-p">返品や交換はできるのか。</p>
+                <p class="article-p">保証はあるのか。</p>
+                <p class="article-p">サイズや使用感は分かるのか。</p>
+                <p class="article-p">初めて買っても失敗しないのか。</p>
+                <p class="article-p">こうした情報が不足していると、ユーザーは購入前に止まります。</p>
+                <p class="article-p">Shopifyの商品ページは、単に商品情報を掲載する場所ではありません。</p>
+                <p class="article-p">購入直前の判断を支える場所です。</p>
+                <p class="article-p">広告やLPが入口だとすれば、商品ページは最後の納得を作る場所です。</p>
+                <p class="article-p">ここが弱いと、広告費をかけてもCVRは上がりません。</p>
+                <p class="article-p">現場では、広告のCPAが悪いと言われていた案件でも、実際には商品ページの情報不足が原因だったケースがあります。</p>
+                <p class="article-p">広告で集めている人は悪くない。</p>
+                <p class="article-p">LPの訴求も大きく外れていない。</p>
+                <p class="article-p">しかし、商品ページにレビュー、配送、返品、FAQ、比較情報、使用シーンが不足していて、購入直前で離脱している。</p>
+                <p class="article-p">この場合、直すべきは広告だけではありません。</p>
+                <p class="article-p">Shopifyの商品ページを、広告流入やLP流入に耐えられる受け皿として設計する必要があります。</p>
 
-                <h2 class="article-section-title">広告が機能し始めるECの共通点</h2>
-                <p class="article-p">広告が機能しているECは、</p>
-                <p class="article-p">例外なく次の状態です。</p>
-                <ul class="article-list">
-                    <li>誰に売るかが明確</li>
-                    <li>価値が一言で説明できる</li>
-                    <li>LPがその価値を受け止めている</li>
-                </ul>
-                <p class="article-p">広告は、</p>
-                <p class="article-p"><strong>構造が整って初めて武器になります。</strong></p>
+                <h2 id="section7" class="article-section-title">広告データを見ても、次の判断ができない理由</h2>
+                <p class="article-p">広告は、回すことが目的ではありません。</p>
+                <p class="article-p">数字を見ることだけが目的でもありません。</p>
+                <p class="article-p">本来、広告は仮説を検証するためのものです。</p>
+                <p class="article-p">この訴求は反応するのか。</p>
+                <p class="article-p">この顧客層は購入につながるのか。</p>
+                <p class="article-p">このLPは広告流入を受け止められるのか。</p>
+                <p class="article-p">商品ページで不安が解消されているのか。</p>
+                <p class="article-p">どこで離脱しているのか。</p>
+                <p class="article-p">これを判断するために、広告データを見ます。</p>
+                <p class="article-p">しかし設計が曖昧なECでは、広告データを次の判断に使えません。</p>
+                <p class="article-p">CTRが低い。</p>
+                <p class="article-p">CPAが高い。</p>
+                <p class="article-p">ROASが合わない。</p>
+                <p class="article-p">CVRが低い。</p>
+                <p class="article-p">数字は見えているのに、どこを直すべきか分からない。</p>
+                <p class="article-p">広告クリエイティブを変えるべきなのか。</p>
+                <p class="article-p">ターゲティングを絞るべきなのか。</p>
+                <p class="article-p">LPの見出しを変えるべきなのか。</p>
+                <p class="article-p">Shopifyの商品ページにFAQを追加すべきなのか。</p>
+                <p class="article-p">価格やオファーを見直すべきなのか。</p>
+                <p class="article-p">そもそも訴求する顧客が違うのか。</p>
+                <p class="article-p">ここが判断できないと、広告運用は改善ではなく作業になります。</p>
+                <p class="article-p">数字を見ているようで、実際には反応に振り回されている状態です。</p>
+                <p class="article-p">広告データを判断に使うには、前提が必要です。</p>
+                <p class="article-p">誰に届ける広告なのか。</p>
+                <p class="article-p">何を検証する広告なのか。</p>
+                <p class="article-p">どのページで受け止めるのか。</p>
+                <p class="article-p">どの数字が悪ければ、どこを疑うのか。</p>
+                <p class="article-p">この設計があると、広告データは改善の材料になります。</p>
+                <p class="article-p">設計がないと、広告データは不安を増やす数字になってしまいます。</p>
 
-                <h2 class="article-section-title">まとめ：広告は「設計」があって初めて武器になる</h2>
+                <h2 id="section8" class="article-section-title">広告費を増やすほど苦しくなるECの共通点</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/a-3_section3.webp" alt="広告からLP、Shopify商品ページ、カート、購入までの導線を実写の付箋で整理しているイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">よくある誤解が、「広告費を増やせば売れる」という考えです。</p>
+                <p class="article-p">確かに、広告費を増やせば流入は増えます。</p>
+                <p class="article-p">一時的に売上が動くこともあります。</p>
+                <p class="article-p">しかし、販売導線が整っていない状態で広告費を増やすと、売上ではなく損失が増えることがあります。</p>
+                <p class="article-p">誰に向けた広告なのか曖昧。</p>
+                <p class="article-p">LPが広告の受け皿になっていない。</p>
+                <p class="article-p">Shopifyの商品ページで購入判断が止まっている。</p>
+                <p class="article-p">計測が不十分で、どこで離脱しているか分からない。</p>
+                <p class="article-p">広告データを見ても、次に何を直すべきか判断できない。</p>
+                <p class="article-p">この状態で広告費を増やすと、問題もそのまま大きくなります。</p>
+                <p class="article-p">判断できないデータが増える。</p>
+                <p class="article-p">改善の方向が見えなくなる。</p>
+                <p class="article-p">CPAが悪化する。</p>
+                <p class="article-p">現場が焦る。</p>
+                <p class="article-p">クリエイティブや予算調整だけを繰り返す。</p>
+                <p class="article-p">資金だけが減っていく。</p>
+                <p class="article-p">広告費を増やすこと自体が悪いわけではありません。</p>
+                <p class="article-p">むしろ、売れる構造が整っているECでは、広告費を増やすことで成長を加速できます。</p>
+                <p class="article-p">問題は、広告費を増やす前に、広告を受け止める構造が整っているかどうかです。</p>
+                <p class="article-p">広告は、整理された販売導線を広げる装置です。</p>
+                <p class="article-p">整理されていない導線に広告費を流しても、売上は安定しません。</p>
+                <p class="article-p">広告費を増やす前に見るべきなのは、広告アカウントだけではありません。</p>
+                <p class="article-p">広告からLPへ。</p>
+                <p class="article-p">LPからShopifyの商品ページへ。</p>
+                <p class="article-p">商品ページからカートへ。</p>
+                <p class="article-p">カートから購入へ。</p>
+                <p class="article-p">この流れのどこで止まっているのかを確認する必要があります。</p>
+
+                <h2 id="section9" class="article-section-title">広告が機能し始めるECは、何が違うのか</h2>
+                <p class="article-p">広告が機能しているECには、共通点があります。</p>
+                <p class="article-p">まず、誰に売るかが明確です。</p>
+                <p class="article-p">広告で届ける相手が明確なので、訴求がぼやけません。</p>
+                <p class="article-p">その人がどんな状況にいて、どんな不安や期待を持っているのかを前提に広告を作れます。</p>
+                <p class="article-p">次に、価値が一言で説明できます。</p>
+                <p class="article-p">機能やスペックではなく、顧客にとって何が変わるのかを伝えられます。</p>
+                <p class="article-p">広告でもLPでも商品ページでも、同じ価値が一貫して伝わります。</p>
+                <p class="article-p">さらに、LPがその価値を受け止めています。</p>
+                <p class="article-p">広告で興味を持った人に対して、LPで購入理由を整理し、不安を解消し、次の行動へ進めます。</p>
+                <p class="article-p">そして、Shopifyの商品ページが購入判断を支えています。</p>
+                <p class="article-p">レビュー、配送、返品、FAQ、使用シーン、比較情報、保証など、購入前に必要な情報が揃っています。</p>
+                <p class="article-p">この状態になると、広告データの見方も変わります。</p>
+                <p class="article-p">クリック率が悪ければ、入口の訴求を見直す。</p>
+                <p class="article-p">LPで離脱していれば、購入理由や不安解消の順番を見直す。</p>
+                <p class="article-p">商品ページで止まっていれば、購入前の情報不足を補う。</p>
+                <p class="article-p">カートで離脱していれば、配送条件や決済導線を確認する。</p>
+                <p class="article-p">広告が機能するECは、広告だけが強いわけではありません。</p>
+                <p class="article-p">広告、LP、Shopifyの商品ページ、購入導線がつながっています。</p>
+                <p class="article-p">A.Incでは、広告運用を単体の作業としてではなく、LP・LPO支援、Shopify構築、商品ページ改善まで含めた販売導線の一部として捉えています。</p>
+                <p class="article-p">広告を成果につなげるには、広告管理画面だけではなく、クリック後の受け皿まで設計する必要があります。</p>
+
+                <h2 id="section10" class="article-section-title">まとめ：広告を直す前に、構築と集客設計を見直す</h2>
                 <p class="article-p">広告が悪いわけではありません。</p>
-                <p class="article-p">問題は、</p>
-                <p class="article-p"><strong>広告を受け止める設計があるかどうか。</strong></p>
-                <p class="article-p">この構造については、</p>
-                <p class="article-p">ピラー記事で全体像を整理しています。</p>
-                <p class="article-p">👉 <a href="/insights/ec-growth/">ピラー記事：初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実</a></p>
+                <p class="article-p">Google広告も、Meta広告も、SNS広告も、自社ECの成長には重要な手段です。</p>
+                <p class="article-p">しかし広告は、単体で売上を作る魔法ではありません。</p>
+                <p class="article-p">誰に届けるのか。</p>
+                <p class="article-p">何を価値として伝えるのか。</p>
+                <p class="article-p">どのLPで受け止めるのか。</p>
+                <p class="article-p">Shopifyの商品ページで何を納得してもらうのか。</p>
+                <p class="article-p">購入前の不安をどこで解消するのか。</p>
+                <p class="article-p">数字が悪かったとき、広告・LP・商品ページのどこを疑うのか。</p>
+                <p class="article-p">この設計があって初めて、広告は武器になります。</p>
+                <p class="article-p">広告費をかけても売れないときは、広告を止める前に、広告から購入までの導線を見直してみてください。</p>
+                <p class="article-p">広告管理画面の中だけではなく、LP、Shopifyの商品ページ、カート、購入後の導線まで含めて見ることが重要です。</p>
+                <p class="article-p">このような広告・LP・Shopify構築を含めた全体設計については、親記事「初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実」で詳しく整理しています。</p>
+                <p class="article-p">👉 親記事への内部リンク</p>
+                <p class="article-p">（初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実）</p>
+                <p class="article-p">A.Incでは、LP・LPO支援、Shopify構築、広告運用を個別の施策としてではなく、売上改善につながる販売導線として設計しています。</p>
+                <p class="article-p">広告を回しているのに売れない場合は、広告だけを直すのではなく、構築と集客設計の前提から見直すことをおすすめします。</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
             </section>
 
             <div class="divider"></div>
@@ -172,12 +371,16 @@
             </section>
 
             <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
             <div id="profile-container" class="fade-in"></div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
+    <script>window.__currentArticle = {"id":"ec-growth-a-3","title":"広告費をかけても売れない。どこで止まっている？","url":"/insights/ec-growth/a-3/","image":"/assets/images/insights/ec-growth/a-3_thumb.webp","date":"2026.06.14","tags":["EC広告","広告運用","EC売上改善","自社EC","Shopify運用","Shopify構築","EC設計","LP改善","LPO","ECマーケティング"],"category":"insights","type":"cluster","theme":"ec-growth","group":"ec-growth"};</script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/insights-related.js"></script>

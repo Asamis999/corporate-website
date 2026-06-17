@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-a-3',
+        title: '広告費をかけても売れない。どこで止まっている？',
+        excerpt: '広告を回しているのに売れないとき、多くの企業は広告設定やクリエイティブを疑います。しかし現場で見る限り、問題は広告そのものではなく、誰に届けるのか、LPで何を受け止めるのか、Shopifyの商品ページで購入判断を支えられているのかが整理されていないことにあるケースが少なくありません。',
+        url: '/insights/ec-growth/a-3/',
+        image: '/assets/images/insights/ec-growth/a-3_thumb.webp',
+        date: '2026.06.14',
+        tags: ["EC広告","広告運用","EC売上改善","自社EC","Shopify運用","Shopify構築","EC設計","LP改善","LPO","ECマーケティング"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'A'
+    },
+    {
         id: 'ec-growth-a-1',
         title: '初月から伸びるECサイトは、何が違うのか？',
         excerpt: 'ECの人気プラットフォームShopifyはテーマを選び、商品を登録すれば誰でも始められるように見えます。しかし、初月から売上を作るECと、公開後に運用や集客で止まるECでは、構築時点の前提が大きく違います。',
@@ -73,19 +86,6 @@ const insightsData = [
     image: '/assets/images/insights/ec-growth/a-2_thumb.webp',
     date: '2026.03.03',
     tags: ['自社EC', 'EC売上改善', 'EC戦略', 'Shopify運用', 'EC設計', 'EC集客'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'A'
-  },
-  {
-    id: 'ec-growth-a-3',
-    title: '広告を回しているのに売れないECに共通する設計ミス',
-    excerpt: '広告を回しても売れない理由は、広告ではなく設計にある。ECでよくある構造的なミスを解説。',
-    url: '/insights/ec-growth/a-3/',
-    image: '/assets/images/insights/ec-growth/a-3_thumb.webp',
-    date: '2026.03.03',
-    tags: ['EC広告', 'EC売上改善', 'Shopify運用', 'EC設計', '広告運用', '自社EC'],
     category: 'insights',
     type: 'cluster',
     theme: 'ec-growth',
