@@ -852,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'ec-growth-a-1': '初月から伸びるECサイトは、何が違うのか？',
         'web-marketing-a-3': '広告を回しているのに売れないECに共通する設計ミス',
         'ec-growth': '初月1000万円規模の売上を作ってきたチームが語る、EC構築の現実',
         'web-marketing': '自社ECが伸びない本当の理由',

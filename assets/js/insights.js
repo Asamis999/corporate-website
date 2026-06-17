@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-a-1',
+        title: '初月から伸びるECサイトは、何が違うのか？',
+        excerpt: 'ECの人気プラットフォームShopifyはテーマを選び、商品を登録すれば誰でも始められるように見えます。しかし、初月から売上を作るECと、公開後に運用や集客で止まるECでは、構築時点の前提が大きく違います。',
+        url: '/insights/ec-growth/a-1/',
+        image: '/assets/images/insights/ec-growth/a-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","Shopify制作","Shopifyカスタマイズ","自社EC","EC設計","Shopify運用","EC売上改善","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'A'
+    },
+    {
         id: 'web-marketing-a-3',
         title: '広告を回しているのに売れないECに共通する設計ミス',
         excerpt: '広告を回しているのに売れないとき、多くの企業は広告文やターゲティング、予算配分を疑います。しかし現場で見る限り、問題は広告管理画面の中だけではなく、広告を受け止めるLP・商品ページ・販売導線の構造にあるケースが少なくありません。',
@@ -52,19 +65,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-a-1',
-    title: '初月から売上を作るShopifyは、なぜ誰が作っても同じにならないのか',
-    excerpt: 'Shopifyは簡単。でも、売れるかどうかは誰が作るかで決まる。その理由を現場視点で解説。',
-    url: '/insights/ec-growth/a-1/',
-    image: '/assets/images/insights/ec-growth/a-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', 'Shopify制作', '自社EC', 'EC設計', 'Shopify運用', 'EC売上改善'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'A'
-  },
   {
     id: 'ec-growth-a-2',
     title: '自社ECの売上が伸びないときに、最初に疑うべき3つのこと',
