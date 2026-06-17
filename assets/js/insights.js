@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'web-marketing-a-1',
+        title: 'Shopifyで売れないのは本当に集客の問題なのか？',
+        excerpt: 'Shopifyで売れないとき、多くの企業は集客不足や広告費不足を疑います。しかし現場で見る限り、成果が出ない原因はツールや努力ではなく、誰に・何を・なぜ選ばれるものとして届けるのかが整理されていないことにあるケースが少なくありません。',
+        url: '/insights/web-marketing/a-1/',
+        image: '/assets/images/insights/web-marketing/a-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify","自社EC","EC集客","EC売上改善","ECマーケティング","LP改善","LPO","広告運用","Shopify構築"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'web-marketing',
+        group: 'A'
+    },
+    {
         id: 'ec-growth-b-1',
         title: 'そのサイト、作った後も社内で運用できますか？',
         excerpt: 'Shopifyは技術的に正しく作られていても、社内で更新できない、改善できない、広告やLPの反応を反映できない状態では売上改善が止まります。重要なのは、作れることではなく、公開後に社内で運用しながら改善できる構造になっているかです。',
@@ -220,19 +233,6 @@ const insightsData = [
     type: 'cluster',
     theme: 'ec-growth',
     group: 'E'
-  },
-  {
-    id: 'web-marketing-a-1',
-    title: 'Shopifyで売れないのは本当に集客の問題なのか？',
-    excerpt: '「集客が足りない」以外の原因が埋もれがちな構造を整理し、親記事へ導線をつなぎます。',
-    url: '/insights/web-marketing/a-1/',
-    image: '/assets/images/insights/web-marketing/a-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify', '売れない', '集客'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'web-marketing',
-    group: 'A'
   },
   {
     id: 'web-marketing-a-2',
