@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-d-2',
+        title: '顧客対応を甘く見るな。自社ECは、対応ひとつで売上を落とす',
+        excerpt: '自社ECでは、問い合わせ対応、返品・交換、配送確認、購入後フォローの一つひとつがブランド評価になります。顧客対応を甘く見るECは、レビューが悪化し、購入前の不安が増え、広告やLPの成果まで落としていきます。Shopify構築では、顧客対応を後回しにしない設計が必要です。',
+        url: '/insights/ec-growth/d-2/',
+        image: '/assets/images/insights/ec-growth/d-2_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","Shopify運用","自社EC運営","EC顧客対応","EC設計","オペレーション設計","EC改善","LP改善","LPO","広告運用","ブランド体験"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'D'
+    },
+    {
         id: 'ec-growth-d-1',
         title: 'プラグインを入れすぎたECは、売れてから詰む',
         excerpt: 'Shopifyはアプリで機能を追加しやすい一方で、安易に増やすと運用が複雑化し、不具合の切り分けや改修が難しくなります。初月から回るECほど、アプリを便利な機能ではなく「将来の依存」として慎重に扱っています。',
@@ -221,19 +234,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-d-2',
-    title: '売れ始めてから困らないShopify構築は、「注力すべき場所」を最初に切り分けている',
-    excerpt: '自社ECで最初に切り分けるべきは「顧客」と「それ以外」。Shopify構築で失敗しない初期判断とは。',
-    url: '/insights/ec-growth/d-2/',
-    image: '/assets/images/insights/ec-growth/d-2_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', '自社EC運営', 'EC顧客対応', 'Shopify運用', 'EC設計', 'オペレーション設計'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'D'
-  },
   {
     id: 'ec-growth-e-1',
     title: '「売れるShopifyを作りたい」と言いながら、前提が揃っていないケースが多すぎる',
