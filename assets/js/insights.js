@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-e-1',
+        title: 'EC設計の前に、売る構造がないプロダクトは伸びません',
+        excerpt: 'Shopifyや自社ECを作る前に、本当に必要なのは「売る構造」の設計です。誰に売るのか、何を価値として伝えるのか、なぜ選ばれるのかが曖昧なままECを構築しても、広告もLPも商品ページも噛み合いません。EC設計以前に、売れる前提を整理する必要があります。',
+        url: '/insights/ec-growth/e-1/',
+        image: '/assets/images/insights/ec-growth/e-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify","Shopify構築","自社EC","EC戦略","EC設計","売る構造","商品設計","顧客理解","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'E'
+    },
+    {
         id: 'ec-growth-d-2',
         title: '顧客対応を甘く見るな。自社ECは、対応ひとつで売上を落とす',
         excerpt: '自社ECでは、問い合わせ対応、返品・交換、配送確認、購入後フォローの一つひとつがブランド評価になります。顧客対応を甘く見るECは、レビューが悪化し、購入前の不安が増え、広告やLPの成果まで落としていきます。Shopify構築では、顧客対応を後回しにしない設計が必要です。',
@@ -234,19 +247,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-e-1',
-    title: '「売れるShopifyを作りたい」と言いながら、前提が揃っていないケースが多すぎる',
-    excerpt: '売れるECの前に、揃えるべき前提がある。Shopify相談現場で見えてきた現実。',
-    url: '/insights/ec-growth/e-1/',
-    image: '/assets/images/insights/ec-growth/e-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify', '自社EC', 'EC戦略', 'EC運営', '顧客対応', '事業設計'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'E'
-  },
   {
     id: 'ec-growth-e-2',
     title: 'その商品を作ったあなたは、「買ってくれる人の顔」を本当に思い浮かべていましたか？',
