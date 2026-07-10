@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-b-2',
+        title: '売れない罠。デザインはキレイ、でも編集しづらい。',
+        excerpt: 'Shopify構築では、まずデザインを整えたいと考える企業が多くあります。しかし、売上が伸びるECほど、最初から見た目を作り込みすぎません。重要なのは、社内で更新でき、広告やLPの反応を反映しながら改善できる構造を先に整えることです。',
+        url: '/insights/ec-growth/b-2/',
+        image: '/assets/images/insights/ec-growth/b-2_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopifyデザイン","Shopify構築","Shopify運用","EC設計","EC改善","自社EC","LP改善","LPO","広告運用","EC売上改善"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'B'
+    },
+    {
         id: 'ec-growth-a-2',
         title: '自社ECが伸びないのは、本当に広告のせいですか？',
         excerpt: '自社ECの売上が伸びないとき、多くの企業は集客不足や広告費不足を疑います。しかし現場で見る限り、売上が伸びない原因は「誰に売るのか」「何を価値として届けるのか」「なぜ自社ECで買う理由があるのか」が整理されていないことにあるケースが少なくありません。',
@@ -156,19 +169,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-b-2',
-    title: '売上が伸びているECほど、Shopify構築でデザインを後回しにする理由',
-    excerpt: 'なぜ成果が出るECほど、デザインを急がないのか。Shopify運用の現実から解説。',
-    url: '/insights/ec-growth/b-2/',
-    image: '/assets/images/insights/ec-growth/b-2_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopifyデザイン', 'EC設計', 'Shopify構築', 'EC改善', '自社EC', 'Shopify運用'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'B'
-  },
   {
     id: 'ec-growth-b-3',
     title: '管理画面を軽視したShopifyは、必ず運用で詰まる',
