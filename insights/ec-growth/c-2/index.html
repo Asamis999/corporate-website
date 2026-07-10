@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>集客を分かっているチームが、Shopify構築で必ず仕込むもの | ナレッジ</title>
-    <meta name="description" content="集客を分かっているチームは、CTRやCPAだけでなく事業全体への波及まで見据えてShopifyを設計しています。広告指標の“その先”を前提にした構築思想を解説します。">
+    <title>CPAしか見れない経営者の末路 | ナレッジ</title>
+    <meta name="description" content="CPAだけで広告成果を判断していると、EC全体の成長機会を見落とします。Shopify構築で見るべき集客指標、SNS・LINE・モール波及・CRMまで含めた判断設計を解説します。">
+    <link rel="canonical" href="https://a-inc.info/insights/ec-growth/c-2/">
 
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -22,187 +23,362 @@
     <main class="main-content">
         <div class="article-container">
             <header class="article-header">
-                <h1 class="article-title">集客を分かっているチームが、Shopify構築で必ず仕込むもの</h1>
-                <div class="article-meta">カテゴリC｜集客と構築は切り離せない（実装側の論理）</div>
+                <h1 class="article-title">CPAしか見れない経営者の末路</h1>
+                <div class="article-meta">テーマ：ec-growth　更新日：2026.06.14</div>
                 <div class="article-tag-list">
                     <span class="article-tag">Shopify構築</span>
                     <span class="article-tag">EC集客</span>
                     <span class="article-tag">Shopify広告</span>
+                    <span class="article-tag">EC設計</span>
+                    <span class="article-tag">Shopify運用</span>
+                    <span class="article-tag">自社EC</span>
+                    <span class="article-tag">LP改善</span>
+                    <span class="article-tag">LPO</span>
+                    <span class="article-tag">広告運用</span>
+                    <span class="article-tag">EC売上改善</span>
+                    <span class="article-tag">CPA改善</span>
+                    <span class="article-tag">EC経営</span>
                 </div>
             </header>
 
             <div class="article-image-container">
-                <img src="/assets/images/insights/ec-growth/shared_main.webp" alt="集客を分かっているチームが、Shopify構築で必ず仕込むもの" class="article-image" style="max-width: 100%;">
+                <img src="/assets/images/insights/ec-growth/c-2_thumb.webp" alt="CPAだけでなくLINE登録やSNSフォロー、モール波及、CRMまで含めてEC集客成果を整理している実写イメージ" class="article-image" style="max-width: 100%;">
             </div>
 
             <section class="article-section fade-in">
                 <h2 class="article-section-title">目次</h2>
                 <ol class="article-list">
-                    <li>集客は「後工程」ではない</li>
-                    <li>集客を分かっているチームの共通点</li>
-                    <li>仕込み①｜判断指標を理解した上で設計している</li>
-                    <li>仕込み②｜“数字に出ない成果”まで見る前提</li>
-                    <li>仕込み③｜計測できる前提を最初に作る</li>
-                    <li>仕込み④｜広告とLPがズレない構造</li>
-                    <li>仕込み⑤｜改善が前提のページ・サイト設計</li>
-                    <li>なぜ、この仕込みは後からできないのか</li>
-                    <li>まとめ：集客は「事業全体で判断できる設計」で決まる</li>
+                    <li><a href="#section1">CPAしか見れない経営者は、ECの成長機会を見落とす</a></li>
+                    <li><a href="#section2">CPAは重要だが、広告成果のすべてではない</a></li>
+                    <li><a href="#section3">広告管理画面だけを見ていると、事業全体の動きが見えない</a></li>
+                    <li><a href="#section4">集客を分かっているチームは、判断指標から逆算してShopifyを作る</a></li>
+                    <li><a href="#section5">数字に出にくい成果まで見える設計になっているか</a></li>
+                    <li><a href="#section6">計測できないShopifyでは、経営判断を間違える</a></li>
+                    <li><a href="#section7">広告とLPがズレると、CPAは悪化して当然</a></li>
+                    <li><a href="#section8">改善できる構造がなければ、広告費は消えていくだけになる</a></li>
+                    <li><a href="#section9">まとめ：CPAを見る前に、事業全体で判断できるShopifyを作る</a></li>
                 </ol>
             </section>
 
             <div class="divider"></div>
 
             <section class="article-section fade-in">
-                <h2 class="article-section-title">集客は「後工程」ではない</h2>
-                <p class="article-p">多くのECでは、</p>
-                <ul class="article-list">
-                    <li>サイトを作る</li>
-                    <li>広告を出す</li>
-                    <li>CPAを見る</li>
-                </ul>
-                <p class="article-p">という順番で集客を捉えています。</p>
-                <p class="article-p">ですが、</p>
-                <p class="article-p">実際に成果を出している現場では、</p>
-                <p class="article-p"><strong>集客は、構築と同時に“判断設計”まで含めて考えています。</strong></p>
 
-                <h2 class="article-section-title">集客を分かっているチームの共通点</h2>
-                <p class="article-p">集客を分かっているチームは、</p>
-                <ul class="article-list">
-                    <li>CTR</li>
-                    <li>CVR</li>
-                    <li>CPA</li>
-                </ul>
-                <p class="article-p">だけを見て、</p>
-                <p class="article-p">良し悪しを判断しません。</p>
-                <p class="article-p">なぜなら、</p>
-                <p class="article-p">その数字は「一部」でしかない</p>
-                <p class="article-p">ということを知っているからです。</p>
+                <h2 id="section1" class="article-section-title">CPAしか見れない経営者は、ECの成長機会を見落とす</h2>
+                <p class="article-p">広告を回しているECで、よく見られる判断があります。</p>
+                <p class="article-p">CPAが高いから広告は悪い。</p>
+                <p class="article-p">CPAが合っていないから広告を止める。</p>
+                <p class="article-p">CPAが改善しないから広告代理店を変える。</p>
+                <p class="article-p">CPAだけを見て、広告の良し悪しを決める。</p>
+                <p class="article-p">もちろん、CPAは重要です。</p>
+                <p class="article-p">1件の購入を獲得するために、いくら広告費がかかっているのか。</p>
+                <p class="article-p">これはEC経営において必ず見るべき指標です。</p>
+                <p class="article-p">しかし、CPAだけで広告や集客の成果を判断していると、EC全体の成長機会を見落とします。</p>
+                <p class="article-p">広告は、購入だけを生むものではありません。</p>
+                <p class="article-p">ブランドを知ってもらう。</p>
+                <p class="article-p">SNSフォローにつながる。</p>
+                <p class="article-p">LINE登録につながる。</p>
+                <p class="article-p">指名検索が増える。</p>
+                <p class="article-p">Amazonや楽天など、他チャネルでの購入につながる。</p>
+                <p class="article-p">後日の再訪問につながる。</p>
+                <p class="article-p">CRM経由の購入につながる。</p>
+                <p class="article-p">こうした動きは、広告管理画面のCPAだけでは見えにくいものです。</p>
+                <p class="article-p">にもかかわらず、CPAだけを見て「広告は失敗」と判断してしまうと、本来伸ばせたはずの接点を切ってしまうことになります。</p>
+                <p class="article-p">現場でShopify構築、広告運用、LP改善を見ていると、成果が出るECほど、広告を単発の獲得施策として見ていません。</p>
+                <p class="article-p">広告を起点に、LP、Shopifyの商品ページ、SNS、LINE、モール、CRMまで含めて、どのように顧客接点が広がっているかを見ています。</p>
+                <p class="article-p">逆に、CPAだけしか見ていないECは、広告費を「短期の獲得コスト」としてしか捉えられません。</p>
+                <p class="article-p">その結果、広告を止める。</p>
+                <p class="article-p">接点が減る。</p>
+                <p class="article-p">認知が減る。</p>
+                <p class="article-p">再訪問も減る。</p>
+                <p class="article-p">CRMに入る顧客も減る。</p>
+                <p class="article-p">中長期の売上機会を失う。</p>
+                <p class="article-p">これが、CPAしか見れない経営者が陥りやすい末路です。</p>
 
-                <h2 class="article-section-title">仕込み①｜判断指標を理解した上で設計している</h2>
-                <p class="article-p">もちろん、</p>
-                <ul class="article-list">
-                    <li>CTR</li>
-                    <li>CVR</li>
-                    <li>CPA</li>
-                    <li>離脱率</li>
-                    <li>滞在時間</li>
-                </ul>
-                <p class="article-p">これらは、</p>
-                <p class="article-p"><strong>広告運用の基本指標</strong>です。</p>
-                <p class="article-p">成果が出るECでは、</p>
-                <ul class="article-list">
-                    <li>この指標が</li>
-                    <li>ページのどこで</li>
-                    <li>どう動くか</li>
-                </ul>
-                <p class="article-p">を理解した上で、</p>
-                <ul class="article-list">
-                    <li>ページ構成</li>
-                    <li>セクション分け</li>
-                    <li>導線</li>
-                </ul>
-                <p class="article-p">が設計されています。</p>
-                <p class="article-p">指標を知らずに作る構築は、</p>
-                <p class="article-p"><strong>評価も改善もできません。</strong></p>
+                <h2 id="section2" class="article-section-title">CPAは重要だが、広告成果のすべてではない</h2>
+                <p class="article-p">まず誤解してはいけないのは、CPAを見なくてよいという話ではないことです。</p>
+                <p class="article-p">CPAは重要です。</p>
+                <p class="article-p">むしろ、必ず見るべき指標です。</p>
+                <p class="article-p">広告費に対して、どれだけ購入が生まれているのか。</p>
+                <p class="article-p">利益が残る水準なのか。</p>
+                <p class="article-p">商品単価や粗利に対して、獲得コストが妥当なのか。</p>
+                <p class="article-p">リピート購入やLTVを踏まえて許容できるのか。</p>
+                <p class="article-p">これらを判断するために、CPAは欠かせません。</p>
+                <p class="article-p">問題は、CPAだけで判断してしまうことです。</p>
+                <p class="article-p">たとえば、CPAが一見高く見える広告があったとします。</p>
+                <p class="article-p">しかし、その広告経由でInstagramフォローが増えている。</p>
+                <p class="article-p">LINE登録が増えている。</p>
+                <p class="article-p">ブランド名の検索が増えている。</p>
+                <p class="article-p">自社ECではなく楽天やAmazonで購入されている。</p>
+                <p class="article-p">初回購入には至っていないが、後日CRM経由で購入されている。</p>
+                <p class="article-p">この場合、広告管理画面上のCPAだけを見ると悪く見えるかもしれません。</p>
+                <p class="article-p">しかし、事業全体で見ると、顧客接点を広げ、将来の売上につながっている可能性があります。</p>
+                <p class="article-p">もちろん、すべてを広告の成果として都合よく解釈するのは危険です。</p>
+                <p class="article-p">広告費を使っている以上、短期の売上や利益の判断は必要です。</p>
+                <p class="article-p">ただし、CPAだけで広告の価値を切り捨てるのも危険です。</p>
+                <p class="article-p">ECの集客は、単純な「広告費 ÷ 購入数」だけでは判断しきれません。</p>
+                <p class="article-p">商品単価。</p>
+                <p class="article-p">粗利率。</p>
+                <p class="article-p">LTV。</p>
+                <p class="article-p">検討期間。</p>
+                <p class="article-p">ブランド認知。</p>
+                <p class="article-p">SNS接点。</p>
+                <p class="article-p">LINE登録。</p>
+                <p class="article-p">モール波及。</p>
+                <p class="article-p">リピート購入。</p>
+                <p class="article-p">購入後のCRM。</p>
+                <p class="article-p">これらを含めて見なければ、本当の広告成果は判断できません。</p>
+                <p class="article-p">CPAは重要です。</p>
+                <p class="article-p">しかし、CPAは広告成果の一部でしかありません。</p>
 
-                <h2 class="article-section-title">仕込み②｜“数字に出ない成果”まで見る前提</h2>
-                <p class="article-p">ここは、</p>
-                <p class="article-p">かなり現場寄りの話になります。</p>
-                <p class="article-p">私たちが見ているのは、</p>
-                <p class="article-p"><strong>広告管理画面の数字だけではありません。</strong></p>
-                <p class="article-p">たとえば、</p>
-                <ul class="article-list">
-                    <li>広告を回したことでInstagramのフォロワーがどれだけ増えたか</li>
-                    <li>潜在層との接点が増えているか</li>
-                    <li>自社EC以外の売上に影響が出ているか</li>
-                </ul>
-                <p class="article-p">も、重要な判断材料です。</p>
-                <p class="article-p">Shopifyで売上を作ると、</p>
-                <ul class="article-list">
-                    <li>Amazon</li>
-                    <li>楽天</li>
-                </ul>
-                <p class="article-p">に流入が波及し、</p>
-                <p class="article-p"><strong>全体の売上が相乗して上がる</strong>ことは珍しくありません。</p>
+                <h2 id="section3" class="article-section-title">広告管理画面だけを見ていると、事業全体の動きが見えない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-2_section1.webp" alt="広告管理画面のCPAだけではSNSやLINE、自社EC、モール、CRMへの波及が見えないことを示す実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">広告管理画面は便利です。</p>
+                <p class="article-p">クリック数。</p>
+                <p class="article-p">CTR。</p>
+                <p class="article-p">CPC。</p>
+                <p class="article-p">CVR。</p>
+                <p class="article-p">CPA。</p>
+                <p class="article-p">ROAS。</p>
+                <p class="article-p">購入数。</p>
+                <p class="article-p">売上。</p>
+                <p class="article-p">これらの数字が一覧で見られるため、広告の良し悪しを判断しやすく感じます。</p>
+                <p class="article-p">しかし、広告管理画面だけを見ていると、事業全体の動きは見えません。</p>
+                <p class="article-p">広告を見た人が、すぐに購入するとは限りません。</p>
+                <p class="article-p">一度Instagramを見に行くかもしれません。</p>
+                <p class="article-p">LINEに登録して、クーポンや情報を待つかもしれません。</p>
+                <p class="article-p">ブランド名で検索し直すかもしれません。</p>
+                <p class="article-p">Amazonや楽天でレビューを確認するかもしれません。</p>
+                <p class="article-p">数日後に別の経路から戻ってくるかもしれません。</p>
+                <p class="article-p">この動きは、広告管理画面だけでは見えにくいものです。</p>
+                <p class="article-p">特に自社ECでは、顧客の行動は複雑です。</p>
+                <p class="article-p">広告で認知する。</p>
+                <p class="article-p">SNSで世界観を見る。</p>
+                <p class="article-p">LPで商品理解を深める。</p>
+                <p class="article-p">Shopifyの商品ページで詳細を確認する。</p>
+                <p class="article-p">レビューやFAQを見る。</p>
+                <p class="article-p">LINEに登録する。</p>
+                <p class="article-p">後日キャンペーンで購入する。</p>
+                <p class="article-p">購入後にCRMでリピートする。</p>
+                <p class="article-p">このように、購入までの接点は複数あります。</p>
+                <p class="article-p">それにもかかわらず、広告管理画面のCPAだけを見ていると、短期購入しか評価できません。</p>
+                <p class="article-p">結果として、本当は育っている顧客接点を見落とします。</p>
+                <p class="article-p">経営判断として見るべきなのは、広告単体の数字だけではありません。</p>
+                <p class="article-p">広告を起点に、どの接点が増えているのか。</p>
+                <p class="article-p">どの導線で購入に近づいているのか。</p>
+                <p class="article-p">どのチャネルに波及しているのか。</p>
+                <p class="article-p">どこで離脱しているのか。</p>
+                <p class="article-p">どこを改善すれば売上につながるのか。</p>
+                <p class="article-p">ここまで見られる設計がなければ、広告費の判断は浅くなります。</p>
 
-                <h2 class="article-section-title">仕込み③｜計測できる前提を最初に作る</h2>
-                <p class="article-p">こうした判断をするためには、</p>
-                <ul class="article-list">
-                    <li>どこから流入しているのか</li>
-                    <li>どこに影響が出ているのか</li>
-                </ul>
-                <p class="article-p">が、見える構造である必要があります。</p>
-                <ul class="article-list">
-                    <li>LINE登録数</li>
-                    <li>SNSフォロー増加</li>
-                    <li>店舗来店につながっているか</li>
-                </ul>
-                <p class="article-p">これらを追える前提で</p>
-                <p class="article-p"><strong>サイト全体が設計されているか</strong>。</p>
-                <p class="article-p">LP単体の話ではなく、</p>
-                <p class="article-p"><strong>EC全体の設計思想</strong>の話です。</p>
+                <h2 id="section4" class="article-section-title">集客を分かっているチームは、判断指標から逆算してShopifyを作る</h2>
+                <p class="article-p">集客を分かっているチームは、Shopifyを作る前に「何を見るか」を決めています。</p>
+                <p class="article-p">購入だけを見るのか。</p>
+                <p class="article-p">カート投入も見るのか。</p>
+                <p class="article-p">商品ページ閲覧も見るのか。</p>
+                <p class="article-p">LINE登録を重視するのか。</p>
+                <p class="article-p">SNSフォローを追うのか。</p>
+                <p class="article-p">問い合わせや資料請求を見るのか。</p>
+                <p class="article-p">リピート購入やLTVまで見るのか。</p>
+                <p class="article-p">モールや実店舗への波及も見るのか。</p>
+                <p class="article-p">この判断指標があるから、Shopifyの構築内容が変わります。</p>
+                <p class="article-p">どのページを広告の着地先にするか。</p>
+                <p class="article-p">LPにどのCTAを置くか。</p>
+                <p class="article-p">商品ページに何を入れるか。</p>
+                <p class="article-p">LINE登録の導線をどこに置くか。</p>
+                <p class="article-p">SNSフォローへの接点をどこで作るか。</p>
+                <p class="article-p">購入前のFAQやレビューをどこで見せるか。</p>
+                <p class="article-p">広告やLPの反応を、社内でどう反映できるようにするか。</p>
+                <p class="article-p">判断指標から逆算して作るから、広告や集客の成果を正しく見られます。</p>
+                <p class="article-p">一方で、判断指標を決めずにShopifyを作ると、公開後に数字を見ても判断できません。</p>
+                <p class="article-p">CPAが高い。</p>
+                <p class="article-p">CVRが低い。</p>
+                <p class="article-p">ROASが合わない。</p>
+                <p class="article-p">LINE登録は増えているが評価していない。</p>
+                <p class="article-p">SNSフォローも増えているが、広告成果として見ていない。</p>
+                <p class="article-p">モール売上が動いているが、関係性を見ていない。</p>
+                <p class="article-p">この状態では、広告を止めるべきなのか、改善すべきなのか、伸ばすべきなのかが判断できません。</p>
+                <p class="article-p">集客を分かっているチームは、広告を出す前から、数字の見方をShopify構築に組み込んでいます。</p>
+                <p class="article-p">だから、広告が始まったあとも改善できます。</p>
 
-                <h2 class="article-section-title">仕込み④｜広告とLPがズレない構造</h2>
-                <p class="article-p">広告は、</p>
-                <ul class="article-list">
-                    <li>期待を作る</li>
-                    <li>認知を広げる</li>
-                </ul>
-                <p class="article-p">役割を持ちます。</p>
-                <p class="article-p">LPは、</p>
-                <ul class="article-list">
-                    <li>その期待を回収する</li>
-                    <li>次の接点につなげる</li>
-                </ul>
-                <p class="article-p">役割です。</p>
-                <p class="article-p">「買わせて終わり」なのか、</p>
-                <p class="article-p">「次につなげる設計」なのか。</p>
-                <p class="article-p">ここで、</p>
-                <p class="article-p">将来の売上差が生まれます。</p>
+                <h2 id="section5" class="article-section-title">数字に出にくい成果まで見える設計になっているか</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-2_section2.webp" alt="Shopifyで購入だけでなくLINE登録やSNSフォロー、指名検索、モール波及、リピートまで見えるように設計している実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">EC集客では、数字に出やすい成果と、出にくい成果があります。</p>
+                <p class="article-p">購入数やCPAは分かりやすい成果です。</p>
+                <p class="article-p">広告管理画面でも見やすく、経営判断にも使いやすい指標です。</p>
+                <p class="article-p">一方で、数字に出にくい成果もあります。</p>
+                <p class="article-p">Instagramのフォロワーが増える。</p>
+                <p class="article-p">LINE登録が増える。</p>
+                <p class="article-p">ブランド名で検索される。</p>
+                <p class="article-p">商品名で検索される。</p>
+                <p class="article-p">楽天やAmazonで比較される。</p>
+                <p class="article-p">数日後に自然検索で戻ってくる。</p>
+                <p class="article-p">メルマガやLINE経由で購入される。</p>
+                <p class="article-p">購入後のリピートにつながる。</p>
+                <p class="article-p">これらは、広告の直接成果として見えにくいことがあります。</p>
+                <p class="article-p">しかし、EC全体では非常に重要な動きです。</p>
+                <p class="article-p">たとえば、広告をきっかけにLINE登録が増えているなら、短期CPAが高くても将来の購入機会が増えている可能性があります。</p>
+                <p class="article-p">SNSフォローが増えているなら、ブランドとの接点が増えている可能性があります。</p>
+                <p class="article-p">モールでの指名購入が増えているなら、広告が自社EC以外にも波及している可能性があります。</p>
+                <p class="article-p">こうした動きを見るには、Shopify構築の段階で接点を設計しておく必要があります。</p>
+                <p class="article-p">LINE登録の導線を用意する。</p>
+                <p class="article-p">SNSフォローへ自然につなげる。</p>
+                <p class="article-p">ブランド名や商品名で再訪問しやすい構造にする。</p>
+                <p class="article-p">モールと自社ECの役割を整理する。</p>
+                <p class="article-p">購入後のCRMへつなげる。</p>
+                <p class="article-p">顧客接点ごとの数字を追えるようにする。</p>
+                <p class="article-p">数字に出にくい成果は、放っておくと見えません。</p>
+                <p class="article-p">見えるように設計して初めて、経営判断に使えるようになります。</p>
+                <p class="article-p">CPAしか見ていないECは、こうした接点を評価できません。</p>
+                <p class="article-p">その結果、短期のCPAだけで広告を判断し、本当は伸びている接点を切ってしまうことがあります。</p>
 
-                <h2 class="article-section-title">仕込み⑤｜改善が前提のページ・サイト設計</h2>
-                <p class="article-p">こうした判断をするには、</p>
-                <ul class="article-list">
-                    <li>ページを触れる</li>
-                    <li>導線を変えられる</li>
-                    <li>役割を分けられる</li>
-                </ul>
-                <p class="article-p">構造が必要です。</p>
-                <p class="article-p"><strong>ページ単体で完結させようとするECほど、
-後々、選択肢がなくなります。</strong></p>
+                <h2 id="section6" class="article-section-title">計測できないShopifyでは、経営判断を間違える</h2>
+                <p class="article-p">集客を判断するには、計測できるShopifyになっている必要があります。</p>
+                <p class="article-p">購入完了だけを見ればよいわけではありません。</p>
+                <p class="article-p">商品ページ閲覧。</p>
+                <p class="article-p">カート投入。</p>
+                <p class="article-p">購入完了。</p>
+                <p class="article-p">LINE登録。</p>
+                <p class="article-p">メルマガ登録。</p>
+                <p class="article-p">SNSフォロー。</p>
+                <p class="article-p">問い合わせ。</p>
+                <p class="article-p">再訪問。</p>
+                <p class="article-p">リピート購入。</p>
+                <p class="article-p">CRM経由の購入。</p>
+                <p class="article-p">何を計測するかは、事業によって変わります。</p>
+                <p class="article-p">重要なのは、経営判断に必要な指標を構築段階で決めておくことです。</p>
+                <p class="article-p">高単価商材なら、初回訪問で購入されないこともあります。</p>
+                <p class="article-p">その場合、LINE登録や問い合わせ、商品ページの深い閲覧が重要な中間指標になるかもしれません。</p>
+                <p class="article-p">リピート性が高い商品なら、初回CPAだけでは判断できません。</p>
+                <p class="article-p">LTVやリピート購入まで見る必要があります。</p>
+                <p class="article-p">Amazonや楽天でも販売しているなら、自社EC広告がモール売上にどう影響しているかを見る視点も必要です。</p>
+                <p class="article-p">これらを見ないままCPAだけで判断すると、経営判断を間違えます。</p>
+                <p class="article-p">本当は広告を続けるべきなのに止めてしまう。</p>
+                <p class="article-p">本当はLPを改善すべきなのに広告だけを直す。</p>
+                <p class="article-p">本当は商品ページで不安が解消できていないのに、広告代理店を変える。</p>
+                <p class="article-p">本当はLINE登録後に売れているのに、直接購入だけを見て失敗と判断する。</p>
+                <p class="article-p">こうしたズレは、計測できないShopifyで起こります。</p>
+                <p class="article-p">計測は、広告開始後に足すものではありません。</p>
+                <p class="article-p">Shopify構築の最初に仕込むべき経営判断の基盤です。</p>
 
-                <h2 class="article-section-title">なぜ、この仕込みは後からできないのか</h2>
-                <p class="article-p">理由は単純です。</p>
-                <ul class="article-list">
-                    <li>構造が固まる</li>
-                    <li>データが分断される</li>
-                    <li>判断軸を後付けできない</li>
-                </ul>
-                <p class="article-p">この状態になると、</p>
-                <ul class="article-list">
-                    <li>CPAが良いのか悪いのか</li>
-                    <li>本当に成果が出ているのか</li>
-                </ul>
-                <p class="article-p">すら、分からなくなります。</p>
+                <h2 id="section7" class="article-section-title">広告とLPがズレると、CPAは悪化して当然</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-2_section3.webp" alt="広告とLPや商品ページの訴求ズレによってCPAが悪化する構造を実写の付箋で整理しているイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">CPAが悪いとき、広告だけを疑うケースがあります。</p>
+                <p class="article-p">広告文が悪いのか。</p>
+                <p class="article-p">クリエイティブが弱いのか。</p>
+                <p class="article-p">ターゲティングがズレているのか。</p>
+                <p class="article-p">予算配分が悪いのか。</p>
+                <p class="article-p">もちろん、それらが原因のこともあります。</p>
+                <p class="article-p">しかし、CPAは広告だけで決まりません。</p>
+                <p class="article-p">広告とLPがズレていれば、CPAは悪化します。</p>
+                <p class="article-p">広告では悩みを訴求しているのに、LPでは商品の特徴説明から始まっている。</p>
+                <p class="article-p">広告では価格の納得感を伝えているのに、LPでは価格に見合う理由が説明されていない。</p>
+                <p class="article-p">広告では他社との違いを打ち出しているのに、LPには比較情報がない。</p>
+                <p class="article-p">広告では限定性を伝えているのに、LPでは次に何をすればよいか分からない。</p>
+                <p class="article-p">この状態では、クリックは購入につながりません。</p>
+                <p class="article-p">広告は期待を作ります。</p>
+                <p class="article-p">LPはその期待を回収する場所です。</p>
+                <p class="article-p">広告で作った期待をLPが受け止められなければ、ユーザーは離脱します。</p>
+                <p class="article-p">さらに、LPで興味を持っても、Shopifyの商品ページで不安が解消されなければ購入されません。</p>
+                <p class="article-p">レビューがない。</p>
+                <p class="article-p">FAQがない。</p>
+                <p class="article-p">配送や返品の説明が弱い。</p>
+                <p class="article-p">保証が分かりにくい。</p>
+                <p class="article-p">商品ごとの違いが分からない。</p>
+                <p class="article-p">スマートフォンで購入導線が分かりにくい。</p>
+                <p class="article-p">この状態でもCPAは悪化します。</p>
+                <p class="article-p">つまり、CPAが悪い原因は広告管理画面の中だけにはありません。</p>
+                <p class="article-p">広告。</p>
+                <p class="article-p">LP。</p>
+                <p class="article-p">Shopifyの商品ページ。</p>
+                <p class="article-p">カート。</p>
+                <p class="article-p">購入後のCRM。</p>
+                <p class="article-p">この導線全体を見なければ、CPA改善はできません。</p>
 
-                <h2 class="article-section-title">まとめ：集客は「事業全体で判断できる設計」で決まる</h2>
-                <p class="article-p">本気で売上を伸ばすなら、</p>
-                <ul class="article-list">
-                    <li>広告の数字だけを見る</li>
-                    <li>ページ単体で判断する</li>
-                </ul>
-                <p class="article-p">それでは足りません。</p>
-                <ul class="article-list">
-                    <li>ファンが増えているか</li>
-                    <li>接点が広がっているか</li>
-                    <li>他チャネルに波及しているか</li>
-                </ul>
-                <p class="article-p"><strong>そこまで見られる設計かどうか。</strong></p>
-                <p class="article-p">集客が分かっているチームは、</p>
-                <p class="article-p">最初からその前提でShopifyを作っています。</p>
-                <p class="article-p">この全体像は、</p>
-                <p class="article-p">ピラー記事で整理しています。</p>
-                <p class="article-p">👉 <a href="/insights/ec-growth/">ピラー記事：初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実</a></p>
+                <h2 id="section8" class="article-section-title">改善できる構造がなければ、広告費は消えていくだけになる</h2>
+                <p class="article-p">広告は、1回で当たるものではありません。</p>
+                <p class="article-p">広告文を変える。</p>
+                <p class="article-p">クリエイティブを変える。</p>
+                <p class="article-p">LPの見出しを変える。</p>
+                <p class="article-p">CTAを調整する。</p>
+                <p class="article-p">商品ページにFAQを追加する。</p>
+                <p class="article-p">レビューの位置を変える。</p>
+                <p class="article-p">LINE登録への導線を試す。</p>
+                <p class="article-p">CRMの接点を見直す。</p>
+                <p class="article-p">こうした改善を繰り返して、少しずつ成果を上げていくものです。</p>
+                <p class="article-p">しかし、Shopify側が改善できる構造になっていなければ、広告費は消えていくだけになります。</p>
+                <p class="article-p">社内でLPを触れない。</p>
+                <p class="article-p">商品ページにセクションを追加できない。</p>
+                <p class="article-p">広告ごとに訴求を変えられない。</p>
+                <p class="article-p">レビューやFAQを自由に配置できない。</p>
+                <p class="article-p">LINE登録やSNSフォローの導線を試せない。</p>
+                <p class="article-p">計測結果を見ても、ページ側に反映できない。</p>
+                <p class="article-p">この状態では、広告運用は広告管理画面の中だけで完結してしまいます。</p>
+                <p class="article-p">ターゲティングを変える。</p>
+                <p class="article-p">予算を変える。</p>
+                <p class="article-p">広告文を変える。</p>
+                <p class="article-p">クリエイティブを変える。</p>
+                <p class="article-p">もちろん、それらも重要です。</p>
+                <p class="article-p">しかし、クリック後の受け皿を変えられなければ、広告成果は伸びにくくなります。</p>
+                <p class="article-p">広告の成果は、広告だけで作るものではありません。</p>
+                <p class="article-p">LP。</p>
+                <p class="article-p">Shopifyの商品ページ。</p>
+                <p class="article-p">FAQ。</p>
+                <p class="article-p">レビュー。</p>
+                <p class="article-p">LINE登録。</p>
+                <p class="article-p">CRM。</p>
+                <p class="article-p">購入導線。</p>
+                <p class="article-p">社内での改善スピード。</p>
+                <p class="article-p">これらがつながって初めて、広告費は売上に変わります。</p>
+                <p class="article-p">改善できる構造がないShopifyに広告費を入れても、得られるのは原因不明の数字だけです。</p>
+
+                <h2 id="section9" class="article-section-title">まとめ：CPAを見る前に、事業全体で判断できるShopifyを作る</h2>
+                <p class="article-p">CPAは重要です。</p>
+                <p class="article-p">しかし、CPAだけを見ている経営者は、EC全体の成長機会を見落とします。</p>
+                <p class="article-p">広告は、購入だけでなく、さまざまな接点を生みます。</p>
+                <p class="article-p">SNSフォロー。</p>
+                <p class="article-p">LINE登録。</p>
+                <p class="article-p">指名検索。</p>
+                <p class="article-p">モールへの波及。</p>
+                <p class="article-p">再訪問。</p>
+                <p class="article-p">CRM経由の購入。</p>
+                <p class="article-p">リピート購入。</p>
+                <p class="article-p">ブランド認知。</p>
+                <p class="article-p">これらを見られる設計がなければ、広告の本当の価値は判断できません。</p>
+                <p class="article-p">短期CPAだけを見て広告を止める。</p>
+                <p class="article-p">広告管理画面だけを見て代理店を変える。</p>
+                <p class="article-p">LPや商品ページの問題を見ずに予算だけ調整する。</p>
+                <p class="article-p">LINEやSNSに増えている接点を評価しない。</p>
+                <p class="article-p">モール売上への波及を見落とす。</p>
+                <p class="article-p">この状態では、ECは伸びにくくなります。</p>
+                <p class="article-p">CPAを見る前に必要なのは、事業全体で判断できるShopify設計です。</p>
+                <p class="article-p">広告とLPがズレない構造。</p>
+                <p class="article-p">商品ページで購入判断を支える設計。</p>
+                <p class="article-p">LINEやSNSへ接点を広げる導線。</p>
+                <p class="article-p">CRMにつながる購入後設計。</p>
+                <p class="article-p">モールや他チャネルへの波及も見られる判断軸。</p>
+                <p class="article-p">社内で改善を反映できる管理画面。</p>
+                <p class="article-p">これらを構築段階で仕込んでおくことで、広告は短期の獲得施策ではなく、事業全体を伸ばす集客装置になります。</p>
+                <p class="article-p">この構築と集客設計の全体像については、親記事「初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実」で詳しく整理しています。</p>
+                <p class="article-p">👉 親記事への内部リンク</p>
+                <p class="article-p">（初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実）</p>
+                <p class="article-p">A.Incでは、Shopify構築、LP・LPO支援、広告運用を個別の施策としてではなく、売上改善につながる販売導線として設計しています。</p>
+                <p class="article-p">CPAしか見ない広告判断から抜け出し、事業全体で集客成果を見られるShopifyにすること。</p>
+                <p class="article-p">それが、広告費を消費で終わらせず、売上とブランド資産につなげるために必要です。</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
             </section>
 
             <div class="divider"></div>
@@ -213,12 +389,16 @@
             </section>
 
             <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
             <div id="profile-container" class="fade-in"></div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
+    <script>window.__currentArticle = {"id":"ec-growth-c-2","title":"CPAしか見れない経営者の末路","url":"/insights/ec-growth/c-2/","image":"/assets/images/insights/ec-growth/c-2_thumb.webp","date":"2026.06.14","tags":["Shopify構築","EC集客","Shopify広告","EC設計","Shopify運用","自社EC","LP改善","LPO","広告運用","EC売上改善","CPA改善","EC経営"],"category":"insights","type":"cluster","theme":"ec-growth","group":"ec-growth"};</script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/insights-related.js"></script>

@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-c-2',
+        title: 'CPAしか見れない経営者の末路',
+        excerpt: 'CPAだけを見て広告の良し悪しを判断していると、EC全体の成長機会を見落とします。広告は購入だけでなく、SNSフォロー、LINE登録、指名検索、モール売上、CRMにも影響します。集客を経営判断に活かすには、Shopify構築の段階から事業全体で成果を見られる設計が必要です。',
+        url: '/insights/ec-growth/c-2/',
+        image: '/assets/images/insights/ec-growth/c-2_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","EC集客","Shopify広告","EC設計","Shopify運用","自社EC","LP改善","LPO","広告運用","EC売上改善","CPA改善","EC経営"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'C'
+    },
+    {
         id: 'ec-growth-c-1',
         title: '広告を回すだけのECは、大体売れません。',
         excerpt: 'Shopify構築では「まずサイトを作って、広告はあとから考える」という進め方がよくあります。しかし、広告をあと回しにしたECは、計測できない、LPを改善できない、商品ページで購入判断を支えられないなど、公開後に売上改善が詰まりやすくなります。',
@@ -195,19 +208,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-c-2',
-    title: '集客を分かっているチームが、Shopify構築で必ず仕込むもの',
-    excerpt: '広告指標だけを見ていては、ECは伸びない。集客の“副産物”まで見据えたShopify設計の現実。',
-    url: '/insights/ec-growth/c-2/',
-    image: '/assets/images/insights/ec-growth/c-2_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', 'EC集客', 'Shopify広告', 'EC設計', 'Shopify運用', '自社EC'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'C'
-  },
   {
     id: 'ec-growth-d-1',
     title: '初月から回るECほど、Shopifyアプリを安易に増やさない理由',
