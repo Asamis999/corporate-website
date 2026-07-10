@@ -852,6 +852,7 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'ec-growth-e-2': '「買ってくれる人の顔」を思い浮かべて運営していますか？',
         'ec-growth-e-1': 'EC設計の前に、売る構造がないプロダクトは伸びません',
         'ec-growth-d-2': '顧客対応を甘く見るな。自社ECは、対応ひとつで売上を落とす',
         'ec-growth-d-1': 'プラグインを入れすぎたECは、売れてから詰む',

@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-e-2',
+        title: '「買ってくれる人の顔」を思い浮かべて運営していますか？',
+        excerpt: '良い商品を作ったはずなのに、自社ECでは売れない。その原因は、Shopify構築や広告以前に、「誰が、どんな不安を抱えて買うのか」を本気で考え切れていないことにあるかもしれません。顧客対応、商品ページ、FAQ、LP、レビュー対応まで含めて、作り手が向き合うべきことを整理します。',
+        url: '/insights/ec-growth/e-2/',
+        image: '/assets/images/insights/ec-growth/e-2_thumb.webp',
+        date: '2026.06.14',
+        tags: ["自社EC","Shopify","商品開発","顧客理解","ブランド思想","EC運営","顧客対応","EC戦略","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'E'
+    },
+    {
         id: 'ec-growth-e-1',
         title: 'EC設計の前に、売る構造がないプロダクトは伸びません',
         excerpt: 'Shopifyや自社ECを作る前に、本当に必要なのは「売る構造」の設計です。誰に売るのか、何を価値として伝えるのか、なぜ選ばれるのかが曖昧なままECを構築しても、広告もLPも商品ページも噛み合いません。EC設計以前に、売れる前提を整理する必要があります。',
@@ -247,19 +260,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-e-2',
-    title: 'その商品を作ったあなたは、「買ってくれる人の顔」を本当に思い浮かべていましたか？',
-    excerpt: 'その商品を作ったとき、買う人の顔を思い浮かべていましたか？',
-    url: '/insights/ec-growth/e-2/',
-    image: '/assets/images/insights/ec-growth/e-2_thumb.webp',
-    date: '2026.03.03',
-    tags: ['自社EC', 'Shopify', '商品開発', '顧客理解', 'ブランド思想', 'EC運営'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'E'
-  },
   {
     id: 'web-marketing-a-2',
     title: '自社ECの売上が伸びないときに、最初に疑うべき3つのこと',
