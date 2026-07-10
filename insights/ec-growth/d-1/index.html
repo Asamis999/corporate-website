@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>初月から回るECほど、Shopifyアプリを安易に増やさない理由 | ナレッジ</title>
-    <meta name="description" content="初月から回るECほど、Shopifyアプリを安易に増やしません。アプリ依存が将来的にどんな問題を生むのか、実際に運用してきた現場視点で解説します。">
+    <title>プラグインを入れすぎたECは、売れてから詰む | ナレッジ</title>
+    <meta name="description" content="Shopifyアプリを安易に増やすと、運用・計測・改修が複雑化し、売れ始めてから動けないECになります。アプリ依存を避けるShopify構築の考え方を解説します。">
+    <link rel="canonical" href="https://a-inc.info/insights/ec-growth/d-1/">
 
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -22,176 +23,348 @@
     <main class="main-content">
         <div class="article-container">
             <header class="article-header">
-                <h1 class="article-title">初月から回るECほど、Shopifyアプリを安易に増やさない理由</h1>
-                <div class="article-meta">カテゴリD｜技術と拡張性（エンジニアリング）</div>
+                <h1 class="article-title">プラグインを入れすぎたECは、売れてから詰む</h1>
+                <div class="article-meta">テーマ：ec-growth　更新日：2026.06.14</div>
                 <div class="article-tag-list">
                     <span class="article-tag">Shopifyアプリ</span>
+                    <span class="article-tag">Shopify構築</span>
                     <span class="article-tag">Shopify運用</span>
+                    <span class="article-tag">EC設計</span>
+                    <span class="article-tag">EC改善</span>
+                    <span class="article-tag">自社EC</span>
                     <span class="article-tag">EC拡張性</span>
+                    <span class="article-tag">LP改善</span>
+                    <span class="article-tag">LPO</span>
+                    <span class="article-tag">広告運用</span>
                 </div>
             </header>
 
             <div class="article-image-container">
-                <img src="/assets/images/insights/ec-growth/shared_main.webp" alt="初月から回るECほど、Shopifyアプリを安易に増やさない理由" class="article-image" style="max-width: 100%;">
+                <img src="/assets/images/insights/ec-growth/d-1_thumb.webp" alt="Shopifyアプリを入れすぎて管理画面や運用が複雑化している状態を実写と先進的なグラフィックで表現したイメージ" class="article-image" style="max-width: 100%;">
             </div>
 
             <section class="article-section fade-in">
                 <h2 class="article-section-title">目次</h2>
                 <ol class="article-list">
-                    <li>Shopifyは「アプリを入れれば何とかなる」という誤解</li>
-                    <li>アプリが増えたECで、実際に起きていること</li>
-                    <li>初月から回るECが、アプリを慎重に扱う理由</li>
-                    <li>危険①｜運用が一気に複雑化する</li>
-                    <li>危険②｜不具合の切り分けができなくなる</li>
-                    <li>危険③｜拡張・改修の自由度が失われる</li>
-                    <li>ノーコードで作れる＝簡単、ではない</li>
-                    <li>本当に必要な機能は、実は限られている</li>
-                    <li>まとめ：アプリは“最後の手段”である</li>
+                    <li><a href="#section1">Shopifyアプリを入れれば解決、という危険な思い込み</a></li>
+                    <li><a href="#section2">アプリが増えすぎたECで実際に起きること</a></li>
+                    <li><a href="#section3">初月から回るECほど、アプリを簡単に増やさない</a></li>
+                    <li><a href="#section4">アプリは機能ではなく、将来の依存になる</a></li>
+                    <li><a href="#section5">アプリが増えると、社内運用は一気に複雑になる</a></li>
+                    <li><a href="#section6">不具合の原因が分からないECは、改善が止まる</a></li>
+                    <li><a href="#section7">売れ始めてから、拡張や改修の自由度を失う</a></li>
+                    <li><a href="#section8">ノーコードで作れることと、設計が簡単なことは違う</a></li>
+                    <li><a href="#section9">本当に必要な機能は、思っているより少ない</a></li>
+                    <li><a href="#section10">まとめ：Shopifyアプリは、最後の手段として使う</a></li>
                 </ol>
             </section>
 
             <div class="divider"></div>
 
             <section class="article-section fade-in">
-                <h2 class="article-section-title">Shopifyは「アプリを入れれば何とかなる」という誤解</h2>
-                <p class="article-p">Shopifyについて調べると、</p>
-                <ul class="article-list">
-                    <li>この機能はアプリで解決</li>
-                    <li>足りなければ追加すればいい</li>
-                </ul>
-                <p class="article-p">という情報が、簡単に見つかります。</p>
-                <p class="article-p">その結果、</p>
-                <p class="article-p">「まず作って、足りなければアプリを入れればいい」</p>
-                <p class="article-p">という発想になりがちです。</p>
-                <p class="article-p">ですが、</p>
-                <p class="article-p"><strong>実際に回している現場では、真逆の考え方</strong>をしています。</p>
 
-                <h2 class="article-section-title">アプリが増えたECで、実際に起きていること</h2>
-                <p class="article-p">集客や改善で介入すると、</p>
-                <p class="article-p"><strong>アプリが過剰に入っているShopify</strong>を、よく目にします。</p>
-                <p class="article-p">その結果、現場では、</p>
-                <ul class="article-list">
-                    <li>管理画面が分かりにくい</li>
-                    <li>設定箇所がバラバラ</li>
-                    <li>どこを触っているのか分からない</li>
-                </ul>
-                <p class="article-p">という状態が起きています。</p>
-                <p class="article-p">作った直後は問題なくても、</p>
-                <p class="article-p"><strong>運用が始まると一気に負担になります。</strong></p>
+                <h2 id="section1" class="article-section-title">Shopifyアプリを入れれば解決、という危険な思い込み</h2>
+                <p class="article-p">Shopifyについて調べると、さまざまなアプリが見つかります。</p>
+                <p class="article-p">レビューを表示するアプリ。</p>
+                <p class="article-p">ポイント機能を追加するアプリ。</p>
+                <p class="article-p">配送日時を指定するアプリ。</p>
+                <p class="article-p">サブスク販売を行うアプリ。</p>
+                <p class="article-p">アップセルを入れるアプリ。</p>
+                <p class="article-p">在庫表示を細かく制御するアプリ。</p>
+                <p class="article-p">計測やタグ管理を補助するアプリ。</p>
+                <p class="article-p">足りない機能があれば、アプリで追加できる。</p>
+                <p class="article-p">これはShopifyの大きな強みです。</p>
+                <p class="article-p">しかし、この強みを誤解すると、Shopify構築は一気に危険になります。</p>
+                <p class="article-p">「必要になったらアプリを入れればいい」</p>
+                <p class="article-p">「標準機能で足りなければ追加すればいい」</p>
+                <p class="article-p">「アプリが多いほど高機能になる」</p>
+                <p class="article-p">「ノーコードで拡張できるなら問題ない」</p>
+                <p class="article-p">こう考えて、最初からアプリを入れすぎるECは少なくありません。</p>
+                <p class="article-p">しかし実際にShopify構築、広告運用、LP改善、LPO、商品ページ改善まで関わっていると、アプリを入れすぎたECほど、売れ始めてから詰まりやすいと感じます。</p>
+                <p class="article-p">最初は便利に見えます。</p>
+                <p class="article-p">欲しい機能もすぐ追加できます。</p>
+                <p class="article-p">見た目上は問題なく動いているように見えます。</p>
+                <p class="article-p">しかし、運用が始まり、広告を回し、商品が増え、改善を重ねようとしたときに問題が出ます。</p>
+                <p class="article-p">どのアプリがどこに影響しているのか分からない。</p>
+                <p class="article-p">設定場所がバラバラになる。</p>
+                <p class="article-p">社内で誰も全体を把握できない。</p>
+                <p class="article-p">不具合が起きても原因を切り分けられない。</p>
+                <p class="article-p">テーマ改修やLP改善の自由度が下がる。</p>
+                <p class="article-p">外したいのに外せないアプリが出てくる。</p>
+                <p class="article-p">Shopifyアプリは便利です。</p>
+                <p class="article-p">ただし、便利さには必ず代償があります。</p>
+                <p class="article-p">アプリを入れる前に考えるべきなのは、「その機能が欲しいか」ではありません。</p>
+                <p class="article-p">そのアプリを入れても、将来の運用、改善、計測、拡張に耐えられるかです。</p>
 
-                <h2 class="article-section-title">初月から回るECが、アプリを慎重に扱う理由</h2>
-                <p class="article-p">成果が出ているECほど、</p>
-                <ul class="article-list">
-                    <li>最初からアプリを詰め込まない</li>
-                    <li>必要性が明確になるまで入れない</li>
-                </ul>
-                <p class="article-p">という判断をしています。</p>
-                <p class="article-p">理由は単純で、</p>
-                <p class="article-p"><strong>アプリは「機能」ではなく「依存」になる</strong></p>
-                <p class="article-p">ことを知っているからです。</p>
+                <h2 id="section2" class="article-section-title">アプリが増えすぎたECで実際に起きること</h2>
+                <p class="article-p">アプリが増えすぎたShopifyでは、公開直後よりも運用が始まってから問題が見えてきます。</p>
+                <p class="article-p">商品を追加したい。</p>
+                <p class="article-p">LPを改善したい。</p>
+                <p class="article-p">広告で反応した訴求を商品ページへ反映したい。</p>
+                <p class="article-p">キャンペーンを始めたい。</p>
+                <p class="article-p">レビューの見せ方を変えたい。</p>
+                <p class="article-p">カート周りを調整したい。</p>
+                <p class="article-p">計測タグを確認したい。</p>
+                <p class="article-p">こうした日常的な改善をしようとしたとき、アプリが多すぎると判断が難しくなります。</p>
+                <p class="article-p">設定はテーマ側なのか。</p>
+                <p class="article-p">アプリ側なのか。</p>
+                <p class="article-p">Shopify標準機能なのか。</p>
+                <p class="article-p">別のアプリと干渉しているのか。</p>
+                <p class="article-p">過去に入れたカスタマイズの影響なのか。</p>
+                <p class="article-p">これが分からない状態になります。</p>
+                <p class="article-p">社内では、次第に「どこを触ればいいか分からない」「触ると壊れそう」「担当者に確認しないと分からない」という状態になります。</p>
+                <p class="article-p">結果として、改善のスピードが落ちます。</p>
+                <p class="article-p">広告運用で反応が出ても、ページに反映できない。</p>
+                <p class="article-p">問い合わせで多い不安が見えても、商品ページに戻せない。</p>
+                <p class="article-p">LPOで改善したい箇所があっても、アプリ側の制約で変えられない。</p>
+                <p class="article-p">計測がズレていても、どのアプリが影響しているのか分からない。</p>
+                <p class="article-p">この状態では、売上改善は進みません。</p>
+                <p class="article-p">アプリが増えすぎたECは、高機能に見えて、実際には動きづらいECになります。</p>
+                <p class="article-p">便利なはずのアプリが、社内運用と改善を縛ってしまうのです。</p>
 
-                <h2 class="article-section-title">危険①｜運用が一気に複雑化する</h2>
-                <p class="article-p">アプリが増えると、</p>
-                <ul class="article-list">
-                    <li>設定場所が分散する</li>
-                    <li>更新手順が増える</li>
-                    <li>担当者しか分からなくなる</li>
-                </ul>
-                <p class="article-p">結果、</p>
-                <p class="article-p"><strong>運用が属人化し、スピードが落ちます。</strong></p>
-                <p class="article-p">ECにおいて、</p>
-                <ul class="article-list">
-                    <li>判断の遅れ</li>
-                    <li>改善の遅れ</li>
-                </ul>
-                <p class="article-p">は、致命的です。</p>
+                <h2 id="section3" class="article-section-title">初月から回るECほど、アプリを簡単に増やさない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/d-1_section1.webp" alt="Shopifyアプリを入れる前に標準機能や運用ルールで解決できないかを慎重に判断している実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">初月から回るECほど、アプリを簡単に増やしません。</p>
+                <p class="article-p">これは、アプリを否定しているわけではありません。</p>
+                <p class="article-p">必要なアプリは使います。</p>
+                <p class="article-p">標準機能では実現できないこともあります。</p>
+                <p class="article-p">事業上必要な機能であれば、アプリ導入は有効な選択肢です。</p>
+                <p class="article-p">ただし、成果が出るECほど、導入前の判断がシビアです。</p>
+                <p class="article-p">その機能は本当に今必要なのか。</p>
+                <p class="article-p">Shopifyの標準機能で代替できないか。</p>
+                <p class="article-p">テーマ設計や運用ルールで解決できないか。</p>
+                <p class="article-p">そのアプリを入れることで、管理画面は複雑にならないか。</p>
+                <p class="article-p">将来の改修や計測に影響しないか。</p>
+                <p class="article-p">外したいときに外せるか。</p>
+                <p class="article-p">社内で運用できるか。</p>
+                <p class="article-p">売上改善に本当に効くのか。</p>
+                <p class="article-p">ここまで考えてから導入します。</p>
+                <p class="article-p">なぜなら、アプリは入れると簡単でも、後から外すのは簡単ではないことがあるからです。</p>
+                <p class="article-p">データがアプリ内に蓄積される。</p>
+                <p class="article-p">表示や購入導線がアプリ依存になる。</p>
+                <p class="article-p">テーマ内にコードが残る。</p>
+                <p class="article-p">他のアプリと連携してしまう。</p>
+                <p class="article-p">担当者が使い方に慣れて、外せなくなる。</p>
+                <p class="article-p">この状態になると、アプリは機能ではなく依存になります。</p>
+                <p class="article-p">初月から回るECは、短期的な便利さよりも、長期的に社内で運用し、改善し続けられる構造を重視しています。</p>
+                <p class="article-p">だから、アプリを増やす前にまず設計で考えます。</p>
 
-                <h2 class="article-section-title">危険②｜不具合の切り分けができなくなる</h2>
-                <p class="article-p">アプリが絡むと、</p>
-                <ul class="article-list">
-                    <li>表示崩れ</li>
-                    <li>処理エラー</li>
-                    <li>計測不具合</li>
-                </ul>
-                <p class="article-p">が起きたとき、</p>
-                <p class="article-p"><strong>原因の特定が非常に難しくなります。</strong></p>
-                <ul class="article-list">
-                    <li>テーマなのか</li>
-                    <li>アプリなのか</li>
-                    <li>Shopify側なのか</li>
-                </ul>
-                <p class="article-p">分からないまま、</p>
-                <p class="article-p">時間だけが過ぎていく。</p>
-                <p class="article-p">これは、</p>
-                <p class="article-p">現場でかなりのストレスになります。</p>
+                <h2 id="section4" class="article-section-title">アプリは機能ではなく、将来の依存になる</h2>
+                <p class="article-p">Shopifyアプリは、導入時には便利な機能に見えます。</p>
+                <p class="article-p">しかし、運用が進むほど「依存」になります。</p>
+                <p class="article-p">たとえば、レビュー表示をアプリに任せる。</p>
+                <p class="article-p">配送指定をアプリに任せる。</p>
+                <p class="article-p">ポイント機能をアプリに任せる。</p>
+                <p class="article-p">アップセルをアプリに任せる。</p>
+                <p class="article-p">タグ管理や計測をアプリに任せる。</p>
+                <p class="article-p">商品表示や絞り込みをアプリに任せる。</p>
+                <p class="article-p">それぞれのアプリが単体では便利でも、増えれば増えるほどShopify全体の構造は複雑になります。</p>
+                <p class="article-p">どの機能がどのアプリで動いているのか。</p>
+                <p class="article-p">どのデータがどこに保存されているのか。</p>
+                <p class="article-p">テーマ側とアプリ側の境界はどこなのか。</p>
+                <p class="article-p">不具合時に誰が対応するのか。</p>
+                <p class="article-p">契約をやめたら何が消えるのか。</p>
+                <p class="article-p">テーマ更新時に影響が出ないのか。</p>
+                <p class="article-p">これらを把握できなくなると、アプリ依存のECになります。</p>
+                <p class="article-p">アプリ依存が強くなると、次の判断が難しくなります。</p>
+                <p class="article-p">テーマを変更したい。</p>
+                <p class="article-p">LPを改善したい。</p>
+                <p class="article-p">商品ページを再設計したい。</p>
+                <p class="article-p">計測を見直したい。</p>
+                <p class="article-p">カート周りを改善したい。</p>
+                <p class="article-p">海外展開や新しい販売方法を試したい。</p>
+                <p class="article-p">このとき、アプリが足かせになることがあります。</p>
+                <p class="article-p">便利だから入れたアプリが、将来の選択肢を狭める。</p>
+                <p class="article-p">これが、アプリを安易に増やすことの一番怖い点です。</p>
 
-                <h2 class="article-section-title">危険③｜拡張・改修の自由度が失われる</h2>
-                <p class="article-p">売れ始めると、</p>
-                <ul class="article-list">
-                    <li>構成を変えたい</li>
-                    <li>導線を増やしたい</li>
-                    <li>別の施策を試したい</li>
-                </ul>
-                <p class="article-p">という要望が必ず出てきます。</p>
-                <p class="article-p">しかし、</p>
-                <p class="article-p"><strong>アプリ依存が強いECほど、
-その変更ができません。</strong></p>
-                <ul class="article-list">
-                    <li>アプリ同士が干渉する</li>
-                    <li>外せなくなる</li>
-                    <li>作り直しが必要になる</li>
-                </ul>
-                <p class="article-p">結果、</p>
-                <p class="article-p">「売れているのに動けない」状態になります。</p>
+                <h2 id="section5" class="article-section-title">アプリが増えると、社内運用は一気に複雑になる</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/d-1_section2.webp" alt="Shopifyアプリが増えることで設定場所が分散し社内運用が複雑化している状態を実写とグラフィックで示すイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">アプリが増えると、社内運用は一気に複雑になります。</p>
+                <p class="article-p">管理画面が増える。</p>
+                <p class="article-p">設定箇所が分散する。</p>
+                <p class="article-p">操作手順が増える。</p>
+                <p class="article-p">確認すべき画面が増える。</p>
+                <p class="article-p">担当者しか分からない設定が増える。</p>
+                <p class="article-p">更新時の注意点が増える。</p>
+                <p class="article-p">最初はひとつひとつのアプリを理解できても、数が増えると全体像が見えにくくなります。</p>
+                <p class="article-p">レビューはこのアプリ。</p>
+                <p class="article-p">配送指定は別のアプリ。</p>
+                <p class="article-p">ポイントは別管理。</p>
+                <p class="article-p">アップセルは別画面。</p>
+                <p class="article-p">計測タグはまた別の設定。</p>
+                <p class="article-p">商品表示はテーマとアプリが混ざっている。</p>
+                <p class="article-p">この状態では、社内の誰でも迷わず運用することは難しくなります。</p>
+                <p class="article-p">結果として、属人化が起こります。</p>
+                <p class="article-p">特定の担当者しか触れない。</p>
+                <p class="article-p">その人がいないと更新できない。</p>
+                <p class="article-p">引き継ぎが難しい。</p>
+                <p class="article-p">制作会社や外部パートナーに確認しないと進まない。</p>
+                <p class="article-p">小さな改善でも時間がかかる。</p>
+                <p class="article-p">EC運用では、判断の遅れと改善の遅れが売上に直結します。</p>
+                <p class="article-p">広告で反応した訴求をすぐ反映できない。</p>
+                <p class="article-p">問い合わせで見えた不安をFAQに戻せない。</p>
+                <p class="article-p">キャンペーンに合わせて導線を変えられない。</p>
+                <p class="article-p">商品ページ改善が後回しになる。</p>
+                <p class="article-p">アプリが増えるほど、便利になるように見えて、社内運用は重くなります。</p>
+                <p class="article-p">Shopify構築では、機能の多さではなく、社内で運用しやすいシンプルさが重要です。</p>
 
-                <h2 class="article-section-title">ノーコードで作れる＝簡単、ではない</h2>
-                <p class="article-p">Shopifyは確かにノーコードです。</p>
-                <p class="article-p">ですが、</p>
-                <p class="article-p"><strong>ノーコード＝設計が不要</strong></p>
-                <p class="article-p">という意味ではありません。</p>
-                <p class="article-p">むしろ、</p>
-                <ul class="article-list">
-                    <li>制限がある分</li>
-                    <li>最初の設計判断が重要</li>
-                </ul>
-                <p class="article-p">になります。</p>
-                <p class="article-p">浅い理解でのノーコード構築は、</p>
-                <p class="article-p">後から必ず足を引っ張ります。</p>
+                <h2 id="section6" class="article-section-title">不具合の原因が分からないECは、改善が止まる</h2>
+                <p class="article-p">アプリが多いShopifyでは、不具合が起きたときの切り分けが難しくなります。</p>
+                <p class="article-p">表示が崩れる。</p>
+                <p class="article-p">カートが正常に動かない。</p>
+                <p class="article-p">ボタンが反応しない。</p>
+                <p class="article-p">ページの表示速度が落ちる。</p>
+                <p class="article-p">計測タグが正しく発火しない。</p>
+                <p class="article-p">広告管理画面とShopifyの売上が合わない。</p>
+                <p class="article-p">特定のページだけエラーが出る。</p>
+                <p class="article-p">このとき、原因がすぐに分かれば対応できます。</p>
+                <p class="article-p">しかし、アプリが多いと切り分けが難しくなります。</p>
+                <p class="article-p">テーマが原因なのか。</p>
+                <p class="article-p">アプリが原因なのか。</p>
+                <p class="article-p">複数アプリの干渉なのか。</p>
+                <p class="article-p">Shopify標準機能との相性なのか。</p>
+                <p class="article-p">過去のカスタマイズが原因なのか。</p>
+                <p class="article-p">計測タグの重複なのか。</p>
+                <p class="article-p">これが分からないまま時間だけが過ぎていきます。</p>
+                <p class="article-p">広告を回している最中であれば、これは大きな損失です。</p>
+                <p class="article-p">計測がズレているのに原因が分からない。</p>
+                <p class="article-p">LP改善をしたいのに表示不具合が起きる。</p>
+                <p class="article-p">商品ページの変更後に別の箇所が崩れる。</p>
+                <p class="article-p">カート周りの問題でCVRが落ちる。</p>
+                <p class="article-p">この状態では、改善どころではありません。</p>
+                <p class="article-p">ECは、数字を見て改善を繰り返すことで育ちます。</p>
+                <p class="article-p">しかし、不具合の切り分けに時間を取られるECでは、改善の時間が失われます。</p>
+                <p class="article-p">アプリを入れるということは、不具合の原因候補を増やすことでもあります。</p>
+                <p class="article-p">だからこそ、必要性が明確でないアプリは、最初から増やさない方がよいのです。</p>
 
-                <h2 class="article-section-title">本当に必要な機能は、実は限られている</h2>
-                <p class="article-p">実際に回してみると、</p>
-                <ul class="article-list">
-                    <li>最初に必要な機能</li>
-                    <li>売上を作るための機能</li>
-                </ul>
-                <p class="article-p">は、意外と少ないことが分かります。</p>
-                <ul class="article-list">
-                    <li>まず売る</li>
-                    <li>数字を見る</li>
-                    <li>改善する</li>
-                </ul>
-                <p class="article-p">このサイクルを回せる構造こそが、</p>
-                <p class="article-p">最優先です。</p>
+                <h2 id="section7" class="article-section-title">売れ始めてから、拡張や改修の自由度を失う</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/d-1_section3.webp" alt="Shopifyが売れ始めた後にアプリ依存によってLP改善やCRM強化などの拡張が妨げられている状態を示す実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">アプリ依存の怖さは、売れていないときよりも、売れ始めてから表面化します。</p>
+                <p class="article-p">売上が伸び始めると、やりたいことが増えます。</p>
+                <p class="article-p">LPを追加したい。</p>
+                <p class="article-p">商品ページを再設計したい。</p>
+                <p class="article-p">カート周りを改善したい。</p>
+                <p class="article-p">レビューの見せ方を変えたい。</p>
+                <p class="article-p">定期購入やセット販売を試したい。</p>
+                <p class="article-p">CRMを強化したい。</p>
+                <p class="article-p">広告流入ごとに導線を分けたい。</p>
+                <p class="article-p">海外販売や別チャネル連携を考えたい。</p>
+                <p class="article-p">しかし、アプリ依存が強いECでは、この変更が難しくなります。</p>
+                <p class="article-p">アプリ同士が干渉する。</p>
+                <p class="article-p">既存アプリを外すと表示が崩れる。</p>
+                <p class="article-p">過去の設定が残っている。</p>
+                <p class="article-p">テーマ変更が怖い。</p>
+                <p class="article-p">データ移行が必要になる。</p>
+                <p class="article-p">新しい機能を追加すると、別の機能に影響する。</p>
+                <p class="article-p">結果として、売れているのに動けない状態になります。</p>
+                <p class="article-p">これは非常にもったいない状態です。</p>
+                <p class="article-p">本来、売れ始めたECは改善のチャンスが増えます。</p>
+                <p class="article-p">データも溜まり、顧客の反応も見え、次の打ち手も明確になります。</p>
+                <p class="article-p">しかし、アプリに縛られていると、その打ち手を実行できません。</p>
+                <p class="article-p">売れてから詰むECの多くは、最初の構築時点で将来の拡張性を軽視しています。</p>
+                <p class="article-p">今ほしい機能を足すことばかり考え、将来どのように運用し、改善し、拡張するかを考えていない。</p>
+                <p class="article-p">その結果、売上が伸び始めたタイミングで自由度を失います。</p>
+                <p class="article-p">Shopify構築では、今の便利さだけでなく、売れた後に動ける余白を残すことが重要です。</p>
 
-                <h2 class="article-section-title">まとめ：アプリは“最後の手段”である</h2>
-                <p class="article-p">Shopifyアプリは、</p>
-                <ul class="article-list">
-                    <li>便利</li>
-                    <li>強力</li>
-                </ul>
-                <p class="article-p">ですが、</p>
-                <p class="article-p"><strong>最初から頼るものではありません。</strong></p>
-                <ul class="article-list">
-                    <li>設計で解決できないか</li>
-                    <li>運用で回せないか</li>
-                </ul>
-                <p class="article-p">それを考えた上で、</p>
-                <p class="article-p">どうしても必要なものだけを使う。</p>
-                <p class="article-p">初月から回るECほど、</p>
-                <p class="article-p">この判断が非常にシビアです。</p>
-                <p class="article-p">この技術・拡張性の全体像は、</p>
-                <p class="article-p">ピラー記事で整理しています。</p>
-                <p class="article-p">👉 <a href="/insights/ec-growth/">ピラー記事：初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実</a></p>
+                <h2 id="section8" class="article-section-title">ノーコードで作れることと、設計が簡単なことは違う</h2>
+                <p class="article-p">Shopifyは、ノーコードで始めやすいツールです。</p>
+                <p class="article-p">テーマを選ぶ。</p>
+                <p class="article-p">商品を登録する。</p>
+                <p class="article-p">アプリを入れる。</p>
+                <p class="article-p">ページを編集する。</p>
+                <p class="article-p">決済や配送設定を行う。</p>
+                <p class="article-p">専門的な開発知識がなくても、一定のECサイトを作ることができます。</p>
+                <p class="article-p">しかし、ノーコードで作れることと、設計が簡単なことは違います。</p>
+                <p class="article-p">むしろ、ノーコードで拡張できるからこそ、判断が重要になります。</p>
+                <p class="article-p">どこまで標準機能で作るのか。</p>
+                <p class="article-p">どこからアプリを使うのか。</p>
+                <p class="article-p">どの機能は後回しにするのか。</p>
+                <p class="article-p">社内で運用できる範囲はどこか。</p>
+                <p class="article-p">将来外せる構造にしておくか。</p>
+                <p class="article-p">LPや商品ページ改善に影響しないか。</p>
+                <p class="article-p">広告計測やCRMとどうつなげるか。</p>
+                <p class="article-p">これを考えずにアプリを追加していくと、見た目はノーコードでも、構造は複雑になります。</p>
+                <p class="article-p">「誰でも作れる」は、「誰でも売れる」ではありません。</p>
+                <p class="article-p">「簡単に追加できる」は、「簡単に運用できる」ではありません。</p>
+                <p class="article-p">浅い理解でアプリを増やしたShopifyは、後から社内運用と改善の足を引っ張ります。</p>
+                <p class="article-p">ノーコードだからこそ、最初の設計判断が重要です。</p>
+
+                <h2 id="section9" class="article-section-title">本当に必要な機能は、思っているより少ない</h2>
+                <p class="article-p">Shopify構築では、最初から多くの機能を入れたくなります。</p>
+                <p class="article-p">レビューも入れたい。</p>
+                <p class="article-p">ポイントも入れたい。</p>
+                <p class="article-p">LINE連携も入れたい。</p>
+                <p class="article-p">アップセルも入れたい。</p>
+                <p class="article-p">サブスクも入れたい。</p>
+                <p class="article-p">配送指定も入れたい。</p>
+                <p class="article-p">高度な絞り込みも入れたい。</p>
+                <p class="article-p">しかし、実際にECを回してみると、最初から必要な機能は思っているより少ないことがあります。</p>
+                <p class="article-p">まず必要なのは、売れる構造です。</p>
+                <p class="article-p">誰に売るのか。</p>
+                <p class="article-p">何を価値として伝えるのか。</p>
+                <p class="article-p">どのLPで受け止めるのか。</p>
+                <p class="article-p">商品ページでどの不安を解消するのか。</p>
+                <p class="article-p">購入導線で迷わせないか。</p>
+                <p class="article-p">広告やSNSの反応を社内で反映できるか。</p>
+                <p class="article-p">数字を見て改善できるか。</p>
+                <p class="article-p">このサイクルが回ることが最優先です。</p>
+                <p class="article-p">機能が多くても、売る構造が弱ければ成果は出ません。</p>
+                <p class="article-p">逆に、機能が少なくても、販売導線が整っていれば初期の売上は作れます。</p>
+                <p class="article-p">成果が出てから、本当に必要な機能を見極める。</p>
+                <p class="article-p">顧客の反応を見て、必要なアプリだけを入れる。</p>
+                <p class="article-p">標準機能やテーマ設計で解決できるものはアプリに頼らない。</p>
+                <p class="article-p">この順番の方が、長期的には強いECになります。</p>
+                <p class="article-p">アプリを増やす前に、まず売る。</p>
+                <p class="article-p">数字を見る。</p>
+                <p class="article-p">改善する。</p>
+                <p class="article-p">それでも必要なら、導入する。</p>
+                <p class="article-p">この順番を守ることが重要です。</p>
+
+                <h2 id="section10" class="article-section-title">まとめ：Shopifyアプリは、最後の手段として使う</h2>
+                <p class="article-p">Shopifyアプリは便利です。</p>
+                <p class="article-p">標準機能ではできないことを実現できます。</p>
+                <p class="article-p">事業に必要な機能を追加できます。</p>
+                <p class="article-p">運用を効率化できることもあります。</p>
+                <p class="article-p">しかし、最初から頼るものではありません。</p>
+                <p class="article-p">アプリを入れすぎたECは、売れてから詰みます。</p>
+                <p class="article-p">社内運用が複雑になる。</p>
+                <p class="article-p">設定が属人化する。</p>
+                <p class="article-p">不具合の切り分けが難しくなる。</p>
+                <p class="article-p">計測がズレる。</p>
+                <p class="article-p">LPや商品ページ改善が遅れる。</p>
+                <p class="article-p">拡張や改修の自由度を失う。</p>
+                <p class="article-p">外したくても外せなくなる。</p>
+                <p class="article-p">この状態になると、広告運用やLPO、Shopifyの商品ページ改善にも影響します。</p>
+                <p class="article-p">だからこそ、アプリ導入前には必ず考えるべきです。</p>
+                <p class="article-p">設計で解決できないか。</p>
+                <p class="article-p">Shopify標準機能で足りないか。</p>
+                <p class="article-p">社内運用は複雑にならないか。</p>
+                <p class="article-p">将来外せるか。</p>
+                <p class="article-p">計測や広告運用に影響しないか。</p>
+                <p class="article-p">売上改善に本当に必要か。</p>
+                <p class="article-p">初月から回るECほど、アプリをシビアに判断しています。</p>
+                <p class="article-p">便利だから入れるのではありません。</p>
+                <p class="article-p">売上改善と社内運用に必要だから入れるのです。</p>
+                <p class="article-p">この技術・拡張性を含めたShopify構築と集客設計の全体像については、親記事「初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実」で詳しく整理しています。</p>
+                <p class="article-p">👉 親記事への内部リンク</p>
+                <p class="article-p">（初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実）</p>
+                <p class="article-p">A.Incでは、Shopify構築、LP・LPO支援、広告運用を個別の施策としてではなく、売上改善につながる販売導線として設計しています。</p>
+                <p class="article-p">アプリを増やす前に、まず設計で解決できないかを考えること。</p>
+                <p class="article-p">それが、売れてからも動けるShopifyを作るために必要です。</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
             </section>
 
             <div class="divider"></div>
@@ -202,12 +375,16 @@
             </section>
 
             <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
             <div id="profile-container" class="fade-in"></div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
+    <script>window.__currentArticle = {"id":"ec-growth-d-1","title":"プラグインを入れすぎたECは、売れてから詰む","url":"/insights/ec-growth/d-1/","image":"/assets/images/insights/ec-growth/d-1_thumb.webp","date":"2026.06.14","tags":["Shopifyアプリ","Shopify構築","Shopify運用","EC設計","EC改善","自社EC","EC拡張性","LP改善","LPO","広告運用"],"category":"insights","type":"cluster","theme":"ec-growth","group":"ec-growth"};</script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/insights-related.js"></script>

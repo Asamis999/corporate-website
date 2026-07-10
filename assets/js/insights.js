@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-d-1',
+        title: 'プラグインを入れすぎたECは、売れてから詰む',
+        excerpt: 'Shopifyはアプリで機能を追加しやすい一方で、安易に増やすと運用が複雑化し、不具合の切り分けや改修が難しくなります。初月から回るECほど、アプリを便利な機能ではなく「将来の依存」として慎重に扱っています。',
+        url: '/insights/ec-growth/d-1/',
+        image: '/assets/images/insights/ec-growth/d-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopifyアプリ","Shopify構築","Shopify運用","EC設計","EC改善","自社EC","EC拡張性","LP改善","LPO","広告運用"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'D'
+    },
+    {
         id: 'ec-growth-c-2',
         title: 'CPAしか見れない経営者の末路',
         excerpt: 'CPAだけを見て広告の良し悪しを判断していると、EC全体の成長機会を見落とします。広告は購入だけでなく、SNSフォロー、LINE登録、指名検索、モール売上、CRMにも影響します。集客を経営判断に活かすには、Shopify構築の段階から事業全体で成果を見られる設計が必要です。',
@@ -208,19 +221,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-d-1',
-    title: '初月から回るECほど、Shopifyアプリを安易に増やさない理由',
-    excerpt: 'Shopifyはアプリを入れれば解決、ではない。売れ始めてから詰むECの共通点を解説。',
-    url: '/insights/ec-growth/d-1/',
-    image: '/assets/images/insights/ec-growth/d-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopifyアプリ', 'Shopify構築', 'EC設計', 'Shopify運用', '自社EC', 'EC拡張性'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'D'
-  },
   {
     id: 'ec-growth-d-2',
     title: '売れ始めてから困らないShopify構築は、「注力すべき場所」を最初に切り分けている',
