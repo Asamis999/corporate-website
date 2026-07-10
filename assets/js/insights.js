@@ -1,6 +1,19 @@
 // insights article data
 const insightsData = [
     {
+        id: 'ec-growth-c-1',
+        title: '広告を回すだけのECは、大体売れません。',
+        excerpt: 'Shopify構築では「まずサイトを作って、広告はあとから考える」という進め方がよくあります。しかし、広告をあと回しにしたECは、計測できない、LPを改善できない、商品ページで購入判断を支えられないなど、公開後に売上改善が詰まりやすくなります。',
+        url: '/insights/ec-growth/c-1/',
+        image: '/assets/images/insights/ec-growth/c-1_thumb.webp',
+        date: '2026.06.14',
+        tags: ["Shopify構築","Shopify広告","EC集客","EC設計","Shopify運用","自社EC","LP改善","LPO","広告運用","EC売上改善"],
+        category: 'insights',
+        type: 'cluster',
+        theme: 'ec-growth',
+        group: 'C'
+    },
+    {
         id: 'ec-growth-b-3',
         title: 'そのEC、社内の誰でも迷わず更新できますか？',
         excerpt: 'Shopify構築では、表側のデザインや機能に意識が向きがちです。しかし公開後に売上改善を動かすのは、社内で日々触る管理画面です。管理画面が使いにくいECは、更新が遅れ、改善が止まり、広告やLPの反応を売上につなげにくくなります。',
@@ -182,19 +195,6 @@ const insightsData = [
         theme: 'web-marketing',
         group: 'B'
     },
-  {
-    id: 'ec-growth-c-1',
-    title: '初月から広告が回るECは、Shopify構築の時点で何が違うのか',
-    excerpt: '広告が回るかどうかは、構築段階でほぼ決まっている。Shopifyと集客の接続を解説。',
-    url: '/insights/ec-growth/c-1/',
-    image: '/assets/images/insights/ec-growth/c-1_thumb.webp',
-    date: '2026.03.03',
-    tags: ['Shopify構築', 'EC集客', 'Shopify広告', 'EC設計', 'Shopify運用', '自社EC'],
-    category: 'insights',
-    type: 'cluster',
-    theme: 'ec-growth',
-    group: 'C'
-  },
   {
     id: 'ec-growth-c-2',
     title: '集客を分かっているチームが、Shopify構築で必ず仕込むもの',

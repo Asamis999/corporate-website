@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>初月から広告が回るECは、Shopify構築の時点で何が違うのか | ナレッジ</title>
-    <meta name="description" content="初月から広告が回るECは、Shopify構築の段階で集客前提の設計がされています。構築と広告を分けて考える危険性を、現場視点で解説します。">
+    <title>広告を回すだけのECは、大体売れません。 | ナレッジ</title>
+    <meta name="description" content="Shopify構築で広告や集客をあと回しにすると、公開後に売上改善が詰まりやすくなります。計測・LP・商品ページ・改善導線まで、構築段階で設計すべき理由を解説します。">
+    <link rel="canonical" href="https://a-inc.info/insights/ec-growth/c-1/">
 
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
@@ -22,159 +23,302 @@
     <main class="main-content">
         <div class="article-container">
             <header class="article-header">
-                <h1 class="article-title">初月から広告が回るECは、Shopify構築の時点で何が違うのか</h1>
-                <div class="article-meta">カテゴリC｜集客と構築は切り離せない（実装側の論理）</div>
+                <h1 class="article-title">広告を回すだけのECは、大体売れません。</h1>
+                <div class="article-meta">テーマ：ec-growth　更新日：2026.06.14</div>
                 <div class="article-tag-list">
                     <span class="article-tag">Shopify構築</span>
-                    <span class="article-tag">EC集客</span>
                     <span class="article-tag">Shopify広告</span>
+                    <span class="article-tag">EC集客</span>
+                    <span class="article-tag">EC設計</span>
+                    <span class="article-tag">Shopify運用</span>
+                    <span class="article-tag">自社EC</span>
+                    <span class="article-tag">LP改善</span>
+                    <span class="article-tag">LPO</span>
+                    <span class="article-tag">広告運用</span>
+                    <span class="article-tag">EC売上改善</span>
                 </div>
             </header>
 
             <div class="article-image-container">
-                <img src="/assets/images/insights/ec-growth/shared_main.webp" alt="初月から広告が回るECは、Shopify構築の時点で何が違うのか" class="article-image" style="max-width: 100%;">
+                <img src="/assets/images/insights/ec-growth/c-1_thumb.webp" alt="Shopify構築と広告運用を同時に設計するためにEC管理画面と広告管理画面を並べて確認している実写イメージ" class="article-image" style="max-width: 100%;">
             </div>
 
             <section class="article-section fade-in">
                 <h2 class="article-section-title">目次</h2>
                 <ol class="article-list">
-                    <li>「広告はあとから考えればいい」という誤解</li>
-                    <li>構築と集客を分けた瞬間に起きること</li>
-                    <li>初月から広告が回るECが、最初にやっていること</li>
-                    <li>違い①｜計測できる前提で作られている</li>
-                    <li>違い②｜広告導線が想定されている</li>
-                    <li>違い③｜改善前提の構造になっている</li>
-                    <li>なぜ“あとから集客”はうまくいかないのか</li>
-                    <li>構築＝箱、という考えが危険な理由</li>
-                    <li>まとめ：広告が回るかは、作る前に決まっている</li>
+                    <li><a href="#section1">「広告はあとから考えればいい」という判断が危ない理由</a></li>
+                    <li><a href="#section2">構築と集客を分けた瞬間に、売れない導線が生まれる</a></li>
+                    <li><a href="#section3">初月から広告が回るECは、構築前から広告流入を想定している</a></li>
+                    <li><a href="#section4">計測できないShopifyでは、広告改善は始まらない</a></li>
+                    <li><a href="#section5">広告の着地先が設計されていないECは、クリックを無駄にする</a></li>
+                    <li><a href="#section6">Shopifyの商品ページが弱いと、広告費は購入直前でこぼれる</a></li>
+                    <li><a href="#section7">改善できない構築では、広告は育たない</a></li>
+                    <li><a href="#section8">Shopifyを「箱」として作ると、集客と噛み合わない</a></li>
+                    <li><a href="#section9">まとめ：広告が回るかどうかは、作る前にほぼ決まっている</a></li>
                 </ol>
             </section>
 
             <div class="divider"></div>
 
             <section class="article-section fade-in">
-                <h2 class="article-section-title">「広告はあとから考えればいい」という誤解</h2>
-                <p class="article-p">Shopify構築の相談で、</p>
-                <p class="article-p">非常によく聞く前提があります。</p>
-                <p class="article-p">「まずはサイトを作って、集客はあとから考えます」</p>
-                <p class="article-p">一見、自然に聞こえます。</p>
-                <p class="article-p">ですが、</p>
-                <p class="article-p">この考え方の時点で、</p>
-                <p class="article-p"><strong>かなりの確率で失敗ルートに入っています。</strong></p>
 
-                <h2 class="article-section-title">構築と集客を分けた瞬間に起きること</h2>
-                <p class="article-p">構築と集客を分けると、</p>
-                <p class="article-p">次のような状態になります。</p>
-                <ul class="article-list">
-                    <li>広告代理店が数字を見られない</li>
-                    <li>LPを触れない</li>
-                    <li>改善の判断が遅れる</li>
-                </ul>
-                <p class="article-p">結果、</p>
-                <ul class="article-list">
-                    <li>広告は回っている</li>
-                    <li>クリックはある</li>
-                    <li>でも売れない</li>
-                </ul>
-                <p class="article-p">という、</p>
-                <p class="article-p"><strong>一番つらい状態</strong>が生まれます。</p>
+                <h2 id="section1" class="article-section-title">「広告はあとから考えればいい」という判断が危ない理由</h2>
+                <p class="article-p">Shopify構築の相談で、よく聞く前提があります。</p>
+                <p class="article-p">まずはサイトを作る。</p>
+                <p class="article-p">商品を登録する。</p>
+                <p class="article-p">デザインを整える。</p>
+                <p class="article-p">公開してから広告や集客を考える。</p>
+                <p class="article-p">一見、自然な進め方に見えます。</p>
+                <p class="article-p">しかし、実際にShopify構築や広告運用、LP改善まで見ていると、この順番で進めたECほど公開後に詰まりやすいと感じます。</p>
+                <p class="article-p">なぜなら、広告はサイトが完成してから外側に足すものではないからです。</p>
+                <p class="article-p">広告から来た人をどこで受け止めるのか。</p>
+                <p class="article-p">その人に最初に何を見せるのか。</p>
+                <p class="article-p">LPで何を納得してもらうのか。</p>
+                <p class="article-p">Shopifyの商品ページでどの不安を解消するのか。</p>
+                <p class="article-p">どの行動をコンバージョンとして計測するのか。</p>
+                <p class="article-p">数字が悪かったとき、どこを改善するのか。</p>
+                <p class="article-p">これらは、本来Shopify構築の段階で考えておくべきことです。</p>
+                <p class="article-p">広告をあとから考えるということは、広告流入の受け皿を作らないままECサイトを公開するということです。</p>
+                <p class="article-p">その結果、広告を始めたあとに次のような問題が起こります。</p>
+                <p class="article-p">計測が正しくできない。</p>
+                <p class="article-p">LPをすぐに改善できない。</p>
+                <p class="article-p">商品ページが広告流入に耐えられない。</p>
+                <p class="article-p">広告で反応した訴求をページに反映できない。</p>
+                <p class="article-p">カートや購入導線のどこで止まっているか分からない。</p>
+                <p class="article-p">こうなると、広告費を使っても売上に変わりません。</p>
+                <p class="article-p">広告をあと回しにしたShopifyは、公開後に広告で伸ばそうとしても、受け皿が整っていないために失速しやすいのです。</p>
 
-                <h2 class="article-section-title">初月から広告が回るECが、最初にやっていること</h2>
-                <p class="article-p">初月から広告が回っているECは、</p>
-                <p class="article-p">特別な裏技を使っているわけではありません。</p>
-                <p class="article-p"><strong>最初から、広告が来る前提で作っている。</strong></p>
-                <p class="article-p">これだけです。</p>
-                <ul class="article-list">
-                    <li>どこに流すか</li>
-                    <li>どこで判断するか</li>
-                    <li>どこを変えるか</li>
-                </ul>
-                <p class="article-p">これを、</p>
-                <p class="article-p">構築段階で決めています。</p>
+                <h2 id="section2" class="article-section-title">構築と集客を分けた瞬間に、売れない導線が生まれる</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-1_section1.webp" alt="Shopify構築と広告集客が分断されて購入導線が切れている状態を実写の付箋で示すイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">Shopify構築と集客を別々に考えると、販売導線が分断されます。</p>
+                <p class="article-p">制作側は、サイトを作る。</p>
+                <p class="article-p">広告側は、広告を回す。</p>
+                <p class="article-p">社内は、公開後に運用する。</p>
+                <p class="article-p">LP改善やLPOは、必要になってから考える。</p>
+                <p class="article-p">このように役割が分かれること自体は悪くありません。</p>
+                <p class="article-p">問題は、構築段階で全体の導線が設計されていないことです。</p>
+                <p class="article-p">広告から来た人が、どのページに着地するのか。</p>
+                <p class="article-p">着地したページで何を理解するのか。</p>
+                <p class="article-p">LPから商品ページへどう進むのか。</p>
+                <p class="article-p">商品ページで何を確認して購入を決めるのか。</p>
+                <p class="article-p">購入後のCRMやリピート導線はどうするのか。</p>
+                <p class="article-p">ここがつながっていないと、広告は売上につながりません。</p>
+                <p class="article-p">広告管理画面ではクリックが増えている。</p>
+                <p class="article-p">LPにもアクセスは来ている。</p>
+                <p class="article-p">Shopifyの商品ページも見られている。</p>
+                <p class="article-p">それでも売れない。</p>
+                <p class="article-p">この状態は、広告だけが悪いわけではありません。</p>
+                <p class="article-p">広告、LP、Shopify商品ページ、カート、購入後導線が一つの流れとして設計されていないことが原因です。</p>
+                <p class="article-p">構築と集客を分けて考えると、それぞれの施策は動いているのに、顧客から見た購入導線がつながらなくなります。</p>
+                <p class="article-p">広告は入口です。</p>
+                <p class="article-p">Shopifyは受け皿です。</p>
+                <p class="article-p">LPや商品ページは、判断と納得を作る場所です。</p>
+                <p class="article-p">この全体を同時に考えなければ、広告はただクリックを集めるだけの施策になってしまいます。</p>
 
-                <h2 class="article-section-title">違い①｜計測できる前提で作られている</h2>
-                <p class="article-p">広告は、</p>
-                <p class="article-p"><strong>計測できなければ、存在しないのと同じ</strong>です。</p>
-                <p class="article-p">成果が出ているECでは、</p>
-                <ul class="article-list">
-                    <li>計測タグの設計</li>
-                    <li>コンバージョンポイント</li>
-                    <li>イベント設計</li>
-                </ul>
-                <p class="article-p">が、</p>
-                <p class="article-p">構築段階から想定されています。</p>
-                <p class="article-p">「あとで入れればいい」構築は、</p>
-                <p class="article-p">ほぼ確実に取り返しがつきません。</p>
+                <h2 id="section3" class="article-section-title">初月から広告が回るECは、構築前から広告流入を想定している</h2>
+                <p class="article-p">初月から広告が回るECは、特別な裏技を使っているわけではありません。</p>
+                <p class="article-p">最初から、広告が来る前提で作られています。</p>
+                <p class="article-p">どの媒体から流入するのか。</p>
+                <p class="article-p">広告ではどの訴求を打つのか。</p>
+                <p class="article-p">新規顧客をどのページに着地させるのか。</p>
+                <p class="article-p">比較検討中の人には何を見せるのか。</p>
+                <p class="article-p">購入直前の不安をどこで解消するのか。</p>
+                <p class="article-p">商品ページにはどの情報を入れるのか。</p>
+                <p class="article-p">どのイベントを計測し、どこを改善するのか。</p>
+                <p class="article-p">こうしたことを、Shopify構築の段階で決めています。</p>
+                <p class="article-p">広告が回るECは、サイトを作ってから集客を考えるのではありません。</p>
+                <p class="article-p">集客された人がどう購入するかを考えたうえで、サイトを作っています。</p>
+                <p class="article-p">たとえば、広告流入用のLPをShopify内で作るのか。</p>
+                <p class="article-p">商品ページを直接受け皿にするのか。</p>
+                <p class="article-p">トップページに送るべきなのか。</p>
+                <p class="article-p">広告ごとに訴求を変える必要があるのか。</p>
+                <p class="article-p">ファーストビューでどの不安に答えるべきなのか。</p>
+                <p class="article-p">レビューやFAQをどこに配置すべきなのか。</p>
+                <p class="article-p">こうした判断は、公開後に慌てて考えるより、構築時点で設計しておく方が圧倒的にスムーズです。</p>
+                <p class="article-p">初月から広告が回るECは、広告運用が始まってから強いのではありません。</p>
+                <p class="article-p">広告が始まる前から、受け皿が作られているのです。</p>
 
-                <h2 class="article-section-title">違い②｜広告導線が想定されている</h2>
-                <p class="article-p">広告から来るユーザーは、</p>
-                <ul class="article-list">
-                    <li>初見</li>
-                    <li>比較検討中</li>
-                    <li>不安を持っている</li>
-                </ul>
-                <p class="article-p">この前提で、</p>
-                <ul class="article-list">
-                    <li>どこに着地させるか</li>
-                    <li>何を最初に見せるか</li>
-                </ul>
-                <p class="article-p">が、</p>
-                <p class="article-p">構築時点で考えられています。</p>
-                <p class="article-p">広告導線がないECは、</p>
-                <p class="article-p">広告を拒否する構造です。</p>
+                <h2 id="section4" class="article-section-title">計測できないShopifyでは、広告改善は始まらない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-1_section2.webp" alt="Shopify構築段階で広告計測やコンバージョンイベントを設計している実写イメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">広告は、計測できなければ改善できません。</p>
+                <p class="article-p">どの広告から流入したのか。</p>
+                <p class="article-p">どのページで離脱したのか。</p>
+                <p class="article-p">商品ページまで進んだのか。</p>
+                <p class="article-p">カートに入れたのか。</p>
+                <p class="article-p">購入まで進んだのか。</p>
+                <p class="article-p">どの訴求がCVにつながったのか。</p>
+                <p class="article-p">どの導線が売上に貢献したのか。</p>
+                <p class="article-p">これが分からなければ、広告改善は始まりません。</p>
+                <p class="article-p">成果が出ているECでは、計測の前提がShopify構築段階から考えられています。</p>
+                <p class="article-p">コンバージョンポイントをどこに置くのか。</p>
+                <p class="article-p">購入だけでなく、カート投入や商品ページ閲覧も見るのか。</p>
+                <p class="article-p">Google広告やMeta広告で必要なイベントをどう取得するのか。</p>
+                <p class="article-p">LPとShopify商品ページをまたぐ導線をどう見るのか。</p>
+                <p class="article-p">GA4や広告管理画面でどの数字を判断に使うのか。</p>
+                <p class="article-p">この設計があるから、広告データを改善に使えます。</p>
+                <p class="article-p">一方で、「計測はあとで入れればいい」と考えて構築されたShopifyは、公開後に苦しくなります。</p>
+                <p class="article-p">タグが正しく入っていない。</p>
+                <p class="article-p">イベントが取れていない。</p>
+                <p class="article-p">広告管理画面と実際の売上が合わない。</p>
+                <p class="article-p">どのページで止まっているか分からない。</p>
+                <p class="article-p">改善判断が感覚になる。</p>
+                <p class="article-p">この状態で広告を回しても、何を直せばよいのか判断できません。</p>
+                <p class="article-p">広告費を使ってデータを集めているつもりでも、改善に使えるデータになっていなければ意味がありません。</p>
+                <p class="article-p">計測は、広告運用の後処理ではありません。</p>
+                <p class="article-p">Shopify構築の段階で仕込むべき、売上改善の土台です。</p>
 
-                <h2 class="article-section-title">違い③｜改善前提の構造になっている</h2>
-                <p class="article-p">広告は、</p>
-                <ul class="article-list">
-                    <li>1回で当たるものではない</li>
-                    <li>必ず試行錯誤が必要</li>
-                </ul>
-                <p class="article-p">だからこそ、</p>
-                <ul class="article-list">
-                    <li>LPを触れる</li>
-                    <li>文言を変えられる</li>
-                    <li>セクションを増減できる</li>
-                </ul>
-                <p class="article-p">構造で作られています。</p>
-                <p class="article-p"><strong>改善できない構築では、広告は育ちません。</strong></p>
+                <h2 id="section5" class="article-section-title">広告の着地先が設計されていないECは、クリックを無駄にする</h2>
+                <p class="article-p">広告から来るユーザーは、すでに購入意欲が高い人ばかりではありません。</p>
+                <p class="article-p">初めてブランドを知った人。</p>
+                <p class="article-p">課題には気づいているが、商品比較中の人。</p>
+                <p class="article-p">他社商品と迷っている人。</p>
+                <p class="article-p">価格に不安がある人。</p>
+                <p class="article-p">購入直前で安心材料を探している人。</p>
+                <p class="article-p">このように、広告流入にはさまざまな温度感があります。</p>
+                <p class="article-p">そのため、広告の着地先をどこにするかは非常に重要です。</p>
+                <p class="article-p">いきなり商品ページへ送るべきなのか。</p>
+                <p class="article-p">まずLPで購入理由を整理すべきなのか。</p>
+                <p class="article-p">特定の商品ではなくカテゴリページへ送るべきなのか。</p>
+                <p class="article-p">比較検討中の人向けに、違いを説明するページが必要なのか。</p>
+                <p class="article-p">リターゲティング広告では、レビューや保証を見せるべきなのか。</p>
+                <p class="article-p">ここを考えずに広告を回すと、クリックは売上に変わりません。</p>
+                <p class="article-p">広告で興味を持った人が、着地先で何を見ればよいか分からない。</p>
+                <p class="article-p">LPで期待した情報が出てこない。</p>
+                <p class="article-p">商品ページに購入前の不安を解消する情報がない。</p>
+                <p class="article-p">次に何をすればよいか分からない。</p>
+                <p class="article-p">この状態では、広告費をかけても離脱が増えます。</p>
+                <p class="article-p">広告導線が設計されていないECは、広告を拒否する構造になっているとも言えます。</p>
+                <p class="article-p">広告で人を集める前に、その人が着地したあとにどう判断し、どう購入へ進むのかを設計する必要があります。</p>
+                <p class="article-p">広告の着地先は、単なるリンク先ではありません。</p>
+                <p class="article-p">売上を作るための最初の受け皿です。</p>
 
-                <h2 class="article-section-title">なぜ“あとから集客”はうまくいかないのか</h2>
-                <p class="article-p">理由は明確です。</p>
-                <ul class="article-list">
-                    <li>構造が固定されている</li>
-                    <li>触れない</li>
-                    <li>判断できない</li>
-                </ul>
-                <p class="article-p">この状態で広告を回すと、</p>
-                <ul class="article-list">
-                    <li>データが活かせない</li>
-                    <li>改善できない</li>
-                    <li>広告費だけが減る</li>
-                </ul>
-                <p class="article-p">という結果になります。</p>
+                <h2 id="section6" class="article-section-title">Shopifyの商品ページが弱いと、広告費は購入直前でこぼれる</h2>
+                <p class="article-p">LPや広告が良くても、Shopifyの商品ページが弱ければ購入は止まります。</p>
+                <p class="article-p">広告で興味を持つ。</p>
+                <p class="article-p">LPで商品に関心を持つ。</p>
+                <p class="article-p">商品ページまで進む。</p>
+                <p class="article-p">それでも購入されない。</p>
+                <p class="article-p">この場合、商品ページで購入判断を支えられていない可能性があります。</p>
+                <p class="article-p">購入前の顧客は、必ず不安を持っています。</p>
+                <p class="article-p">自分に合うのか。</p>
+                <p class="article-p">他の商品と何が違うのか。</p>
+                <p class="article-p">価格に見合う価値があるのか。</p>
+                <p class="article-p">レビューはあるのか。</p>
+                <p class="article-p">配送はいつ届くのか。</p>
+                <p class="article-p">返品や交換はできるのか。</p>
+                <p class="article-p">保証はあるのか。</p>
+                <p class="article-p">初めて買っても失敗しないのか。</p>
+                <p class="article-p">こうした情報が不足していると、広告費をかけて集めたユーザーは購入直前で離脱します。</p>
+                <p class="article-p">Shopifyの商品ページは、単なる商品情報の掲載場所ではありません。</p>
+                <p class="article-p">広告で集めた人を購入へ進めるための判断ページです。</p>
+                <p class="article-p">だからこそ、構築段階で商品ページの情報設計を考える必要があります。</p>
+                <p class="article-p">広告流入に耐えられる情報量になっているか。</p>
+                <p class="article-p">LPで伝えた価値が商品ページにも続いているか。</p>
+                <p class="article-p">レビューやFAQを追加しやすい構造か。</p>
+                <p class="article-p">商品ごとに訴求を変えられるか。</p>
+                <p class="article-p">配送、返品、保証などの安心材料が見つけやすいか。</p>
+                <p class="article-p">スマートフォンで購入まで迷わないか。</p>
+                <p class="article-p">ここが整っていないと、広告の成果は頭打ちになります。</p>
+                <p class="article-p">広告でクリックを集めるだけでは売れません。</p>
+                <p class="article-p">商品ページで購入判断を支えられて初めて、広告費は売上に変わります。</p>
 
-                <h2 class="article-section-title">構築＝箱、という考えが危険な理由</h2>
-                <p class="article-p">Shopifyを、</p>
-                <ul class="article-list">
-                    <li>デザインの箱</li>
-                    <li>商品を置く場所</li>
-                </ul>
-                <p class="article-p">として捉えている限り、</p>
-                <p class="article-p">集客は噛み合いません。</p>
-                <p class="article-p">Shopifyは、</p>
-                <p class="article-p"><strong>集客を受け止め、改善するための装置</strong>です。</p>
+                <h2 id="section7" class="article-section-title">改善できない構築では、広告は育たない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/insights/ec-growth/c-1_section3.webp" alt="広告からLP商品ページFAQレビューCTA改善までの導線を実写の付箋で整理しているイメージ" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">広告は、1回で当たるものではありません。</p>
+                <p class="article-p">広告文を試す。</p>
+                <p class="article-p">クリエイティブを変える。</p>
+                <p class="article-p">訴求を分ける。</p>
+                <p class="article-p">LPの見出しを変える。</p>
+                <p class="article-p">商品ページにFAQを追加する。</p>
+                <p class="article-p">CTAを調整する。</p>
+                <p class="article-p">カートまでの導線を見直す。</p>
+                <p class="article-p">こうした改善を繰り返して、少しずつ成果を上げていくものです。</p>
+                <p class="article-p">だからこそ、Shopify側が改善できる構造になっていなければ、広告は育ちません。</p>
+                <p class="article-p">LPを社内で触れない。</p>
+                <p class="article-p">商品ページを柔軟に編集できない。</p>
+                <p class="article-p">広告で反応した訴求をすぐに反映できない。</p>
+                <p class="article-p">セクションを増減できない。</p>
+                <p class="article-p">レビューやFAQの位置を変えられない。</p>
+                <p class="article-p">計測結果を見ても、ページ側に反映できない。</p>
+                <p class="article-p">この状態では、広告運用は調整だけになってしまいます。</p>
+                <p class="article-p">広告管理画面の中でできることには限界があります。</p>
+                <p class="article-p">ターゲティングを変える。</p>
+                <p class="article-p">広告文を変える。</p>
+                <p class="article-p">クリエイティブを変える。</p>
+                <p class="article-p">予算配分を変える。</p>
+                <p class="article-p">これらも重要ですが、クリック後の受け皿が変わらなければ、成果は伸びにくくなります。</p>
+                <p class="article-p">広告の改善は、広告管理画面の中だけで完結しません。</p>
+                <p class="article-p">LP。</p>
+                <p class="article-p">Shopifyの商品ページ。</p>
+                <p class="article-p">購入導線。</p>
+                <p class="article-p">FAQ。</p>
+                <p class="article-p">レビュー。</p>
+                <p class="article-p">オファー。</p>
+                <p class="article-p">カート。</p>
+                <p class="article-p">購入後のCRM。</p>
+                <p class="article-p">ここまで含めて改善できる状態で、広告は初めて育ちます。</p>
+                <p class="article-p">改善できない構築は、広告の成長を止めます。</p>
 
-                <h2 class="article-section-title">まとめ：広告が回るかは、作る前に決まっている</h2>
-                <p class="article-p">広告が回るかどうかは、</p>
-                <ul class="article-list">
-                    <li>広告代理店の腕</li>
-                    <li>予算</li>
-                </ul>
-                <p class="article-p">以前に、</p>
-                <p class="article-p"><strong>構築段階でほぼ決まっています。</strong></p>
-                <p class="article-p">この構築×集客の全体像は、</p>
-                <p class="article-p">ピラー記事で整理しています。</p>
-                <p class="article-p">👉 <a href="/insights/ec-growth/">ピラー記事：初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実</a></p>
+                <h2 id="section8" class="article-section-title">Shopifyを「箱」として作ると、集客と噛み合わない</h2>
+                <p class="article-p">Shopifyを、デザインの箱として作ってしまうケースがあります。</p>
+                <p class="article-p">商品を並べる場所。</p>
+                <p class="article-p">ブランドを見せる場所。</p>
+                <p class="article-p">カートを置く場所。</p>
+                <p class="article-p">決済できる場所。</p>
+                <p class="article-p">もちろん、これらは必要です。</p>
+                <p class="article-p">しかし、Shopifyをただの箱として捉えると、集客とは噛み合いません。</p>
+                <p class="article-p">広告やSNSから来た人は、ただ商品が並んでいるだけでは購入しません。</p>
+                <p class="article-p">なぜ自分に関係あるのか。</p>
+                <p class="article-p">なぜこの商品を選ぶべきなのか。</p>
+                <p class="article-p">他と何が違うのか。</p>
+                <p class="article-p">購入して失敗しないのか。</p>
+                <p class="article-p">今買う理由があるのか。</p>
+                <p class="article-p">これらを理解して、初めて購入へ進みます。</p>
+                <p class="article-p">Shopifyは、集客を受け止め、購入判断を支え、改善を重ねるための装置です。</p>
+                <p class="article-p">広告から来た人を受け止める。</p>
+                <p class="article-p">LPで関心を高める。</p>
+                <p class="article-p">商品ページで不安を解消する。</p>
+                <p class="article-p">カートで迷わせない。</p>
+                <p class="article-p">購入後にCRMで関係を続ける。</p>
+                <p class="article-p">得られた反応を次の改善へ戻す。</p>
+                <p class="article-p">この循環があって、ECは育ちます。</p>
+                <p class="article-p">Shopify構築を「箱作り」として考えると、この循環が抜け落ちます。</p>
+                <p class="article-p">だからこそ、構築段階から集客と改善を前提にする必要があります。</p>
+
+                <h2 id="section9" class="article-section-title">まとめ：広告が回るかどうかは、作る前にほぼ決まっている</h2>
+                <p class="article-p">広告が回るかどうかは、広告代理店の腕や広告予算だけで決まるわけではありません。</p>
+                <p class="article-p">もちろん、広告運用の知識や経験は重要です。</p>
+                <p class="article-p">媒体選定、ターゲティング、クリエイティブ、予算配分も成果に影響します。</p>
+                <p class="article-p">しかし、それ以前に見るべきことがあります。</p>
+                <p class="article-p">計測できるShopifyになっているか。</p>
+                <p class="article-p">広告の着地先が設計されているか。</p>
+                <p class="article-p">LPで購入理由を整理できているか。</p>
+                <p class="article-p">商品ページで不安を解消できているか。</p>
+                <p class="article-p">広告の反応を社内でページに反映できるか。</p>
+                <p class="article-p">改善前提の構造になっているか。</p>
+                <p class="article-p">ここが整っていなければ、広告は回りません。</p>
+                <p class="article-p">広告をあとから足すのではなく、Shopify構築の時点で広告と集客を前提にする。</p>
+                <p class="article-p">これが、初月から広告を回して売上を作るECに必要な考え方です。</p>
+                <p class="article-p">この構築と集客設計の全体像については、親記事「初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実」で詳しく整理しています。</p>
+                <p class="article-p">👉 親記事への内部リンク</p>
+                <p class="article-p">（初月から1000万円規模の売上を作ってきたチームが語る Shopify構築と集客設計の現実）</p>
+                <p class="article-p">A.Incでは、Shopify構築、LP・LPO支援、広告運用を個別の施策としてではなく、売上改善につながる販売導線として設計しています。</p>
+                <p class="article-p">Shopifyを作ってから広告を考えるのではなく、広告が回る前提でShopifyを作ること。</p>
+                <p class="article-p">それが、広告費を売上につなげるための第一歩です。</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
             </section>
 
             <div class="divider"></div>
@@ -185,12 +329,16 @@
             </section>
 
             <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
             <div id="profile-container" class="fade-in"></div>
         </div>
     </main>
 
     <div id="site-footer"></div>
 
+    <script>window.__currentArticle = {"id":"ec-growth-c-1","title":"広告を回すだけのECは、大体売れません。","url":"/insights/ec-growth/c-1/","image":"/assets/images/insights/ec-growth/c-1_thumb.webp","date":"2026.06.14","tags":["Shopify構築","Shopify広告","EC集客","EC設計","Shopify運用","自社EC","LP改善","LPO","広告運用","EC売上改善"],"category":"insights","type":"cluster","theme":"ec-growth","group":"ec-growth"};</script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/insights.js"></script>
     <script src="/assets/js/insights-related.js"></script>
