@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <th>メールアドレス</th>
-                            <td>create@a-inc.info</td>
+                            <td><span class="email" data-email-user="acreate.team" data-email-domain="gmail.com"></span></td>
                         </tr>
                         <tr>
                             <th>URL</th>
@@ -121,6 +121,7 @@
     <script src="/assets/js/template.js"></script>
     <script src="/assets/js/modal.js"></script>
     <script src="/assets/js/contact-modal.js"></script>
+    <script src="/assets/js/email-protect.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -132,6 +133,9 @@
                     'breadcrumb-legal': '#breadcrumb-include',
                     'contact-modal': '#contact-modal-include'
                 });
+            }
+            if (typeof initEmailProtection === 'function') {
+                initEmailProtection();
             }
         });
     </script>
