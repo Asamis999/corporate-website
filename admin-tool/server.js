@@ -245,6 +245,11 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, html, 'utf8');
     console.log(`[Deploy] writeFileSync完了 actualSize=${fs.statSync(outputPath).size}`);
+    const firstH3 = parsedContent.body?.find(b => b.type === 'h3');
+    const firstH2 = parsedContent.body?.find(b => b.type === 'h2');
+    console.log(`[Deploy] 最初のh3見出し: ${firstH3?.raw || 'なし'}`);
+    console.log(`[Deploy] 最初のh2見出し: ${firstH2?.raw || 'なし'}`);
+    console.log(`[Deploy] 生成HTML冒頭(title): ${html.match(/<title>(.+?)<\/title>/)?.[1] || 'なし'}`);
 
     // 2. JSデータ更新 + titleMap更新
     const breadcrumbId = htmlGen.getBreadcrumbId(article.bigCategory, article.smallCategory, article.articleId);
