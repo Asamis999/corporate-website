@@ -240,8 +240,11 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
     // 1. HTML生成 & ファイル書き込み
     const html = htmlGen.generateHtml(article, parsedContent);
     const outputPath = htmlGen.getOutputPath(SITE_ROOT, article.bigCategory, article.smallCategory, article.articleId);
+    const existingSize = fs.existsSync(outputPath) ? fs.statSync(outputPath).size : 0;
+    console.log(`[Deploy] articleId=${article.articleId} outputPath=${outputPath} existingSize=${existingSize} newSize=${Buffer.byteLength(html,'utf8')} bodyBlocks=${parsedContent.body?.length}`);
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, html, 'utf8');
+    console.log(`[Deploy] writeFileSync完了 actualSize=${fs.statSync(outputPath).size}`);
 
     // 2. JSデータ更新 + titleMap更新
     const breadcrumbId = htmlGen.getBreadcrumbId(article.bigCategory, article.smallCategory, article.articleId);
