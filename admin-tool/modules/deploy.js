@@ -72,7 +72,7 @@ async function deploy(siteRoot, cfProject) {
 
   const wrangler = spawnSync(
     'npx',
-    ['wrangler', 'pages', 'deploy', tmpDir, '--project-name', cfProject, '--commit-dirty=true'],
+    ['wrangler', 'pages', 'deploy', tmpDir, '--project-name', cfProject, '--branch', 'production', '--commit-dirty=true'],
     { cwd: ADMIN_TOOL_DIR, env: { ...process.env }, encoding: 'utf8' }
   );
 
