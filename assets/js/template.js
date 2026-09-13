@@ -852,6 +852,14 @@
   function getPageTitle(segment) {
     // URLパスから表示名へのマッピング
     const titleMap = {
+        'ec-growth-e-2': '「買ってくれる人の顔」を思い浮かべて運営していますか？',
+        'ec-growth-e-1': 'EC設計の前に、売る構造がないプロダクトは伸びません',
+        'ec-growth-d-2': '顧客対応を甘く見るな。自社ECは、対応ひとつで売上を落とす',
+        'ec-growth-d-1': 'プラグインを入れすぎたECは、売れてから詰む',
+        'ec-growth-c-2': 'CPAしか見れない経営者の末路',
+        'ec-growth-c-1': '広告を回すだけのECは、大体売れません。',
+        'ec-growth-b-3': 'そのEC、社内の誰でも迷わず更新できますか？',
+        'ec-growth-b-2': '売れない罠。デザインはキレイ、でも編集しづらい。',
         'ec-growth-a-2': '自社ECが伸びないのは、本当に広告のせいですか？',
         'web-marketing-a-5': 'SNSを頑張っているのに売れないECの典型パターン',
         'web-marketing-a-4': '自社ECを始めたのに成果が出ない企業が最初にハマる落とし穴',
