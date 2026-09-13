@@ -190,6 +190,35 @@ app.get('/api/articles/:pageId/preview', async (req, res) => {
 });
 
 // -------------------------------------------------------
+// GET /api/articles/:pageId/generate  → 生成HTMLを確認（デバッグ用）
+// -------------------------------------------------------
+app.get('/api/articles/:pageId/generate', async (req, res) => {
+  const pageId = req.params.pageId;
+  try {
+    const articles = await notion.getDeployReadyArticles();
+    const article = articles.find(a => a.pageId === pageId)
+      || { pageId, bigCategory: req.query.bigCat || 'insights', smallCategory: req.query.smallCat || 'ec-growth', articleId: req.query.articleId || pageId, title: '' };
+
+    const rawBlocks = await notion.getArticleRawBlocks(pageId);
+    const parsedContent = parseArticleContent(rawBlocks);
+    const html = htmlGen.generateHtml(article, parsedContent);
+    const outputPath = htmlGen.getOutputPath(SITE_ROOT, article.bigCategory, article.smallCategory, article.articleId);
+
+    const existingHtml = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : null;
+    const bodyLen = parsedContent.body?.length ?? 0;
+    const htmlLen = html.length;
+    const existingLen = existingHtml?.length ?? 0;
+    const identical = existingHtml === html;
+
+    console.log(`[Generate] articleId=${article.articleId} bodyBlocks=${bodyLen} htmlLen=${htmlLen} existingLen=${existingLen} identical=${identical}`);
+
+    res.json({ ok: true, articleId: article.articleId, outputPath, bodyBlocks: bodyLen, htmlLength: htmlLen, existingLength: existingLen, identical, htmlPreview: html.slice(0, 500) });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// -------------------------------------------------------
 // POST /api/articles/:pageId/deploy  → 生成 + JS更新 + デプロイ
 // -------------------------------------------------------
 app.post('/api/articles/:pageId/deploy', async (req, res) => {
