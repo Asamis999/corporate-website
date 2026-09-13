@@ -271,7 +271,7 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
     // 5. Cloudflare Pagesデプロイ
     let deployOutput = '';
     try {
-      deployOutput = deployer.deploy(SITE_ROOT, CF_PROJECT);
+      deployOutput = await deployer.deploy(SITE_ROOT, CF_PROJECT);
     } catch (deployErr) {
       const detail = deployErr.wranglerOutput || deployErr.message;
       await notion.updateArticleStatus(pageId, '差し戻し');

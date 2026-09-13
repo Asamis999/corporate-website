@@ -2,6 +2,38 @@ const { execSync, spawnSync } = require('child_process');
 const path = require('path');
 const { pushToGitHub } = require('./git-repo');
 
+/**
+ * Cloudflare CDNキャッシュをパージする
+ * CLOUDFLARE_ZONE_ID と CLOUDFLARE_API_TOKEN が設定されている場合のみ実行
+ * @param {string[]} urls - パージするURL一覧（省略時は全キャッシュパージ）
+ */
+async function purgeCloudflareCache(urls = null) {
+  const zoneId = process.env.CLOUDFLARE_ZONE_ID;
+  const token  = process.env.CLOUDFLARE_API_TOKEN;
+  if (!zoneId || !token) {
+    console.log('[Cache] CLOUDFLARE_ZONE_ID 未設定 → キャッシュパージをスキップ');
+    return;
+  }
+  const body = urls ? JSON.stringify({ files: urls }) : JSON.stringify({ purge_everything: true });
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`,
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body,
+    }
+  );
+  const data = await res.json();
+  if (data.success) {
+    console.log('[Cache] Cloudflareキャッシュパージ完了', urls ? `(${urls.length}件)` : '(全件)');
+  } else {
+    console.warn('[Cache] Cloudflareキャッシュパージ失敗:', JSON.stringify(data.errors));
+  }
+}
+
 const ADMIN_TOOL_DIR = path.join(__dirname, '..');
 
 function gitCommit(siteRoot, message) {
@@ -16,7 +48,7 @@ function gitCommit(siteRoot, message) {
   }
 }
 
-function deploy(siteRoot, cfProject) {
+async function deploy(siteRoot, cfProject) {
   const tmpDir = '/tmp/cf-deploy';
 
   // 本番環境: デプロイ前に最新をプル
@@ -63,6 +95,13 @@ function deploy(siteRoot, cfProject) {
     pushToGitHub(siteRoot);
   } catch (gitErr) {
     console.warn('[Deploy] GitHub push 失敗（Cloudflare Pagesデプロイは完了済み）:', gitErr.message);
+  }
+
+  // Cloudflare CDN キャッシュをパージ（失敗しても警告のみ）
+  try {
+    await purgeCloudflareCache();
+  } catch (cacheErr) {
+    console.warn('[Cache] キャッシュパージ中にエラー:', cacheErr.message);
   }
 
   return wranglerOutput;
