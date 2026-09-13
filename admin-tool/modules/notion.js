@@ -22,8 +22,7 @@ async function getDeployReadyArticles() {
     updatedAt: page.properties['更新日']?.date?.start ?? '',
     status: page.properties['ステータス']?.select?.name ?? '',
     publicUrl: page.properties['公開URL']?.url ?? '',
-    memo1: page.properties['メモ1']?.rich_text[0]?.plain_text ?? '',
-    memo2: page.properties['メモ2']?.rich_text[0]?.plain_text ?? ''
+    memo: ''
   }));
 }
 
@@ -77,14 +76,13 @@ function parseBlock(block) {
   }
 }
 
-async function updateArticleStatus(pageId, status, memo = '') {
-  const props = {
-    'ステータス': { select: { name: status } }
-  };
-  if (memo) {
-    props['メモ1'] = { rich_text: [{ text: { content: memo } }] };
-  }
-  await notion.pages.update({ page_id: pageId, properties: props });
+async function updateArticleStatus(pageId, status) {
+  await notion.pages.update({
+    page_id: pageId,
+    properties: {
+      'ステータス': { select: { name: status } }
+    }
+  });
 }
 
 async function setPublicUrl(pageId, url) {

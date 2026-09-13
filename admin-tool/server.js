@@ -238,7 +238,7 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
     } catch (deployErr) {
       const detail = deployErr.wranglerOutput || deployErr.message;
       if (deployErr.message.startsWith('GitHub push 失敗')) {
-        await notion.updateArticleStatus(pageId, '差し戻し', detail.slice(0, 500));
+        await notion.updateArticleStatus(pageId, '差し戻し');
         return res.status(500).json({ ok: false, step: 'git-push', error: detail });
       }
       console.warn('[Deploy] wrangler エラー（GitHub push は完了）:', detail.slice(0, 300));
@@ -250,7 +250,7 @@ app.post('/api/articles/:pageId/deploy', async (req, res) => {
 
     res.json({ ok: true, outputPath, publicUrl, gitLog, deployOutput });
   } catch (e) {
-    await notion.updateArticleStatus(pageId, '差し戻し', e.message).catch(() => {});
+    await notion.updateArticleStatus(pageId, '差し戻し').catch(() => {});
     res.status(500).json({ ok: false, error: e.message });
   }
 });
