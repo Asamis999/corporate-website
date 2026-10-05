@@ -4,6 +4,16 @@
 
 // 記事データ（新しい記事を追加する場合はここに追加）
 const articlesData = [
+    {
+        id: '',
+        title: '何度商品を作っても、私たちはプロダクトアウトに戻ってしまう',
+        excerpt: '市場調査もした。競合分析もした。テストマーケティングもした。それでも振り返ると、商品開発は顧客ファーストではありませんでした。商品開発の経験者であっても、なぜプロダクトアウトへ戻ってしまうのか。過去の実体験をもとに、その構造と向き合います。',
+        url: '/howto/posts/article//',
+        image: '/assets/images/howto/article/thumb.webp',
+        date: '2026.09.01',
+        tags: ["Shopify","ECサイト","商品開発","プロダクトアウト","マーケットイン","WEB広告運用","PDCA","Meta広告","SNS活用","D2C","ECマーケティング"],
+        category: 'article'
+    },
   {
     id: 'article1',
     title: 'WEBマーケ×クリエイティブ戦略で売上UP！',

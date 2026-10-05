@@ -4,493 +4,595 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ノウハウ記事一覧 | Howto BOX</title>
-    <meta name="description" content="EC物販・マーケティング・Webデザインに関する実践的なノウハウを発信しています。">
-    
-    <!-- CSS -->
+    <title>何度商品を作っても、私たちはプロダクトアウトに戻ってしまう | ナレッジ</title>
+    <meta name="description" content="商品開発の経験を積んでも、なぜ私たちはプロダクトアウトに戻ってしまうのか。ホワイトニング歯磨き粉の商品開発、テストマーケティング、販売後の失敗を振り返りながら、市場調査や顧客の声だけではマーケットインにならない理由と、EC時代の商品開発で検証すべき順番を考えます。">
+    <link rel="canonical" href="https://a-inc.info/howto/posts/article//">
+
     <link rel="stylesheet" href="/assets/css/template.css">
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/howto.css">
     <link rel="stylesheet" href="/assets/css/article-unified.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    
-    <!-- JS -->
-    <script src="/assets/js/template.js" defer></script>
-    <script src="/assets/js/howto.js"></script>
-    
-    <style>
-        .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/howto/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 0;
-            text-align: center;
-            color: #fff;
-        }
-        
-        .hero-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .articles-section {
-            padding: 60px 0;
-        }
-        
-        .category-nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-        
-        .category-nav-item {
-            padding: 10px 20px;
-            border-radius: 30px;
-            background-color: #f5f5f5;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .category-nav-item.active {
-            background-color: #007bff;
-            color: #fff;
-        }
-        
-        .category-nav-item:hover {
-            background-color: #e0e0e0;
-            transform: translateY(-2px);
-        }
-        
-        .category-nav-item.active:hover {
-            background-color: #0069d9;
-        }
-        
-        .filter-container {
-            margin-bottom: 30px;
-        }
-        
-        .filter-container h3 {
-            margin-bottom: 15px;
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-tag {
-            padding: 5px 15px;
-            border-radius: 20px;
-            background-color: #f0f0f0;
-            cursor: pointer;
-            transition: all 0.2s;
-            user-select: none;
-        }
-        
-        .filter-tag.active {
-            background-color: #28a745;
-            color: #fff;
-        }
-        
-        .filter-tag:hover {
-            background-color: #e0e0e0;
-        }
-        
-        .filter-tag.active:hover {
-            background-color: #218838;
-        }
-        
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .article-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .article-image-container {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .article-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .article-card:hover .article-image {
-            transform: scale(1.05);
-        }
-        
-        .article-content {
-            padding: 20px;
-        }
-        
-        .article-category {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 0.8rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        
-        .article-title {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            line-height: 1.5;
-            font-weight: bold;
-        }
-        
-        .article-desc {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #999;
-            font-size: 0.8rem;
-        }
-        
-        .article-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 15px;
-        }
-        
-        .article-tag {
-            background-color: #f0f0f0;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #666;
-        }
-        
-        .articles-loading {
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .no-articles {
-            text-align: center;
-            padding: 40px 0;
-            color: #999;
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <!-- ヘッダー内容はテンプレートで読み込まれる -->
-    </header>
 
-    <main>
-        <!-- ヒーローセクション -->
-        <section class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">ノウハウ記事一覧</h1>
-                <p class="hero-subtitle">EC物販・マーケティング・Webデザインに関する実践的なノウハウを発信しています</p>
+    <script src="/assets/js/template.js" defer></script>
+</head>
+<body class="howto-article">
+    <div id="site-header"></div>
+
+    <div id="breadcrumb-container" data-page=""></div>
+
+    <main class="main-content">
+        <div class="article-container">
+            <header class="article-header">
+                <h1 class="article-title">何度商品を作っても、私たちはプロダクトアウトに戻ってしまう</h1>
+                <div class="article-meta">更新日：2026.09.01</div>
+                <div class="article-tag-list">
+                    <span class="article-tag">Shopify</span>
+                    <span class="article-tag">ECサイト</span>
+                    <span class="article-tag">商品開発</span>
+                    <span class="article-tag">プロダクトアウト</span>
+                    <span class="article-tag">マーケットイン</span>
+                    <span class="article-tag">WEB広告運用</span>
+                    <span class="article-tag">PDCA</span>
+                    <span class="article-tag">Meta広告</span>
+                    <span class="article-tag">SNS活用</span>
+                    <span class="article-tag">D2C</span>
+                    <span class="article-tag">ECマーケティング</span>
+                </div>
+            </header>
+
+            <div class="article-image-container">
+                <img src="/assets/images/howto/article/thumb.webp" alt="プロダクトアウトとマーケットインの間で商品開発の方向性を検討するEC担当者" class="article-image" style="max-width: 100%;">
             </div>
-        </section>
-        
-        <!-- 記事一覧セクション -->
-        <section class="articles-section">
-            <div class="container">
-                <!-- カテゴリナビゲーション -->
-                <nav class="category-nav">
-                    <a href="/howto/posts/" class="category-nav-item">すべて</a>
-                    <a href="/howto/posts/article/" class="category-nav-item active">ノウハウ記事</a>
-                    <a href="/howto/posts/manual/" class="category-nav-item">マニュアル</a>
-                </nav>
-                
-                <!-- フィルターオプション -->
-                <div class="filter-container">
-                    <h3>カテゴリー</h3>
-                    <div class="filter-options" id="category-filters">
-                        <span class="filter-tag active" data-filter="all">すべて</span>
-                        <span class="filter-tag" data-filter="web集客">Web集客</span>
-                        <span class="filter-tag" data-filter="マーケティング">マーケティング</span>
-                        <span class="filter-tag" data-filter="クリエイティブ">クリエイティブ</span>
-                    </div>
+
+            <section class="article-section fade-in">
+                <h2 class="article-section-title">目次</h2>
+                <ol class="article-list">
+                    <li><a href="#section1">プロダクトアウトは、商品開発を知らない人だけの失敗ではない</a></li>
+                    <li><a href="#section2">私が最初に作ったのは、ホワイトニング歯磨き粉だった</a></li>
+                    <li><a href="#section3">市場調査をしていても、プロダクトアウトは起きる</a></li>
+                    <li><a href="#section4">アイデアを思いついた瞬間から、検証結果の見方は偏り始める</a></li>
+                    <li><a href="#section5">顧客の声を聞けばマーケットインになる、とは限らない</a></li>
+                    <li><a href="#section6">OEM先や製造条件も、知らないうちに商品企画を歪める</a></li>
+                    <li><a href="#section7">原価と最低ロットから販売価格を決める危険性</a></li>
+                    <li><a href="#section8">本当に見落としていたのは、商品ではなく顧客体験だった</a></li>
+                    <li><a href="#section9">ECでは「小さな不満」がブランド資産を削っていく</a></li>
+                    <li><a href="#section10">商品への愛着が、撤退や方向転換を遅らせる</a></li>
+                    <li><a href="#section11">マーケットインは「顧客の言う通りに作ること」ではない</a></li>
+                    <li><a href="#section12">商品開発では、何をどの順番で検証すべきか</a></li>
+                    <li><a href="#section13">Shopify・WEB広告・Meta広告・SNSは「売る道具」である前に検証装置になる</a></li>
+                    <li><a href="#section14">そして今、もう一度商品開発を始めている</a></li>
+                    <li><a href="#section15">まとめ｜商品ではなく、市場との関係を作る</a></li>
+                </ol>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="article-section fade-in">
+
+                <h2 id="section1" class="article-section-title">プロダクトアウトは、商品開発を知らない人だけの失敗ではない</h2>
+                <p class="article-p">商品開発について調べていると、「プロダクトアウトではなくマーケットインで考えるべきだ」という言葉をよく目にします。</p>
+                <p class="article-p">市場のニーズを調べ、顧客の課題を理解し、その課題から商品を設計する。</p>
+                <p class="article-p">考え方としては非常に分かりやすいものです。</p>
+                <p class="article-p">しかし、実際に商品を作る立場になると、これほど簡単にはいきません。</p>
+                <p class="article-p">むしろ私は、商品開発の経験が増えるほど、別の意味でプロダクトアウトに戻りやすくなるのではないかと感じています。</p>
+                <p class="article-p">経験が増えれば、</p>
+                <ul class="article-list">
+                    <li>過去に売れた商品の記憶がある</li>
+                    <li>得意な販売方法が分かっている</li>
+                    <li>付き合いのあるOEMメーカーや工場がある</li>
+                    <li>作れる商品や原価感が分かる</li>
+                    <li>広告で反応しやすい表現の感覚がある</li>
+                    <li>自分自身にも「こういう商品なら売れる」という仮説が蓄積される</li>
+                </ul>
+                <p class="article-p">からです。</p>
+                <p class="article-p">本来は武器になるはずの経験が、商品企画の出発点を少しずつ「市場」から「自分たち」に引き戻していきます。</p>
+                <p class="article-p">「この工場なら、こういう商品を作れる」</p>
+                <p class="article-p">「前回これが売れたから、次はこの延長でいける」</p>
+                <p class="article-p">「自分が使って良かったから、似た悩みを持つ人にも売れるはず」</p>
+                <p class="article-p">「このキーワードは検索されているから、市場があるはず」</p>
+                <p class="article-p">どれも、完全に間違った考えではありません。</p>
+                <p class="article-p">問題は、それらが仮説ではなく、いつの間にか商品の存在理由そのものになってしまうことです。</p>
+                <p class="article-p">私自身、過去に商品を開発し、市場調査をし、競合分析をし、テストマーケティングも行ってきました。</p>
+                <p class="article-p">それでも振り返ると、プロダクトアウトだったと思う商品があります。</p>
+                <p class="article-p">だからこの記事では、「プロダクトアウトは悪で、マーケットインが正解だ」と結論づけたいわけではありません。</p>
+                <p class="article-p">それよりも、</p>
+                <p class="article-p"><strong>なぜマーケットインを理解しているはずの人でも、商品を作り始めるとプロダクトアウトへ戻ってしまうのか。</strong></p>
+                <p class="article-p">その構造を、私自身の商品開発を振り返りながら考えてみたいと思います。</p>
+
+                <h2 id="section2" class="article-section-title">私が最初に作ったのは、ホワイトニング歯磨き粉だった</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/howto/article/section1.webp" alt="展示会で特徴的な商品サンプルを手に取り、新商品の可能性を検討する商品開発担当者" class="article-image" style="max-width: 100%;">
                 </div>
-                
-                <!-- 記事読み込み中表示 -->
-                <div id="articles-loading" class="articles-loading">
-                    <i class="fas fa-spinner fa-spin fa-3x"></i>
-                    <p>記事を読み込んでいます...</p>
+                <p class="article-p">私が初めて自社で開発した商品は、ホワイトニングを訴求した歯磨き粉でした。</p>
+                <p class="article-p">きっかけは展示会です。</p>
+                <p class="article-p">会場を歩いている中で、ある商品の原型となるモデルが目に入りました。</p>
+                <p class="article-p">まず惹かれたのは、その形状でした。</p>
+                <p class="article-p">一般的な歯磨き粉とは明らかに見た目が違い、商品として並べたときにもインパクトがある。</p>
+                <p class="article-p">そしてもう一つ、私の中には事前情報がありました。</p>
+                <p class="article-p">当時、「ホワイトニング」というWEB上のキーワードには大きな検索需要があることを把握していたのです。</p>
+                <p class="article-p">市場は存在している。</p>
+                <p class="article-p">商品は新しく見える。</p>
+                <p class="article-p">見た目にも特徴がある。</p>
+                <p class="article-p">さらに自分で実際に使用してみると、私自身がその商品を気に入りました。</p>
+                <p class="article-p">そこからメーカーに詳しい情報を聞き、成分についても調整してもらい、パッケージもオリジナルで制作しました。</p>
+                <p class="article-p">思いつきだけで商品化したわけではありません。</p>
+                <p class="article-p">競合商品も調べました。</p>
+                <p class="article-p">市場も調べました。</p>
+                <p class="article-p">競争が激しいマス市場の中心にそのまま入るのではなく、サブ市場としてメンズ向けにターゲットを設定し、戦略も考えました。</p>
+                <p class="article-p">いきなり大量販売するのではなく、事前集客によるテストマーケティングも行いました。</p>
+                <p class="article-p">クラウドファンディングも実施しました。</p>
+                <p class="article-p">そこから一般販売へ移行するという形で、段階を踏んでリリースしています。</p>
+                <p class="article-p">実際、商品はある程度売れました。</p>
+                <p class="article-p">初速も悪くありませんでした。</p>
+                <p class="article-p">売上も右肩上がりに伸びた時期があります。</p>
+                <p class="article-p">当時は初めてのビジネスだったため、資金面では決して有利な環境ではありませんでしたが、自分なりにプレゼン資料を作り、事業の未来予測を説明することで融資にもつなげることができました。</p>
+                <p class="article-p">表面的に見れば、商品開発として完全な失敗ではありません。</p>
+                <p class="article-p">むしろ初めての商品開発としては、できていたことも少なくなかったと思います。</p>
+                <p class="article-p">それでも、爆発的に伸び続ける商品にはなりませんでした。</p>
+                <p class="article-p">当時の私は、その理由を資金力や集客力など、もっと分かりやすいところに求めていたと思います。</p>
+                <p class="article-p">しかし、時間が経ってから振り返ると、本質的な問題は別のところにありました。</p>
+
+                <h2 id="section3" class="article-section-title">市場調査をしていても、プロダクトアウトは起きる</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/howto/article/section2.webp" alt="商品アイデアを起点に市場調査する流れと、顧客課題を起点に商品設計する流れの違いを比較した図" class="article-image" style="max-width: 100%;">
                 </div>
-                
-                <!-- 記事が見つからない場合 -->
-                <div id="no-articles" class="no-articles" style="display: none;">
-                    <p>該当する記事が見つかりませんでした。</p>
+                <p class="article-p">「市場調査をしていたのなら、それはマーケットインではないのか」</p>
+                <p class="article-p">そう思うかもしれません。</p>
+                <p class="article-p">私も当時はそう考えていました。</p>
+                <p class="article-p">ホワイトニングという市場の大きさを調べている。</p>
+                <p class="article-p">競合も分析している。</p>
+                <p class="article-p">ターゲットも絞っている。</p>
+                <p class="article-p">事前集客もしている。</p>
+                <p class="article-p">テストマーケティングもしている。</p>
+                <p class="article-p">クラウドファンディングも利用している。</p>
+                <p class="article-p">これだけを見ると、市場を無視して自分が作りたいものだけを作った商品には見えません。</p>
+                <p class="article-p">しかし、今振り返ると、最初の順番が逆だったのではないかと思います。</p>
+                <p class="article-p">私の思考は、</p>
+                <p class="article-p">「この商品は面白い」</p>
+                <p class="article-p">から始まっていました。</p>
+                <p class="article-p">その後に、</p>
+                <p class="article-p">「この商品が売れる市場はあるか」</p>
+                <p class="article-p">を調べています。</p>
+                <p class="article-p">つまり市場調査はしていても、「市場から商品を探した」というより、「見つけた商品を売れる理由を市場の中から探した」という側面がありました。</p>
+                <p class="article-p">ここには大きな違いがあります。</p>
+                <p class="article-p">商品アイデアを持たずに市場を見る場合、</p>
+                <p class="article-p">「顧客は何に困っているのか」</p>
+                <p class="article-p">「既存の商品では何が解決できていないのか」</p>
+                <p class="article-p">「なぜ購入しないのか」</p>
+                <p class="article-p">という問いから始められます。</p>
+                <p class="article-p">しかし、すでに商品候補を気に入っている状態で市場を見ると、</p>
+                <p class="article-p">「この商品が売れる証拠はないか」</p>
+                <p class="article-p">という問いに変わりやすくなります。</p>
+                <p class="article-p">検索ボリュームが大きければ「やはり市場がある」と考える。</p>
+                <p class="article-p">競合が売れていれば「需要が証明されている」と考える。</p>
+                <p class="article-p">競合が少なければ「まだ空いている市場だ」と考える。</p>
+                <p class="article-p">どちらのデータが出ても、自分のアイデアを肯定する材料として解釈できてしまいます。</p>
+                <p class="article-p">市場調査をしているかどうかだけでは、マーケットインかプロダクトアウトかは判断できない。</p>
+                <p class="article-p">大切なのは、<strong>何を確かめるために市場調査をしているのか</strong>だと思います。</p>
+
+                <h2 id="section4" class="article-section-title">アイデアを思いついた瞬間から、検証結果の見方は偏り始める</h2>
+                <p class="article-p">商品開発では「仮説検証」が重要だと言われます。</p>
+                <p class="article-p">もちろん、その通りです。</p>
+                <p class="article-p">ただ、ここには難しい問題があります。</p>
+                <p class="article-p">人は自分で思いついたアイデアほど、簡単には捨てられません。</p>
+                <p class="article-p">さらに、</p>
+                <p class="article-p">自分が見つけた商品。</p>
+                <p class="article-p">自分がメーカーと交渉した商品。</p>
+                <p class="article-p">自分がパッケージを考えた商品。</p>
+                <p class="article-p">自分のお金を使って試作した商品。</p>
+                <p class="article-p">自分が周囲に「これをやります」と話した商品。</p>
+                <p class="article-p">と進んでいくほど、アイデアは単なる仮説ではなくなっていきます。</p>
+                <p class="article-p">そこに時間や資金、労力が投入されるからです。</p>
+                <p class="article-p">すると、本来は「この仮説は間違っているかもしれない」と確認するための市場調査が、「この商品はきっと売れる」という証拠集めに変わりやすくなります。</p>
+                <p class="article-p">たとえば広告のテストでも同じです。</p>
+                <p class="article-p">広告を出して反応が悪かったとき、</p>
+                <p class="article-p">「そもそも商品へのニーズが弱いのではないか」</p>
+                <p class="article-p">と考えることもできます。</p>
+                <p class="article-p">一方で、</p>
+                <p class="article-p">「クリエイティブが悪かった」</p>
+                <p class="article-p">「LPが悪かった」</p>
+                <p class="article-p">「ターゲティングが悪かった」</p>
+                <p class="article-p">「予算が少なかった」</p>
+                <p class="article-p">「まだ認知されていないからだ」</p>
+                <p class="article-p">と解釈することもできます。</p>
+                <p class="article-p">もちろん、実際に広告やLPが原因であるケースもあります。</p>
+                <p class="article-p">だからこそ難しい。</p>
+                <p class="article-p">商品、訴求、広告、LP、価格、ターゲット、タイミング。</p>
+                <p class="article-p">ECでは多くの要素が絡むため、アイデアを残そうと思えば、いくらでも別の原因を見つけられてしまいます。</p>
+                <p class="article-p">PDCAを回していること自体が、正しい意思決定を保証してくれるわけではありません。</p>
+                <p class="article-p">「どうすればこの商品を売れるか」というPDCAだけを回し続けると、「そもそもこの商品を売るべきなのか」という問いが抜け落ちます。</p>
+                <p class="article-p">これは、商品開発の経験が増えるほど注意したいポイントだと思っています。</p>
+
+                <h2 id="section5" class="article-section-title">顧客の声を聞けばマーケットインになる、とは限らない</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/howto/article/section3.webp" alt="顧客が口にする要望と、検索・比較・購入・継続利用・再購入という実際の行動の違いを示した図" class="article-image" style="max-width: 100%;">
                 </div>
-                
-                <!-- 記事グリッド（JavaScriptで動的に生成） -->
-                <div id="articles-grid" class="articles-grid">
-                    <!-- 記事カードはJavaScriptで動的に追加 -->
+                <p class="article-p">マーケットインを意識すると、「顧客の声を聞こう」と考えます。</p>
+                <p class="article-p">これも間違いではありません。</p>
+                <p class="article-p">しかし、顧客に欲しい商品を聞き、その回答通りに作ればマーケットインになるかというと、それほど単純ではありません。</p>
+                <p class="article-p">顧客が言葉にできるのは、自分が認識している課題だからです。</p>
+                <p class="article-p">また、「欲しい」と言うことと、実際にお金を払うことの間にも差があります。</p>
+                <p class="article-p">アンケートでは評価された。</p>
+                <p class="article-p">SNSでは反応が良かった。</p>
+                <p class="article-p">友人や既存顧客から「それ欲しい」と言われた。</p>
+                <p class="article-p">それでも販売してみたら動かない、ということは起こり得ます。</p>
+                <p class="article-p">商品開発で見たいのは、「欲しいと言った人数」だけではありません。</p>
+                <p class="article-p">なぜ現在の商品を使っているのか。</p>
+                <p class="article-p">その商品にどんな不満があるのか。</p>
+                <p class="article-p">その不満を解消するために、現在どんな行動を取っているのか。</p>
+                <p class="article-p">その課題は、お金を払ってでも解決したいほど強いのか。</p>
+                <p class="article-p">購入するとき、何と比較するのか。</p>
+                <p class="article-p">買わない場合は、何が障壁になるのか。</p>
+                <p class="article-p">購入した後、何が起きれば「買ってよかった」と感じるのか。</p>
+                <p class="article-p">むしろ、こうした行動や背景を見ることの方が重要です。</p>
+                <p class="article-p">顧客の発言をそのまま商品仕様に変換することと、顧客を起点に商品を考えることは同じではありません。</p>
+                <p class="article-p">マーケットインとは、顧客に企画を任せることではなく、<strong>顧客の行動や課題を理解した上で、企業側が解決方法を設計すること</strong>だと考えています。</p>
+
+                <h2 id="section6" class="article-section-title">OEM先や製造条件も、知らないうちに商品企画を歪める</h2>
+                <p class="article-p">商品開発を現実に進めると、市場や顧客だけを見ているわけにはいきません。</p>
+                <p class="article-p">製造できるかどうか。</p>
+                <p class="article-p">最低ロットはいくつか。</p>
+                <p class="article-p">原料は調達できるか。</p>
+                <p class="article-p">希望する容器は使えるか。</p>
+                <p class="article-p">納期はどのくらいか。</p>
+                <p class="article-p">既存処方からどこまで変更できるか。</p>
+                <p class="article-p">こうした現実的な制約が次々と入ってきます。</p>
+                <p class="article-p">特にOEMによる商品開発では、「作りたい商品」と「作れる商品」の間を調整する作業が必要です。</p>
+                <p class="article-p">問題は、いつの間にか「工場が作れる商品」が企画の出発点になってしまうことです。</p>
+                <p class="article-p">既存処方なら安い。</p>
+                <p class="article-p">この容器なら最低ロットを抑えられる。</p>
+                <p class="article-p">この原料ならすぐ調達できる。</p>
+                <p class="article-p">この仕様なら納期に間に合う。</p>
+                <p class="article-p">当然、事業ではすべて重要な条件です。</p>
+                <p class="article-p">しかし、</p>
+                <p class="article-p">「顧客にとって何が必要か」</p>
+                <p class="article-p">より先に、</p>
+                <p class="article-p">「この条件なら作れる」</p>
+                <p class="article-p">が来ると、商品企画は少しずつ製造側へ引っ張られます。</p>
+                <p class="article-p">経験を積んだ事業者ほど、付き合いのあるメーカーや工場が増えていきます。</p>
+                <p class="article-p">これは本来、大きな強みです。</p>
+                <p class="article-p">一方で、「この工場で作れるもの」という選択肢の中だけで市場を見るようになる危険性もあります。</p>
+                <p class="article-p">商品開発において工場は重要なパートナーですが、製造可能性と市場性は別の話として見なければいけません。</p>
+
+                <h2 id="section7" class="article-section-title">原価と最低ロットから販売価格を決める危険性</h2>
+                <p class="article-p">OEMの商品企画では、価格の決まり方にも注意が必要です。</p>
+                <p class="article-p">原価がこの金額。</p>
+                <p class="article-p">最低ロットがこの数量。</p>
+                <p class="article-p">パッケージや物流を加えるとこのコスト。</p>
+                <p class="article-p">広告費も必要だから、このくらいの粗利が欲しい。</p>
+                <p class="article-p">すると、販売価格はこのくらい。</p>
+                <p class="article-p">非常に自然な計算です。</p>
+                <p class="article-p">事業である以上、採算を無視することはできません。</p>
+                <p class="article-p">しかし、この順番だけで価格を作ると、「自社が利益を出せる価格」は決まっても、「顧客がその価値に対して払いたい価格」になっている保証はありません。</p>
+                <p class="article-p">たとえば3,980円で販売しなければ成立しない商品があったとしても、顧客がその課題を解決するために2,000円程度しか払いたくないのであれば、広告運用やLP改善だけで解決するのは困難です。</p>
+                <p class="article-p">逆に、顧客が強い課題を抱え、高い価値を感じる商品なら、単純な原価率だけを基準に安く設定する必要もないかもしれません。</p>
+                <p class="article-p">重要なのは、</p>
+                <p class="article-p">「いくらなら作れるか」</p>
+                <p class="article-p">「いくらなら利益が出るか」</p>
+                <p class="article-p">だけではなく、</p>
+                <p class="article-p">「顧客は何に対して、いくら払おうとしているのか」</p>
+                <p class="article-p">を先に見ることです。</p>
+                <p class="article-p">事業として成立する原価と、市場が受け入れる価格。</p>
+                <p class="article-p">この二つが接続できるところに商品を設計する必要があります。</p>
+
+                <h2 id="section8" class="article-section-title">本当に見落としていたのは、商品ではなく顧客体験だった</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/howto/article/section4.webp" alt="ECで購入した商品を開封して使い始め、購入後の顧客体験を確認する消費者" class="article-image" style="max-width: 100%;">
                 </div>
-                
-            </div>
-        </section>
+                <p class="article-p">私が最初の商品開発で最も大きく見落としていたのは、商品そのものではありませんでした。</p>
+                <p class="article-p">販売後の顧客体験です。</p>
+                <p class="article-p">商品は最初、物珍しさや見た目のインパクトもあり、比較的良いスタートを切りました。</p>
+                <p class="article-p">売上も伸びました。</p>
+                <p class="article-p">しかし、しばらくすると異変が出始めます。</p>
+                <p class="article-p">レビューが荒れ始めました。</p>
+                <p class="article-p">気づいたころには、口コミサイトにも芳しくない書き込みが出るようになっていました。</p>
+                <p class="article-p">もちろん、購入者から届いた連絡を無視していたわけではありません。</p>
+                <p class="article-p">商品開発前には競合も分析し、想定できるクレームやバッドレビューについて一定の準備もしていました。</p>
+                <p class="article-p">それでも、</p>
+                <p class="article-p">「一人ひとりの顧客に100％誠意を持って向き合えていたか」</p>
+                <p class="article-p">と問われると、そうではなかったと思います。</p>
+                <p class="article-p">振り返れば、商品開発そのものも完全な顧客ファーストではありませんでした。</p>
+                <p class="article-p">たとえば資材です。</p>
+                <p class="article-p">買い付けの手間や予算との兼ね合いから、ユーザー体験を妥協した部分がありました。</p>
+                <p class="article-p">梱包や配送のトラブルが起きた場合も、倉庫側との確認体制が十分に整っておらず、購入者へ回答するまで時間がかかることがありました。</p>
+                <p class="article-p">一つひとつを取り出せば、大事件ではありません。</p>
+                <p class="article-p">少し開けづらい。</p>
+                <p class="article-p">少し分かりづらい。</p>
+                <p class="article-p">回答が少し遅い。</p>
+                <p class="article-p">確認に少し時間がかかる。</p>
+                <p class="article-p">しかし、顧客から見れば、それらを個別の部署や事業者に分解して評価するわけではありません。</p>
+                <p class="article-p">「このブランドから買った体験」として受け取ります。</p>
+                <p class="article-p">商品が届く。</p>
+                <p class="article-p">箱を開ける。</p>
+                <p class="article-p">商品を初めて手に取る。</p>
+                <p class="article-p">使い方を確認する。</p>
+                <p class="article-p">初めて使用する。</p>
+                <p class="article-p">しばらく使う。</p>
+                <p class="article-p">分からないことがあり、問い合わせる。</p>
+                <p class="article-p">再購入するか考える。</p>
+                <p class="article-p">商品開発とは本来、この一連の体験まで含めて設計することだったのだと、後になって気づきました。</p>
+
+                <h2 id="section9" class="article-section-title">ECでは「小さな不満」がブランド資産を削っていく</h2>
+                <p class="article-p">ECサイトでは、店頭販売以上に「信頼」が重要になります。</p>
+                <p class="article-p">ユーザーは商品を直接手に取れません。</p>
+                <p class="article-p">販売者の顔が見えない場合もあります。</p>
+                <p class="article-p">初めて見るブランドの商品を、WEB上の情報だけを頼りに購入します。</p>
+                <p class="article-p">だから、購入前には広告、SNS、商品ページ、レビュー、FAQなど、さまざまな情報から「ここで買って大丈夫か」を判断しています。</p>
+                <p class="article-p">そして購入後は、その判断が正しかったかどうかを実体験で確認します。</p>
+                <p class="article-p">そこで期待を裏切る小さな出来事が積み重なると、商品そのものへの評価だけでなく、ブランド全体への信頼が下がります。</p>
+                <p class="article-p">新しい商品が次々と登場するEC市場では、顧客が離れた後にも選択肢が大量にあります。</p>
+                <p class="article-p">一度離れた顧客が、</p>
+                <p class="article-p">「やっぱりあの商品に戻ろう」</p>
+                <p class="article-p">と思う理由を残せなければ、後発商品や新しいブランドへ簡単に移っていきます。</p>
+                <p class="article-p">ここで改めて考えるべきなのが、「何を資産として残したいのか」です。</p>
+                <p class="article-p">一時的に売れる商品を仕入れ、広告で販売し、需要がなくなれば次の商品へ移る。</p>
+                <p class="article-p">そのビジネスモデル自体が悪いわけではありません。</p>
+                <p class="article-p">それなら、卸や商社として短期間で売れる商品を流通させる方が合理的な場合もあります。</p>
+                <p class="article-p">しかし「ブランドを作る」と決めたのであれば、話は変わります。</p>
+                <p class="article-p">顧客との接点一つひとつが、次の売上を作る資産になります。</p>
+                <p class="article-p">レビュー。</p>
+                <p class="article-p">再購入。</p>
+                <p class="article-p">SNS上での言及。</p>
+                <p class="article-p">問い合わせへの印象。</p>
+                <p class="article-p">紹介。</p>
+                <p class="article-p">ブランド名での検索。</p>
+                <p class="article-p">こうしたものは、商品を一個販売した瞬間には見えにくいものです。</p>
+                <p class="article-p">だから商品開発では、初回購入のCVRだけでなく、その後に何を残すのかまで考える必要があります。</p>
+
+                <h2 id="section10" class="article-section-title">商品への愛着が、撤退や方向転換を遅らせる</h2>
+                <div class="article-image-container">
+                    <img src="/assets/images/howto/article/section5.webp" alt="LPやWEB広告、価格、レビューなどの検証結果から改善継続・商品仮説の見直し・方向転換・撤退を判断する商品開発フロー" class="article-image" style="max-width: 100%;">
+                </div>
+                <p class="article-p">商品を作れば作るほど、その商品には愛着が生まれます。</p>
+                <p class="article-p">コンセプトを考え、メーカーと調整し、試作を重ね、パッケージを作り、ECサイトやShopifyの商品ページを作り、撮影し、広告を準備する。</p>
+                <p class="article-p">そこまで来ると、「これは単なる仮説です」と割り切るのは難しくなります。</p>
+                <p class="article-p">売れなければ悔しい。</p>
+                <p class="article-p">改善すれば売れるのではないかと考える。</p>
+                <p class="article-p">LPを変えてみる。</p>
+                <p class="article-p">広告クリエイティブを変えてみる。</p>
+                <p class="article-p">Meta広告の訴求を変える。</p>
+                <p class="article-p">SNS活用を強化する。</p>
+                <p class="article-p">価格を変えてみる。</p>
+                <p class="article-p">キャンペーンを実施する。</p>
+                <p class="article-p">改善そのものは必要です。</p>
+                <p class="article-p">しかし、改善を繰り返すほど、「商品を残すためのPDCA」になっていないかは注意したいところです。</p>
+                <p class="article-p">PDCAは、前提が正しいことを証明する仕組みではありません。</p>
+                <p class="article-p">前提そのものを捨てるためにも使えるはずです。</p>
+                <p class="article-p">商品開発で難しいのは、改善すべき商品と、撤退すべき商品を分けることです。</p>
+                <p class="article-p">数字が悪いとき、</p>
+                <p class="article-p">認知不足なのか。</p>
+                <p class="article-p">訴求が悪いのか。</p>
+                <p class="article-p">販売ページが悪いのか。</p>
+                <p class="article-p">価格が合っていないのか。</p>
+                <p class="article-p">商品自体への需要が弱いのか。</p>
+                <p class="article-p">それを切り分けなければなりません。</p>
+                <p class="article-p">商品への愛着が強いほど、一番最後の可能性を見たくなくなります。</p>
+                <p class="article-p">だからこそ、商品を作り込む前に、「この数字なら進む」「この結果なら見直す」「この条件なら撤退する」という判断基準を設定しておくことが重要になります。</p>
+
+                <h2 id="section11" class="article-section-title">マーケットインは「顧客の言う通りに作ること」ではない</h2>
+                <p class="article-p">ここまで書くと、徹底的に顧客へ聞き、顧客の要望通りに商品を作ればいいように見えるかもしれません。</p>
+                <p class="article-p">私はそうは思っていません。</p>
+                <p class="article-p">顧客は商品開発の専門家ではありません。</p>
+                <p class="article-p">製造条件も知りません。</p>
+                <p class="article-p">原価構造も知りません。</p>
+                <p class="article-p">広告で獲得可能な顧客単価も分かりません。</p>
+                <p class="article-p">技術的に何が可能かも知らないことがあります。</p>
+                <p class="article-p">顧客ができるのは、自分の生活や悩み、現在の選択、感じている不満を教えてくれることです。</p>
+                <p class="article-p">そこから何を作るかを考えるのは、事業者側の仕事です。</p>
+                <p class="article-p">その意味でマーケットインとは、</p>
+                <p class="article-p">「顧客が欲しいと言ったものを作る」</p>
+                <p class="article-p">ことではなく、</p>
+                <p class="article-p"><strong>顧客の課題を起点にしながら、事業として成立する解決策を設計すること</strong></p>
+                <p class="article-p">なのだと思います。</p>
+                <p class="article-p">そしてプロダクトアウトも、必ずしも否定すべきものではありません。</p>
+                <p class="article-p">自分自身の強烈な課題意識から生まれた商品が、多くの人の課題を解決することもあります。</p>
+                <p class="article-p">技術から生まれた商品が、まだ顧客自身も認識していなかった新しい価値を作る場合もあります。</p>
+                <p class="article-p">自分が欲しいものを作ること自体が問題なのではありません。</p>
+                <p class="article-p">問題は、</p>
+                <p class="article-p">「自分が欲しいから、他の人も欲しいはず」</p>
+                <p class="article-p">という仮説と、</p>
+                <p class="article-p">「実際に市場で必要とされている」</p>
+                <p class="article-p">という事実を混同することです。</p>
+                <p class="article-p">自分の課題から始めてもいい。</p>
+                <p class="article-p">技術から始めてもいい。</p>
+                <p class="article-p">工場で作れるものから発想してもいい。</p>
+                <p class="article-p">重要なのは、その後できちんと市場側から検証し直せることです。</p>
+
+                <h2 id="section12" class="article-section-title">商品開発では、何をどの順番で検証すべきか</h2>
+                <p class="article-p">では、商品開発では何から検証すればいいのか。</p>
+                <p class="article-p">今の私は、少なくとも次のような順番で考える必要があると思っています。</p>
+                <p class="article-p"><strong>1. 誰に、どんな課題が存在しているのか</strong></p>
+                <p class="article-p">最初に見るのは商品ではなく、人と課題です。</p>
+                <p class="article-p">誰が困っているのか。</p>
+                <p class="article-p">どんな場面で困るのか。</p>
+                <p class="article-p">その課題はどれくらい頻繁に発生するのか。</p>
+                <p class="article-p">今はどうやって解決しているのか。</p>
+                <p class="article-p">ここが曖昧な状態で商品を考え始めると、その後の調査が商品を正当化する作業になりやすくなります。</p>
+                <p class="article-p"><strong>2. その課題は、お金を払って解決したいほど強いのか</strong></p>
+                <p class="article-p">悩みが存在することと、市場が存在することは同じではありません。</p>
+                <p class="article-p">困っていても、無料の代替手段で十分なことがあります。</p>
+                <p class="article-p">多少不便でも我慢できることもあります。</p>
+                <p class="article-p">商品を購入するほどではない課題もあります。</p>
+                <p class="article-p">検索ボリュームだけでなく、既存商品への支出や購買行動を見る必要があります。</p>
+                <p class="article-p"><strong>3. 現在、何と比較されているのか</strong></p>
+                <p class="article-p">競合は同じカテゴリーの商品だけとは限りません。</p>
+                <p class="article-p">「買わない」ことも競合です。</p>
+                <p class="article-p">別の商品カテゴリーで代替している場合もあります。</p>
+                <p class="article-p">店舗でサービスを受けることが競合になる場合もあります。</p>
+                <p class="article-p">顧客が現在使っている解決方法を把握しなければ、新商品の価値は設計できません。</p>
+                <p class="article-p"><strong>4. 既存の解決策では、何が満たされていないのか</strong></p>
+                <p class="article-p">ここで初めて、新しい商品の余地を考えます。</p>
+                <p class="article-p">価格なのか。</p>
+                <p class="article-p">使いやすさなのか。</p>
+                <p class="article-p">成分なのか。</p>
+                <p class="article-p">デザインなのか。</p>
+                <p class="article-p">購入のしやすさなのか。</p>
+                <p class="article-p">配送なのか。</p>
+                <p class="article-p">説明不足なのか。</p>
+                <p class="article-p">アフターサポートなのか。</p>
+                <p class="article-p">満たされていない部分によって、作るべきものは変わります。</p>
+                <p class="article-p"><strong>5. その価値を、小さく販売して確認できるか</strong></p>
+                <p class="article-p">完成品を大量生産する前に、可能な範囲で需要を検証します。</p>
+                <p class="article-p">LPを作る。</p>
+                <p class="article-p">広告を出す。</p>
+                <p class="article-p">事前登録を取る。</p>
+                <p class="article-p">SNSで反応を見る。</p>
+                <p class="article-p">クラウドファンディングを利用する。</p>
+                <p class="article-p">予約販売を検討する。</p>
+                <p class="article-p">方法はいくつもあります。</p>
+                <p class="article-p">ただし、ここでも「いいね」の数だけを見るのではなく、購入に近い行動を見ることが重要です。</p>
+                <p class="article-p"><strong>6. 商品を使った後の体験まで成立するか</strong></p>
+                <p class="article-p">ここは、私自身が過去に十分見られていなかった部分です。</p>
+                <p class="article-p">商品が届くまで。</p>
+                <p class="article-p">開封するとき。</p>
+                <p class="article-p">初めて使用するとき。</p>
+                <p class="article-p">継続して使用するとき。</p>
+                <p class="article-p">問い合わせるとき。</p>
+                <p class="article-p">問題が起きたとき。</p>
+                <p class="article-p">再購入するとき。</p>
+                <p class="article-p">商品の性能だけでなく、この体験全体がブランドへの評価になります。</p>
+                <p class="article-p"><strong>7. 継続して販売できる事業構造になっているか</strong></p>
+                <p class="article-p">最後に原価、物流費、広告費、人件費、返品や問い合わせ対応まで含めて事業として成立するかを確認します。</p>
+                <p class="article-p">売れる商品でも、売るほど苦しくなる構造では続きません。</p>
+                <p class="article-p">逆に利益率だけを優先しすぎて、顧客が感じる価値を削れば長期的には残りません。</p>
+                <p class="article-p">商品・顧客・事業。</p>
+                <p class="article-p">この三つが同時に成立する場所を探す必要があります。</p>
+
+                <h2 id="section13" class="article-section-title">Shopify・WEB広告・Meta広告・SNSは「売る道具」である前に検証装置になる</h2>
+                <p class="article-p">ShopifyでECサイトを作り、WEB広告運用を行い、Meta広告やSNSを活用すれば、以前よりも小さく商品を市場へ出して反応を見ることができます。</p>
+                <p class="article-p">これは商品開発において非常に大きな変化だと思います。</p>
+                <p class="article-p">ただし、これらを最初から「売上を最大化するための道具」としてだけ使うと、判断を間違える可能性があります。</p>
+                <p class="article-p">商品企画の初期では、広告費を投じて売上を作ることより、</p>
+                <p class="article-p">「誰が反応しているのか」</p>
+                <p class="article-p">「どの訴求に反応しているのか」</p>
+                <p class="article-p">「広告をクリックした後に何が障壁になっているのか」</p>
+                <p class="article-p">「興味は持つが購入しないのか」</p>
+                <p class="article-p">「一度購入した人が再購入したいと思っているのか」</p>
+                <p class="article-p">といった仮説を確かめるために使う方が有効な場合があります。</p>
+                <p class="article-p">たとえばMeta広告で複数の訴求を試し、一つだけ明らかに反応が違えば、顧客がどの課題を強く感じているかを考えるヒントになります。</p>
+                <p class="article-p">Shopifyの商品ページでアクセスはあるのに購入されないなら、商品への関心と購入意思の間に何らかの障壁があると考えられます。</p>
+                <p class="article-p">SNSで投稿への反応は大きいのに販売につながらないなら、「話題になること」と「お金を払うこと」の差を考える必要があります。</p>
+                <p class="article-p">重要なのは、数字が良いか悪いかだけを見ることではありません。</p>
+                <p class="article-p"><strong>その数字によって、どの仮説が強まり、どの仮説が弱くなったのかを考えることです。</strong></p>
+                <p class="article-p">PDCAも同じです。</p>
+                <p class="article-p">広告のCPAを下げ続けることだけがPDCAではありません。</p>
+                <p class="article-p">場合によっては、</p>
+                <p class="article-p">「訴求を改善する」</p>
+                <p class="article-p">ではなく、</p>
+                <p class="article-p">「ターゲットの設定をやり直す」</p>
+                <p class="article-p">「価格設計を変える」</p>
+                <p class="article-p">「商品の仕様を見直す」</p>
+                <p class="article-p">「そもそもの商品仮説を捨てる」</p>
+                <p class="article-p">ところまで戻る必要があります。</p>
+                <p class="article-p">広告運用と商品開発を別々の仕事として切り離すのではなく、広告から得られた反応を商品側へ戻す。</p>
+                <p class="article-p">ECサイトで得られた行動データを商品企画へ戻す。</p>
+                <p class="article-p">購入後のレビューや問い合わせを、次の商品改善へ戻す。</p>
+                <p class="article-p">SNSで見える顧客の言葉を、新しい仮説へ戻す。</p>
+                <p class="article-p">この循環まで作れて初めて、ECにおけるPDCAが商品開発につながるのだと思います。</p>
+
+                <h2 id="section14" class="article-section-title">そして今、もう一度商品開発を始めている</h2>
+                <p class="article-p">ここまで書いてきた内容は、過去の失敗を振り返って「今なら全部分かる」と言いたいわけではありません。</p>
+                <p class="article-p">むしろ逆です。</p>
+                <p class="article-p">これだけ振り返っても、私は今でも商品開発を始めるとプロダクトアウトへ引っ張られる感覚があります。</p>
+                <p class="article-p">自分が欲しいもの。</p>
+                <p class="article-p">面白いと思った技術。</p>
+                <p class="article-p">作れそうな商品。</p>
+                <p class="article-p">付き合いのあるメーカー。</p>
+                <p class="article-p">過去にうまくいった方法。</p>
+                <p class="article-p">知識や経験が増えるほど、使えるカードも増えます。</p>
+                <p class="article-p">そして、カードが増えるほど「これを使えば何か作れそうだ」という発想も増えていきます。</p>
+                <p class="article-p">だから、マーケットインとは一度理解すれば身につく知識ではなく、商品開発のたびに自分たちの思考を市場側へ戻す作業なのかもしれません。</p>
+                <p class="article-p">現在、私は久しぶりに新しい商品開発をプロジェクトとして立ち上げています。</p>
+                <p class="article-p">過去とは経験も環境も違います。</p>
+                <p class="article-p">Shopifyを使ったECサイト構築、WEB広告運用、Meta広告、SNS活用、LP改善など、販売側について当時より分かることも増えました。</p>
+                <p class="article-p">その一方で、知識が増えたからこそ陥る思い込みもあるはずです。</p>
+                <p class="article-p">だから今回の商品開発では、成功した結果だけを書くつもりはありません。</p>
+                <p class="article-p">何を仮説にしたのか。</p>
+                <p class="article-p">どんな調査をしたのか。</p>
+                <p class="article-p">何を見誤ったのか。</p>
+                <p class="article-p">どの数字を見て判断したのか。</p>
+                <p class="article-p">途中で何を変えたのか。</p>
+                <p class="article-p">あるいは、商品化そのものを見直すことになったのか。</p>
+                <p class="article-p">そうした過程も含めて、このコンテンツの中で更新していきたいと考えています。</p>
+                <p class="article-p">商品開発に「これをやれば必ず成功する」という完成された正解は、おそらくありません。</p>
+                <p class="article-p">だからこそ、完成された成功談だけではなく、迷っている途中の意思決定にも価値があると思っています。</p>
+                <p class="article-p">これから自社商品を作ろうとしている方。</p>
+                <p class="article-p">すでにEC事業を運営していて、新商品を検討している方。</p>
+                <p class="article-p">何度商品を作っても「本当にこの方向でいいのか」と迷う方。</p>
+                <p class="article-p">もし同じような課題を持っているのであれば、今後の更新も覗いていただければと思います。</p>
+
+                <h2 id="section15" class="article-section-title">まとめ｜商品ではなく、市場との関係を作る</h2>
+                <p class="article-p">私が最初に開発したホワイトニング歯磨き粉は、思いつきだけで作った商品ではありませんでした。</p>
+                <p class="article-p">市場を調べました。</p>
+                <p class="article-p">競合を分析しました。</p>
+                <p class="article-p">ターゲットを設定しました。</p>
+                <p class="article-p">テストマーケティングをしました。</p>
+                <p class="article-p">クラウドファンディングを行い、その後一般販売へ進みました。</p>
+                <p class="article-p">商品もある程度売れました。</p>
+                <p class="article-p">それでも、今振り返ると顧客ファーストではなかった部分があります。</p>
+                <p class="article-p">商品を見つけた時点で「これを売りたい」という気持ちが先に生まれ、その後の市場調査が商品を肯定する材料探しになっていた可能性がある。</p>
+                <p class="article-p">資材や予算の都合から、顧客体験を妥協した。</p>
+                <p class="article-p">配送や問い合わせの体制まで、商品設計の一部として考え切れていなかった。</p>
+                <p class="article-p">そして、購入後に積み重なる小さな不満が、長期的なブランドの信頼を削っていくことを十分理解できていませんでした。</p>
+                <p class="article-p">商品開発で本当に難しいのは、商品を作ることそのものではないのかもしれません。</p>
+                <p class="article-p">自分たちの思い込みから離れ、市場を見ること。</p>
+                <p class="article-p">市場の数字を、自分に都合よく解釈しないこと。</p>
+                <p class="article-p">顧客の言葉の奥にある行動を見ること。</p>
+                <p class="article-p">製造条件や原価に企画全体を引っ張られないこと。</p>
+                <p class="article-p">購入後まで含めて顧客体験を設計すること。</p>
+                <p class="article-p">そして必要なら、時間とお金をかけた商品でも方向転換すること。</p>
+                <p class="article-p">これらを何度も繰り返す必要があります。</p>
+                <p class="article-p">自分の課題から商品を考えること自体は悪くありません。</p>
+                <p class="article-p">プロダクトアウトから始まったアイデアでも構いません。</p>
+                <p class="article-p">ただ、その商品を市場へ出すのであれば、一度自分たちから離れ、</p>
+                <p class="article-p">「誰の、どんな状況を変える商品なのか」</p>
+                <p class="article-p">を問い直す必要があります。</p>
+                <p class="article-p">そしてその問いは、商品発売と同時に終わるものでもありません。</p>
+                <p class="article-p">広告。</p>
+                <p class="article-p">ECサイト。</p>
+                <p class="article-p">購入。</p>
+                <p class="article-p">配送。</p>
+                <p class="article-p">使用。</p>
+                <p class="article-p">問い合わせ。</p>
+                <p class="article-p">レビュー。</p>
+                <p class="article-p">再購入。</p>
+                <p class="article-p">そのすべてから顧客の反応を受け取り、次の商品や販売体験へ戻していく。</p>
+                <p class="article-p">商品を作って終わるのではなく、市場との関係を作り続ける。</p>
+                <p class="article-p">今の私は、それがマーケットインの商品開発に近づくための、一つの考え方なのではないかと思っています。</p>
+                <p class="article-p">A.Incでは、LPやECサイトを単体の制作物として見るのではなく、広告から流入したユーザーが何を感じ、どこで迷い、何を理由に購入し、その後どのような顧客体験につながるのかまで含めて販売導線を考えています。</p>
+                <p class="article-p">商品やサービス自体には自信があるものの、「広告を出しても売上につながらない」「LPを改善しているが正解が分からない」「どこから改善すればいいのか整理できていない」という場合は、商品そのものだけでなく、販売導線全体を一度見直してみることも選択肢の一つです。</p>
+                <p class="article-p">LP・LPO支援については、以下のサービスページで紹介しています。</p>
+                <p class="article-p">https://a-inc.info/services/lp-lpo-v2/</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="cta-banner" style="margin:2rem 0;">
+                <a href="https://a-inc.info/services/lp-lpo-v2/" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/images/banner-cta_1.webp" alt="LP・LPO支援サービス" style="width:100%;display:block;border-radius:8px;">
+                </a>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="related-articles fade-in">
+                <h3 class="article-section-title">関連記事</h3>
+                <div class="related-articles-grid"></div>
+            </section>
+
+            <div class="divider"></div>
+            <div class="cta-box fade-in"></div>
+
+            <div class="divider"></div>
+            <div id="profile-container" class="fade-in"></div>
+        </div>
     </main>
 
-    <footer class="footer">
-        <!-- フッター内容はテンプレートで読み込まれる -->
-    </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            // 記事データを保持する配列
-            const articles = [];
+    <div id="site-footer"></div>
 
-            if (typeof window.articlesData !== 'undefined' && Array.isArray(window.articlesData)) {
-                window.articlesData
-                    .filter(a => a && a.category === 'article')
-                    .forEach(a => {
-                        articles.push({
-                            title: a.title,
-                            description: a.excerpt,
-                            date: a.date,
-                            thumbnail: a.image,
-                            tags: a.tags,
-                            url: a.url,
-                            category: a.category
-                        });
-                    });
-            } else {
-                console.error('articlesData が読み込まれていません');
-            }
-            
-            // 記事情報を取得する共通関数
-            async function fetchArticleInfo(articleUrl) {
-                console.log('記事取得開始:', articleUrl);
-                // まずは現在の正しいパスでチェック
-                try {
-                    let response = await fetch(`${articleUrl}index.html`);
-                    
-                    // 見つからない場合は古いパス構造もチェック（移行期間中の対応）
-                    if (!response.ok) {
-                        console.log('新パスで見つからないため古いパスで再試行:', articleUrl);
-                        const oldStyleUrl = articleUrl.replace('/posts/', '/');
-                        response = await fetch(`${oldStyleUrl}index.html`);
-                        
-                        // それでも見つからない場合はnullを返す
-                        if (!response.ok) {
-                            console.log('記事が見つかりません:', articleUrl);
-                            return null;
-                        }
-                    }
-                    
-                    console.log('記事ファイル取得成功:', articleUrl);
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    // 記事情報を抽出
-                    const title = doc.querySelector('.article-title')?.textContent || 'タイトルなし';
-                    const description = doc.querySelector('meta[name="description"]')?.getAttribute('content') || '';
-                    const date = doc.querySelector('.article-meta')?.textContent.match(/\d{4}年\d{1,2}月\d{1,2}日/)?.[0] || '';
-                    
-                    // サムネイル画像を取得
-                    let thumbnail = '';
-                    
-                    // 記事IDから直接サムネイルパスを生成
-                    const articleId = articleUrl.match(/article(\d+)/)?.[1];
-                    if (articleId) {
-                        // article1, article2はpng、article3以降はwebp
-                        const extension = (articleId === '1' || articleId === '2') ? 'png' : 'webp';
-                        thumbnail = `/assets/images/howto/article/article${articleId}_thumb.${extension}`;
-                    } else {
-                        // 記事内の画像を探す（フォールバック）
-                        const articleImage = doc.querySelector('.article-image');
-                        if (articleImage) {
-                            thumbnail = articleImage.getAttribute('src');
-                        } else {
-                            // デフォルトサムネイル
-                            thumbnail = `/assets/images/howto/default-thumb.jpg`;
-                        }
-                    }
-                    
-                    // タグを取得
-                    const tags = [];
-                    doc.querySelectorAll('.article-tag').forEach(tag => {
-                        tags.push(tag.textContent);
-                    });
-                    
-                    return {
-                        title,
-                        description,
-                        date,
-                        thumbnail,
-                        tags
-                    };
-                } catch (error) {
-                    console.error('記事情報の抽出に失敗しました:', articleUrl, error);
-                    return null;
-                }
-            }
-            
-            try {
-                // 日付の新しい順にソート
-                articles.sort((a, b) => {
-                    const dateA = a.date ? new Date(a.date.replace(/年|月/g, '/').replace(/日/g, '')) : new Date(0);
-                    const dateB = b.date ? new Date(b.date.replace(/年|月/g, '/').replace(/日/g, '')) : new Date(0);
-                    return dateB - dateA;
-                });
-                
-                // 記事の表示
-                displayArticles(articles);
-                
-                // フィルタリング機能を初期化
-                initializeFilters();
-                
-            } catch (error) {
-                console.error('記事一覧の処理中にエラーが発生しました:', error);
-                document.getElementById('articles-loading').style.display = 'none';
-                document.getElementById('no-articles').style.display = 'block';
-            }
-            
-            // 記事を表示する関数
-            function displayArticles(articlesToDisplay) {
-                const articlesGrid = document.getElementById('articles-grid');
-                const loadingElement = document.getElementById('articles-loading');
-                const noArticlesElement = document.getElementById('no-articles');
-                
-                // 記事グリッドをクリア
-                articlesGrid.innerHTML = '';
-                
-                if (articlesToDisplay.length > 0) {
-                    // 記事がある場合は表示
-                    articlesToDisplay.forEach(article => {
-                        const articleCard = document.createElement('div');
-                        articleCard.className = 'article-card';
-                        articleCard.dataset.category = article.category;
-                        
-                        // タグ情報をdata属性に追加
-                        if (article.tags && article.tags.length > 0) {
-                            articleCard.dataset.tags = article.tags.join(',');
-                        }
-                        
-                        let tagsHtml = '';
-                        if (article.tags && article.tags.length > 0) {
-                            tagsHtml = '<div class="article-tags">' + 
-                                article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('') + 
-                                '</div>';
-                        }
-                        
-                        articleCard.innerHTML = `
-                            <a href="${article.url}">
-                                <div class="article-image-container">
-                                    <img src="${article.thumbnail}" alt="${article.title}" class="article-image">
-                                </div>
-                                <div class="article-content">
-                                    <span class="article-category">ノウハウ記事</span>
-                                    <h3 class="article-title">${article.title}</h3>
-                                    <p class="article-desc">${article.description}</p>
-                                    <div class="article-meta">
-                                        <span>${article.date || '日付なし'}</span>
-                                    </div>
-                                    ${tagsHtml}
-                                </div>
-                            </a>
-                        `;
-                        
-                        articlesGrid.appendChild(articleCard);
-                    });
-                    
-                    // 読み込み中表示を非表示
-                    loadingElement.style.display = 'none';
-                    // 記事グリッドを表示
-                    articlesGrid.style.display = 'grid';
-                    // 「記事が見つかりません」を非表示
-                    noArticlesElement.style.display = 'none';
-                } else {
-                    // 記事がない場合
-                    loadingElement.style.display = 'none';
-                    articlesGrid.style.display = 'none';
-                    noArticlesElement.style.display = 'block';
-                }
-            }
-            
-            // フィルタリング機能を初期化する関数
-            function initializeFilters() {
-                // カテゴリーフィルター
-                const categoryFilters = document.querySelectorAll('#category-filters .filter-tag');
-                categoryFilters.forEach(filter => {
-                    filter.addEventListener('click', function() {
-                        const category = this.getAttribute('data-filter');
-                        
-                        // アクティブクラスを切り替え
-                        document.querySelectorAll('#category-filters .filter-tag').forEach(f => {
-                            f.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                        
-                        // 記事をフィルタリング
-                        filterArticlesByTag(category);
-                    });
-                });
-            }
-            
-            // タグでフィルタリングする関数
-            function filterArticlesByTag(tag) {
-                const articleElements = document.querySelectorAll('.article-card');
-                
-                if (tag === 'all') {
-                    // すべて表示
-                    articleElements.forEach(article => {
-                        article.style.display = 'block';
-                    });
-                } else {
-                    // 特定のタグを持つ記事のみ表示
-                    articleElements.forEach(article => {
-                        const articleTags = article.dataset.tags ? article.dataset.tags.split(',') : [];
-                        if (articleTags.includes(tag)) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
-                }
-                
-                // 表示される記事がない場合は「記事が見つかりません」を表示
-                const visibleArticles = document.querySelectorAll('.article-card[style="display: block"]');
-                if (visibleArticles.length === 0) {
-                    document.getElementById('no-articles').style.display = 'block';
-                } else {
-                    document.getElementById('no-articles').style.display = 'none';
-                }
-            }
-        });
-    </script>
+    <script>window.__currentArticle = {"id":"","title":"何度商品を作っても、私たちはプロダクトアウトに戻ってしまう","url":"/howto/posts/article//","image":"/assets/images/howto/article/thumb.webp","date":"2026.09.01","tags":["Shopify","ECサイト","商品開発","プロダクトアウト","マーケットイン","WEB広告運用","PDCA","Meta広告","SNS活用","D2C","ECマーケティング"],"category":"article","type":null,"theme":"development","group":"development"};</script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/howto.js"></script>
+    <script src="/assets/js/howto-related.js"></script>
 </body>
 </html>
