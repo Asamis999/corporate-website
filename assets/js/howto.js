@@ -5,6 +5,16 @@
 // 記事データ（新しい記事を追加する場合はここに追加）
 const articlesData = [
     {
+        id: 'a-1',
+        title: 'BtoBで売れた商品を、そのままBtoCで販売してはいけない理由',
+        excerpt: '卸先に評価され、実際に売れてきた商品でも、そのままBtoC向けの自社ECに持ってくれば売れるとは限りません。バイヤーと一般消費者では見ているポイントが違うからです。商品仕様、容量、パッケージ、価格、説明方法を、最終的な購入者から逆算して見直します。',
+        url: '/howto/posts/article/a-1/',
+        image: '/assets/images/howto/article/a-1_thumb.webp',
+        date: '2026.09.01',
+        tags: ["Shopify","ECサイト","BtoB","BtoC","自社EC","商品開発","ECマーケティング","WEB広告運用","Meta広告","商品ページ","卸売"],
+        category: 'article'
+    },
+    {
         id: '',
         title: '卸で売れていた会社ほど、自社ECでつまずく理由',
         excerpt: 'BtoB企業が自社ECを始めることは、販売チャネルを一つ追加することではありません。これまで営業担当や取引先との関係性が担っていた役割を、ECサイト、広告、物流、カスタマーサポートまで含めて再設計する必要があります。卸事業を主体としてきた企業のBtoC参入支援で実際に感じてきた障壁を整理します。',
@@ -32,16 +42,6 @@ const articlesData = [
         image: '/assets/images/howto/article/a-2_thumb.webp',
         date: '2026.09.01',
         tags: ["商品開発","市場調査","競合調査","プロダクトアウト","マーケットイン","Shopify","ECサイト","SNS調査","WEBマーケティング","D2C"],
-        category: 'article'
-    },
-    {
-        id: 'a-1',
-        title: '商品開発の経験が増えても、プロダクトアウトから抜けられない理由',
-        excerpt: '商品開発の経験は本来、大きな武器です。しかし新しい市場へ入るとき、その成功体験が「調べなくても分かる」という無意識の省略を生むことがあります。ある程度売れる商品ではなく、長く利益を生む資産性の高い商品を作るために、経験者ほど注意したい思考の偏りを考えます。',
-        url: '/howto/posts/article/a-1/',
-        image: '/assets/images/howto/article/a-1_thumb.webp',
-        date: '2026.09.01',
-        tags: ["商品開発","プロダクトアウト","マーケットイン","Shopify","ECサイト","WEB集客","ECマーケティング","D2C","新商品開発","ブランド戦略"],
         category: 'article'
     },
   {
