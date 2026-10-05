@@ -5,6 +5,16 @@
 // 記事データ（新しい記事を追加する場合はここに追加）
 const articlesData = [
     {
+        id: '',
+        title: '卸で売れていた会社ほど、自社ECでつまずく理由',
+        excerpt: 'BtoB企業が自社ECを始めることは、販売チャネルを一つ追加することではありません。これまで営業担当や取引先との関係性が担っていた役割を、ECサイト、広告、物流、カスタマーサポートまで含めて再設計する必要があります。卸事業を主体としてきた企業のBtoC参入支援で実際に感じてきた障壁を整理します。',
+        url: '/howto/posts/article//',
+        image: '/assets/images/howto/article/thumb.webp',
+        date: '2026.09.01',
+        tags: ["Shopify","ECサイト","BtoB","BtoC","WEB広告運用","Meta広告","リスティング広告","SNS活用","自社EC","ECマーケティング","PDCA","卸売"],
+        category: 'article'
+    },
+    {
         id: 'a-4',
         title: '試作品を作る前に、何を検証するべきか',
         excerpt: '試作品を作る前に確認したいのは、機能やデザインではありません。「誰が、どんな場面で、何の代わりに、いくらなら買い、何を理由に買わないのか」を先に検証することで、作り込んだ後に前提からやり直すリスクを減らせます。',
@@ -32,16 +42,6 @@ const articlesData = [
         image: '/assets/images/howto/article/a-1_thumb.webp',
         date: '2026.09.01',
         tags: ["商品開発","プロダクトアウト","マーケットイン","Shopify","ECサイト","WEB集客","ECマーケティング","D2C","新商品開発","ブランド戦略"],
-        category: 'article'
-    },
-    {
-        id: '',
-        title: '何度商品を作っても、私たちはプロダクトアウトに戻ってしまう',
-        excerpt: '市場調査もした。競合分析もした。テストマーケティングもした。それでも振り返ると、商品開発は顧客ファーストではありませんでした。商品開発の経験者であっても、なぜプロダクトアウトへ戻ってしまうのか。過去の実体験をもとに、その構造と向き合います。',
-        url: '/howto/posts/article//',
-        image: '/assets/images/howto/article/thumb.webp',
-        date: '2026.09.01',
-        tags: ["Shopify","ECサイト","商品開発","プロダクトアウト","マーケットイン","WEB広告運用","PDCA","Meta広告","SNS活用","D2C","ECマーケティング"],
         category: 'article'
     },
   {
